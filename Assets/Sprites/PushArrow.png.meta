@@ -416,7 +416,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PushArrow_0: 1946225908983321752
+      PushArrow_1: 5227505608513911459
+      PushArrow_10: 31553900209774771
+      PushArrow_11: 8610261445256067770
+      PushArrow_12: 4781972527183582915
+      PushArrow_2: -1091770942301603221
+      PushArrow_3: -1660102694698064649
+      PushArrow_4: 2574326828055290141
+      PushArrow_5: 5194902466641673978
+      PushArrow_6: 7482181282212803871
+      PushArrow_7: 2658818433243257110
+      PushArrow_8: 1537980856881159989
+      PushArrow_9: 5946417435919347511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
