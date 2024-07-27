@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FreezeTower_0: -1997973558389039879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
