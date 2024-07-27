@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        _currentPoint = _path.GetNextPoint(_currentPoint);
+        _currentPoint = _path.GetStartPoint();
         transform.position = _currentPoint.position;       
     }
 
@@ -21,6 +21,10 @@ public class EnemyMovement : MonoBehaviour
         if(Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD)
         {
             _currentPoint = _path.GetNextPoint(_currentPoint);
+            if( _currentPoint == null )
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

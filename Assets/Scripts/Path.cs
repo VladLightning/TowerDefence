@@ -13,20 +13,20 @@ public class Path : MonoBehaviour
         }
     }
 
+    public Transform GetStartPoint()
+    {
+        return _pathPoints[0];
+    }
+
     public Transform GetNextPoint(Transform currentPoint)
     {
-        if(currentPoint == null)
-        {
-            return _pathPoints[0];
-        }
-
         if(currentPoint.GetSiblingIndex() < _pathPoints.Length - 1)
         {
             return _pathPoints[currentPoint.GetSiblingIndex() + 1];
         }
         else
         {
-            return currentPoint;
+            return null;
         }
     }
 }
