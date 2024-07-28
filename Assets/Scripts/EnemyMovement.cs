@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
     private Transform _currentPoint;
     private int _currentPointIndex;
 
+    public Path Path { set { _path = value; } }
+
     private void Start()
     {
         _currentPoint = _path.PathPoints[_currentPointIndex];
