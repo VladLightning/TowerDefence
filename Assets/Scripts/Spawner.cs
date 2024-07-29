@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnEnemy : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyToSpawn;
     [SerializeField] private Transform _spawnPoint;
@@ -12,20 +12,16 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Start()
     {
-        ExecuteSpawn();
+        StartCoroutine(SpawnEnemy());
     }
 
-    private void ExecuteSpawn()
-    {
-        StartCoroutine(Spawn());
-    }
-
-    private IEnumerator Spawn()
+    private IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(_spawnDelay);
         for(int i = 0; i < _enemiesAmount; i++)
         {
-            GameObject enemy = Instantiate(_enemyToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+            GameObject enemy; 
+            enemy = Instantiate(_enemyToSpawn, _spawnPoint.position, _spawnPoint.rotation);
             enemy.GetComponent<EnemyMovement>().Path = _movementPath;
             yield return new WaitForSeconds(_spawnDelay);
         }
