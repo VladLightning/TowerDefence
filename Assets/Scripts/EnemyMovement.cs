@@ -3,12 +3,15 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private const float DISTANCE_THRESHOLD = 0.1f;
-
-    [SerializeField] private Path _path;
+ 
     [SerializeField] private float _speed;
 
     private Transform _currentPoint;
+    private Path _path;
+
     private int _currentPointIndex;
+
+    public Path Path { set { _path = value; } }
 
     private void Start()
     {
