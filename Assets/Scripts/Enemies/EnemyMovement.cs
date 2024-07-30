@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
             _currentPointIndex++;
             if ( _currentPointIndex == _path.PathPoints.Length)
             {
+                GetComponent<EnemyDamage>().DealDamage();
                 Destroy(gameObject);
                 return;
             }
