@@ -27,17 +27,16 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
-        if(_health <= 0 )
+        if (_health < 0)
         {
-            if(_health < 0)
-            {
-                _health = 0;
-            }
-
-            UpdateHealthDisplay();
-            Defeat();
-            return;
+            _health = 0;
         }
+
         UpdateHealthDisplay();
+
+        if (_health == 0 )
+        {
+            Defeat();
+        }
     }   
 }
