@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    private Transform _buildPosition;
+    private Transform _buildSiteTransform;
 
     public void SetBuildPosition(Transform buildPosition)
     {
         gameObject.SetActive(true);
-        _buildPosition = buildPosition;
+        _buildSiteTransform = buildPosition;
     }
 
     public void BuildTower(GameObject towerToBuild)
     {
-        Instantiate(towerToBuild, _buildPosition.position, towerToBuild.transform.rotation);
+        Instantiate(towerToBuild, _buildSiteTransform.position, towerToBuild.transform.rotation);
         gameObject.SetActive(false);
     }
 }

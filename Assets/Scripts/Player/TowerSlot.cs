@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class TowerSlot : MonoBehaviour
 {
-    [SerializeField] private TowerManager _choicePanel;
+    [SerializeField] private TowerManager _towerManager;
 
     private void OnMouseDown()
     {
-        _choicePanel.SetBuildPosition(transform);
+        _towerManager.SetBuildPosition(transform);
     }
 }
