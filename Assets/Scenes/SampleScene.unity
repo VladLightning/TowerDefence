@@ -36856,20 +36856,40 @@ PrefabInstance:
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 1898118607043038557, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 2423759215712432154, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 2423759215712432154, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     - target: {fileID: 2492591298333594574, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 2492591298333594574, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 3054199838720290099, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 3054199838720290099, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 3243265419333521325, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 3243265419333521325, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     - target: {fileID: 3453729798540123397, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
@@ -36916,44 +36936,88 @@ PrefabInstance:
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 3699059889135887006, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 4024414834042457976, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 4024414834042457976, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     - target: {fileID: 4671611652691718497, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 4671611652691718497, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 5000812505813730195, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 5000812505813730195, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     - target: {fileID: 5757524482200267415, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 5757524482200267415, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 5989009890856187952, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 5989009890856187952, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     - target: {fileID: 6801564220025181220, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 6801564220025181220, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 8380667868983988039, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 8380667868983988039, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     - target: {fileID: 8406559679479469136, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 8406559679479469136, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 8602299039028715206, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 8602299039028715206, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
+      value: 
+      objectReference: {fileID: 525656785}
     - target: {fileID: 8617723623508042385, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
       propertyPath: _choicePanel
+      value: 
+      objectReference: {fileID: 525656785}
+    - target: {fileID: 8617723623508042385, guid: bfb0965a7d92d90459dd3a9988e8db71, type: 3}
+      propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
     m_RemovedComponents: []
