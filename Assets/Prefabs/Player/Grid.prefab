@@ -29668,7 +29668,6 @@ GameObject:
   - component: {fileID: 7286780506809680593}
   - component: {fileID: 8325664492543593577}
   - component: {fileID: 4495372319556583193}
-  - component: {fileID: 502854966524689631}
   - component: {fileID: 3269140004010721478}
   m_Layer: 0
   m_Name: Path
@@ -36085,21 +36084,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &502854966524689631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508051009865605439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1830563f426b3614aafa7d4b276d25e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hero: {fileID: 0}
-  _mainCamera: {fileID: 0}
-  _speed: 5
 --- !u!19719996 &3269140004010721478
 TilemapCollider2D:
   m_ObjectHideFlags: 0
