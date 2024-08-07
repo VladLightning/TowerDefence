@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fe4dfec1d14d194c87802619c196c38, type: 3}
-  m_Name: Cannon
+  m_Name: Freeze
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
-  _towerSprite: {fileID: 7096914730773421427, guid: 729725c6f6d7f7946a47ffb16f044235, type: 3}
-  _shootingRange: 5
-  _shootingDelay: 1
-  _damage: 1
-  _damageType: 0
+  _projectile: {fileID: 8361014186807847500, guid: 4b5560587e22c524997c8835ebb58b30, type: 3}
+  _towerSprite: {fileID: -1997973558389039879, guid: 36b6c9e633009e44bb258fa4ec9d8b92, type: 3}
+  _shootingRange: 4
+  _shootingDelay: 2
+  _damage: 3
+  _damageType: 1
