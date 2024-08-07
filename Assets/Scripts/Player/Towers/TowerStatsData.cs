@@ -3,17 +3,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TowerStatsData", menuName = "Tower")]
 public class TowerStatsData : ScriptableObject
 {
-    public GameObject _projectile;
+    [SerializeField] private GameObject _projectile;
+    public GameObject Projectile => _projectile;
 
-    public Sprite _towerSprite;
+    [SerializeField] private Sprite _towerSprite;
+    public Sprite TowerSprite => _towerSprite;
 
-    public float _shootingRange;
+    [SerializeField] private float _shootingRange;
+    public float ShootingRange => _shootingRange;
 
-    public float _shootingDelay;
+    [SerializeField] private float _shootingDelay;
+    public float ShootingDelay => _shootingDelay;
 
-    public float _damage;
+    [SerializeField] private float _damage;
+    public float Damage => _damage;
 
-    public DamageTypeEnum.DamageTypes _damageType;
-
-    public TowerStatsStructure.TowerStats _towerStats;
+    [SerializeField] private DamageTypeEnum.DamageTypes _damageType;
+    public DamageTypeEnum.DamageTypes DamageType => _damageType;
 }
