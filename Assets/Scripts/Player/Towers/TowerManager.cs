@@ -19,8 +19,8 @@ public class TowerManager : MonoBehaviour
 
     public void BuildTower(TowersEnum.TowerTypes towerType)
     {
-        GameObject towerToBuild = _towers.GetTower(towerType);
-        Instantiate(towerToBuild, _buildSiteTransform.position, towerToBuild.transform.rotation);
+        var tower = Instantiate(_towers.GetTower(towerType), _buildSiteTransform.position, transform.rotation).GetComponent<TowerShoot>();
+        tower.Initialize(_towers.GetStats(towerType));
         gameObject.SetActive(false);
     }
 }

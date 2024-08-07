@@ -360,6 +360,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: _towerStatsData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9362f7cf04bf5304db79770b57a70794, type: 2}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: _towerStatsData.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: '_towerStatsData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9362f7cf04bf5304db79770b57a70794, type: 2}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: '_towerStatsData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f48335110895dd4ba79ce056e824ff9, type: 2}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: '_towerStatsData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e4b8b3c36ac92564bb55851c87ca078b, type: 2}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: '_towerStatsData.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ce231b8ff6ed8f44ae8731c16d6220b, type: 2}
+    - target: {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: '_towerStatsData.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9362f7cf04bf5304db79770b57a70794, type: 2}
     - target: {fileID: 8150656255412589968, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
       propertyPath: m_Name
       value: TowerChoicePanel
