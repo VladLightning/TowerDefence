@@ -1046,6 +1046,10 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5345992373933847123, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5867430120034577312, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
@@ -1132,6 +1136,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6886440508089078253, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368672138904284285, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7643441804592964615, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
