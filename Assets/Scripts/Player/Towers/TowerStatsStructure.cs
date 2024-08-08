@@ -2,18 +2,28 @@ using UnityEngine;
 
 public class TowerStatsStructure 
 {
+    [System.Serializable]
     public struct TowerStats
     {
-        public GameObject _projectile;
+        [SerializeField] private GameObject _projectile;
+        public GameObject Projectile => _projectile;
 
-        public Sprite _towerSprite;
+        [SerializeField] private Sprite _towerSprite;
+        public Sprite TowerSprite => _towerSprite;
 
-        public float _shootingRange;
+        [SerializeField] private float _range;
+        public float Range => _range;
 
-        public float _shootingDelay;
+        [SerializeField] private float _shootingDelay;
+        public float ShootingDelay => _shootingDelay;
 
-        public float _damage;
+        [SerializeField] private float _damage;
+        public float Damage => _damage;
 
-        public DamageTypeEnum.DamageTypes _damageType;
+        [SerializeField] private int _price;
+        public int Price => _price;
+
+        [SerializeField] private DamageTypeEnum.DamageTypes _damageType;
+        public DamageTypeEnum.DamageTypes DamageType => _damageType;
     }
 }

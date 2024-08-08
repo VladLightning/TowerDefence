@@ -17,4 +17,5 @@ MonoBehaviour:
   _shootingRange: 5
   _shootingDelay: 1
   _damage: 1
+  _price: 100
   _damageType: 0

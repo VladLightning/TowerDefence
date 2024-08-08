@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6026062329677389917}
   - component: {fileID: 2672280116845634448}
+  - component: {fileID: 6306946180073782388}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -46,3 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthDisplay: {fileID: 0}
   _maxHealth: 10
+--- !u!114 &6306946180073782388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786945217103106922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e79d05c88dcc9419b12c0b1ccb7e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyDisplay: {fileID: 0}
+  _levelData: {fileID: 11400000, guid: fbff3aadeebea9d47a3becaafac361d9, type: 2}
