@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: Game Health
     m_Metadata:
       m_Items: []
+  - m_Id: 1123998581276672
+    m_Key: Game Money
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

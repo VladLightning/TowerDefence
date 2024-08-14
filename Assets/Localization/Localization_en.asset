@@ -54,6 +54,10 @@ MonoBehaviour:
     m_Localized: 'Health:'
     m_Metadata:
       m_Items: []
+  - m_Id: 1123998581276672
+    m_Localized: 'Money:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
