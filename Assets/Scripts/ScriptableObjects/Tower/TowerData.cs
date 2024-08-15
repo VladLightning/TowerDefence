@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TowerData : EntityData
+public abstract class TowerData : EntityData
 {
     [SerializeField] protected float _range;
     public float Range => _range;

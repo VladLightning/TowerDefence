@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Path _movementPath;
     [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private EnemyData[] _enemyData;
 
     [SerializeField] private int _enemiesAmount;
     [SerializeField] private float _spawnDelay;
@@ -20,11 +21,9 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(_spawnDelay);
         for(int i = 0; i < _enemiesAmount; i++)
-        {
-            GameObject enemy; 
-            enemy = Instantiate(_enemyToSpawn, _spawnPoint.position, _spawnPoint.rotation);
-            enemy.GetComponent<EnemyMovement>().Path = _movementPath;
-            enemy.GetComponent<EnemyDamage>().PlayerHealth = _playerHealth;
+        {            
+            GameObject enemy = Instantiate(_enemyToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+            enemy.GetComponent<Enemy>().Initiate(_enemyData[0], _movementPath, _playerHealth);
             yield return new WaitForSeconds(_spawnDelay);
         }
     }

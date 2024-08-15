@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Tower : Entity
+public abstract class Tower : Entity
 {
     [SerializeField] private GameObject _projectile;
     private float _range;
@@ -17,7 +17,7 @@ public class Tower : Entity
         throw new NotImplementedException();
     }
 
-    public void SetStats(CannonData towerData)
+    public void Initiate(TowerData towerData)
     {
         _damage = towerData.Damage;
         _attackSpeed = towerData.AttackSpeed;
