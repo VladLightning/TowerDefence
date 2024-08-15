@@ -17,7 +17,7 @@ public class Tower : Entity
         throw new NotImplementedException();
     }
 
-    public void SetStats(TowerExampleData towerData)
+    public void SetStats(CannonData towerData)
     {
         _damage = towerData.Damage;
         _attackSpeed = towerData.AttackSpeed;
