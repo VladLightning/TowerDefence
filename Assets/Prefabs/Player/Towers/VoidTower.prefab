@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7090512370667030996}
   - component: {fileID: 1024200448025562132}
-  - component: {fileID: 2098015100545776456}
   m_Layer: 0
   m_Name: VoidTower
   m_TagString: Untagged
@@ -85,15 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2098015100545776456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7142308867428862705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cf54a390e32df542806fe70d8b17e46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

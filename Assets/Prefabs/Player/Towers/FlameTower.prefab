@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7489999331170494689}
   - component: {fileID: 8537908018942365904}
-  - component: {fileID: 5097800901011834604}
   m_Layer: 0
   m_Name: FlameTower
   m_TagString: Untagged
@@ -85,15 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5097800901011834604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552850880808860792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cf54a390e32df542806fe70d8b17e46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

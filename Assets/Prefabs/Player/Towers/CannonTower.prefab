@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7171370967777291606}
   - component: {fileID: 2434981718854654020}
-  - component: {fileID: 3790852036211530890}
+  - component: {fileID: 4006403886252632628}
   m_Layer: 0
   m_Name: CannonTower
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3790852036211530890
+--- !u!114 &4006403886252632628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4775417946767886828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cf54a390e32df542806fe70d8b17e46, type: 3}
+  m_Script: {fileID: 11500000, guid: c8a3b5f1aee59d24aacfe834ae51565e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}

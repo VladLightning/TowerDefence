@@ -117,7 +117,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5843191266981863296}
   m_OnClick:
     m_PersistentCalls:
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab8ebb9f57c3994c82bd903b7601610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towers: {fileID: 4805569201266523387}
   _towerType: 3
   _towerManager: {fileID: 710209010300157379}
 --- !u!1 &3391132638621323913
@@ -801,7 +800,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4742206453456110383}
   m_OnClick:
     m_PersistentCalls:
@@ -830,7 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab8ebb9f57c3994c82bd903b7601610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towers: {fileID: 4805569201266523387}
   _towerType: 1
   _towerManager: {fileID: 710209010300157379}
 --- !u!1 &7225218437940599858
@@ -1113,7 +1111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab8ebb9f57c3994c82bd903b7601610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towers: {fileID: 4805569201266523387}
   _towerType: 0
   _towerManager: {fileID: 710209010300157379}
 --- !u!1 &8106725246729428793
@@ -1233,7 +1230,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2418900846526160811}
   m_OnClick:
     m_PersistentCalls:
@@ -1262,7 +1259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab8ebb9f57c3994c82bd903b7601610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towers: {fileID: 4805569201266523387}
   _towerType: 2
   _towerManager: {fileID: 710209010300157379}
 --- !u!1 &8150656255412589968
@@ -1359,6 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d9d00ad4b1b443908d8f6aa06be0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerMoney: {fileID: 0}
 --- !u!114 &4805569201266523387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,9 +1370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towers:
   - {fileID: 4775417946767886828, guid: 64434bc6b56ba7344988fe5d01368426, type: 3}
-  - {fileID: 4552850880808860792, guid: 07a8d9c15a311114cabc17411453b2ad, type: 3}
-  - {fileID: 517099173606754984, guid: ac2c063685c12cf42a213548b622b8bf, type: 3}
-  - {fileID: 7142308867428862705, guid: c79c82a54170b904eaa30bf324ccf223, type: 3}
+  _towerStatsData:
+  - {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
 --- !u!1 &8229138234427570609
 GameObject:
   m_ObjectHideFlags: 0
