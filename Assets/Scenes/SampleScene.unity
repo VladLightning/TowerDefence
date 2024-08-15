@@ -1413,6 +1413,14 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 1947299096}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _enemyData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: '_enemyData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 93b6b8be9ee2dbe4b91eb4d5d5afd8ad, type: 2}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.38
