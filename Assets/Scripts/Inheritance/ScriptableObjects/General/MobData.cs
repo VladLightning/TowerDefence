@@ -1,6 +1,4 @@
-
 using UnityEngine;
-
 public abstract class MobData : EntityData
 {
     [SerializeField] protected int _health;

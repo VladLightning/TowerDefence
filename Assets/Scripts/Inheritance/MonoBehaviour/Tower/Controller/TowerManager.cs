@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class TowerManager : MonoBehaviour
 {
     [SerializeField] private PlayerMoney _playerMoney;

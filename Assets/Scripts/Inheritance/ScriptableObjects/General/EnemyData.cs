@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public abstract class EnemyData : MobData
 {
     [SerializeField] private int _damageToPlayer;

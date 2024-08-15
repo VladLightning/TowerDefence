@@ -1,4 +1,3 @@
-
 public class TowersEnum
 {
     public enum TowerTypes

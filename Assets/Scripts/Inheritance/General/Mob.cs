@@ -1,5 +1,4 @@
-﻿
-public abstract class Mob : Entity
+﻿public abstract class Mob : Entity
 {
     protected int _health;
     protected float _movementSpeed;

@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private TMP_Text _healthDisplay;

@@ -1,6 +1,4 @@
-
 using UnityEngine;
-
 public abstract class Enemy : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;

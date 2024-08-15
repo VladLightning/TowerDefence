@@ -17,5 +17,5 @@ MonoBehaviour:
   _damageType: 0
   _health: 5
   _movementSpeed: 16
-  _castleDamage: 1
+  _damageToPlayer: 1
   _moneyOnDeath: 10

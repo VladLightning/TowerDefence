@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class HeroMovement : MonoBehaviour
 {
     private const float DISTANCE_THRESHOLD = 0.1f;

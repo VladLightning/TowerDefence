@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Towers : MonoBehaviour
 {
     [SerializeField] private GameObject[] _towers;

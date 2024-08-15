@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-
 public abstract class Tower : Entity
 {
     [SerializeField] private GameObject _projectile;
