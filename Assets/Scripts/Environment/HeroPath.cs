@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class HeroPath : MonoBehaviour
 {
-    [SerializeField] private HeroMovement _heroMovement;
+    private Hero _hero;
+    public Hero Hero { set { _hero = value; } }
 
     private void OnMouseDown()
     {
-        _heroMovement.StartMovement();
+        _hero.StartMovement();
     }
 }
