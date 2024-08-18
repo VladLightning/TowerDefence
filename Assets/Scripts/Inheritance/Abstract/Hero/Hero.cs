@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public abstract class Hero : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;

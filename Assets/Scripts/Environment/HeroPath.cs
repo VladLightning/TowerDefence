@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class HeroPath : MonoBehaviour
 {
     private Hero _hero;

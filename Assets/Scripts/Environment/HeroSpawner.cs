@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class HeroSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _heroToSpawn;
