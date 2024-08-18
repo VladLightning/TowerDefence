@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5210233748855707168}
   - component: {fileID: 2891845150514828473}
   - component: {fileID: 438306431459135828}
-  - component: {fileID: 742917939082652707}
+  - component: {fileID: 7516017504309971295}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.21, y: 1.6}
   m_EdgeRadius: 0
---- !u!114 &742917939082652707
+--- !u!114 &7516017504309971295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,8 +169,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5242421210546671716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1830563f426b3614aafa7d4b276d25e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 344ef08e9468caf42a8e7739c5541f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 0}
-  _speed: 5

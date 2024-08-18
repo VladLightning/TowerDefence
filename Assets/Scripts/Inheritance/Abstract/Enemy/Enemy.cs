@@ -18,7 +18,6 @@ public abstract class Enemy : Mob
         _attackSpeed = enemyData.AttackSpeed;
         _damageType = enemyData.DamageType;
         _health = enemyData.Health;
-        _attackSpeed = enemyData.AttackSpeed;
         _damageToPlayer = enemyData.DamageToPlayer;
         _moneyOnDeath = enemyData.MoneyOnDeath;
         _movementSpeed = enemyData.MovementSpeed;
@@ -38,6 +37,12 @@ public abstract class Enemy : Mob
         Move();
     }
 
+    private void DealDamageToPlayer()
+    {
+        _playerHealth.TakeDamage(_damageToPlayer);
+        Destroy(gameObject);
+    }
+
     protected override void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);
@@ -51,11 +56,5 @@ public abstract class Enemy : Mob
             }
             _currentPoint = _path.PathPoints[_currentPointIndex];
         }
-    }
-
-    private void DealDamageToPlayer()
-    {
-        _playerHealth.TakeDamage(_damageToPlayer);
-        Destroy(gameObject);
     }
 }
