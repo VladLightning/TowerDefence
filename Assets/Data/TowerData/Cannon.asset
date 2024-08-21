@@ -15,5 +15,6 @@ MonoBehaviour:
   _damage: 1
   _attackSpeed: 2
   _damageType: 0
-  _range: 5
+  _range: 10
   _price: 100
+  _rotationSpeed: 20
