@@ -749,6 +749,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79d05c88dcc9419b12c0b1ccb7e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1947299100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6822850178659712930, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
+  m_PrefabInstance: {fileID: 2134396582659087439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7708f5c541b0b43a721ae3377a7d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2098080033 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7659428039724131257, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
@@ -767,13 +778,9 @@ PrefabInstance:
       value: HeroSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
-      propertyPath: _gameCamera
+      propertyPath: _mouseHeroMovement
       value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
-      propertyPath: _movementPath
-      value: 
-      objectReference: {fileID: 3047901630519423248}
+      objectReference: {fileID: 1947299100}
     - target: {fileID: 6929109849438362048, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.37
@@ -879,6 +886,10 @@ PrefabInstance:
       propertyPath: _moneyDisplay
       value: 
       objectReference: {fileID: 387736725}
+    - target: {fileID: 6822850178659712930, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -939,28 +950,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8508051009865605439, guid: f5ae63799dae6e048ba69cbf611749b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3047901630519423248}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ae63799dae6e048ba69cbf611749b7, type: 3}
---- !u!1 &3047901630519423247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8508051009865605439, guid: f5ae63799dae6e048ba69cbf611749b7, type: 3}
-  m_PrefabInstance: {fileID: 3047901630519423246}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3047901630519423248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3047901630519423247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e7708f5c541b0b43a721ae3377a7d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4130065512630427430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1405,14 +1396,6 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 1947299096}
-    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
-      propertyPath: _enemyData.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
-      propertyPath: '_enemyData.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 93b6b8be9ee2dbe4b91eb4d5d5afd8ad, type: 2}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.96
@@ -1464,7 +1447,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 3047901630519423246}
   - {fileID: 1643341122}
   - {fileID: 1669328893}
   - {fileID: 4130065512630427430}
@@ -1474,3 +1456,4 @@ SceneRoots:
   - {fileID: 2134396582659087439}
   - {fileID: 7171812096543733667}
   - {fileID: 613210897072111297}
+  - {fileID: 3047901630519423246}

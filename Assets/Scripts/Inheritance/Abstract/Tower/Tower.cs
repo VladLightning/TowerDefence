@@ -5,15 +5,54 @@ public abstract class Tower : Entity
     [SerializeField] private GameObject _projectile;
     private float _range;
     private int _price;
+    private int _rotationSpeed;
+
+    private Transform _target;
+    private CircleCollider2D _collider2D;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, _range);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && _target == null)
+        {
+            _target = collision.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && _target != null)
+        {
+            _target = null;
+            FindTarget();
+        }
+    }
+
+    private void Update()
+    {
+        if(_target != null)
+        {
+            LookAtTarget();
+        }
+    }
 
     private void FindTarget()
     {
-        throw new NotImplementedException();
+        _collider2D.enabled = false;
+        _collider2D.enabled = true;
     }
 
     private void LookAtTarget()
     {
-        throw new NotImplementedException();
+        Vector2 targetDirection = _target.position - transform.position;
+       
+        float angle = Vector2.SignedAngle(transform.up, targetDirection);
+       
+        transform.Rotate(Vector3.forward, angle * _rotationSpeed * Time.deltaTime);
     }
 
     public void Initiate(TowerData towerData)
@@ -23,6 +62,10 @@ public abstract class Tower : Entity
         _damageType = towerData.DamageType;
         _range = towerData.Range;
         _price = towerData.Price;
+        _rotationSpeed = towerData.RotationSpeed;
+
+        _collider2D = GetComponent<CircleCollider2D>();
+        _collider2D.radius = _range;
     }
 
     private void Upgrade()

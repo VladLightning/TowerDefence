@@ -29669,7 +29669,7 @@ GameObject:
   - component: {fileID: 8325664492543593577}
   - component: {fileID: 4495372319556583193}
   - component: {fileID: 3269140004010721478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
