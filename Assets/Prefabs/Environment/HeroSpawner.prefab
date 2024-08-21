@@ -47,8 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroToSpawn: {fileID: 5242421210546671716, guid: b20be3bbdb0474342b7cc8ddefa2a0b0, type: 3}
   _spawnPoint: {fileID: 2646416121842463371}
-  _movementPath: {fileID: 0}
-  _gameCamera: {fileID: 0}
+  _mouseHeroMovement: {fileID: 0}
   _heroData:
   - {fileID: 11400000, guid: de33cdd45a57a8a499f083e1bf5f0b0d, type: 2}
 --- !u!1 &6268472818771862743

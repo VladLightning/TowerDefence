@@ -8,7 +8,7 @@ public abstract class Tower : Entity
     private int _rotationSpeed;
 
     private Transform _target;
-    private Collider2D _collider2D;
+    private CircleCollider2D _collider2D;
 
     private void OnDrawGizmos()
     {
@@ -49,11 +49,9 @@ public abstract class Tower : Entity
     private void LookAtTarget()
     {
         Vector2 targetDirection = _target.position - transform.position;
-
-        
+       
         float angle = Vector2.SignedAngle(transform.up, targetDirection);
-
-        
+       
         transform.Rotate(Vector3.forward, angle * _rotationSpeed * Time.deltaTime);
     }
 
@@ -66,8 +64,8 @@ public abstract class Tower : Entity
         _price = towerData.Price;
         _rotationSpeed = towerData.RotationSpeed;
 
-        GetComponent<CircleCollider2D>().radius = _range;
         _collider2D = GetComponent<CircleCollider2D>();
+        _collider2D.radius = _range;
     }
 
     private void Upgrade()

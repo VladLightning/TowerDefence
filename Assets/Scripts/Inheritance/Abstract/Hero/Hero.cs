@@ -4,8 +4,6 @@ public abstract class Hero : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;
 
-    private Camera _mainCamera;
-
     private IEnumerator _move;
 
     private float _skillCooldown;
@@ -14,7 +12,7 @@ public abstract class Hero : Mob
     private float _regenerationInterval;
     private int _regenerationAmount;
 
-    public void Initiate(HeroData heroData, Camera camera)
+    public void Initiate(HeroData heroData)
     {
         _damage = heroData.Damage;
         _attackSpeed = heroData.AttackSpeed;
@@ -26,8 +24,6 @@ public abstract class Hero : Mob
         _regenerationDelay = heroData.RegenerationDelay;
         _regenerationInterval = heroData.RegenerationInterval;
         _regenerationAmount = heroData.RegenerationAmount;
-
-        _mainCamera = camera;
     }
 
     private void LookAtMouse(Vector2 targetPosition)
@@ -62,14 +58,12 @@ public abstract class Hero : Mob
         throw new System.NotImplementedException();
     }
 
-    public void StartMovement()
+    public void StartMovement(Vector2 targetPosition)
     {
         if (_move != null)
         {
             StopCoroutine(_move);
         }
-
-        Vector2 targetPosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         LookAtMouse(targetPosition);
         _move = Move(targetPosition);

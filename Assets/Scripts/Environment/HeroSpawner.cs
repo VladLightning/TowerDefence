@@ -3,20 +3,19 @@ public class HeroSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _heroToSpawn;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private HeroPath _movementPath;
-    [SerializeField] private Camera _gameCamera;
+    [SerializeField] private MouseHeroMovement _mouseHeroMovement;
 
     [SerializeField] private HeroData[] _heroData;
 
     private void Start()
     {
-        Spawn();
+        SpawnHero();
     }
 
-    public void Spawn()
+    private void SpawnHero()
     {
         GameObject hero = Instantiate(_heroToSpawn, _spawnPoint.position, _spawnPoint.rotation);
-        hero.GetComponent<Hero>().Initiate(_heroData[0], _gameCamera);
-        _movementPath.Hero = hero.GetComponent<Hero>();
+        hero.GetComponent<Hero>().Initiate(_heroData[0]);
+        _mouseHeroMovement.Hero = hero.GetComponent<Hero>();
     }
 }
