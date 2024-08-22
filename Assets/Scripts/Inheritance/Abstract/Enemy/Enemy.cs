@@ -45,16 +45,22 @@ public abstract class Enemy : Mob
 
     protected override void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);     
+
         if (Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD)
-        {
-            _currentPointIndex++;
-            if (_currentPointIndex == _path.PathPoints.Length)
+        {          
+            if (_currentPointIndex == _path.PathPoints.Length - 1)
             {
                 DealDamageToPlayer();               
                 return;
             }
+            _currentPointIndex++;
             _currentPoint = _path.PathPoints[_currentPointIndex];
         }
+    }
+
+    public float GetDistanceToCastle()
+    {
+        return _path.DistancesBetweenPoints[_currentPointIndex - 1] + Vector2.Distance(transform.position, _path.PathPoints[_currentPointIndex].position);
     }
 }

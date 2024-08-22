@@ -1,4 +1,5 @@
-﻿public abstract class Mob : Entity
+﻿using UnityEngine;
+public abstract class Mob : Entity
 {
     protected int _health;
     protected float _movementSpeed;

@@ -15,25 +15,9 @@ public abstract class Tower : Entity
         Gizmos.DrawWireSphere(transform.position, _range);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy") && _target == null)
-        {
-            _target = collision.transform;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy") && _target != null)
-        {
-            _target = null;
-            FindTarget();
-        }
-    }
-
     private void Update()
     {
+        FindTarget();
         if(_target != null)
         {
             LookAtTarget();
@@ -42,8 +26,28 @@ public abstract class Tower : Entity
 
     private void FindTarget()
     {
-        _collider2D.enabled = false;
-        _collider2D.enabled = true;
+        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(transform.position, _range, LayerMask.GetMask("Enemy"));
+
+        if(enemyColliders.Length == 0)
+        {
+            _target = null;
+            return;
+        }
+
+        float shortestDistance = enemyColliders[0].GetComponent<Enemy>().GetDistanceToCastle();
+        float newDistance;
+        int shortestDistanceIndex = 0;
+
+        for (int i = 1; i < enemyColliders.Length; i++)
+        {          
+            newDistance = enemyColliders[i].GetComponent<Enemy>().GetDistanceToCastle();
+            if (shortestDistance > newDistance)
+            {
+                shortestDistance = newDistance;
+                shortestDistanceIndex = i;
+            }
+        }
+        _target = enemyColliders[shortestDistanceIndex].transform;
     }
 
     private void LookAtTarget()
