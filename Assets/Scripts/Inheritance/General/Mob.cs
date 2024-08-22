@@ -1,7 +1,8 @@
-﻿public abstract class Mob : Entity
+﻿using UnityEngine;
+public abstract class Mob : Entity
 {
     protected int _health;
-    protected float _movementSpeed;
+    [SerializeField] protected float _movementSpeed;
     
     protected abstract void Move();
 

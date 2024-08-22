@@ -12,6 +12,9 @@ public abstract class Enemy : Mob
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
+    private float _distanceToCastle;
+    public float DistanceToCastle => _distanceToCastle;
+
     public void Initiate(EnemyData enemyData, Path path, PlayerHealth playerHealth)
     {
         _damage = enemyData.Damage;
@@ -46,6 +49,9 @@ public abstract class Enemy : Mob
     protected override void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);
+
+        _distanceToCastle = Vector2.Distance(transform.position, _path.PathPoints[^1].position);
+
         if (Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD)
         {
             _currentPointIndex++;

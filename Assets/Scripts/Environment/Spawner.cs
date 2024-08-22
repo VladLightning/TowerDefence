@@ -3,7 +3,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyToSpawn;
-    [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Path _movementPath;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private EnemyData[] _enemyData;
@@ -21,7 +20,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(_spawnDelay);
         for(int i = 0; i < _enemiesAmount; i++)
         {            
-            GameObject enemy = Instantiate(_enemyToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+            GameObject enemy = Instantiate(_enemyToSpawn, transform.position, transform.rotation);
             enemy.GetComponent<Enemy>().Initiate(_enemyData[0], _movementPath, _playerHealth);
             yield return new WaitForSeconds(_spawnDelay);
         }
