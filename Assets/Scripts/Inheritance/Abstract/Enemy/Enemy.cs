@@ -12,8 +12,6 @@ public abstract class Enemy : Mob
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
-    private float _distanceToCastle;
-
     public void Initiate(EnemyData enemyData, Path path, PlayerHealth playerHealth)
     {
         _damage = enemyData.Damage;
@@ -63,7 +61,6 @@ public abstract class Enemy : Mob
 
     public float GetDistanceToCastle()
     {
-        _distanceToCastle = _path.DistancesBetweenPoints[_currentPointIndex - 1] + Vector2.Distance(transform.position, _path.PathPoints[_currentPointIndex].position);
-        return _distanceToCastle;
+        return _path.DistancesBetweenPoints[_currentPointIndex - 1] + Vector2.Distance(transform.position, _path.PathPoints[_currentPointIndex].position);
     }
 }
