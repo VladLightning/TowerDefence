@@ -2,7 +2,7 @@
 public abstract class Mob : Entity
 {
     protected int _health;
-    [SerializeField] protected float _movementSpeed;
+    protected float _movementSpeed;
     
     protected abstract void Move();
 

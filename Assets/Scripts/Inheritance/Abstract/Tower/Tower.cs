@@ -30,16 +30,17 @@ public abstract class Tower : Entity
 
         if(enemyColliders.Length == 0)
         {
+            _target = null;
             return;
         }
 
-        float shortestDistance = enemyColliders[0].GetComponent<Enemy>().DistanceToCastle;
-        float newDistance = shortestDistance;
+        float shortestDistance = enemyColliders[0].GetComponent<Enemy>().GetDistanceToCastle();
+        float newDistance;
         int shortestDistanceIndex = 0;
 
-        for (int i = 0; i < enemyColliders.Length; i++)
+        for (int i = 1; i < enemyColliders.Length; i++)
         {          
-            newDistance = enemyColliders[i].GetComponent<Enemy>().DistanceToCastle;
+            newDistance = enemyColliders[i].GetComponent<Enemy>().GetDistanceToCastle();
             if (shortestDistance > newDistance)
             {
                 shortestDistance = newDistance;

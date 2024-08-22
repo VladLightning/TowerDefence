@@ -13,7 +13,6 @@ public abstract class Enemy : Mob
     private int _moneyOnDeath;
 
     private float _distanceToCastle;
-    public float DistanceToCastle => _distanceToCastle;
 
     public void Initiate(EnemyData enemyData, Path path, PlayerHealth playerHealth)
     {
@@ -48,19 +47,23 @@ public abstract class Enemy : Mob
 
     protected override void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);
-
-        _distanceToCastle = Vector2.Distance(transform.position, _path.PathPoints[^1].position);
+        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);     
 
         if (Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD)
-        {
-            _currentPointIndex++;
-            if (_currentPointIndex == _path.PathPoints.Length)
+        {          
+            if (_currentPointIndex == _path.PathPoints.Length - 1)
             {
                 DealDamageToPlayer();               
                 return;
             }
+            _currentPointIndex++;
             _currentPoint = _path.PathPoints[_currentPointIndex];
         }
+    }
+
+    public float GetDistanceToCastle()
+    {
+        _distanceToCastle = _path.DistancesBetweenPoints[_currentPointIndex - 1] + Vector2.Distance(transform.position, _path.PathPoints[_currentPointIndex].position);
+        return _distanceToCastle;
     }
 }
