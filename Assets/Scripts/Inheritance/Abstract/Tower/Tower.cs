@@ -15,8 +15,8 @@ public abstract class Tower : Entity
     private CircleCollider2D _collider2D;
 
     private IEnumerator _shoot;
-    private IEnumerator _deactivate;
-    private bool _isActive;
+    private IEnumerator _deactivateShootingTimer;
+    private bool _shootingIsActive;
 
     public void Initiate(TowerData towerData)
     {
@@ -47,18 +47,18 @@ public abstract class Tower : Entity
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && collision.transform == _target)
         {
             _target = null;
-            _deactivate = ShootingDeactivateTimer();
-            StartCoroutine(_deactivate);
+            _deactivateShootingTimer = ShootingDeactivateTimer();
+            StartCoroutine(_deactivateShootingTimer);
         }
     }
 
     private void Start()
     {
         _shoot = Shoot();
-        _deactivate = ShootingDeactivateTimer();
+        _deactivateShootingTimer = ShootingDeactivateTimer();
     }
 
     private void Update()
@@ -66,7 +66,7 @@ public abstract class Tower : Entity
         if(_target != null)
         {
             LookAtTarget();
-            if (!_isActive)
+            if (!_shootingIsActive)
             {
                 Attack();
             }
@@ -91,7 +91,11 @@ public abstract class Tower : Entity
             }
         }
         _target = enemyColliders[shortestDistanceIndex].transform;
-        StopCoroutine(_deactivate);
+
+        if(_deactivateShootingTimer != null)
+        {
+            StopCoroutine(_deactivateShootingTimer);
+        }
     }
 
     private void LookAtTarget()
@@ -105,17 +109,17 @@ public abstract class Tower : Entity
 
     private IEnumerator Shoot()
     {
-        while(true)
+        _shootingIsActive = true;
+        while (true)
         {
             yield return new WaitForSeconds(_attackSpeed);
-            GameObject projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation);
-            projectile.GetComponent<Rigidbody2D>().AddForce(projectile.transform.up * _force);
+            Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().Force = _force;         
         }
     }
     private IEnumerator ShootingDeactivateTimer()
     {
         yield return new WaitForSeconds(_attackSpeed);
-        _isActive = false;
+        _shootingIsActive = false;
         StopCoroutine(_shoot);
     }
 
@@ -131,7 +135,6 @@ public abstract class Tower : Entity
 
     protected override void Attack()
     {
-        _isActive = true;
         StartCoroutine(_shoot);
     }
 }
