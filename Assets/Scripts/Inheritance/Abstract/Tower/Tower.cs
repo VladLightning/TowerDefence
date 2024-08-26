@@ -11,11 +11,12 @@ public abstract class Tower : Entity
     private int _price;
     private int _rotationSpeed;
 
+    private float _lastShotTime;
+
     private Transform _target;
     private CircleCollider2D _collider2D;
 
     private IEnumerator _shoot;
-    private IEnumerator _deactivateShootingTimer;
     private bool _shootingIsActive;
 
     public void Initiate(TowerData towerData)
@@ -37,11 +38,11 @@ public abstract class Tower : Entity
         Gizmos.DrawWireSphere(transform.position, _range);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && !_shootingIsActive)
         {
-            FindTarget();
+            Attack();
         }
     }
 
@@ -49,16 +50,13 @@ public abstract class Tower : Entity
     {
         if (collision.CompareTag("Enemy") && collision.transform == _target)
         {
-            _target = null;
-            _deactivateShootingTimer = ShootingDeactivateTimer();
-            StartCoroutine(_deactivateShootingTimer);
+            CheckInsideCollider();
         }
     }
 
     private void Start()
     {
-        _shoot = Shoot();
-        _deactivateShootingTimer = ShootingDeactivateTimer();
+        _lastShotTime = -_attackSpeed;
     }
 
     private void Update()
@@ -66,16 +64,19 @@ public abstract class Tower : Entity
         if(_target != null)
         {
             LookAtTarget();
-            if (!_shootingIsActive)
-            {
-                Attack();
-            }
         }
     }
 
     private void FindTarget()
     {
         Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(transform.position, _range, LayerMask.GetMask("Enemy"));
+
+        if(enemyColliders.Length == 0)
+        {
+            _target = null;
+            DeactivateShoot();
+            return;
+        }
 
         float shortestDistance = enemyColliders[0].GetComponent<Enemy>().GetDistanceToCastle();
         float newDistance;
@@ -91,11 +92,6 @@ public abstract class Tower : Entity
             }
         }
         _target = enemyColliders[shortestDistanceIndex].transform;
-
-        if(_deactivateShootingTimer != null)
-        {
-            StopCoroutine(_deactivateShootingTimer);
-        }
     }
 
     private void LookAtTarget()
@@ -107,20 +103,30 @@ public abstract class Tower : Entity
         transform.Rotate(Vector3.forward, angle * _rotationSpeed * Time.deltaTime);
     }
 
-    private IEnumerator Shoot()
+    private IEnumerator Shoot(float delay)
     {
         _shootingIsActive = true;
         while (true)
         {
-            yield return new WaitForSeconds(_attackSpeed);
-            Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().Force = _force;         
+            yield return new WaitForSeconds(delay / 2);
+            FindTarget();
+            yield return new WaitForSeconds(delay/2);
+            Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().Force = _force;
+            _lastShotTime = Time.time;          
+            delay = _attackSpeed;
         }
     }
-    private IEnumerator ShootingDeactivateTimer()
+    
+    private void DeactivateShoot()
     {
-        yield return new WaitForSeconds(_attackSpeed);
         _shootingIsActive = false;
         StopCoroutine(_shoot);
+    }
+
+    private void CheckInsideCollider()
+    {
+        _collider2D.enabled = false;
+        _collider2D.enabled = true;
     }
 
     private void Upgrade()
@@ -134,7 +140,18 @@ public abstract class Tower : Entity
     }
 
     protected override void Attack()
-    {
+    {       
+        float delay = _attackSpeed;
+
+        if (Time.time - _lastShotTime > _attackSpeed)
+        {
+            delay = 0.5f;
+        }
+        else if (Time.time - _lastShotTime <= _attackSpeed)
+        {
+            delay = _attackSpeed - (Time.time - _lastShotTime);
+        }
+        _shoot = Shoot(delay);
         StartCoroutine(_shoot);
     }
 }
