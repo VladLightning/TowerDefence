@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
