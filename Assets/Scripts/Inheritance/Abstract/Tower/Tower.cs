@@ -111,7 +111,7 @@ public abstract class Tower : Entity
             yield return new WaitForSeconds(delay / 2);
             FindTarget();
             yield return new WaitForSeconds(delay/2);
-            Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().Force = _force;
+            Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().ProjectileFly(_force);
             _lastShotTime = Time.time;          
             delay = _attackSpeed;
         }
