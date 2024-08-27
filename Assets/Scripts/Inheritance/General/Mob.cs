@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-public abstract class Mob : Entity
+﻿public abstract class Mob : Entity
 {
     protected int _health;
     protected float _movementSpeed;
@@ -11,14 +10,18 @@ public abstract class Mob : Entity
         throw new System.NotImplementedException();
     }
 
-    protected void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        throw new System.NotImplementedException();
+        _health -= damage;
+        if(_health <= 0)
+        {
+            Death();
+        }
     }
 
     protected void Death()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
     }
 
     //Здесь ещё будут методы DetectOpponent(), EnterCombat(), ExitCombat().
