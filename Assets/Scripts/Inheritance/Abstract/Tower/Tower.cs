@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
 {
+    private const float MINIMUM_DELAY = 0.5f;
+
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
 
@@ -43,14 +45,6 @@ public abstract class Tower : Entity
         if (collision.CompareTag("Enemy") && !_shootingIsActive)
         {
             Attack();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy") && collision.transform == _target)
-        {
-            CheckInsideCollider();
         }
     }
 
@@ -123,12 +117,6 @@ public abstract class Tower : Entity
         StopCoroutine(_shoot);
     }
 
-    private void CheckInsideCollider()
-    {
-        _collider2D.enabled = false;
-        _collider2D.enabled = true;
-    }
-
     private void Upgrade()
     {
         throw new NotImplementedException();
@@ -145,7 +133,7 @@ public abstract class Tower : Entity
 
         if (Time.time - _lastShotTime > _attackSpeed)
         {
-            delay = 0.5f;
+            delay = MINIMUM_DELAY;
         }
         else if (Time.time - _lastShotTime <= _attackSpeed)
         {
