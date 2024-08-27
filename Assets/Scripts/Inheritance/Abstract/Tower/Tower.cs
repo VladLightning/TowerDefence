@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
@@ -50,6 +50,7 @@ public abstract class Tower : Entity
 
     private void Start()
     {
+        //Сделано для того, чтобы башне не пришлось ждать задержку выстрела, если враг попадает зону стрельбы в начале жизненного цикла
         _lastShotTime = -_attackSpeed;
     }
 
