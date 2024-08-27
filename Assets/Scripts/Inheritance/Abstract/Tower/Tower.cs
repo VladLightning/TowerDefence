@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
 {
-    private const float MINIMUM_DELAY = 0.5f;
+    private const float MINIMUM_DELAY_FOR_ROTATION = 0.5f;
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
@@ -104,7 +104,7 @@ public abstract class Tower : Entity
         {
             yield return new WaitForSeconds(delay / 2);
             FindTarget();
-            yield return new WaitForSeconds(delay/2);
+            yield return new WaitForSeconds(delay / 2);
             Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().ProjectileFly(_force);
             _lastShotTime = Time.time;          
             delay = _attackSpeed;
@@ -133,7 +133,7 @@ public abstract class Tower : Entity
 
         if (Time.time - _lastShotTime > _attackSpeed)
         {
-            delay = MINIMUM_DELAY;
+            delay = MINIMUM_DELAY_FOR_ROTATION;
         }
         else if (Time.time - _lastShotTime <= _attackSpeed)
         {
