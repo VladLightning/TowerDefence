@@ -1,23 +1,61 @@
-using System;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
 {
+    private const float MINIMUM_DELAY_FOR_ROTATION = 0.5f;
+
     [SerializeField] private GameObject _projectile;
+    [SerializeField] private Transform _projectileLaunchPoint;
+
+    private float _force;
     private float _range;
     private int _price;
     private int _rotationSpeed;
 
+    private float _lastShotTime;
+
     private Transform _target;
     private CircleCollider2D _collider2D;
+
+    private IEnumerator _shoot;
+    private bool _shootingIsActive;
+
+    public void Initiate(TowerData towerData)
+    {
+        _damage = towerData.Damage;
+        _attackSpeed = towerData.AttackSpeed;
+        _damageType = towerData.DamageType;
+        _force = towerData.Force;
+        _range = towerData.Range;
+        _price = towerData.Price;
+        _rotationSpeed = towerData.RotationSpeed;
+
+        _collider2D = GetComponent<CircleCollider2D>();
+        _collider2D.radius = _range;
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, _range);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && !_shootingIsActive)
+        {
+            Attack();
+        }
+    }
+
+    private void Start()
+    {
+        //Сделано для того, чтобы башне не пришлось ждать задержку выстрела, если враг попадает зону стрельбы в начале жизненного цикла
+        _lastShotTime = -_attackSpeed;
+    }
+
     private void Update()
     {
-        FindTarget();
         if(_target != null)
         {
             LookAtTarget();
@@ -31,6 +69,7 @@ public abstract class Tower : Entity
         if(enemyColliders.Length == 0)
         {
             _target = null;
+            DeactivateShoot();
             return;
         }
 
@@ -59,17 +98,24 @@ public abstract class Tower : Entity
         transform.Rotate(Vector3.forward, angle * _rotationSpeed * Time.deltaTime);
     }
 
-    public void Initiate(TowerData towerData)
+    private IEnumerator Shoot(float delay)
     {
-        _damage = towerData.Damage;
-        _attackSpeed = towerData.AttackSpeed;
-        _damageType = towerData.DamageType;
-        _range = towerData.Range;
-        _price = towerData.Price;
-        _rotationSpeed = towerData.RotationSpeed;
-
-        _collider2D = GetComponent<CircleCollider2D>();
-        _collider2D.radius = _range;
+        _shootingIsActive = true;
+        while (true)
+        {
+            yield return new WaitForSeconds(delay / 2);
+            FindTarget();
+            yield return new WaitForSeconds(delay / 2);
+            Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>().ProjectileFly(_force);
+            _lastShotTime = Time.time;          
+            delay = _attackSpeed;
+        }
+    }
+    
+    private void DeactivateShoot()
+    {
+        _shootingIsActive = false;
+        StopCoroutine(_shoot);
     }
 
     private void Upgrade()
@@ -83,7 +129,12 @@ public abstract class Tower : Entity
     }
 
     protected override void Attack()
-    {
-        throw new NotImplementedException();
+    {       
+        float delay = _attackSpeed;
+
+        delay = (Time.time - _lastShotTime > _attackSpeed) ? MINIMUM_DELAY_FOR_ROTATION : _attackSpeed - (Time.time - _lastShotTime);
+
+        _shoot = Shoot(delay);
+        StartCoroutine(_shoot);
     }
 }
