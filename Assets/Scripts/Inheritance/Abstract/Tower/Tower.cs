@@ -131,14 +131,8 @@ public abstract class Tower : Entity
     {       
         float delay = _attackSpeed;
 
-        if (Time.time - _lastShotTime > _attackSpeed)
-        {
-            delay = MINIMUM_DELAY_FOR_ROTATION;
-        }
-        else if (Time.time - _lastShotTime <= _attackSpeed)
-        {
-            delay = _attackSpeed - (Time.time - _lastShotTime);
-        }
+        delay = (Time.time - _lastShotTime > _attackSpeed) ? MINIMUM_DELAY_FOR_ROTATION : _attackSpeed - (Time.time - _lastShotTime);
+
         _shoot = Shoot(delay);
         StartCoroutine(_shoot);
     }
