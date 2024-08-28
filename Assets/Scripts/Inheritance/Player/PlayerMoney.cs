@@ -18,6 +18,12 @@ public class PlayerMoney : MonoBehaviour
         _moneyDisplay.text = _moneyAmount.ToString();
     }
 
+    public void AddMoney(int amount)
+    {
+        _moneyAmount += amount;
+        UpdateMoneyDisplay();
+    }
+
     public void Purchase(int price)
     {
         _moneyAmount -= price;
