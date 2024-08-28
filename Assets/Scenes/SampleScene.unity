@@ -1697,6 +1697,10 @@ PrefabInstance:
       value: HeroSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: _mouseInput
+      value: 
+      objectReference: {fileID: 1947299100}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: _mouseHeroMovement
       value: 
       objectReference: {fileID: 1947299100}

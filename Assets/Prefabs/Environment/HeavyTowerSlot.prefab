@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 871265103678115101, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_Name
-      value: HeavyTowerSlot Variant
+      value: HeavyTowerSlot
       objectReference: {fileID: 0}
     - target: {fileID: 1170155438763963775, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_LocalScale.x
@@ -42,19 +42,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120686954325922393, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1
+      value: 2.048
       objectReference: {fileID: 0}
     - target: {fileID: 2120686954325922393, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1
+      value: 2.048
       objectReference: {fileID: 0}
     - target: {fileID: 2120686954325922393, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2120686954325922393, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2120686954325922393, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8454635909173948989, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8417420941954122440, guid: 2c8e4a63490c3f045816e5153c88c641, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

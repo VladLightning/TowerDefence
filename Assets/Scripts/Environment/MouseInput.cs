@@ -28,7 +28,7 @@ public class MouseInput : MonoBehaviour
         {
             _hero.StartMovement(targetPosition);
         }
-        else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("TowerSlot") && hit.transform.childCount == 1)
+        else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("TowerSlot") && hit.transform.childCount == 0)
         {
             _towerManager.SetBuildPosition(hit.transform);
         }
