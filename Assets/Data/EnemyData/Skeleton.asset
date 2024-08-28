@@ -15,7 +15,7 @@ MonoBehaviour:
   _damage: 2
   _attackSpeed: 2
   _damageType: 0
-  _health: 5
+  _health: 1
   _movementSpeed: 10
   _damageToPlayer: 1
-  _moneyOnDeath: 10
+  _moneyOnDeath: 20
