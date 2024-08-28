@@ -749,6 +749,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _playerMoney
+      value: 
+      objectReference: {fileID: 1947299098}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: _movementPath
       value: 
       objectReference: {fileID: 1454999084}
@@ -9641,9 +9645,9 @@ PrefabInstance:
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
-      propertyPath: _spawnDelay
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: _playerMoney
+      value: 
+      objectReference: {fileID: 1947299098}
     - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: _movementPath
       value: 
@@ -9652,10 +9656,6 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 1947299096}
-    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
-      propertyPath: _enemiesAmount
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.72
