@@ -108,8 +108,7 @@ public abstract class Tower : Entity
             yield return new WaitForSeconds(delay / 2);
 
             var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
-            projectile.ProjectileFly(_force);
-            projectile.Damage = _damage;
+            projectile.Initialize(_force, _damage);
 
             _lastShotTime = Time.time;          
             delay = _attackSpeed;

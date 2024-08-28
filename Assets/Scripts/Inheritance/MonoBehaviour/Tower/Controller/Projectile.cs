@@ -4,7 +4,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float _lifeTime;
 
     private int _damage;
-    public int Damage { set {  _damage = value; } }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,7 +19,13 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, _lifeTime);
     }
 
-    public void ProjectileFly(float force)
+    public void Initialize(float force, int damage)
+    {
+        _damage = damage;
+        ProjectileFly(force);
+    }
+
+    private void ProjectileFly(float force)
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * force);
     }
