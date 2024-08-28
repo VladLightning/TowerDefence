@@ -3,7 +3,7 @@ public class HeroSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _heroToSpawn;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private MouseHeroMovement _mouseHeroMovement;
+    [SerializeField] private MouseInput _mouseHeroMovement;
 
     [SerializeField] private HeroData[] _heroData;
 
