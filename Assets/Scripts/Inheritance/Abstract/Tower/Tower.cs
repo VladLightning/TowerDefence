@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
 {
-    private const float MINIMUM_DELAY_FOR_ROTATION = 0.5f;
+    private const float DELAY_FOR_ROTATION = 0.2f;
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
@@ -45,6 +45,14 @@ public abstract class Tower : Entity
         if (collision.CompareTag("Enemy") && !_shootingIsActive)
         {
             Attack();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.transform == _target)
+        {
+            FindTarget();
         }
     }
 
@@ -103,9 +111,9 @@ public abstract class Tower : Entity
         _shootingIsActive = true;
         while (true)
         {
-            yield return new WaitForSeconds(delay / 2);
+            yield return new WaitForSeconds(delay);
             FindTarget();
-            yield return new WaitForSeconds(delay / 2);
+            yield return new WaitForSeconds(DELAY_FOR_ROTATION);
 
             var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
             projectile.Initialize(_force, _damage);
@@ -133,9 +141,7 @@ public abstract class Tower : Entity
 
     protected override void Attack()
     {       
-        float delay = _attackSpeed;
-
-        delay = (Time.time - _lastShotTime > _attackSpeed) ? MINIMUM_DELAY_FOR_ROTATION : _attackSpeed - (Time.time - _lastShotTime);
+        float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
 
         _shoot = Shoot(delay);
         StartCoroutine(_shoot);
