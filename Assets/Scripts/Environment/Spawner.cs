@@ -5,6 +5,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject _enemyToSpawn;
     [SerializeField] private Path _movementPath;
     [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private EnemyData[] _enemyData;
 
     [SerializeField] private int _enemiesAmount;
@@ -21,7 +22,7 @@ public class Spawner : MonoBehaviour
         for(int i = 0; i < _enemiesAmount; i++)
         {            
             GameObject enemy = Instantiate(_enemyToSpawn, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_enemyData[0], _movementPath, _playerHealth);
+            enemy.GetComponent<Enemy>().Initiate(_enemyData[0], _movementPath, _playerHealth, _playerMoney);
             yield return new WaitForSeconds(_spawnDelay);
         }
     }

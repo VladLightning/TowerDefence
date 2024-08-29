@@ -6,13 +6,14 @@ public abstract class Enemy : Mob
     private Transform _currentPoint;
     private Path _path;
     private PlayerHealth _playerHealth;
+    private PlayerMoney _playerMoney;
 
     private int _currentPointIndex;
 
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
-    public void Initiate(EnemyData enemyData, Path path, PlayerHealth playerHealth)
+    public void Initiate(EnemyData enemyData, Path path, PlayerHealth playerHealth, PlayerMoney playerMoney)
     {
         _damage = enemyData.Damage;
         _attackSpeed = enemyData.AttackSpeed;
@@ -24,6 +25,7 @@ public abstract class Enemy : Mob
 
         _path = path;
         _playerHealth = playerHealth;
+        _playerMoney = playerMoney;
     }
 
     private void Start()
@@ -57,6 +59,12 @@ public abstract class Enemy : Mob
             _currentPointIndex++;
             _currentPoint = _path.PathPoints[_currentPointIndex];
         }
+    }
+
+    protected override void Death()
+    {
+        _playerMoney.AddMoney(_moneyOnDeath);
+        base.Death();
     }
 
     public float GetDistanceToCastle()
