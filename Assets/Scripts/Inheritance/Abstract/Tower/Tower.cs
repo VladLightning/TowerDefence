@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Tower : Entity
 {
     private const float DELAY_FOR_ROTATION = 0.2f;
+    private const float SELL_PRICE_COEFFICIENT = 0.5f;
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
@@ -140,7 +141,7 @@ public abstract class Tower : Entity
 
     public void Sell()
     {
-        _playerMoney.AddMoney((int)(0.5f * _price));
+        _playerMoney.AddMoney((int)(SELL_PRICE_COEFFICIENT * _price));
         Destroy(gameObject);
     }
 
