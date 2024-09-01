@@ -1566,6 +1566,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4488924850132901547, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
   m_PrefabInstance: {fileID: 1897252613}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1920329732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+  m_PrefabInstance: {fileID: 6561328860692613573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdede9363eb3d9b40abd5d1e8b3eef37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1947299096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2672280116845634448, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
@@ -1850,6 +1861,10 @@ PrefabInstance:
       propertyPath: _towerManager
       value: 
       objectReference: {fileID: 525656785}
+    - target: {fileID: 6822850178659712930, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
+      propertyPath: _towerUpgradePanel
+      value: 
+      objectReference: {fileID: 1920329732}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9640,17 +9655,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeTowerCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7082837080138741323, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: -0.000000007450581
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: -0.000000016763806
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9670,11 +9681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9706,11 +9717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
