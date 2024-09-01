@@ -27,7 +27,7 @@ public class TowerManager : MonoBehaviour
         _playerMoney.Purchase(price);
 
         var tower = Instantiate(_towers.GetTower(towerType), _buildSiteTransform.position, transform.rotation, _buildSiteTransform).GetComponent<Tower>();
-        tower.Initiate(_towers.GetStats(towerType));
+        tower.Initiate(_towers.GetStats(towerType), _playerMoney);
         gameObject.SetActive(false);
     }
 }
