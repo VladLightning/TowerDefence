@@ -2,7 +2,6 @@ using UnityEngine;
 public class MouseInput : MonoBehaviour
 {
     private const float DISTANCE = 10;
-    private const float CLICK_PROXIMITY_THRESHOLD = 1.6f;
     
     [SerializeField] private Camera _camera;
     [SerializeField] private TowerManager _towerManager;
@@ -25,16 +24,8 @@ public class MouseInput : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, LayerMask.GetMask("Path", "TowerSlot", "Tower"));
 
+        _towerUpgradePanel.Disable();
         if (hit.collider is null)
-        {
-            _towerUpgradePanel.Disable();
-            return;
-        }
-        else if(hit.collider.gameObject.layer != LayerMask.NameToLayer("Tower"))
-        {
-            _towerUpgradePanel.Disable();
-        }
-        if (Vector2.Distance(targetPosition, hit.transform.position) > CLICK_PROXIMITY_THRESHOLD)
         {
             return;
         }
