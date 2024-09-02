@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Tower : Entity
 {
     private const float DELAY_FOR_ROTATION = 0.2f;
+    private const float SELL_PRICE_COEFFICIENT = 0.5f;
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
@@ -18,10 +19,12 @@ public abstract class Tower : Entity
     private Transform _target;
     private CircleCollider2D _collider2D;
 
+    private PlayerMoney _playerMoney;
+
     private IEnumerator _shoot;
     private bool _shootingIsActive;
 
-    public void Initiate(TowerData towerData)
+    public void Initiate(TowerData towerData, PlayerMoney playerMoney)
     {
         _damage = towerData.Damage;
         _attackSpeed = towerData.AttackSpeed;
@@ -30,6 +33,8 @@ public abstract class Tower : Entity
         _range = towerData.Range;
         _price = towerData.Price;
         _rotationSpeed = towerData.RotationSpeed;
+
+        _playerMoney = playerMoney;
 
         _collider2D = GetComponent<CircleCollider2D>();
         _collider2D.radius = _range;
@@ -134,9 +139,10 @@ public abstract class Tower : Entity
         throw new NotImplementedException();
     }
 
-    private void Sell()
+    public void Sell()
     {
-        throw new NotImplementedException();
+        _playerMoney.AddMoney((int)(SELL_PRICE_COEFFICIENT * _price));
+        Destroy(gameObject);
     }
 
     protected override void Attack()
