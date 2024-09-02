@@ -39,7 +39,7 @@ public class MouseInput : MonoBehaviour
         }
         else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
-            _towerUpgradePanel.Enable(hit.collider.GetComponent<Tower>());
+            _towerUpgradePanel.Enable(hit.collider.GetComponentInParent<Tower>());
         }
     }
 }

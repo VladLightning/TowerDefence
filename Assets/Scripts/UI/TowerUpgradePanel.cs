@@ -6,10 +6,6 @@ public class TowerUpgradePanel : MonoBehaviour
 
     public void Enable(Tower tower)
     {
-        if(_tower == tower)
-        {
-            return;
-        }
         _tower = tower;
 
         Disable();
