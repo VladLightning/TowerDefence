@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7489999331170494689}
   - component: {fileID: 8537908018942365904}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: FlameTower
   m_TagString: Tower
   m_Icon: {fileID: 0}

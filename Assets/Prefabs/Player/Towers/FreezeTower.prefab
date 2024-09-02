@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058592267640648501}
   - component: {fileID: 7288928820679185378}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: FreezeTower
   m_TagString: Tower
   m_Icon: {fileID: 0}

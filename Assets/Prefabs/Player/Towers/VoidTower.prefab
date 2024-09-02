@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7090512370667030996}
   - component: {fileID: 1024200448025562132}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: VoidTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
