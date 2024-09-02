@@ -6,15 +6,13 @@ public class TowerUpgradePanel : MonoBehaviour
 
     public void Enable(Tower tower)
     {
-        if(_tower != tower)
-        {
-            _tower = tower;
-            Disable();
-        }
-        if (gameObject.activeSelf)
+        if(_tower == tower)
         {
             return;
         }
+        _tower = tower;
+
+        Disable();
         transform.position = _tower.transform.position;
         gameObject.SetActive(true); 
     }
