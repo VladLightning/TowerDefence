@@ -4,15 +4,24 @@ public class TowerUpgradePanel : MonoBehaviour
 {
     private Tower _tower;
 
-    public void Enable(Vector2 targetPosition, Tower tower)
+    public void Enable(Tower tower)
     {
+        if(_tower != tower)
+        {
+            _tower = tower;
+            Disable();
+        }
         if (gameObject.activeSelf)
         {
             return;
         }
+        transform.position = _tower.transform.position;
         gameObject.SetActive(true); 
-        _tower = tower;
-        transform.position = targetPosition;
+    }
+
+    public void Disable()
+    {
+        gameObject.SetActive(false);
     }
 
     public void ExecuteTowerSell()

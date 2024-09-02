@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
     [SerializeField] private PlayerMoney _playerMoney;
@@ -26,7 +26,8 @@ public class TowerManager : MonoBehaviour
         }
         _playerMoney.Purchase(price);
 
-        var tower = Instantiate(_towers.GetTower(towerType), _buildSiteTransform.position, transform.rotation, _buildSiteTransform).GetComponent<Tower>();
+        var tower = Instantiate(_towers.GetTower(towerType), new Vector3(_buildSiteTransform.position.x, _buildSiteTransform.position.y, -1), // Z = -1 для того, чтобы не было конфликтов между слоями 
+                                                                          transform.rotation, _buildSiteTransform).GetComponent<Tower>();
         tower.Initiate(_towers.GetStats(towerType), _playerMoney);
         gameObject.SetActive(false);
     }
