@@ -4,6 +4,9 @@ public class PlayerMoney : MonoBehaviour
 {
     [SerializeField] private TMP_Text _moneyDisplay;
     [SerializeField] private LevelData _levelData;
+
+    [SerializeField] private TowerUpgradePanel _towerUpgradePanel;
+
     private int _moneyAmount;
     public int MoneyAmount => _moneyAmount;
 
@@ -11,6 +14,14 @@ public class PlayerMoney : MonoBehaviour
     {
         _moneyAmount = _levelData.StartMoney;
         UpdateMoneyDisplay();
+    }
+
+    public void CheckUpgradeIsAvailable()
+    {
+        if(_towerUpgradePanel.Tower != null)
+        {
+            _towerUpgradePanel.UpgradeIsAvailableCheck();
+        }
     }
 
     private void UpdateMoneyDisplay()
@@ -22,11 +33,13 @@ public class PlayerMoney : MonoBehaviour
     {
         _moneyAmount += amount;
         UpdateMoneyDisplay();
+        CheckUpgradeIsAvailable();
     }
 
     public void Purchase(int price)
     {
         _moneyAmount -= price;
         UpdateMoneyDisplay();
+        CheckUpgradeIsAvailable();
     }
 }

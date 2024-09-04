@@ -24,12 +24,13 @@ public class TowerManager : MonoBehaviour
         {
             return;
         }
-        _playerMoney.Purchase(price);
-
+        
         Vector3 spawnPosition = new Vector3(_buildSiteTransform.position.x, _buildSiteTransform.position.y, -1); // Z = -1 для того, чтобы не было конфликтов между слоями
 
         var tower = Instantiate(_towers.GetTower(towerType), spawnPosition, transform.rotation, _buildSiteTransform).GetComponent<Tower>();                                                                       
         tower.Initiate(_towers.GetStats(towerType), _playerMoney);
+
+        _playerMoney.Purchase(price);
 
         gameObject.SetActive(false);
     }
