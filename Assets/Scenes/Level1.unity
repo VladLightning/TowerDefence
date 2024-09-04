@@ -1074,6 +1074,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4488924850132901547, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
   m_PrefabInstance: {fileID: 973255923}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1233795693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+  m_PrefabInstance: {fileID: 6561328860692613573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1454999083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1853,6 +1864,10 @@ PrefabInstance:
       propertyPath: _moneyDisplay
       value: 
       objectReference: {fileID: 387736725}
+    - target: {fileID: 6306946180073782388, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
+      propertyPath: _towerUpgradePanel
+      value: 
+      objectReference: {fileID: 1920329732}
     - target: {fileID: 6822850178659712930, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
       propertyPath: _camera
       value: 
@@ -9659,6 +9674,14 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: _playerMoney
+      value: 
+      objectReference: {fileID: 1947299098}
+    - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: _upgradeButton
+      value: 
+      objectReference: {fileID: 1233795693}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_Pivot.x
       value: -0.000000007450581
@@ -9738,6 +9761,34 @@ PrefabInstance:
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1920329732}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExecuteTowerUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TowerUpgradePanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811661685600416363, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
