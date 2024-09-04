@@ -22,22 +22,30 @@ public class MouseInput : MonoBehaviour
     {
         Vector2 targetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, LayerMask.GetMask("Path", "TowerSlot", "Tower"));
+        RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, LayerMask.GetMask("Path", "TowerSlot", "Tower", "UI"));
 
-        _towerUpgradePanel.Disable();
-        if (hit.collider is null)
+        if (hit.collider == null)
         {
+            _towerUpgradePanel.Disable();
             return;
         }
-        if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Path"))
+
+        int layer = hit.collider.gameObject.layer;
+
+        if (layer != LayerMask.NameToLayer("UI"))
+        {
+            _towerUpgradePanel.Disable();
+        }
+
+        if (layer == LayerMask.NameToLayer("Path"))
         {
             _hero.StartMovement(targetPosition);
         }
-        else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("TowerSlot") && hit.transform.childCount == 0)
+        else if (layer == LayerMask.NameToLayer("TowerSlot") && hit.transform.childCount == 0)
         {
             _towerManager.SetBuildPosition(hit.transform);
         }
-        else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Tower"))
+        else if (layer == LayerMask.NameToLayer("Tower"))
         {
             _towerUpgradePanel.Enable(hit.collider.GetComponentInParent<Tower>());
         }
