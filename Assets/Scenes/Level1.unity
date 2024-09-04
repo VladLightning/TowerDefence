@@ -9655,6 +9655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeTowerCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3870607641709294260, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_Pivot.x
       value: -0.000000007450581
