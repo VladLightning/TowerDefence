@@ -60,6 +60,8 @@ public abstract class Tower : Entity
         _range = _towerLevels[_towerLevelIndex].Range;
         _price += _towerLevels[_towerLevelIndex].Price;
         _rotationSpeed = _towerLevels[_towerLevelIndex].RotationSpeed;
+
+        _collider2D.radius = _range;
     }
 
     private void OnDrawGizmos()
@@ -154,6 +156,16 @@ public abstract class Tower : Entity
     {
         _shootingIsActive = false;
         StopCoroutine(_shoot);
+    }
+
+    public bool IsMaxLevel()
+    {
+        return _towerLevelIndex == TowerData.MAX_TOWER_LEVEL;
+    }
+
+    public bool IsUpgradeAvailable()
+    {
+        return !IsMaxLevel() && TowerLevels[TowerLevelIndex].Price <= _playerMoney.MoneyAmount;
     }
 
     public void Upgrade()

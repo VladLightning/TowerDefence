@@ -4,14 +4,12 @@ using UnityEngine.UI;
 public class TowerUpgradePanel : MonoBehaviour
 {
     [SerializeField] private Button _upgradeButton;
-    [SerializeField] private PlayerMoney _playerMoney;
     private Tower _tower;
-    public Tower Tower => _tower;
 
     public void Enable(Tower tower)
     {        
         _tower = tower;
-        UpgradeIsAvailableCheck();
+        UpgradeButtonIsAvailable();
 
         Disable();
         transform.position = _tower.transform.position;
@@ -25,8 +23,11 @@ public class TowerUpgradePanel : MonoBehaviour
 
     public void ExecuteTowerUpgrade()
     {
-        _tower.Upgrade();
-        gameObject.SetActive(false);
+        if(!_tower.IsMaxLevel())
+        {
+            _tower.Upgrade();
+            gameObject.SetActive(false);
+        }
     }
 
     public void ExecuteTowerSell()
@@ -35,8 +36,12 @@ public class TowerUpgradePanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpgradeIsAvailableCheck()
+    public void UpgradeButtonIsAvailable()
     {
-        _upgradeButton.interactable = _tower.TowerLevels[_tower.TowerLevelIndex].Price <= _playerMoney.MoneyAmount;
+        if(_tower == null)
+        {
+            return;
+        }
+        _upgradeButton.interactable = _tower.IsUpgradeAvailable();
     }
 }

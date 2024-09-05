@@ -1,6 +1,8 @@
 using UnityEngine;
 public abstract class TowerData : EntityData
 {
+    public const int MAX_TOWER_LEVEL = 3;
+
     [SerializeField] protected float _force;
     public float Force => _force;
     [SerializeField] protected float _range;

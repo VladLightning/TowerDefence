@@ -18,10 +18,7 @@ public class PlayerMoney : MonoBehaviour
 
     public void CheckUpgradeIsAvailable()
     {
-        if(_towerUpgradePanel.Tower != null)
-        {
-            _towerUpgradePanel.UpgradeIsAvailableCheck();
-        }
+        _towerUpgradePanel.UpgradeButtonIsAvailable();
     }
 
     private void UpdateMoneyDisplay()
