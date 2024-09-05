@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdede9363eb3d9b40abd5d1e8b3eef37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _upgradeButton: {fileID: 0}
 --- !u!61 &1207971958847706667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -309,7 +310,7 @@ GameObject:
   - component: {fileID: 4024573667243216031}
   - component: {fileID: 8239010089898976852}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Sell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +577,7 @@ GameObject:
   - component: {fileID: 7954014613323148321}
   - component: {fileID: 7811661685600416363}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

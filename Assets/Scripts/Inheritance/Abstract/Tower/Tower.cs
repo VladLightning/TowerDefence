@@ -14,17 +14,32 @@ public abstract class Tower : Entity
     private int _price;
     private int _rotationSpeed;
 
+    private int _towerLevelIndex;
+    public int TowerLevelIndex => _towerLevelIndex;
+
     private float _lastShotTime;
 
     private Transform _target;
     private CircleCollider2D _collider2D;
 
     private PlayerMoney _playerMoney;
+    private TowerLevels[] _towerLevels;
+    public TowerLevels[] TowerLevels => _towerLevels;
 
     private IEnumerator _shoot;
     private bool _shootingIsActive;
 
     public void Initiate(TowerData towerData, PlayerMoney playerMoney)
+    {
+        SetStats(towerData);
+
+        _playerMoney = playerMoney;
+
+        _collider2D = GetComponent<CircleCollider2D>();
+        _collider2D.radius = _range;
+    }
+
+    private void SetStats(TowerData towerData)
     {
         _damage = towerData.Damage;
         _attackSpeed = towerData.AttackSpeed;
@@ -34,9 +49,18 @@ public abstract class Tower : Entity
         _price = towerData.Price;
         _rotationSpeed = towerData.RotationSpeed;
 
-        _playerMoney = playerMoney;
+        _towerLevels = towerData.TowerLevels;
+    }
+    private void SetStats()
+    {
+        _damage = _towerLevels[_towerLevelIndex].Damage;
+        _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
+        _damageType = _towerLevels[_towerLevelIndex].DamageType;
+        _force = _towerLevels[_towerLevelIndex].Force;
+        _range = _towerLevels[_towerLevelIndex].Range;
+        _price += _towerLevels[_towerLevelIndex].Price;
+        _rotationSpeed = _towerLevels[_towerLevelIndex].RotationSpeed;
 
-        _collider2D = GetComponent<CircleCollider2D>();
         _collider2D.radius = _range;
     }
 
@@ -134,9 +158,21 @@ public abstract class Tower : Entity
         StopCoroutine(_shoot);
     }
 
-    private void Upgrade()
+    public bool IsMaxLevel()
     {
-        throw new NotImplementedException();
+        return _towerLevelIndex == TowerData.MAX_TOWER_LEVEL;
+    }
+
+    public bool IsUpgradeAvailable()
+    {
+        return !IsMaxLevel() && TowerLevels[TowerLevelIndex].Price <= _playerMoney.MoneyAmount;
+    }
+
+    public void Upgrade()
+    {
+        _playerMoney.Purchase(_towerLevels[_towerLevelIndex].Price);
+        SetStats();
+        _towerLevelIndex++;
     }
 
     public void Sell()

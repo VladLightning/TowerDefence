@@ -19,3 +19,32 @@ MonoBehaviour:
   _range: 10
   _price: 100
   _rotationSpeed: 15
+  towerLevels:
+  - _damage: 2
+    _attackSpeed: 1
+    _damageType: 0
+    _force: 3000
+    _range: 15
+    _price: 100
+    _rotationSpeed: 20
+  - _damage: 3
+    _attackSpeed: 1
+    _damageType: 0
+    _force: 3500
+    _range: 20
+    _price: 200
+    _rotationSpeed: 20
+  - _damage: 5
+    _attackSpeed: 1
+    _damageType: 0
+    _force: 4000
+    _range: 25
+    _price: 400
+    _rotationSpeed: 25
+  - _damage: 0
+    _attackSpeed: 0
+    _damageType: 0
+    _force: 0
+    _range: 0
+    _price: 99999
+    _rotationSpeed: 0
