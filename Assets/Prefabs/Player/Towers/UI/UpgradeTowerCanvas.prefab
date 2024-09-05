@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdede9363eb3d9b40abd5d1e8b3eef37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradeButton: {fileID: 0}
+  _upgradeButton: {fileID: 7811661685600416363}
+  _priceDisplay: {fileID: 3118007795085098494}
 --- !u!61 &1207971958847706667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -442,7 +443,7 @@ GameObject:
   - component: {fileID: 4069453459849972441}
   - component: {fileID: 3118007795085098494}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +685,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7954014613323148321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4832873038657077845}
+        m_TargetAssemblyTypeName: TowerUpgradePanel, Assembly-CSharp
+        m_MethodName: ExecuteTowerUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7523640918041899814
 GameObject:
   m_ObjectHideFlags: 0

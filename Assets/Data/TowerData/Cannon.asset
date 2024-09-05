@@ -41,10 +41,3 @@ MonoBehaviour:
     _range: 25
     _price: 400
     _rotationSpeed: 25
-  - _damage: 0
-    _attackSpeed: 0
-    _damageType: 0
-    _force: 0
-    _range: 0
-    _price: 99999
-    _rotationSpeed: 0
