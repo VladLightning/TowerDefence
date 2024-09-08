@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
 {
@@ -8,6 +7,9 @@ public abstract class Tower : Entity
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
+
+    [SerializeField] private TowerBranchData[] _towerBranchData;
+    public TowerBranchData[] TowerBranchData => _towerBranchData;
 
     private float _force;
     private float _range;
@@ -158,6 +160,14 @@ public abstract class Tower : Entity
         StopCoroutine(_shoot);
     }
 
+    protected override void Attack()
+    {
+        float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
+
+        _shoot = Shoot(delay);
+        StartCoroutine(_shoot);
+    }
+
     public bool IsMaxLevel()
     {
         return _towerLevelIndex == TowerData.MAX_TOWER_LEVEL;
@@ -181,11 +191,8 @@ public abstract class Tower : Entity
         Destroy(gameObject);
     }
 
-    protected override void Attack()
-    {       
-        float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
+    public void SetBranch(TowerBranchData branch)
+    {
 
-        _shoot = Shoot(delay);
-        StartCoroutine(_shoot);
     }
 }
