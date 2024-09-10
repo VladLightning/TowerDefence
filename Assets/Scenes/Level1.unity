@@ -1682,6 +1682,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 731647705621215123, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
   m_PrefabInstance: {fileID: 6561328860692613573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2136654107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8405664998630760872, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+  m_PrefabInstance: {fileID: 6561328860692613573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136654103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0535c952391f08640a79405014d50c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &192062148529831533
 Transform:
   m_ObjectHideFlags: 0
@@ -1858,6 +1869,10 @@ PrefabInstance:
       propertyPath: _moneyDisplay
       value: 
       objectReference: {fileID: 387736725}
+    - target: {fileID: 6306946180073782388, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
+      propertyPath: _branchHandler
+      value: 
+      objectReference: {fileID: 2136654107}
     - target: {fileID: 6306946180073782388, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
       propertyPath: _towerUpgradePanel
       value: 
@@ -9665,6 +9680,10 @@ PrefabInstance:
       value: UpgradeTowerCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: _branchHandler
+      value: 
+      objectReference: {fileID: 2136654107}
+    - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: _towerBranchChoicePanel
       value: 
       objectReference: {fileID: 2136654103}
@@ -9748,6 +9767,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8405664998630760872, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: _playerMoney
+      value: 
+      objectReference: {fileID: 1947299098}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

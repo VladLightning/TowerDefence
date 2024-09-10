@@ -119,7 +119,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1711054498644915329}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8405664998630760872}
+        m_TargetAssemblyTypeName: BranchHandler, Assembly-CSharp
+        m_MethodName: SetBranch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &731647705621215123
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +143,7 @@ GameObject:
   - component: {fileID: 2371920845527181943}
   - component: {fileID: 1785536771980314655}
   - component: {fileID: 1576115070439953104}
+  - component: {fileID: 8405664998630760872}
   m_Layer: 5
   m_Name: BranchChoicePanel
   m_TagString: Untagged
@@ -197,6 +210,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8405664998630760872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731647705621215123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0535c952391f08640a79405014d50c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _branchChoicePanel: {fileID: 0}
+  _branchChoiceButtons:
+  - {fileID: 3014143474742036108}
+  - {fileID: 6873585657959363335}
 --- !u!1 &905436168052365478
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdede9363eb3d9b40abd5d1e8b3eef37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _branchHandler: {fileID: 0}
   _upgradeButton: {fileID: 7811661685600416363}
   _priceDisplay: {fileID: 3118007795085098494}
 --- !u!61 &1207971958847706667
@@ -1015,7 +1045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2751918145622220023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8405664998630760872}
+        m_TargetAssemblyTypeName: BranchHandler, Assembly-CSharp
+        m_MethodName: SetBranch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7523640918041899814
 GameObject:
   m_ObjectHideFlags: 0

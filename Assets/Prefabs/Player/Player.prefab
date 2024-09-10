@@ -62,6 +62,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyDisplay: {fileID: 0}
   _levelData: {fileID: 11400000, guid: fbff3aadeebea9d47a3becaafac361d9, type: 2}
+  _towerUpgradePanel: {fileID: 0}
+  _branchHandler: {fileID: 0}
 --- !u!114 &6822850178659712930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,3 +77,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
+  _towerManager: {fileID: 0}
+  _towerUpgradePanel: {fileID: 0}
