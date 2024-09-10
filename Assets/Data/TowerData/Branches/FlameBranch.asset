@@ -13,10 +13,25 @@ MonoBehaviour:
   m_Name: FlameBranch
   m_EditorClassIdentifier: 
   _towerSprite: {fileID: -8932092875127675973, guid: 96bd28ab240fcea41a35da50b7bf7a32, type: 3}
-  _projectile: {fileID: 5363768223745023547, guid: c4ca9528387717c4c9a1aa6ee1afaa55, type: 3}
-  _damage: 0
-  _attackSpeed: 0
+  _projectile: {fileID: 29207817187422115, guid: c8f985b21dd988348b3f65d4e0a43765, type: 3}
   _damageType: 1
-  _force: 0
-  _range: 0
-  _rotationSpeed: 0
+  _price: 5000
+  _branchLevels:
+  - _damage: 0
+    _attackSpeed: 0
+    _force: 0
+    _range: 0
+    _rotationSpeed: 0
+    _price: 0
+  - _damage: 0
+    _attackSpeed: 0
+    _force: 0
+    _range: 0
+    _rotationSpeed: 0
+    _price: 0
+  - _damage: 0
+    _attackSpeed: 0
+    _force: 0
+    _range: 0
+    _rotationSpeed: 0
+    _price: 0

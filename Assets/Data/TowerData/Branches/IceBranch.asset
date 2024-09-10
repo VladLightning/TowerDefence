@@ -13,10 +13,25 @@ MonoBehaviour:
   m_Name: IceBranch
   m_EditorClassIdentifier: 
   _towerSprite: {fileID: -1997973558389039879, guid: 36b6c9e633009e44bb258fa4ec9d8b92, type: 3}
-  _projectile: {fileID: 8361014186807847500, guid: 4b5560587e22c524997c8835ebb58b30, type: 3}
-  _damage: 0
-  _attackSpeed: 0
-  _damageType: 1
-  _force: 0
-  _range: 0
-  _rotationSpeed: 0
+  _projectile: {fileID: 6402168857156080232, guid: 689d637f3b7f91c43a20680d0395ebe4, type: 3}
+  _damageType: 2
+  _price: 500
+  _branchLevels:
+  - _damage: 0
+    _attackSpeed: 0
+    _force: 0
+    _range: 0
+    _rotationSpeed: 0
+    _price: 0
+  - _damage: 0
+    _attackSpeed: 0
+    _force: 0
+    _range: 0
+    _rotationSpeed: 0
+    _price: 0
+  - _damage: 0
+    _attackSpeed: 0
+    _force: 0
+    _range: 0
+    _rotationSpeed: 0
+    _price: 0
