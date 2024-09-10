@@ -4,29 +4,11 @@ using UnityEngine.UI;
 
 public class TowerUpgradePanel : MonoBehaviour
 {
-    [SerializeField] private GameObject _towerBranchChoicePanel;
+    [SerializeField] private BranchHandler _branchHandler;
     [SerializeField] private Button _upgradeButton;
-    [SerializeField] private TMP_Text _priceDisplay;
-
-    private Button[] _branchChoiceButtons;
+    [SerializeField] private TMP_Text _priceDisplay; 
 
     private Tower _tower;
-
-    private void SetBranchChoice(TowerBranchData[] towerBranches)
-    {
-        if (!_tower.IsMaxLevel())
-        {
-            return;
-        }
-
-        _towerBranchChoicePanel.SetActive(true);
-        _branchChoiceButtons = _towerBranchChoicePanel.GetComponentsInChildren<Button>();
-
-        for(int i = 0;  i < towerBranches.Length; i++)
-        {
-            _branchChoiceButtons[i].image.sprite = towerBranches[i].TowerSprite;
-        }
-    }
 
     public void Enable(Tower tower)
     {        
@@ -36,7 +18,10 @@ public class TowerUpgradePanel : MonoBehaviour
 
         Disable();
 
-        SetBranchChoice(_tower.TowerBranchData);
+        if(_tower.IsMaxLevel())
+        {
+            _branchHandler.SetBranchChoice(_tower);
+        }
 
         transform.position = _tower.transform.position;
         gameObject.SetActive(true); 
@@ -44,7 +29,7 @@ public class TowerUpgradePanel : MonoBehaviour
 
     public void Disable()
     {
-        _towerBranchChoicePanel.SetActive(false);
+        _branchHandler.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 

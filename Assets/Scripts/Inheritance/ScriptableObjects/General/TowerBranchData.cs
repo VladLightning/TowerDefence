@@ -13,6 +13,9 @@ public class TowerBranchData : ScriptableObject
     [SerializeField] private DamageTypeEnum.DamageTypes _damageType;
     public DamageTypeEnum.DamageTypes DamageType => _damageType;
 
+    [SerializeField] private int _price;
+    public int Price => _price;
+
     [SerializeField] private BranchLevels[] _branchLevels;
     public BranchLevels[] BranchLevels => _branchLevels;
 }
@@ -33,4 +36,7 @@ public class BranchLevels
 
     [SerializeField] private int _rotationSpeed;
     public int RotationSpeed => _rotationSpeed;
+
+    [SerializeField] private int _price;
+    public int Price => _price;
 }

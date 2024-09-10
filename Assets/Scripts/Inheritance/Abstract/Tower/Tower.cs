@@ -11,6 +11,9 @@ public abstract class Tower : Entity
     [SerializeField] private TowerBranchData[] _towerBranchData;
     public TowerBranchData[] TowerBranchData => _towerBranchData;
 
+    private TowerBranchData _currentTowerBranchData;
+    public TowerBranchData CurrentTowerBranchData => _currentTowerBranchData;
+
     private float _force;
     private float _range;
     private int _price;
@@ -193,6 +196,8 @@ public abstract class Tower : Entity
 
     public void SetBranch(TowerBranchData branch)
     {
-
+        _currentTowerBranchData = branch;
+        GetComponent<SpriteRenderer>().sprite = branch.TowerSprite;
+        _projectile = branch.Projectile;
     }
 }
