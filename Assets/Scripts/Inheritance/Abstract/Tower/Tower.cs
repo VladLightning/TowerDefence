@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 public abstract class Tower : Entity
 {
@@ -8,6 +7,13 @@ public abstract class Tower : Entity
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
+    [SerializeField] private TowerData _towerData;
+    public TowerData TowerData => _towerData;
+    [SerializeField] private TowerBranchData[] _towerBranchData;
+    public TowerBranchData[] TowerBranchData => _towerBranchData;
+
+    private TowerBranchData _currentTowerBranchData;
+    public TowerBranchData CurrentTowerBranchData => _currentTowerBranchData;
 
     private float _force;
     private float _range;
@@ -29,9 +35,9 @@ public abstract class Tower : Entity
     private IEnumerator _shoot;
     private bool _shootingIsActive;
 
-    public void Initiate(TowerData towerData, PlayerMoney playerMoney)
+    public void Initiate(PlayerMoney playerMoney)
     {
-        SetStats(towerData);
+        SetStats(_towerData);
 
         _playerMoney = playerMoney;
 
@@ -158,6 +164,14 @@ public abstract class Tower : Entity
         StopCoroutine(_shoot);
     }
 
+    protected override void Attack()
+    {
+        float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
+
+        _shoot = Shoot(delay);
+        StartCoroutine(_shoot);
+    }
+
     public bool IsMaxLevel()
     {
         return _towerLevelIndex == TowerData.MAX_TOWER_LEVEL;
@@ -181,11 +195,11 @@ public abstract class Tower : Entity
         Destroy(gameObject);
     }
 
-    protected override void Attack()
-    {       
-        float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
-
-        _shoot = Shoot(delay);
-        StartCoroutine(_shoot);
+    public void SetBranch(TowerBranchData branch)
+    {      
+        _currentTowerBranchData = branch;
+        _playerMoney.Purchase(_currentTowerBranchData.Price);
+        GetComponent<SpriteRenderer>().sprite = _currentTowerBranchData.TowerSprite;
+        _projectile = _currentTowerBranchData.Projectile;
     }
 }

@@ -6,6 +6,7 @@ public class PlayerMoney : MonoBehaviour
     [SerializeField] private LevelData _levelData;
 
     [SerializeField] private TowerUpgradePanel _towerUpgradePanel;
+    [SerializeField] private BranchHandler _branchHandler;
 
     private int _moneyAmount;
     public int MoneyAmount => _moneyAmount;
@@ -18,7 +19,14 @@ public class PlayerMoney : MonoBehaviour
 
     public void CheckUpgradeIsAvailable()
     {
-        _towerUpgradePanel.UpgradeButtonIsAvailable();
+        if(_towerUpgradePanel.gameObject.activeSelf)
+        {
+            _towerUpgradePanel.UpgradeButtonIsAvailable();
+        }
+        if(_branchHandler.gameObject.activeSelf)
+        {
+            _branchHandler.ChoiceButtonIsAvailable();
+        }
     }
 
     private void UpdateMoneyDisplay()

@@ -1273,7 +1273,6 @@ GameObject:
   - component: {fileID: 6162840968880194112}
   - component: {fileID: 1473555405832780333}
   - component: {fileID: 710209010300157379}
-  - component: {fileID: 4805569201266523387}
   m_Layer: 5
   m_Name: TowerChoicePanel
   m_TagString: Untagged
@@ -1356,22 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMoney: {fileID: 0}
---- !u!114 &4805569201266523387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150656255412589968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91461b2b4cafe429d805e4af33c515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _towers:
-  - {fileID: 4775417946767886828, guid: 64434bc6b56ba7344988fe5d01368426, type: 3}
-  _towerStatsData:
-  - {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
+  _towers: []
 --- !u!1 &8229138234427570609
 GameObject:
   m_ObjectHideFlags: 0
