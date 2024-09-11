@@ -29,7 +29,7 @@ public class TowerUpgradePanel : MonoBehaviour
 
     public void Disable()
     {
-        _branchHandler.gameObject.SetActive(false);
+        _branchHandler.Disable();
         gameObject.SetActive(false);
     }
 
@@ -50,10 +50,6 @@ public class TowerUpgradePanel : MonoBehaviour
 
     public void UpgradeButtonIsAvailable()
     {
-        if(_tower == null)
-        {
-            return;
-        }
         _upgradeButton.interactable = _tower.IsUpgradeAvailable();
     }
 }

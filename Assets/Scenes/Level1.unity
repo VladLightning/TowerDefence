@@ -9675,9 +9675,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 731647705621215123, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 905436168052365478, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_Name
       value: UpgradeTowerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 905436168052365478, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: _branchHandler

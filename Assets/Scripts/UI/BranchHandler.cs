@@ -36,10 +36,6 @@ public class BranchHandler : MonoBehaviour
 
     public void ChoiceButtonIsAvailable()
     {
-        if(_tower == null)
-        {
-            return;
-        }
         for(int i = 0; i < _branchChoiceButtons.Length; i++)
         {
             _branchChoiceButtons[i].interactable = _tower.TowerBranchData[i].Price <= _playerMoney.MoneyAmount;
