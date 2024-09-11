@@ -7,7 +7,8 @@ public abstract class Tower : Entity
 
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _projectileLaunchPoint;
-
+    [SerializeField] private TowerData _towerData;
+    public TowerData TowerData => _towerData;
     [SerializeField] private TowerBranchData[] _towerBranchData;
     public TowerBranchData[] TowerBranchData => _towerBranchData;
 
@@ -34,9 +35,9 @@ public abstract class Tower : Entity
     private IEnumerator _shoot;
     private bool _shootingIsActive;
 
-    public void Initiate(TowerData towerData, PlayerMoney playerMoney)
+    public void Initiate(PlayerMoney playerMoney)
     {
-        SetStats(towerData);
+        SetStats(_towerData);
 
         _playerMoney = playerMoney;
 
@@ -195,9 +196,10 @@ public abstract class Tower : Entity
     }
 
     public void SetBranch(TowerBranchData branch)
-    {
+    {      
         _currentTowerBranchData = branch;
-        GetComponent<SpriteRenderer>().sprite = branch.TowerSprite;
-        _projectile = branch.Projectile;
+        _playerMoney.Purchase(_currentTowerBranchData.Price);
+        GetComponent<SpriteRenderer>().sprite = _currentTowerBranchData.TowerSprite;
+        _projectile = _currentTowerBranchData.Projectile;
     }
 }

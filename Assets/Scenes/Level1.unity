@@ -539,6 +539,14 @@ PrefabInstance:
       propertyPath: _playerMoney
       value: 
       objectReference: {fileID: 1947299098}
+    - target: {fileID: 710209010300157379, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: _towers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 710209010300157379, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
+      propertyPath: '_towers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4775417946767886828, guid: 64434bc6b56ba7344988fe5d01368426, type: 3}
     - target: {fileID: 2424645265342979194, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -623,7 +631,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerChoicePanel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4805569201266523387, guid: 5544f0ad7ced3ca43a2824b5d37f0716, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
