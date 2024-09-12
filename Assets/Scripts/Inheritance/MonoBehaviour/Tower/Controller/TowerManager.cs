@@ -15,7 +15,7 @@ public class TowerManager : MonoBehaviour
     public void BuildTower(TowersEnum.TowerTypes towerType)
     {
         GameObject selectedTower = _towers[(int)towerType];
-        int price = selectedTower.GetComponent<Tower>().TowerData.Price;
+        int price = selectedTower.GetComponent<Tower>().TowerLevelsData.Price;
         if (price > _playerMoney.MoneyAmount)
         {
             return;
