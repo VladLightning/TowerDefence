@@ -15,29 +15,33 @@ MonoBehaviour:
   _damage: 1
   _attackSpeed: 2
   _damageType: 0
+  _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
   _force: 2500
   _range: 10
   _price: 100
   _rotationSpeed: 15
   towerLevels:
-  - _damage: 2
+  - _projectile: {fileID: 0}
+    _damage: 2
     _attackSpeed: 1
     _damageType: 0
     _force: 3000
-    _range: 15
+    _range: 10
     _price: 100
-    _rotationSpeed: 20
-  - _damage: 3
+    _rotationSpeed: 15
+  - _projectile: {fileID: 0}
+    _damage: 3
     _attackSpeed: 1
     _damageType: 0
     _force: 3500
-    _range: 20
+    _range: 10
     _price: 200
-    _rotationSpeed: 20
-  - _damage: 5
+    _rotationSpeed: 15
+  - _projectile: {fileID: 0}
+    _damage: 5
     _attackSpeed: 1
     _damageType: 0
     _force: 4000
-    _range: 25
+    _range: 15
     _price: 400
-    _rotationSpeed: 25
+    _rotationSpeed: 15

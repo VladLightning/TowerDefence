@@ -4,16 +4,17 @@ public abstract class Tower : Entity
 {
     private const float DELAY_FOR_ROTATION = 0.2f;
     private const float SELL_PRICE_COEFFICIENT = 0.5f;
-
-    [SerializeField] private GameObject _projectile;
+    
     [SerializeField] private Transform _projectileLaunchPoint;
-    [SerializeField] private TowerData _towerData;
-    public TowerData TowerData => _towerData;
+    [SerializeField] private TowerLevelsData _towerLevelsData;
+    public TowerLevelsData TowerLevelsData => _towerLevelsData;
     [SerializeField] private TowerBranchData[] _towerBranchData;
     public TowerBranchData[] TowerBranchData => _towerBranchData;
 
     private TowerBranchData _currentTowerBranchData;
     public TowerBranchData CurrentTowerBranchData => _currentTowerBranchData;
+
+    private GameObject _projectile;
 
     private float _force;
     private float _range;
@@ -37,28 +38,30 @@ public abstract class Tower : Entity
 
     public void Initiate(PlayerMoney playerMoney)
     {
-        SetStats(_towerData);
-
-        _playerMoney = playerMoney;
-
         _collider2D = GetComponent<CircleCollider2D>();
-        _collider2D.radius = _range;
+        _towerLevels = _towerLevelsData.TowerLevels;
+        SetStats(_towerLevelsData);
+
+        _playerMoney = playerMoney;      
     }
 
-    private void SetStats(TowerData towerData)
+    private void SetStats(TowerData towerLevelsData)
     {
-        _damage = towerData.Damage;
-        _attackSpeed = towerData.AttackSpeed;
-        _damageType = towerData.DamageType;
-        _force = towerData.Force;
-        _range = towerData.Range;
-        _price = towerData.Price;
-        _rotationSpeed = towerData.RotationSpeed;
+        _projectile = towerLevelsData.Projectile;
+        _damage = towerLevelsData.Damage;
+        _attackSpeed = towerLevelsData.AttackSpeed;
+        _damageType = towerLevelsData.DamageType;
+        _force = towerLevelsData.Force;
+        _range = towerLevelsData.Range;
+        _price = towerLevelsData.Price;
+        _rotationSpeed = towerLevelsData.RotationSpeed;
 
-        _towerLevels = towerData.TowerLevels;
+        _collider2D.radius = _range;      
     }
+
     private void SetStats()
     {
+        _projectile = _towerLevels[_towerLevelIndex].Projectile;
         _damage = _towerLevels[_towerLevelIndex].Damage;
         _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
         _damageType = _towerLevels[_towerLevelIndex].DamageType;
@@ -174,7 +177,7 @@ public abstract class Tower : Entity
 
     public bool IsMaxLevel()
     {
-        return _towerLevelIndex == TowerData.MAX_TOWER_LEVEL;
+        return _towerLevelIndex == TowerLevelsData.MAX_TOWER_LEVEL;
     }
 
     public bool IsUpgradeAvailable()
@@ -200,6 +203,7 @@ public abstract class Tower : Entity
         _currentTowerBranchData = branch;
         _playerMoney.Purchase(_currentTowerBranchData.Price);
         GetComponent<SpriteRenderer>().sprite = _currentTowerBranchData.TowerSprite;
-        _projectile = _currentTowerBranchData.Projectile;
+
+        SetStats(branch);
     }
 }

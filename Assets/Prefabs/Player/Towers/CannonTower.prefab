@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
   _projectileLaunchPoint: {fileID: 723020354221402791}
-  _towerData: {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
+  _towerLevelsData: {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
   _towerBranchData:
   - {fileID: 11400000, guid: 8f89a7638f0fab44c85033f93a414d30, type: 2}
   - {fileID: 11400000, guid: 19c06ecaeee56824c8c6a005f13a80ca, type: 2}
