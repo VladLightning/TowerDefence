@@ -9697,10 +9697,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
-      propertyPath: _branchHandler
-      value: 
-      objectReference: {fileID: 2136654107}
-    - target: {fileID: 4832873038657077845, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: _towerBranchChoicePanel
       value: 
       objectReference: {fileID: 2136654103}

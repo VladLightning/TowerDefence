@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class TowerUpgradePanel : MonoBehaviour
 {
+    [SerializeField] private GameObject _upgradePanel;
+
     [SerializeField] private BranchHandler _branchHandler;
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private TMP_Text _priceDisplay; 
@@ -18,8 +20,9 @@ public class TowerUpgradePanel : MonoBehaviour
 
         Disable();
 
-        if(_tower.IsMaxLevel())
+        if (_tower.IsMaxLevel() && _tower.CurrentTowerBranchData == null)
         {
+            _upgradePanel.SetActive(false);
             _branchHandler.SetBranchChoice(_tower);
         }
 
@@ -31,6 +34,7 @@ public class TowerUpgradePanel : MonoBehaviour
     {
         _branchHandler.Disable();
         gameObject.SetActive(false);
+        _upgradePanel.SetActive(true);
     }
 
     public void ExecuteTowerUpgrade()
