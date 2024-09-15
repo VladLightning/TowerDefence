@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TowerLevelsData : TowerData
+public abstract class TowerLevelsData : TowerData
 {
     public const int MAX_TOWER_LEVEL = 3;
 

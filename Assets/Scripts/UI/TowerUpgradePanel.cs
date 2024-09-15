@@ -6,6 +6,7 @@ public class TowerUpgradePanel : MonoBehaviour
 {
     [SerializeField] private GameObject _upgradePanel;
 
+    [SerializeField] private BranchUpgradesHandler _branchUpgradesHandler;
     [SerializeField] private BranchHandler _branchHandler;
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private TMP_Text _priceDisplay; 
@@ -25,6 +26,11 @@ public class TowerUpgradePanel : MonoBehaviour
             _upgradePanel.SetActive(false);
             _branchHandler.SetBranchChoice(_tower);
         }
+        else if(_tower.CurrentTowerBranchData != null)
+        {
+            _upgradePanel.SetActive(false);
+            _branchUpgradesHandler.Enable(_tower);
+        }
 
         transform.position = _tower.transform.position;
         gameObject.SetActive(true); 
@@ -33,7 +39,10 @@ public class TowerUpgradePanel : MonoBehaviour
     public void Disable()
     {
         _branchHandler.Disable();
+        _branchUpgradesHandler.Disable();
+
         gameObject.SetActive(false);
+        
         _upgradePanel.SetActive(true);
     }
 

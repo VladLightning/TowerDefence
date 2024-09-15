@@ -18,6 +18,10 @@ MonoBehaviour:
   _projectile: {fileID: 29207817187422115, guid: c8f985b21dd988348b3f65d4e0a43765, type: 3}
   _force: 4000
   _range: 15
-  _price: 500
+  _price: 1000
   _rotationSpeed: 15
   _towerSprite: {fileID: -8932092875127675973, guid: 96bd28ab240fcea41a35da50b7bf7a32, type: 3}
+  _branchUpgradesData:
+  - {fileID: 11400000, guid: bbe127ba2a79ff244b085a56029dff80, type: 2}
+  - {fileID: 11400000, guid: fe4a42a70f01c5840b1b25d6f462d7a2, type: 2}
+  - {fileID: 11400000, guid: aa59d8f2fc9ac0049aa3bd4285b5ea08, type: 2}
