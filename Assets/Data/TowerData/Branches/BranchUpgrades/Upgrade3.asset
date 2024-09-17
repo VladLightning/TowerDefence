@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Upgrade3
   m_EditorClassIdentifier: 
   _sprite: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
-  _price: 150
+  _branchUpgrades:
+  - _price: 600
+  - _price: 800
