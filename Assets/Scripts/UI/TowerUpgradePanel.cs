@@ -21,19 +21,22 @@ public class TowerUpgradePanel : MonoBehaviour
 
         ResetToDefaultState();
 
-        if (_tower.IsMaxLevel() && _tower.CurrentTowerBranchData == null)
+        transform.position = _tower.transform.position;
+        gameObject.SetActive(true);
+
+        if (!_tower.IsMaxLevel())
         {
-            _upgradePanel.SetActive(false);
+            return;
+        }
+        if (_tower.CurrentTowerBranchData == null)
+        {
             _branchHandler.SetBranchChoice(_tower);
         }
-        else if(_tower.CurrentTowerBranchData != null)
-        {
-            _upgradePanel.SetActive(false);
+        else
+        {          
             _branchUpgradesHandler.Enable(_tower);
         }
-
-        transform.position = _tower.transform.position;
-        gameObject.SetActive(true); 
+        _upgradePanel.SetActive(false);
     }
 
     public void ResetToDefaultState()
