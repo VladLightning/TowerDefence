@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+
 public abstract class Tower : Entity
 {
     private const float DELAY_FOR_ROTATION = 0.2f;
@@ -23,6 +24,8 @@ public abstract class Tower : Entity
 
     private int _towerLevelIndex;
     public int TowerLevelIndex => _towerLevelIndex;
+
+    private int[] _currentBranchUpgradeLevels;
 
     private float _lastShotTime;
 
@@ -204,6 +207,18 @@ public abstract class Tower : Entity
         _playerMoney.Purchase(_currentTowerBranchData.Price);
         GetComponent<SpriteRenderer>().sprite = _currentTowerBranchData.TowerSprite;
 
+        _currentBranchUpgradeLevels = new int[_currentTowerBranchData.BranchUpgradesData.Length];
+
         SetStats(branch);
+    }
+
+    public void IncreaseAbilityLevel(int index)
+    {
+        _currentBranchUpgradeLevels[index]++;
+    }
+
+    public int GetCurrentUpgradeLevel(int index)
+    {
+        return _currentBranchUpgradeLevels[index];
     }
 }

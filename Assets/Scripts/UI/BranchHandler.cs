@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class BranchHandler : MonoBehaviour
 {
+    [SerializeField] private TowerUpgradePanel _towerUpgradePanel;
+
     [SerializeField] private Button[] _branchChoiceButtons;
     [SerializeField] private PlayerMoney _playerMoney;
 
@@ -10,12 +12,6 @@ public class BranchHandler : MonoBehaviour
 
     public void SetBranchChoice(Tower tower)
     {
-        if(tower.CurrentTowerBranchData != null)
-        {
-            Disable();
-            return;
-        }
-
         gameObject.SetActive(true);      
 
         _tower = tower;
@@ -31,6 +27,7 @@ public class BranchHandler : MonoBehaviour
     public void SetBranch(int index)
     {
         _tower.SetBranch(_tower.TowerBranchData[index]);
+        _towerUpgradePanel.ResetToDefaultState();
         Disable();
     }
 
@@ -44,6 +41,6 @@ public class BranchHandler : MonoBehaviour
 
     public void Disable()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false);       
     }
 }
