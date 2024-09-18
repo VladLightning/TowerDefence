@@ -13,7 +13,7 @@ public class BranchUpgradesHandler : MonoBehaviour
     private void UpdateLevelDisplay(int index)
     {
         _upgradeButtons[index].GetComponentInChildren<TMP_Text>().text =
-        $"{_tower.CurrentBranchUpgradeLevels[index]} / {_branchUpgradesData[index].BranchUpgrades.Length}";
+        $"{_tower.CurrentBranchUpgradeLevels[index]} / {_branchUpgradesData[index].UpgradePrices.Length}";
     }
 
     public void Enable(Tower tower)
@@ -36,26 +36,26 @@ public class BranchUpgradesHandler : MonoBehaviour
     {      
         for (int i = 0; i < _upgradeButtons.Length; i++)
         {
-            var branchUpgrades = _branchUpgradesData[i].BranchUpgrades;
-            if (branchUpgrades.Length <= _tower.CurrentBranchUpgradeLevels[i])
+            var upgradePrices = _branchUpgradesData[i].UpgradePrices;
+            if (upgradePrices.Length <= _tower.CurrentBranchUpgradeLevels[i])
             {
                 continue;
             }        
-            _upgradeButtons[i].interactable = branchUpgrades[_tower.CurrentBranchUpgradeLevels[i]].Price <= _playerMoney.MoneyAmount;
+            _upgradeButtons[i].interactable = upgradePrices[_tower.CurrentBranchUpgradeLevels[i]] <= _playerMoney.MoneyAmount;
         }
     }
 
     public void Upgrade(int upgradeIndex)
     {
-        var branchUpgrades = _branchUpgradesData[upgradeIndex].BranchUpgrades;
+        var upgradePrices = _branchUpgradesData[upgradeIndex].UpgradePrices;
 
-        _playerMoney.Purchase(branchUpgrades[_tower.CurrentBranchUpgradeLevels[upgradeIndex]].Price);
+        _playerMoney.Purchase(upgradePrices[_tower.CurrentBranchUpgradeLevels[upgradeIndex]]);
 
         _tower.CurrentBranchUpgradeLevels[upgradeIndex]++;
 
         UpdateLevelDisplay(upgradeIndex);
 
-        if (branchUpgrades.Length <= _tower.CurrentBranchUpgradeLevels[upgradeIndex])
+        if (upgradePrices.Length <= _tower.CurrentBranchUpgradeLevels[upgradeIndex])
         {
             _upgradeButtons[upgradeIndex].interactable = false;
         }
