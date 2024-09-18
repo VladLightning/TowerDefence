@@ -19,7 +19,7 @@ public class TowerUpgradePanel : MonoBehaviour
         UpgradeButtonIsAvailable();
         _priceDisplay.text = _tower.IsMaxLevel() ? "Max level" : _tower.TowerLevels[_tower.TowerLevelIndex].Price.ToString();
 
-        Disable();
+        ResetToDefaultState();
 
         if (_tower.IsMaxLevel() && _tower.CurrentTowerBranchData == null)
         {
@@ -36,7 +36,7 @@ public class TowerUpgradePanel : MonoBehaviour
         gameObject.SetActive(true); 
     }
 
-    public void Disable()
+    public void ResetToDefaultState()
     {
         _branchHandler.Disable();
         _branchUpgradesHandler.Disable();

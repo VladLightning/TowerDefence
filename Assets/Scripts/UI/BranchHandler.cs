@@ -27,7 +27,7 @@ public class BranchHandler : MonoBehaviour
     public void SetBranch(int index)
     {
         _tower.SetBranch(_tower.TowerBranchData[index]);
-        _towerUpgradePanel.Disable();
+        _towerUpgradePanel.ResetToDefaultState();
         Disable();
     }
 

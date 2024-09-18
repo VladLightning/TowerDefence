@@ -26,7 +26,7 @@ public class MouseInput : MonoBehaviour
 
         if (hit.collider == null)
         {
-            _towerUpgradePanel.Disable();
+            _towerUpgradePanel.ResetToDefaultState();
             return;
         }
 
@@ -34,7 +34,7 @@ public class MouseInput : MonoBehaviour
 
         if (layer != LayerMask.NameToLayer("UI"))
         {
-            _towerUpgradePanel.Disable();
+            _towerUpgradePanel.ResetToDefaultState();
         }
 
         if (layer == LayerMask.NameToLayer("Path"))
