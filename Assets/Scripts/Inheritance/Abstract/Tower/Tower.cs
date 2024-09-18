@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Localization.PropertyVariants.TrackedProperties;
 
 public abstract class Tower : Entity
 {
