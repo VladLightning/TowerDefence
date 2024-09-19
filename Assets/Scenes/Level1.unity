@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000001f21b683
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1099,6 +1099,10 @@ PrefabInstance:
       propertyPath: _playerMoney
       value: 
       objectReference: {fileID: 1947299098}
+    - target: {fileID: 7082837080138741323, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2085215969
+      objectReference: {fileID: 0}
     - target: {fileID: 7206406120244131147, guid: e7b4ca2074e3d5440832350142e7b1ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
