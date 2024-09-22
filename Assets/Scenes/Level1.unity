@@ -737,6 +737,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667244955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+  m_PrefabInstance: {fileID: 7714005470462286863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c00fc06f4374c4ba21da87e0fb0f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &718701404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1748,6 +1759,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e7708f5c541b0b43a721ae3377a7d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1975578097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+  m_PrefabInstance: {fileID: 718701404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c00fc06f4374c4ba21da87e0fb0f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2003843526
@@ -9553,6 +9575,18 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1979693135317303240, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: _spawners.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979693135317303240, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: '_spawners.Array.data[0]'
+      value: 
+      objectReference: {fileID: 667244955}
+    - target: {fileID: 1979693135317303240, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: '_spawners.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1975578097}
     - target: {fileID: 2965620555716105008, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_IsActive
       value: 0
