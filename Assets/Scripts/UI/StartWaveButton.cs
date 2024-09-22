@@ -18,7 +18,7 @@ public class StartWaveButton : MonoBehaviour
         float longestSpawnCycle = _spawners[0].SpawnCycleTime;
         for (int i = 1; i < _spawners.Length; i++)
         {
-            if (_spawners[i].SpawnCycleTime < longestSpawnCycle)
+            if (_spawners[i].SpawnCycleTime > longestSpawnCycle)
             {
                 longestSpawnCycle = _spawners[i].SpawnCycleTime;
             }
