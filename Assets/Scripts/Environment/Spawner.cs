@@ -39,9 +39,6 @@ public class Spawner : MonoBehaviour
 
     public void StartSpawnEnemy()
     {
-        if (!_isSpawning)
-        {
-            StartCoroutine(SpawnEnemy());
-        }
+        StartCoroutine(SpawnEnemy());
     }
 }

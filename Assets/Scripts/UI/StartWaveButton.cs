@@ -6,11 +6,11 @@ public class StartWaveButton : MonoBehaviour
 {
     [SerializeField] private Spawner[] _spawners;
 
-    private Button _startWaveButton;
+    private Button[] _startWaveButtons;
 
     private void Start()
     {
-        _startWaveButton = GetComponent<Button>();
+        _startWaveButtons = GetComponentsInChildren<Button>();
     }
 
     private IEnumerator SetButtonTimer()
@@ -26,14 +26,20 @@ public class StartWaveButton : MonoBehaviour
 
         yield return new WaitForSeconds(longestSpawnCycle);
 
-        _startWaveButton.interactable = true;
+        for (int i = 0; i < _startWaveButtons.Length; i++)
+        {
+            _startWaveButtons[i].interactable = true;
+        }
     }
 
     public void StartWave()
     {
         StartCoroutine(SetButtonTimer());
 
-        _startWaveButton.interactable = false;
+        for (int i = 0; i < _startWaveButtons.Length; i++)
+        {
+            _startWaveButtons[i].interactable = false;
+        }
 
         for (int i = 0; i < _spawners.Length; i++)
         {
