@@ -934,6 +934,10 @@ PrefabInstance:
       propertyPath: _enemiesAmount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _startWaveButtons
+      value: 
+      objectReference: {fileID: 419063642}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.12
@@ -1586,8 +1590,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 419063642}
-        m_TargetAssemblyTypeName: StartWaveButton, Assembly-CSharp
-        m_MethodName: StartWave
+        m_TargetAssemblyTypeName: StartWaveButtons, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9970,6 +9974,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6278689493944145963, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278689493944145963, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StartWaveButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6475495144171822519, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10195,6 +10207,10 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 1947299096}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _startWaveButtons
+      value: 
+      objectReference: {fileID: 419063642}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.72
