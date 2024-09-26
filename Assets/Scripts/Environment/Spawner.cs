@@ -2,39 +2,48 @@ using System.Collections;
 using UnityEngine;
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyToSpawn;
     [SerializeField] private Path _movementPath;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private PlayerMoney _playerMoney;
-    [SerializeField] private EnemyData[] _enemyData;
+    [SerializeField] private WaveData _waveData;
 
-    [SerializeField] private int _enemiesAmount;
-    [SerializeField] private float _spawnDelay;
+    [SerializeField] private StartWaveButtons _startWaveButtons;
 
-    private float _spawnCycleTime;
-    public float SpawnCycleTime => _spawnCycleTime;
-
-    private bool _isSpawning;
+    private IEnumerator _waveDelay;
 
     private void Start()
     {
-        for (int i = 0; i < _enemiesAmount+1; i++)
-        {
-            _spawnCycleTime += _spawnDelay;
-        }
+        _waveDelay = WaveDelay(0);
     }
 
     private IEnumerator SpawnEnemy()
-    {
-        _isSpawning = true;
-        yield return new WaitForSeconds(_spawnDelay);
-        for(int i = 0; i < _enemiesAmount; i++)
-        {            
-            GameObject enemy = Instantiate(_enemyToSpawn, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_enemyData[0], _movementPath, _playerHealth, _playerMoney);
-            yield return new WaitForSeconds(_spawnDelay);
+    {        
+        for(int i = 0; i < _waveData.Waves.Length; i++)
+        {
+            _startWaveButtons.SetButtonsActive(false);
+            for (int j = 0; j < _waveData.Waves[i].Enemies.Length; j++)
+            {
+                var enemyToSpawn = _waveData.Waves[i].Enemies[j];
+
+                GameObject enemy = Instantiate(enemyToSpawn.Enemy, transform.position, transform.rotation);
+                enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney);
+                yield return new WaitForSeconds(enemyToSpawn.SpawnDelay);
+            }
+            _startWaveButtons.SetButtonsActive(true);
+
+            _waveDelay = WaveDelay(i);
+            yield return StartCoroutine(_waveDelay);
         }
-        _isSpawning = false;
+    }
+
+    private IEnumerator WaveDelay(int index)
+    {
+        yield return new WaitForSeconds(_waveData.Waves[index].WaveDelay);
+    }
+
+    public void DisableWaveDelay()
+    {
+        StopCoroutine(_waveDelay);
     }
 
     public void StartSpawnEnemy()

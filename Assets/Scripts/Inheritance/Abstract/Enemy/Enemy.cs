@@ -3,6 +3,8 @@ public abstract class Enemy : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;
 
+    [SerializeField] private EnemyData _enemyData;
+
     private Transform _currentPoint;
     private Path _path;
     private PlayerHealth _playerHealth;
@@ -13,7 +15,16 @@ public abstract class Enemy : Mob
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
-    public void Initiate(EnemyData enemyData, Path path, PlayerHealth playerHealth, PlayerMoney playerMoney)
+    public void Initiate(Path path, PlayerHealth playerHealth, PlayerMoney playerMoney)
+    {
+        SetStats(_enemyData);
+
+        _path = path;
+        _playerHealth = playerHealth;
+        _playerMoney = playerMoney;
+    }
+
+    private void SetStats(EnemyData enemyData)
     {
         _damage = enemyData.Damage;
         _attackSpeed = enemyData.AttackSpeed;
@@ -22,10 +33,6 @@ public abstract class Enemy : Mob
         _damageToPlayer = enemyData.DamageToPlayer;
         _moneyOnDeath = enemyData.MoneyOnDeath;
         _movementSpeed = enemyData.MovementSpeed;
-
-        _path = path;
-        _playerHealth = playerHealth;
-        _playerMoney = playerMoney;
     }
 
     private void Start()
