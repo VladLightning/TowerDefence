@@ -16,23 +16,30 @@ public class Spawner : MonoBehaviour
         _waveDelay = WaveDelay(0);
     }
 
-    private IEnumerator SpawnEnemy()
-    {        
-        for(int i = 0; i < _waveData.Waves.Length; i++)
+    private IEnumerator WaveCycle()
+    {
+        for (int i = 0; i < _waveData.Waves.Length; i++)
         {
             _startWaveButtons.SetButtonsActive(false);
-            for (int j = 0; j < _waveData.Waves[i].Enemies.Length; j++)
-            {
-                var enemyToSpawn = _waveData.Waves[i].Enemies[j];
 
-                GameObject enemy = Instantiate(enemyToSpawn.Enemy, transform.position, transform.rotation);
-                enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney);
-                yield return new WaitForSeconds(enemyToSpawn.SpawnDelay);
-            }
+            yield return StartCoroutine(Spawn(i));
+
             _startWaveButtons.SetButtonsActive(true);
 
             _waveDelay = WaveDelay(i);
             yield return StartCoroutine(_waveDelay);
+        }
+    }
+
+    private IEnumerator Spawn(int index)
+    {
+        for (int j = 0; j < _waveData.Waves[index].Enemies.Length; j++)
+        {
+            var enemyToSpawn = _waveData.Waves[index].Enemies[j];
+
+            GameObject enemy = Instantiate(enemyToSpawn.Enemy, transform.position, transform.rotation);
+            enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney);
+            yield return new WaitForSeconds(enemyToSpawn.SpawnDelay);
         }
     }
 
@@ -46,8 +53,8 @@ public class Spawner : MonoBehaviour
         StopCoroutine(_waveDelay);
     }
 
-    public void StartSpawnEnemy()
+    public void StartWaveCycle()
     {
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(WaveCycle());
     }
 }
