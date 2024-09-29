@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - _enemies:
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
+    - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
       _spawnDelay: 3
     - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
       _spawnDelay: 3
@@ -22,6 +22,6 @@ MonoBehaviour:
   - _enemies:
     - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
       _spawnDelay: 3
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
+    - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
       _spawnDelay: 3
     _waveDelay: 20

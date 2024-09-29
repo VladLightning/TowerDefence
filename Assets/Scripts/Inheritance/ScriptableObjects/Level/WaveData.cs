@@ -8,14 +8,14 @@ public class WaveData : ScriptableObject
 [System.Serializable]
 public class Waves
 {
-    [SerializeField] private WaveEnemy[] _enemies;
-    public WaveEnemy[] Enemies => _enemies;
+    [SerializeField] private WaveInstanceData[] _waveInstances;
+    public WaveInstanceData[] WaveInstances => _waveInstances;
     [SerializeField] private int _waveDelay;
     public int WaveDelay => _waveDelay;
 }
 
 [System.Serializable]
-public class WaveEnemy
+public class WaveInstanceData
 {
     [SerializeField] private GameObject _enemy;
     public GameObject Enemy => _enemy;

@@ -33,13 +33,13 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn(int index)
     {
-        for (int j = 0; j < _waveData.Waves[index].Enemies.Length; j++)
+        for (int i = 0; i < _waveData.Waves[index].WaveInstances.Length; i++)
         {
-            var enemyToSpawn = _waveData.Waves[index].Enemies[j];
+            var waveInstanceData = _waveData.Waves[index].WaveInstances[i];
 
-            GameObject enemy = Instantiate(enemyToSpawn.Enemy, transform.position, transform.rotation);
+            GameObject enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
             enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney);
-            yield return new WaitForSeconds(enemyToSpawn.SpawnDelay);
+            yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
     }
 
@@ -48,13 +48,19 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(_waveData.Waves[index].WaveDelay);
     }
 
-    public void DisableWaveDelay()
+    private void DisableWaveDelay()
     {
         StopCoroutine(_waveDelay);
     }
 
-    public void StartWaveCycle()
+    private void StartWaveCycle()
     {
         StartCoroutine(WaveCycle());
+    }
+
+    public void ActivateSpawner()
+    {
+        DisableWaveDelay();
+        StartWaveCycle();
     }
 }

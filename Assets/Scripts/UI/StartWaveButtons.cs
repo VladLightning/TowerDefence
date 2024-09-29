@@ -16,8 +16,7 @@ public class StartWaveButtons : MonoBehaviour
     {
         for (int i = 0; i < _spawners.Length; i++)
         {
-            _spawners[i].DisableWaveDelay();
-            _spawners[i].StartWaveCycle();         
+            _spawners[i].ActivateSpawner();         
         }
     }
 
