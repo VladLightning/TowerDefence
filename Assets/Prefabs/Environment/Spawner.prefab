@@ -44,11 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c00fc06f4374c4ba21da87e0fb0f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyToSpawn: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
   _movementPath: {fileID: 0}
   _playerHealth: {fileID: 0}
   _playerMoney: {fileID: 0}
-  _enemyData:
-  - {fileID: 11400000, guid: 93b6b8be9ee2dbe4b91eb4d5d5afd8ad, type: 2}
+  _waveData: {fileID: 11400000, guid: e141af765c5a365428ac562a84460645, type: 2}
   _enemiesAmount: 5
   _spawnDelay: 2

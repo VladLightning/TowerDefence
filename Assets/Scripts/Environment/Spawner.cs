@@ -2,43 +2,65 @@ using System.Collections;
 using UnityEngine;
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyToSpawn;
     [SerializeField] private Path _movementPath;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private PlayerMoney _playerMoney;
-    [SerializeField] private EnemyData[] _enemyData;
+    [SerializeField] private WaveData _waveData;
 
-    [SerializeField] private int _enemiesAmount;
-    [SerializeField] private float _spawnDelay;
+    [SerializeField] private StartWaveButtons _startWaveButtons;
 
-    private float _spawnCycleTime;
-    public float SpawnCycleTime => _spawnCycleTime;
-
-    private bool _isSpawning;
+    private IEnumerator _waveDelay;
 
     private void Start()
     {
-        for (int i = 0; i < _enemiesAmount+1; i++)
+        _waveDelay = WaveDelay(0);
+    }
+
+    private IEnumerator WaveCycle()
+    {
+        for (int i = 0; i < _waveData.Waves.Length; i++)
         {
-            _spawnCycleTime += _spawnDelay;
+            _startWaveButtons.SetButtonsActive(false);
+
+            yield return StartCoroutine(Spawn(i));
+
+            _startWaveButtons.SetButtonsActive(true);
+
+            _waveDelay = WaveDelay(i);
+            yield return StartCoroutine(_waveDelay);
         }
     }
 
-    private IEnumerator SpawnEnemy()
+    private IEnumerator Spawn(int index)
     {
-        _isSpawning = true;
-        yield return new WaitForSeconds(_spawnDelay);
-        for(int i = 0; i < _enemiesAmount; i++)
-        {            
-            GameObject enemy = Instantiate(_enemyToSpawn, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_enemyData[0], _movementPath, _playerHealth, _playerMoney);
-            yield return new WaitForSeconds(_spawnDelay);
+        for (int i = 0; i < _waveData.Waves[index].WaveInstances.Length; i++)
+        {
+            var waveInstanceData = _waveData.Waves[index].WaveInstances[i];
+
+            GameObject enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
+            enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney);
+            yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
-        _isSpawning = false;
     }
 
-    public void StartSpawnEnemy()
+    private IEnumerator WaveDelay(int index)
     {
-        StartCoroutine(SpawnEnemy());
+        yield return new WaitForSeconds(_waveData.Waves[index].WaveDelay);
+    }
+
+    private void DisableWaveDelay()
+    {
+        StopCoroutine(_waveDelay);
+    }
+
+    private void StartWaveCycle()
+    {
+        StartCoroutine(WaveCycle());
+    }
+
+    public void ActivateSpawner()
+    {
+        DisableWaveDelay();
+        StartWaveCycle();
     }
 }
