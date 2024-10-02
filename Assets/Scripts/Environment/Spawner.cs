@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         _waveDelay = WaveDelay(0);
+        CountEnemies();
     }
 
     private IEnumerator WaveCycle()
@@ -65,10 +66,7 @@ public class Spawner : MonoBehaviour
         int amount = 0;
         for (int i = 0; i < _waveData.Waves.Length; i++)
         {
-            for (int j = 0; j < _waveData.Waves[i].WaveInstances.Length; j++)
-            {
-                amount++;
-            }
+            amount += _waveData.Waves[i].WaveInstances.Length;
         }
         _victory.IncreaseEnemiesAmount(amount);
     }
@@ -76,7 +74,6 @@ public class Spawner : MonoBehaviour
     public void ActivateSpawner()
     {
         DisableWaveDelay();
-        StartWaveCycle();
-        CountEnemies();
+        StartWaveCycle();       
     }
 }

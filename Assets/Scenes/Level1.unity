@@ -10224,6 +10224,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1947299102}
     - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _waveData
+      value: 
+      objectReference: {fileID: 11400000, guid: 90ae8bf247c73e14e958e8e84b6ac213, type: 2}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: _playerMoney
       value: 
       objectReference: {fileID: 1947299098}
