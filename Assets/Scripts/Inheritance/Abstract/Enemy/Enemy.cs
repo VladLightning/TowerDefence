@@ -51,6 +51,12 @@ public abstract class Enemy : Mob
     private void DealDamageToPlayer()
     {
         _playerHealth.TakeDamage(_damageToPlayer);
+        DestroyEnemy();
+    }
+
+    private void DestroyEnemy()
+    {
+        _victory.DecreaseEnemyAmount();
         Destroy(gameObject);
     }
 
@@ -63,7 +69,6 @@ public abstract class Enemy : Mob
             if (_currentPointIndex == _path.PathPoints.Length - 1)
             {
                 DealDamageToPlayer();  
-                _victory.DecreaseEnemyAmount();
                 return;
             }
             _currentPointIndex++;
@@ -73,9 +78,10 @@ public abstract class Enemy : Mob
 
     protected override void Death()
     {
-        _playerMoney.AddMoney(_moneyOnDeath);
-        _victory.DecreaseEnemyAmount();
         base.Death();
+
+        _playerMoney.AddMoney(_moneyOnDeath);
+        DestroyEnemy();
     }
 
     public float GetDistanceToCastle()
