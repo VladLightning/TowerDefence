@@ -22,7 +22,7 @@ public class StartWaveButtons : MonoBehaviour
 
     public void OnClick()
     {
-        SetButtonsActive(true);
+        SetButtonsActive(false);
         ActivateSpawners();
     }
 

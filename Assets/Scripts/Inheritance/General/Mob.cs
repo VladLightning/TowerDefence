@@ -21,7 +21,7 @@
 
     protected virtual void Death()
     {
-        Destroy(gameObject);
+        //Анимации, звуки
     }
 
     //Здесь ещё будут методы DetectOpponent(), EnterCombat(), ExitCombat().
