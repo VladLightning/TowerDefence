@@ -11,26 +11,36 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private StartWaveButtons _startWaveButtons;
 
-    private IEnumerator _waveDelay;
+    private bool _isSpawning;
+    private bool _waveDelayIsActive;
 
     private void Start()
     {
-        _waveDelay = WaveDelay(0);
         CountEnemies();
     }
 
     private IEnumerator WaveCycle()
     {
+        _isSpawning = true;
         for (int i = 0; i < _waveData.Waves.Length; i++)
         {
             _startWaveButtons.SetButtonsActive(false);
 
             yield return StartCoroutine(Spawn(i));
 
+            if(i == _waveData.Waves.Length - 1)
+            {
+                yield break;
+            }
+
             _startWaveButtons.SetButtonsActive(true);
 
-            _waveDelay = WaveDelay(i);
-            yield return StartCoroutine(_waveDelay);
+            _waveDelayIsActive = true;
+            float nextWaveStartTime = Time.time + _waveData.Waves[i].WaveDelay;
+            while (_waveDelayIsActive && Time.time < nextWaveStartTime)
+            {
+                yield return null;
+            }
         }
     }
 
@@ -46,14 +56,9 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private IEnumerator WaveDelay(int index)
-    {
-        yield return new WaitForSeconds(_waveData.Waves[index].WaveDelay);
-    }
-
     private void DisableWaveDelay()
     {
-        StopCoroutine(_waveDelay);
+        _waveDelayIsActive = false;
     }
 
     private void StartWaveCycle()
@@ -73,7 +78,11 @@ public class Spawner : MonoBehaviour
 
     public void ActivateSpawner()
     {
-        DisableWaveDelay();
-        StartWaveCycle();       
+        if(_isSpawning)
+        {
+            DisableWaveDelay();
+            return;
+        }
+        StartWaveCycle();
     }
 }
