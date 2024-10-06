@@ -12,6 +12,16 @@ public class Waves
     public WaveInstanceData[] WaveInstances => _waveInstances;
     [SerializeField] private int _waveDelay;
     public int WaveDelay => _waveDelay;
+
+    public int GetTotalDelay()
+    {
+        int totalDelay = 0; 
+        for (int i = 0; i < _waveInstances.Length; i++)
+        {
+            totalDelay += _waveInstances[i].SpawnDelay;
+        }
+        return totalDelay;
+    }
 }
 
 [System.Serializable]
