@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Level1SpawnerData2
   m_EditorClassIdentifier: 
   _waves:
+  - _waveInstances: []
+    _waveDelay: 20
   - _waveInstances:
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
+    - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
       _spawnDelay: 2
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
+    - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
       _spawnDelay: 2
-    _waveDelay: 5
-  - _waveInstances:
+    - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
+      _spawnDelay: 2
     - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
       _spawnDelay: 2
     _waveDelay: 20

@@ -7,9 +7,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private Victory _victory;
 
-    [SerializeField] private WaveData _waveData;
-
     [SerializeField] private StartWaveButtons _startWaveButtons;
+
+    private WaveData _waveData;
+
+    private float[] _buttonsActivationDelays;
 
     private bool _isSpawning;
     private bool _waveDelayIsActive;
@@ -25,8 +27,8 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < _waveData.Waves.Length; i++)
         {
             _startWaveButtons.SetButtonsActive(false);
-
-            yield return StartCoroutine(Spawn(i));
+            StartCoroutine(Spawn(i));
+            yield return new WaitForSeconds(_buttonsActivationDelays[i]);
 
             if(i == _waveData.Waves.Length - 1)
             {
@@ -84,5 +86,11 @@ public class Spawner : MonoBehaviour
             return;
         }
         StartWaveCycle();
+    }
+
+    public void SetWaveData(WaveData waveData, float[] buttonsActivationDelay)
+    {
+        _waveData = waveData;
+        _buttonsActivationDelays = buttonsActivationDelay;
     }
 }
