@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private Victory _victory;
 
-    [SerializeField] private StartWaveButtons _startWaveButtons;
+    [SerializeField] private StartWaveButtonsVisual _startWaveButtons;
 
     private WaveData _waveData;
 

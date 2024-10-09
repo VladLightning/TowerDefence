@@ -2,14 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartWaveButtons : MonoBehaviour
+public class StartWaveButtonsVisual : MonoBehaviour
 {
     [SerializeField] private Spawner[] _spawners;
     private Button[] _startWaveButtons;
+    private Image[] _buttonImages;
 
     private void Start()
     {
         _startWaveButtons = GetComponentsInChildren<Button>();
+        _buttonImages = GetComponentsInChildren<Image>();
     }
 
     private void ActivateSpawners()
@@ -22,16 +24,15 @@ public class StartWaveButtons : MonoBehaviour
 
     private IEnumerator FillButton(int index, float delay)
     {
-        Image buttonImage = _startWaveButtons[index].GetComponent<Image>();
         float delayCounter = 0;
 
         while (delayCounter < delay)
         {
-            buttonImage.fillAmount = Mathf.Lerp(0, 1, delayCounter/delay);
+            _buttonImages[index].fillAmount = Mathf.Lerp(0, 1, delayCounter/delay);
             delayCounter += Time.deltaTime;
             yield return null;
-        }      
-        buttonImage.fillAmount = 1;
+        }
+        _buttonImages[index].fillAmount = 1;
     }
 
     public void OnClick()
