@@ -7,11 +7,14 @@ public class Spawner : MonoBehaviour
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private Victory _victory;
 
-    [SerializeField] private StartWaveButtons _startWaveButtons;
+    [SerializeField] private StartWaveButtonsVisual _startWaveButtons;
 
     private WaveData _waveData;
 
     private float[] _buttonsActivationDelays;
+    public float CurrentWaveDelay => _waveData.Waves[_currentWaveIndex].WaveDelay;
+
+    private int _currentWaveIndex;
 
     private bool _isSpawning;
     private bool _waveDelayIsActive;
@@ -24,13 +27,13 @@ public class Spawner : MonoBehaviour
     private IEnumerator WaveCycle()
     {
         _isSpawning = true;
-        for (int i = 0; i < _waveData.Waves.Length; i++)
+        for (_currentWaveIndex = 0; _currentWaveIndex < _waveData.Waves.Length; _currentWaveIndex++)
         {
             _startWaveButtons.SetButtonsActive(false);
-            StartCoroutine(Spawn(i));
-            yield return new WaitForSeconds(_buttonsActivationDelays[i]);
+            StartCoroutine(Spawn(_currentWaveIndex));
+            yield return new WaitForSeconds(_buttonsActivationDelays[_currentWaveIndex]);
 
-            if(i == _waveData.Waves.Length - 1)
+            if(_currentWaveIndex == _waveData.Waves.Length - 1)
             {
                 yield break;
             }
@@ -38,9 +41,10 @@ public class Spawner : MonoBehaviour
             _startWaveButtons.SetButtonsActive(true);
 
             _waveDelayIsActive = true;
-            float nextWaveStartTime = Time.time + _waveData.Waves[i].WaveDelay;
-            while (_waveDelayIsActive && Time.time < nextWaveStartTime)
+            float delayCounter = 0;
+            while (_waveDelayIsActive && delayCounter < CurrentWaveDelay)
             {
+                delayCounter += Time.deltaTime;
                 yield return null;
             }
         }
