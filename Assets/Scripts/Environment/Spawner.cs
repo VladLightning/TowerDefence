@@ -47,6 +47,7 @@ public class Spawner : MonoBehaviour
                 delayCounter += Time.deltaTime;
                 yield return null;
             }
+            DelaySkipReward(delayCounter);
         }
     }
 
@@ -60,6 +61,25 @@ public class Spawner : MonoBehaviour
             enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney, _victory);
             yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
+    }
+
+    private void DelaySkipReward(float timeSpent)
+    {
+        if(CurrentWaveDelay <= timeSpent)
+        {
+            return;
+        }
+        _playerMoney.AddMoney(CalculateReward(timeSpent));
+    }
+
+    private int CalculateReward(float timeSpent)
+    {
+        int maxReward = _waveData.Waves[_currentWaveIndex].MaxDelaySkipReward;
+        float rewardCoefficient = (CurrentWaveDelay - timeSpent) / CurrentWaveDelay;
+
+        int rewardReceived = (int)(maxReward * rewardCoefficient);
+
+        return rewardReceived;
     }
 
     private void DisableWaveDelay()
