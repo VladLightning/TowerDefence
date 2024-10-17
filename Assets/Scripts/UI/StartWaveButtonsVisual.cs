@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class StartWaveButtonsVisual : MonoBehaviour
 {
     [SerializeField] private Spawner[] _spawners;
+    [SerializeField] private Image[] _buttonImages;
+
     private Button[] _startWaveButtons;
-    private Image[] _buttonImages;
 
     private void Start()
     {
         _startWaveButtons = GetComponentsInChildren<Button>();
-        _buttonImages = GetComponentsInChildren<Image>();
     }
 
     private void ActivateSpawners()
@@ -46,7 +46,7 @@ public class StartWaveButtonsVisual : MonoBehaviour
         float delay = _spawners[0].CurrentWaveDelay;
         for (int i = 0; i < _startWaveButtons.Length; i++)
         {
-            _startWaveButtons[i].gameObject.SetActive(value);
+            _startWaveButtons[i].transform.parent.gameObject.SetActive(value);
             if (value)
             {
                 StartCoroutine(FillButton(i, delay));
