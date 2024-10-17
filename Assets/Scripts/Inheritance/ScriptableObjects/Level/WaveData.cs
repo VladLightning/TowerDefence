@@ -13,6 +13,9 @@ public class Waves
     [SerializeField] private int _waveDelay;
     public int WaveDelay => _waveDelay;
 
+    [SerializeField] private int _maxDelaySkipReward;
+    public int MaxDelaySkipReward => _maxDelaySkipReward;
+
     public int GetTotalDelay()
     {
         int totalDelay = 0; 
