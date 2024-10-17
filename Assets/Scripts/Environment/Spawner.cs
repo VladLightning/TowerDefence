@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public class Spawner : MonoBehaviour
@@ -13,6 +14,8 @@ public class Spawner : MonoBehaviour
 
     private float[] _buttonsActivationDelays;
     public float CurrentWaveDelay => _waveData.Waves[_currentWaveIndex].WaveDelay;
+
+    private float _delayCounter;
 
     private int _currentWaveIndex;
 
@@ -41,13 +44,12 @@ public class Spawner : MonoBehaviour
             _startWaveButtons.SetButtonsActive(true);
 
             _waveDelayIsActive = true;
-            float delayCounter = 0;
-            while (_waveDelayIsActive && delayCounter < CurrentWaveDelay)
+            _delayCounter = 0;
+            while (_waveDelayIsActive && _delayCounter < CurrentWaveDelay)
             {
-                delayCounter += Time.deltaTime;
+                _delayCounter += Time.deltaTime;
                 yield return null;
             }
-            DelaySkipReward(delayCounter);
         }
     }
 
@@ -63,28 +65,18 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void DelaySkipReward(float timeSpent)
-    {
-        if(CurrentWaveDelay <= timeSpent)
-        {
-            return;
-        }
-        _playerMoney.AddMoney(CalculateReward(timeSpent));
-    }
-
-    private int CalculateReward(float timeSpent)
+    private int DelaySkipReward(float timeSpent)
     {
         int maxReward = _waveData.Waves[_currentWaveIndex].MaxDelaySkipReward;
         float rewardCoefficient = (CurrentWaveDelay - timeSpent) / CurrentWaveDelay;
 
-        int rewardReceived = (int)(maxReward * rewardCoefficient);
-
-        return rewardReceived;
+        return (int)(maxReward * rewardCoefficient);
     }
 
     private void DisableWaveDelay()
     {
         _waveDelayIsActive = false;
+        _playerMoney.AddMoney(DelaySkipReward(_delayCounter));
     }
 
     private void StartWaveCycle()
