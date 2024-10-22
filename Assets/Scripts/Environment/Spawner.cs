@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 public class Spawner : MonoBehaviour
@@ -8,7 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private Victory _victory;
 
-    [SerializeField] private StartWaveButtonsVisual _startWaveButtons;
+    [SerializeField] private StartWaveButtonsVisual _startWaveButtonsVisual;
 
     private WaveData _waveData;
 
@@ -32,7 +31,7 @@ public class Spawner : MonoBehaviour
         _isSpawning = true;
         for (_currentWaveIndex = 0; _currentWaveIndex < _waveData.Waves.Length; _currentWaveIndex++)
         {
-            _startWaveButtons.SetButtonsActive(false);
+            _startWaveButtonsVisual.SetButtonsActive(false);
             StartCoroutine(Spawn(_currentWaveIndex));
             yield return new WaitForSeconds(_buttonsActivationDelays[_currentWaveIndex]);
 
@@ -41,7 +40,7 @@ public class Spawner : MonoBehaviour
                 yield break;
             }
 
-            _startWaveButtons.SetButtonsActive(true);
+            _startWaveButtonsVisual.SetButtonsActive(true);
 
             _waveDelayIsActive = true;
             _delayCounter = 0;
@@ -94,11 +93,12 @@ public class Spawner : MonoBehaviour
         _victory.IncreaseEnemiesAmount(amount);
     }
 
-    public void ActivateSpawner()
+    public void ActivateSpawner(int index)
     {
         if(_isSpawning)
         {
             DisableWaveDelay();
+            _startWaveButtonsVisual.SpawnCoinsToAnimate(index);
             return;
         }
         StartWaveCycle();

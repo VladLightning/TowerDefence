@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,13 @@ public class StartWaveButtonsVisual : MonoBehaviour
 {
     [SerializeField] private Spawner[] _spawners;
     [SerializeField] private Image[] _buttonImages;
+
+    [SerializeField] private Canvas _targetCanvas;
+    [SerializeField] private Transform _target;
+
+    [SerializeField] private GameObject _coin;
+
+    [SerializeField] private Ease _animationType;
 
     private Button[] _startWaveButtons;
 
@@ -18,8 +26,14 @@ public class StartWaveButtonsVisual : MonoBehaviour
     {
         for (int i = 0; i < _spawners.Length; i++)
         {
-            _spawners[i].ActivateSpawner();         
+            _spawners[i].ActivateSpawner(i);     
         }
+    }
+
+    public void SpawnCoinsToAnimate(int index)
+    {
+        GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
+        coin.GetComponent<TweenAnimation>().StartPointAtoBAnimation(_targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType);
     }
 
     private IEnumerator FillButton(int index, float delay)
