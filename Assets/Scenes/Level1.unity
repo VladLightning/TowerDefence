@@ -346,6 +346,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4488924850132901547, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
   m_PrefabInstance: {fileID: 301780969}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &346472261 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4814861828692785737, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &377095679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -781,6 +786,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: _startWaveButtons
+      value: 
+      objectReference: {fileID: 1333923986}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _startWaveButtonsVisual
       value: 
       objectReference: {fileID: 1333923986}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
@@ -1311,6 +1320,22 @@ PrefabInstance:
       value: StartWaveButtons
       objectReference: {fileID: 0}
     - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _coin
+      value: 
+      objectReference: {fileID: 8721227380186095716, guid: 1369b3f070eb3fe41bdce12253763d80, type: 3}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1412055798}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _targetCanvas
+      value: 
+      objectReference: {fileID: 346472261}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _animationType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: '_spawners.Array.data[0]'
       value: 
       objectReference: {fileID: 667244955}
@@ -1339,6 +1364,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a8c0facb3b124281ff752ce8dbf76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1412055798 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 907425496386169758, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1454999083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9927,6 +9957,10 @@ PrefabInstance:
       objectReference: {fileID: 1947299096}
     - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
       propertyPath: _startWaveButtons
+      value: 
+      objectReference: {fileID: 1333923986}
+    - target: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
+      propertyPath: _startWaveButtonsVisual
       value: 
       objectReference: {fileID: 1333923986}
     - target: {fileID: 6182052587743137217, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
