@@ -4,52 +4,40 @@ using UnityEngine;
 
 public class TweenAnimation : MonoBehaviour
 {
-    public const float DEFAULT_ANIMATION_DURATION = 3;
-
     private bool _isPlaying;
 
-    private void Update()
+    public void StartPointAtoBAnimation(Vector3 target, Ease easeType, float animationStartDelay, float animationDuration)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartGraphicJump(0);
-        }      
+        StartCoroutine(PointAtoB(target, easeType, animationStartDelay, animationDuration));
     }
 
-    public void StartPointAtoBAnimation(Vector3 target, Ease easeType, float animationStartDelay)
-    {
-        StartCoroutine(PointAtoB(target, easeType, animationStartDelay));
-    }
-
-    private IEnumerator PointAtoB(Vector3 target, Ease easeType, float animationStartDelay)
+    private IEnumerator PointAtoB(Vector3 target, Ease easeType, float animationStartDelay, float animationDuration)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
-        transform.DOMove(target, DEFAULT_ANIMATION_DURATION).SetEase(easeType);
-        yield return new WaitForSeconds(DEFAULT_ANIMATION_DURATION);
+        transform.DOMove(target, animationDuration).SetEase(easeType);
+        yield return new WaitForSeconds(animationDuration);
         Destroy(gameObject);
     }
 
-    public void StartGraphicJump(float animationStartDelay)
+    public void StartGraphicJump(float animationStartDelay, float animationDuration, float jumpHeight)
     {
         if(!_isPlaying)
         {
-            StartCoroutine(GraphicJump(animationStartDelay));
+            StartCoroutine(GraphicJump(animationStartDelay, animationDuration, jumpHeight));
         }       
     }
 
-    private IEnumerator GraphicJump(float animationStartDelay)
+    private IEnumerator GraphicJump(float animationStartDelay, float animationDuration, float jumpHeight)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
         _isPlaying = true;
 
-        float jumpDuration = 0.1f;
-
-        transform.DOMove(transform.position + Vector3.up * 10, jumpDuration);
-        yield return new WaitForSeconds(jumpDuration);
-        transform.DOMove(transform.position + Vector3.down * 10, jumpDuration);
-        yield return new WaitForSeconds(jumpDuration);
+        transform.DOMove(transform.position + Vector3.up * jumpHeight, animationDuration);
+        yield return new WaitForSeconds(animationDuration);
+        transform.DOMove(transform.position + Vector3.down * jumpHeight, animationDuration);
+        yield return new WaitForSeconds(animationDuration);
 
         _isPlaying = false;
     }

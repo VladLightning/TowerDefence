@@ -497,6 +497,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &500345504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3002392124462267697, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,6 +1333,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1412055798}
     - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _moneyDisplay
+      value: 
+      objectReference: {fileID: 1412055798}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: _targetCanvas
       value: 
       objectReference: {fileID: 346472261}
@@ -1369,6 +1378,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 907425496386169758, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
   m_PrefabInstance: {fileID: 5709205984401829944}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1412055801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500345504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102c256ec8edd804d8928725d38c3fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1454999083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9885,7 +9906,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3002392124462267697, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1412055801}
   m_SourcePrefab: {fileID: 100100000, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
 --- !u!1 &7070476891730032575
 GameObject:

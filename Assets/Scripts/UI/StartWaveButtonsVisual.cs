@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class StartWaveButtonsVisual : MonoBehaviour
 {
+    private readonly float _coinAnimationDuration = 3;
+
+    private readonly float _animationJumpHeight = 10;
+
+    private readonly float _graphicAnimationDuration = 0.1f;
+
     [SerializeField] private Spawner[] _spawners;
     [SerializeField] private Image[] _buttonImages;
 
@@ -35,9 +41,9 @@ public class StartWaveButtonsVisual : MonoBehaviour
     public void SpawnCoinsToAnimate(int index)
     {
         GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
-        coin.GetComponent<TweenAnimation>().StartPointAtoBAnimation(_targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0);
+        coin.GetComponent<TweenAnimation>().StartPointAtoBAnimation(_targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0, _coinAnimationDuration);
 
-        _moneyDisplay.GetComponent<TweenAnimation>().StartGraphicJump(TweenAnimation.DEFAULT_ANIMATION_DURATION);
+        _moneyDisplay.GetComponent<TweenAnimation>().StartGraphicJump(_coinAnimationDuration, _graphicAnimationDuration, _animationJumpHeight);
     }
 
     private IEnumerator FillButton(int index, float delay)
