@@ -13,6 +13,8 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     [SerializeField] private GameObject _coin;
 
+    [SerializeField] private Transform _moneyDisplay;
+
     [SerializeField] private Ease _animationType;
 
     private Button[] _startWaveButtons;
@@ -33,7 +35,9 @@ public class StartWaveButtonsVisual : MonoBehaviour
     public void SpawnCoinsToAnimate(int index)
     {
         GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
-        coin.GetComponent<TweenAnimation>().StartPointAtoBAnimation(_targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType);
+        coin.GetComponent<TweenAnimation>().StartPointAtoBAnimation(_targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0);
+
+        _moneyDisplay.GetComponent<TweenAnimation>().StartGraphicJump(TweenAnimation.DEFAULT_ANIMATION_DURATION);
     }
 
     private IEnumerator FillButton(int index, float delay)
