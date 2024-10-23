@@ -25,7 +25,7 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     private Button[] _startWaveButtons;
 
-    private void Start()
+    private void Awake()
     {
         _startWaveButtons = GetComponentsInChildren<Button>();
     }
@@ -34,7 +34,7 @@ public class StartWaveButtonsVisual : MonoBehaviour
     {
         for (int i = 0; i < _spawners.Length; i++)
         {
-            _spawners[i].ActivateSpawner(i);     
+            _spawners[i].ActivateSpawner(i);
         }
     }
 
@@ -61,20 +61,25 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     public void OnClick()
     {
-        SetButtonsActive(false);
+        SetActiveAllButtons(false);
         ActivateSpawners();
     }
 
-    public void SetButtonsActive(bool value)
+    private void SetActiveAllButtons(bool value)
     {
-        float delay = _spawners[0].CurrentWaveDelay;
         for (int i = 0; i < _startWaveButtons.Length; i++)
         {
             _startWaveButtons[i].transform.parent.gameObject.SetActive(value);
-            if (value)
-            {
-                StartCoroutine(FillButton(i, delay));
-            }            
+        }
+    }
+
+    public void SetButtonsActive(bool value, int buttonIndex, bool fill = true)
+    {
+        float delay = _spawners[0].CurrentWaveDelay;
+        _startWaveButtons[buttonIndex].transform.parent.gameObject.SetActive(value);
+        if (value && fill)
+        {
+            StartCoroutine(FillButton(buttonIndex, delay));
         }
     }
 }

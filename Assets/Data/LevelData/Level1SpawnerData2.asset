@@ -15,7 +15,7 @@ MonoBehaviour:
   _waves:
   - _waveInstances: []
     _waveDelay: 5
-    _maxDelaySkipReward: 200
+    _maxDelaySkipReward: 0
   - _waveInstances:
     - _enemy: {fileID: 4098850926986651013, guid: 2f7991fd26747f540b5dec743fafb028, type: 3}
       _spawnDelay: 2

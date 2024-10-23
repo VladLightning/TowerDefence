@@ -9,6 +9,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private StartWaveButtonsVisual _startWaveButtonsVisual;
 
+    [SerializeField] private int _spawnerIndex;
+
     private WaveData _waveData;
 
     private float[] _buttonsActivationDelays;
@@ -24,6 +26,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         CountEnemies();
+        _startWaveButtonsVisual.SetButtonsActive(_waveData.Waves[_currentWaveIndex].WaveInstances.Length != 0, _spawnerIndex, false);
     }
 
     private IEnumerator WaveCycle()
@@ -31,7 +34,7 @@ public class Spawner : MonoBehaviour
         _isSpawning = true;
         for (_currentWaveIndex = 0; _currentWaveIndex < _waveData.Waves.Length; _currentWaveIndex++)
         {
-            _startWaveButtonsVisual.SetButtonsActive(false);
+            _startWaveButtonsVisual.SetButtonsActive(false, _spawnerIndex);
             StartCoroutine(Spawn(_currentWaveIndex));
             yield return new WaitForSeconds(_buttonsActivationDelays[_currentWaveIndex]);
 
@@ -40,7 +43,7 @@ public class Spawner : MonoBehaviour
                 yield break;
             }
 
-            _startWaveButtonsVisual.SetButtonsActive(true);
+            _startWaveButtonsVisual.SetButtonsActive(_waveData.Waves[_currentWaveIndex+1].WaveInstances.Length != 0, _spawnerIndex);
 
             _waveDelayIsActive = true;
             _delayCounter = 0;
@@ -95,7 +98,7 @@ public class Spawner : MonoBehaviour
 
     public void ActivateSpawner(int index)
     {
-        if(_isSpawning)
+        if(_isSpawning && _waveData.Waves[_currentWaveIndex + 1].WaveInstances.Length != 0)
         {
             DisableWaveDelay();
             _startWaveButtonsVisual.SpawnCoinsToAnimate(index);
