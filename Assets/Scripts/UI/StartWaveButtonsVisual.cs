@@ -43,9 +43,9 @@ public class StartWaveButtonsVisual : MonoBehaviour
     public void SpawnCoinsToAnimate(int index)
     {
         GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
-        _animator.StartPointAtoBAnimation(coin, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0, _coinAnimationDuration);
+        _animator.StartPointAtoBAnimation(coin.transform, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0, _coinAnimationDuration);
         
-        _animator.StartGraphicJump(_moneyDisplay, _coinAnimationDuration, _graphicAnimationDuration, _animationJumpHeight);
+        _animator.StartGraphicJump(_moneyDisplay.transform, _coinAnimationDuration, _graphicAnimationDuration, _animationJumpHeight);
     }
 
     private IEnumerator FillButton(int index, float delay)

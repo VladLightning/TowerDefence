@@ -23,7 +23,7 @@ MonoBehaviour:
     - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
       _spawnDelay: 2
     _waveDelay: 5
-    _maxDelaySkipReward: 200
+    _maxDelaySkipReward: 0
   - _waveInstances: []
     _waveDelay: 20
     _maxDelaySkipReward: 0

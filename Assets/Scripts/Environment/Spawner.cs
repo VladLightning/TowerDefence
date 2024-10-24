@@ -69,7 +69,7 @@ public class Spawner : MonoBehaviour
 
     private int DelaySkipReward(float timeSpent)
     {
-        int maxReward = _waveData.Waves[_currentWaveIndex].MaxDelaySkipReward;
+        int maxReward = _waveData.Waves[_currentWaveIndex + 1].MaxDelaySkipReward;
         float rewardCoefficient = (CurrentWaveDelay - timeSpent) / CurrentWaveDelay;
 
         return (int)(maxReward * rewardCoefficient);
