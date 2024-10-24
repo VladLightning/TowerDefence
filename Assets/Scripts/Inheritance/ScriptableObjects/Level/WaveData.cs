@@ -8,13 +8,13 @@ public class WaveData : ScriptableObject
 [System.Serializable]
 public class Waves
 {
+    [SerializeField] private int _earlyWaveStartReward;
+    public int EarlyWaveStartReward => _earlyWaveStartReward;
+
     [SerializeField] private WaveInstanceData[] _waveInstances;
     public WaveInstanceData[] WaveInstances => _waveInstances;
     [SerializeField] private int _waveDelay;
     public int WaveDelay => _waveDelay;
-
-    [SerializeField] private int _maxDelaySkipReward;
-    public int MaxDelaySkipReward => _maxDelaySkipReward;
 
     public int GetTotalDelay()
     {

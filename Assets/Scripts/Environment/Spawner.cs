@@ -8,7 +8,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private Victory _victory;
 
-    [SerializeField] private StartWaveButtonsVisual _startWaveButtons;
+    [SerializeField] private StartWaveButtonsVisual _startWaveButtonsVisual;
+
+    [SerializeField] private int _spawnerIndex;
 
     private WaveData _waveData;
 
@@ -25,6 +27,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         CountEnemies();
+        _startWaveButtonsVisual.SetButtonsActive(_waveData.Waves[_currentWaveIndex].WaveInstances.Length != 0, _spawnerIndex, false);
     }
 
     private IEnumerator WaveCycle()
@@ -32,7 +35,7 @@ public class Spawner : MonoBehaviour
         _isSpawning = true;
         for (_currentWaveIndex = 0; _currentWaveIndex < _waveData.Waves.Length; _currentWaveIndex++)
         {
-            _startWaveButtons.SetButtonsActive(false);
+            _startWaveButtonsVisual.SetButtonsActive(false, _spawnerIndex);
             StartCoroutine(Spawn(_currentWaveIndex));
             yield return new WaitForSeconds(_buttonsActivationDelays[_currentWaveIndex]);
 
@@ -41,7 +44,7 @@ public class Spawner : MonoBehaviour
                 yield break;
             }
 
-            _startWaveButtons.SetButtonsActive(true);
+            _startWaveButtonsVisual.SetButtonsActive(_waveData.Waves[_currentWaveIndex+1].WaveInstances.Length != 0, _spawnerIndex);
 
             _waveDelayIsActive = true;
             _delayCounter = 0;
@@ -65,9 +68,9 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private int DelaySkipReward(float timeSpent)
+    private int EarlyWaveStartReward(float timeSpent)
     {
-        int maxReward = _waveData.Waves[_currentWaveIndex].MaxDelaySkipReward;
+        int maxReward = _waveData.Waves[_currentWaveIndex].EarlyWaveStartReward;
         float rewardCoefficient = (CurrentWaveDelay - timeSpent) / CurrentWaveDelay;
 
         return (int)(maxReward * rewardCoefficient);
@@ -76,7 +79,6 @@ public class Spawner : MonoBehaviour
     private void DisableWaveDelay()
     {
         _waveDelayIsActive = false;
-        _playerMoney.AddMoney(DelaySkipReward(_delayCounter));
     }
 
     private void StartWaveCycle()
@@ -94,11 +96,20 @@ public class Spawner : MonoBehaviour
         _victory.IncreaseEnemiesAmount(amount);
     }
 
-    public void ActivateSpawner()
+    private IEnumerator ReceiveEarlyWaveStartReward(int index)
+    {      
+        yield return _startWaveButtonsVisual.StartCoroutine(_startWaveButtonsVisual.SpawnCoinsToAnimate(index));
+        _playerMoney.AddMoney(EarlyWaveStartReward(_delayCounter));
+    }
+
+    public void ActivateSpawner(int index)
     {
-        if(_isSpawning)
+        if(_isSpawning && _waveData.Waves[_currentWaveIndex + 1].WaveInstances.Length != 0)
         {
             DisableWaveDelay();
+            
+            StartCoroutine(ReceiveEarlyWaveStartReward(index));
+            
             return;
         }
         StartWaveCycle();

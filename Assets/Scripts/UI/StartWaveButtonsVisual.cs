@@ -1,15 +1,33 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StartWaveButtonsVisual : MonoBehaviour
 {
+    private readonly float _coinAnimationDuration = 3;
+
+    private readonly float _animationJumpHeight = 10;
+
+    private readonly float _graphicAnimationDuration = 0.1f;
+
     [SerializeField] private Spawner[] _spawners;
     [SerializeField] private Image[] _buttonImages;
 
+    [SerializeField] private Canvas _targetCanvas;
+    [SerializeField] private Transform _target;
+
+    [SerializeField] private GameObject _coin;
+
+    [SerializeField] private GameObject _moneyDisplay;
+
+    [SerializeField] private Ease _animationType;
+
+    [SerializeField] private TweenAnimation _animator;
+
     private Button[] _startWaveButtons;
 
-    private void Start()
+    private void Awake()
     {
         _startWaveButtons = GetComponentsInChildren<Button>();
     }
@@ -18,8 +36,16 @@ public class StartWaveButtonsVisual : MonoBehaviour
     {
         for (int i = 0; i < _spawners.Length; i++)
         {
-            _spawners[i].ActivateSpawner();         
+            _spawners[i].ActivateSpawner(i);
         }
+    }
+
+    public IEnumerator SpawnCoinsToAnimate(int index)
+    {
+        GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
+        _animator.StartCoroutine(_animator.PointAtoB(coin.transform, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0, _coinAnimationDuration));
+
+        yield return _animator.StartCoroutine(_animator.GraphicJump(_moneyDisplay.transform, _coinAnimationDuration, _graphicAnimationDuration, _animationJumpHeight));
     }
 
     private IEnumerator FillButton(int index, float delay)
@@ -37,20 +63,25 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     public void OnClick()
     {
-        SetButtonsActive(false);
+        SetActiveAllButtons(false);
         ActivateSpawners();
     }
 
-    public void SetButtonsActive(bool value)
+    private void SetActiveAllButtons(bool value)
     {
-        float delay = _spawners[0].CurrentWaveDelay;
         for (int i = 0; i < _startWaveButtons.Length; i++)
         {
             _startWaveButtons[i].transform.parent.gameObject.SetActive(value);
-            if (value)
-            {
-                StartCoroutine(FillButton(i, delay));
-            }            
+        }
+    }
+
+    public void SetButtonsActive(bool value, int buttonIndex, bool fill = true)
+    {
+        float delay = _spawners[0].CurrentWaveDelay;
+        _startWaveButtons[buttonIndex].transform.parent.gameObject.SetActive(value);
+        if (value && fill)
+        {
+            StartCoroutine(FillButton(buttonIndex, delay));
         }
     }
 }
