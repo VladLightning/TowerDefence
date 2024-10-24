@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public class Spawner : MonoBehaviour
@@ -67,9 +68,9 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private int DelaySkipReward(float timeSpent)
+    private int EarlyWaveStartReward(float timeSpent)
     {
-        int maxReward = _waveData.Waves[_currentWaveIndex + 1].MaxDelaySkipReward;
+        int maxReward = _waveData.Waves[_currentWaveIndex].EarlyWaveStartReward;
         float rewardCoefficient = (CurrentWaveDelay - timeSpent) / CurrentWaveDelay;
 
         return (int)(maxReward * rewardCoefficient);
@@ -78,7 +79,6 @@ public class Spawner : MonoBehaviour
     private void DisableWaveDelay()
     {
         _waveDelayIsActive = false;
-        _playerMoney.AddMoney(DelaySkipReward(_delayCounter));
     }
 
     private void StartWaveCycle()
@@ -96,12 +96,20 @@ public class Spawner : MonoBehaviour
         _victory.IncreaseEnemiesAmount(amount);
     }
 
+    private IEnumerator ReceiveEarlyWaveStartReward(int index)
+    {      
+        yield return _startWaveButtonsVisual.StartCoroutine(_startWaveButtonsVisual.SpawnCoinsToAnimate(index));
+        _playerMoney.AddMoney(EarlyWaveStartReward(_delayCounter));
+    }
+
     public void ActivateSpawner(int index)
     {
         if(_isSpawning && _waveData.Waves[_currentWaveIndex + 1].WaveInstances.Length != 0)
         {
             DisableWaveDelay();
-            _startWaveButtonsVisual.SpawnCoinsToAnimate(index);
+            
+            StartCoroutine(ReceiveEarlyWaveStartReward(index));
+            
             return;
         }
         StartWaveCycle();

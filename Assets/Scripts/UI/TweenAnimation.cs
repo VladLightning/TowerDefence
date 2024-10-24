@@ -6,12 +6,7 @@ public class TweenAnimation : MonoBehaviour
 {
     private bool _isPlaying;
 
-    public void StartPointAtoBAnimation(Transform objectToAnimate, Vector3 target, Ease easeType, float animationStartDelay, float animationDuration)
-    {
-        StartCoroutine(PointAtoB(objectToAnimate, target, easeType, animationStartDelay, animationDuration));
-    }
-
-    private IEnumerator PointAtoB(Transform objectToAnimate, Vector3 target, Ease easeType, float animationStartDelay, float animationDuration)
+    public IEnumerator PointAtoB(Transform objectToAnimate, Vector3 target, Ease easeType, float animationStartDelay, float animationDuration)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
@@ -20,16 +15,12 @@ public class TweenAnimation : MonoBehaviour
         Destroy(objectToAnimate.gameObject);
     }
 
-    public void StartGraphicJump(Transform objectToAnimate, float animationStartDelay, float animationDuration, float jumpHeight)
+    public IEnumerator GraphicJump(Transform objectToAnimate, float animationStartDelay, float animationDuration, float jumpHeight)
     {
-        if(!_isPlaying)
+        if(_isPlaying)
         {
-            StartCoroutine(GraphicJump(objectToAnimate, animationStartDelay, animationDuration, jumpHeight));
-        }       
-    }
-
-    private IEnumerator GraphicJump(Transform objectToAnimate, float animationStartDelay, float animationDuration, float jumpHeight)
-    {
+            yield break;
+        }
         yield return new WaitForSeconds(animationStartDelay);
 
         _isPlaying = true;
