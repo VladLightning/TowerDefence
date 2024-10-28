@@ -1449,6 +1449,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 822698381}
     - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _pathMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _pathType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: _resolution
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: _moneyDisplay
       value: 
       objectReference: {fileID: 500345504}
