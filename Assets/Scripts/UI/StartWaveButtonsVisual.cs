@@ -25,7 +25,6 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     [SerializeField] private PathType _pathType;
     [SerializeField] private PathMode _pathMode;
-    [SerializeField] private int _resolution;
 
     [SerializeField] private Transform _animationCurvePoints;
 
@@ -52,7 +51,7 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
         Vector3[] path = {_startWaveButtons[index].transform.position, _animationCurvePoints.GetChild(index).position, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position)};
 
-        _animator.StartCoroutine(_animator.PointAtoZCurve(coin.transform, path, _animationType, _pathType, _pathMode, _resolution, 0, _coinAnimationDuration));
+        _animator.StartCoroutine(_animator.PointAtoZCurve(coin.transform, path, _animationType, _pathType, _pathMode, 0, _coinAnimationDuration));
 
         yield return _animator.StartCoroutine(_animator.GraphicJump(_moneyDisplay.transform, _coinAnimationDuration, _graphicAnimationDuration, _animationJumpHeight));
     }

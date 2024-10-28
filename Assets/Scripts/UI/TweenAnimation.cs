@@ -13,11 +13,11 @@ public class TweenAnimation : MonoBehaviour
         Destroy(objectToAnimate.gameObject);
     }
 
-    public IEnumerator PointAtoZCurve(Transform objectToAnimate, Vector3[] path, Ease easeType, PathType pathType, PathMode pathMode, int resolution, float animationStartDelay, float animationDuration)
+    public IEnumerator PointAtoZCurve(Transform objectToAnimate, Vector3[] path, Ease easeType, PathType pathType, PathMode pathMode, float animationStartDelay, float animationDuration)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
-        objectToAnimate.DOPath(path, animationDuration, pathType, pathMode, resolution, Color.white).SetEase(easeType);
+        objectToAnimate.DOPath(path, animationDuration, pathType, pathMode).SetEase(easeType);
         yield return new WaitForSeconds(animationDuration);
         Destroy(objectToAnimate.gameObject);
     }
