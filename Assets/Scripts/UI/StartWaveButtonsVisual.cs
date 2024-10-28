@@ -23,6 +23,8 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     [SerializeField] private Ease _animationType;
 
+    [SerializeField] private Transform _animationCurvePoints;
+
     [SerializeField] private TweenAnimation _animator;
 
     private Button[] _startWaveButtons;
@@ -43,7 +45,10 @@ public class StartWaveButtonsVisual : MonoBehaviour
     public IEnumerator SpawnCoinsToAnimate(int index)
     {
         GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
-        _animator.StartCoroutine(_animator.PointAtoB(coin.transform, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position), _animationType, 0, _coinAnimationDuration));
+
+        Vector3[] path = {_startWaveButtons[index].transform.position, _animationCurvePoints.GetChild(index).position, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position)};
+
+        _animator.StartCoroutine(_animator.PointAtoZCurve(coin.transform, path, _animationType, 0, _coinAnimationDuration));
 
         yield return _animator.StartCoroutine(_animator.GraphicJump(_moneyDisplay.transform, _coinAnimationDuration, _graphicAnimationDuration, _animationJumpHeight));
     }
