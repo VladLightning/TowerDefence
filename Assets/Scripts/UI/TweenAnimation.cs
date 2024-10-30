@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TweenAnimation : MonoBehaviour
 {
-    public IEnumerator PointAtoB(Transform objectToAnimate, Vector3 target, Ease easeType, float animationStartDelay, float animationDuration)
+    public IEnumerator PointAtoB(Transform objectToAnimate, Vector3 target, Ease easeType, float animationDuration, float animationStartDelay = 0)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
@@ -13,16 +13,16 @@ public class TweenAnimation : MonoBehaviour
         Destroy(objectToAnimate.gameObject);
     }
 
-    public IEnumerator PointAtoZCurve(Transform objectToAnimate, Vector3[] path, Ease easeType, PathType pathType, PathMode pathMode, float animationStartDelay, float animationDuration)
+    public IEnumerator PointAtoZCurve(Transform objectToAnimate, Vector3[] path, Ease easeType, PathType pathType, float animationDuration, float animationStartDelay = 0)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
-        objectToAnimate.DOPath(path, animationDuration, pathType, pathMode).SetEase(easeType);
+        objectToAnimate.DOPath(path, animationDuration, pathType, PathMode.TopDown2D).SetEase(easeType);
         yield return new WaitForSeconds(animationDuration);
         Destroy(objectToAnimate.gameObject);
     }
 
-    public IEnumerator GraphicJump(Transform objectToAnimate, float animationStartDelay, float animationDuration, float jumpHeight)
+    public IEnumerator GraphicJump(Transform objectToAnimate, float animationDuration, float jumpHeight, float animationStartDelay = 0)
     {
         yield return new WaitForSeconds(animationStartDelay);
 
