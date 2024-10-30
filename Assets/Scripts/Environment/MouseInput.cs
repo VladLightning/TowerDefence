@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 public class MouseInput : MonoBehaviour
 {
     private const float DISTANCE = 10;
@@ -10,17 +12,9 @@ public class MouseInput : MonoBehaviour
     private Hero _hero;
     public Hero Hero { set { _hero = value; } }
 
-    private void Update()
+    public void MouseInputHandler()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            MouseInputHandler();
-        }
-    }
-
-    private void MouseInputHandler()
-    {
-        Vector2 targetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 targetPosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, LayerMask.GetMask("Path", "TowerSlot", "Tower", "UI"));
 
