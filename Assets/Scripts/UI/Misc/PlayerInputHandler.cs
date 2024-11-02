@@ -6,6 +6,8 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private Menu _menu;
 
+    [SerializeField] private DefaultAbility _defaultAbility;
+
     public void OnMouseInput(InputAction.CallbackContext context)
     {
         if(context.started)
@@ -19,6 +21,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             _menu.Open();
+        }
+    }
+
+    public void OnFirstAbility(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _defaultAbility.AbilityCast();
         }
     }
 }
