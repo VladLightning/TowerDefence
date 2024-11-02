@@ -9,14 +9,19 @@ public class DefaultAbility : MonoBehaviour
 
     private bool _isCooldownActive;
 
+    private void Start()
+    {
+        _abilityDisplay.SetAbilityImage(_abilityData.AbilityIcon);
+    }
+
     public void AbilityCast()
     {
         if (_isCooldownActive)
         {
             return;
         }
+        _abilityDisplay.StartCooldownVisual(_abilityData.AbilityCooldown);
         StartCoroutine(AbilityCooldown());
-        Debug.Log("Cast default");
     }
 
     private IEnumerator AbilityCooldown()

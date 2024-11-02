@@ -10260,6 +10260,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cooldownDisplay: {fileID: 483255416}
+  _abilityImage: {fileID: 5709205984401829949}
+--- !u!114 &5709205984401829949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7923345267852684629, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709205984401829945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7070476891730032575
 GameObject:
   m_ObjectHideFlags: 0
