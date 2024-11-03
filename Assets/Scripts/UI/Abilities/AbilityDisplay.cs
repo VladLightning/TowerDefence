@@ -24,17 +24,8 @@ public class AbilityDisplay : MonoBehaviour
 
     public void UpdateAbilityImage(bool isDisabled)
     {
-        if(isDisabled)
-        {
-            _cooldownDisplay.gameObject.SetActive(isDisabled);
-            _imageColor.a = _inactiveImageOpacity;
-            _abilityImage.color = _imageColor;
-        }
-        else
-        {
-            _cooldownDisplay.gameObject.SetActive(isDisabled);
-            _imageColor.a = 1;
-            _abilityImage.color = _imageColor;
-        }
+        _cooldownDisplay.gameObject.SetActive(isDisabled);
+        _imageColor.a = isDisabled ? _inactiveImageOpacity : 1;
+        _abilityImage.color = _imageColor;
     }
 }
