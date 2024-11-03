@@ -20,7 +20,6 @@ public class DefaultAbility : MonoBehaviour
         {
             return;
         }
-        _abilityDisplay.StartCooldownVisual(_abilityData.AbilityCooldown);
         StartCoroutine(AbilityCooldown());
     }
 
@@ -29,12 +28,16 @@ public class DefaultAbility : MonoBehaviour
         _isCooldownActive = true;
         float cooldown = _abilityData.AbilityCooldown;
 
+        _abilityDisplay.UpdateAbilityImage(true);
+
         while (cooldown > 0)
         {          
             _abilityDisplay.UpdateCooldownDisplay(cooldown);
             yield return new WaitForSeconds(1);
             cooldown--;
         }
+
+        _abilityDisplay.UpdateAbilityImage(false);
 
         _isCooldownActive = false;
     }
