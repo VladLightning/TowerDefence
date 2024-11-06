@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98eddbe91ad16e4d80e4093cdc442e3, type: 3}
+  m_Name: AbilityKnightSecondData
+  m_EditorClassIdentifier: 
+  _abilityCooldown: 10
+  _abilityIcon: {fileID: -1136815581335597354, guid: e47cf74678ce8cc4c844713439053c32, type: 3}

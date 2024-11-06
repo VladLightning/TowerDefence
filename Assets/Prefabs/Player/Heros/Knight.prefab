@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2891845150514828473}
   - component: {fileID: 438306431459135828}
   - component: {fileID: 7516017504309971295}
+  - component: {fileID: 8439383141681148831}
+  - component: {fileID: 8147245484992505672}
+  - component: {fileID: 7151382087014842850}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -172,3 +175,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344ef08e9468caf42a8e7739c5541f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8439383141681148831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242421210546671716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239ffd3a12e486447b0be74858a02b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityData: {fileID: 11400000, guid: eda294dd44ea28748bd4cc69bd2d5fdd, type: 2}
+--- !u!114 &8147245484992505672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242421210546671716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6119702138235f3409e3e5e086cc0d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityData: {fileID: 11400000, guid: 0a20a16690ccebc48aa651d7cb31be10, type: 2}
+--- !u!114 &7151382087014842850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242421210546671716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a5b3225c08f044a896252c18372694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityData: {fileID: 11400000, guid: 4d7125ab90b771e448e1a61221526702, type: 2}
