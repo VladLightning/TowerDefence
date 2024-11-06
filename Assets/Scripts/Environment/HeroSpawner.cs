@@ -7,6 +7,9 @@ public class HeroSpawner : MonoBehaviour
 
     [SerializeField] private HeroData[] _heroData;
 
+    [SerializeField] private AbilityDisplay[] _abilityDisplays;
+    [SerializeField] private PlayerInputHandler _playerInputHandler;
+
     private void Start()
     {
         SpawnHero();
@@ -17,5 +20,12 @@ public class HeroSpawner : MonoBehaviour
         GameObject hero = Instantiate(_heroToSpawn, _spawnPoint.position, _spawnPoint.rotation);
         hero.GetComponent<Hero>().Initiate(_heroData[0]);
         _mouseInput.Hero = hero.GetComponent<Hero>();
+
+        var abilities = hero.GetComponents<Ability>();
+        for (int i = 0; i < _abilityDisplays.Length; i++)
+        {
+            abilities[i].AbilityDisplay = _abilityDisplays[i];
+        }
+        _playerInputHandler.InitPlayerAbilities(abilities);
     }
 }

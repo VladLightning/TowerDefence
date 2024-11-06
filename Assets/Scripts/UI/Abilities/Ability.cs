@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class Ability : MonoBehaviour
+public abstract class Ability : MonoBehaviour
 {
     [SerializeField] private AbilityData _abilityData;
-    [SerializeField] private AbilityDisplay _abilityDisplay;
+    private AbilityDisplay _abilityDisplay;
+    public AbilityDisplay AbilityDisplay { set { _abilityDisplay = value; } }
 
     private bool _isCooldownActive;
 
@@ -13,7 +14,7 @@ public class Ability : MonoBehaviour
         _abilityDisplay.SetAbilityImage(_abilityData.AbilityIcon);
     }
 
-    public void AbilityCast()
+    public virtual void AbilityCast()
     {
         if (_isCooldownActive)
         {

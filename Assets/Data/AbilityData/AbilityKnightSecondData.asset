@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b98eddbe91ad16e4d80e4093cdc442e3, type: 3}
-  m_Name: SecondAbilityData
+  m_Name: AbilityKnightSecondData
   m_EditorClassIdentifier: 
-  _abilityCooldown: 8
-  _abilityIcon: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
+  _abilityCooldown: 10
+  _abilityIcon: {fileID: -1136815581335597354, guid: e47cf74678ce8cc4c844713439053c32, type: 3}
