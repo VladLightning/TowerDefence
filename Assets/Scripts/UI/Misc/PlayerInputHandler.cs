@@ -6,15 +6,14 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private Menu _menu;
 
-    [SerializeField] private Ability _heroDefaultAbility;
-    private Ability _heroSecondAbility;
-    
-    private Ability _heroThirdAbillity;
+    private Ability[] _heroAbilities = new Ability[3];
 
     public void InitPlayerAbilities(Ability[] abilities)
     {
-        _heroSecondAbility = abilities[0];
-        _heroThirdAbillity = abilities[1];
+        for (int i = 0; i < _heroAbilities.Length; i++)
+        {
+            _heroAbilities[i] = abilities[i];
+        }
     }
 
     public void OnMouseInput(InputAction.CallbackContext context)
@@ -37,7 +36,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _heroDefaultAbility.AbilityCast();
+            _heroAbilities[0].AbilityCast();
         }
     }
 
@@ -45,7 +44,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _heroSecondAbility.AbilityCast();
+            _heroAbilities[1].AbilityCast();
         }
     }
 
@@ -53,7 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _heroThirdAbillity.AbilityCast();
+            _heroAbilities[2].AbilityCast();
         }
     }
 }
