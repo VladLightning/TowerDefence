@@ -39,6 +39,14 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnAbilityDeselect(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            DeselectAbility();
+        }
+    }
+
     public void OnFirstAbility(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -65,8 +73,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void SelectAbility(int index)
     {
-        _heroAbilities[_selectedAbilityIndex].AbilitySelected(false);
-        _heroAbilities[index].AbilitySelected(true);
+        DeselectAbility();
+        _heroAbilities[index].TryAbilitySelect(true);
         _selectedAbilityIndex = index;
+    }
+
+    private void DeselectAbility()
+    {
+        _heroAbilities[_selectedAbilityIndex].TryAbilitySelect(false);
     }
 }

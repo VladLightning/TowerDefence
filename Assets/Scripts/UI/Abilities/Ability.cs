@@ -19,22 +19,22 @@ public abstract class Ability : MonoBehaviour
 
     public void UseAbility()
     {
-        AbilityCast();
-        AbilitySelected(false);
+        TryAbilitySelect(false);
+        AbilityCast();       
     }
 
-    public void AbilitySelected(bool value)
+    public void TryAbilitySelect(bool value)
     {
+        if(_isCooldownActive)
+        {
+            return;
+        }
         _isSelected = value;
         _abilityDisplay.ActivateSelectionOutline(_isSelected);
     }
 
     protected virtual void AbilityCast()
     {
-        if (_isCooldownActive)
-        {
-            return;
-        }
         StartCoroutine(AbilityCooldown());
     }
 
