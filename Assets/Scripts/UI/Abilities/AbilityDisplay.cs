@@ -9,7 +9,15 @@ public class AbilityDisplay : MonoBehaviour
     [SerializeField] private TMP_Text _cooldownDisplay;
     [SerializeField] private Image _abilityImage;
 
+    [SerializeField] private Image _selectionHighlight;
+
     private Color _imageColor;
+
+    public void ActivateSelectionOutline(bool value)
+    {
+        _selectionHighlight.gameObject.SetActive(value);
+        _selectionHighlight.gameObject.transform.position = value ? transform.position : _selectionHighlight.transform.position;
+    }
 
     public void SetAbilityImage(Sprite icon)
     {

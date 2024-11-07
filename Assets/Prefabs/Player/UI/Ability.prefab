@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6499452154846217437}
   - component: {fileID: 5039997177730243952}
   - component: {fileID: 5784263573581775771}
-  - component: {fileID: 945347023690376348}
+  - component: {fileID: 1221837771043268785}
   m_Layer: 5
   m_Name: Ability
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &945347023690376348
+--- !u!114 &1221837771043268785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cooldownDisplay: {fileID: 5491077960309337893}
   _abilityImage: {fileID: 5784263573581775771}
+  _selectionHighlight: {fileID: 0}
 --- !u!1 &1842198563083731462
 GameObject:
   m_ObjectHideFlags: 0

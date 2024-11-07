@@ -9,9 +9,18 @@ public abstract class Ability : MonoBehaviour
 
     private bool _isCooldownActive;
 
+    private bool _isSelected;
+    public bool IsSelected { get { return _isSelected; } }
+
     private void Start()
     {
         _abilityDisplay.SetAbilityImage(_abilityData.AbilityIcon);
+    }
+
+    public void AbilitySelected()
+    {
+        _isSelected = !_isSelected;
+        _abilityDisplay.ActivateSelectionOutline(_isSelected);
     }
 
     public virtual void AbilityCast()
