@@ -9,6 +9,8 @@ public class MouseInput : MonoBehaviour
     [SerializeField] private TowerManager _towerManager;
     [SerializeField] private TowerUpgradePanel _towerUpgradePanel;
 
+    [SerializeField] private LayerMask _layerMask;
+
     private Hero _hero;
     public Hero Hero { set { _hero = value; } }
 
@@ -16,7 +18,7 @@ public class MouseInput : MonoBehaviour
     {
         Vector2 targetPosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, LayerMask.GetMask("Path", "TowerSlot", "Tower", "UI"));
+        RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, _layerMask);
 
         if (hit.collider == null)
         {

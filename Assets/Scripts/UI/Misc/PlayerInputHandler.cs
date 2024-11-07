@@ -8,6 +8,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private Ability[] _heroAbilities = new Ability[3];
 
+    private int _selectedAbilityIndex;
+
     public void InitPlayerAbilities(Ability[] abilities)
     {
         for (int i = 0; i < _heroAbilities.Length; i++)
@@ -20,6 +22,11 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if(context.started)
         {
+            if (_heroAbilities[_selectedAbilityIndex].IsSelected)
+            {
+                _heroAbilities[_selectedAbilityIndex].UseAbility();
+                return;
+            }
             _mouseInput.MouseInputHandler();
         }
     }
@@ -36,7 +43,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _heroAbilities[0].AbilityCast();
+            SelectAbility(0);
         }
     }
 
@@ -44,7 +51,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _heroAbilities[1].AbilityCast();
+            SelectAbility(1);
         }
     }
 
@@ -52,7 +59,14 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _heroAbilities[2].AbilityCast();
+            SelectAbility(2);
         }
+    }
+
+    private void SelectAbility(int index)
+    {
+        _heroAbilities[_selectedAbilityIndex].AbilitySelected(false);
+        _heroAbilities[index].AbilitySelected(true);
+        _selectedAbilityIndex = index;
     }
 }
