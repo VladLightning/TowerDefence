@@ -15,8 +15,8 @@ public class AbilityDisplay : MonoBehaviour
 
     public void ActivateSelectionOutline(bool value)
     {
-        _selectionHighlight.gameObject.SetActive(value);
         _selectionHighlight.gameObject.transform.position = value ? transform.position : _selectionHighlight.transform.position;
+        _selectionHighlight.gameObject.SetActive(value);      
     }
 
     public void SetAbilityImage(Sprite icon)

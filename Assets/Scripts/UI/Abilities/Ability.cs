@@ -17,13 +17,19 @@ public abstract class Ability : MonoBehaviour
         _abilityDisplay.SetAbilityImage(_abilityData.AbilityIcon);
     }
 
-    public void AbilitySelected()
+    public void UseAbility()
     {
-        _isSelected = !_isSelected;
+        AbilityCast();
+        AbilitySelected(false);
+    }
+
+    public void AbilitySelected(bool value)
+    {
+        _isSelected = value;
         _abilityDisplay.ActivateSelectionOutline(_isSelected);
     }
 
-    public virtual void AbilityCast()
+    protected virtual void AbilityCast()
     {
         if (_isCooldownActive)
         {
