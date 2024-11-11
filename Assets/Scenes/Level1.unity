@@ -2253,6 +2253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f48c152762b4564abef7c5c5178127a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 519420031}
   _mouseInput: {fileID: 1947299100}
   _menu: {fileID: 491451999}
 --- !u!1 &1971157619
@@ -2456,6 +2457,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 822698381}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: _mouseInput
       value: 
       objectReference: {fileID: 1947299100}
@@ -2467,6 +2472,18 @@ PrefabInstance:
       propertyPath: _playerInputHandler
       value: 
       objectReference: {fileID: 1947299104}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: _enemyPaths.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: '_enemyPaths.Array.data[0]'
+      value: 
+      objectReference: {fileID: 783462114}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: '_enemyPaths.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1454999084}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: _abilityDisplays.Array.size
       value: 3

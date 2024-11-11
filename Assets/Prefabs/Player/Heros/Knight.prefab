@@ -188,6 +188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityData: {fileID: 11400000, guid: eda294dd44ea28748bd4cc69bd2d5fdd, type: 2}
+  _projectile: {fileID: 3536649230406464483, guid: 501c4c9d4b2526441801badbc87535dd, type: 3}
+  _easeType: 7
+  _animationDuration: 0.75
 --- !u!114 &8147245484992505672
 MonoBehaviour:
   m_ObjectHideFlags: 0
