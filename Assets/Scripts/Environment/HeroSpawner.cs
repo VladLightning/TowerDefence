@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 public class HeroSpawner : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class HeroSpawner : MonoBehaviour
 
     [SerializeField] private AbilityDisplay[] _abilityDisplays;
     [SerializeField] private PlayerInputHandler _playerInputHandler;
+    
+    [SerializeField] private Path[] _enemyPaths;
+    [SerializeField] private TweenAnimation _animator;
 
     private void Start()
     {
@@ -27,5 +31,6 @@ public class HeroSpawner : MonoBehaviour
             abilities[i].AbilityDisplay = _abilityDisplays[i];
         }
         _playerInputHandler.InitPlayerAbilities(abilities);
+        hero.GetComponent<DefaultAbility>().InitDefaultAbility(_enemyPaths[0].PathPoints[^1], _animator);
     }
 }

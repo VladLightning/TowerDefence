@@ -17,10 +17,10 @@ public abstract class Ability : MonoBehaviour
         _abilityDisplay.SetAbilityImage(_abilityData.AbilityIcon);
     }
 
-    public void UseAbility()
+    public void UseAbility(Vector2 position)
     {
         TryAbilitySelect(false);
-        AbilityCast();       
+        AbilityCast(position);       
     }
 
     public void TryAbilitySelect(bool value)
@@ -33,7 +33,7 @@ public abstract class Ability : MonoBehaviour
         _abilityDisplay.ActivateSelectionOutline(_isSelected);
     }
 
-    protected virtual void AbilityCast()
+    protected virtual void AbilityCast(Vector3 position)
     {
         StartCoroutine(AbilityCooldown());
     }

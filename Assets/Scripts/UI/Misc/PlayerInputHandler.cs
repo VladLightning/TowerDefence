@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [SerializeField] private Camera _camera;
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private Menu _menu;
 
@@ -24,7 +25,7 @@ public class PlayerInputHandler : MonoBehaviour
         {
             if (_heroAbilities[_selectedAbilityIndex].IsSelected)
             {
-                _heroAbilities[_selectedAbilityIndex].UseAbility();
+                _heroAbilities[_selectedAbilityIndex].UseAbility(_camera.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
                 return;
             }
             _mouseInput.MouseInputHandler();
