@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5633134407563658414}
   - component: {fileID: 8268893253595509002}
+  - component: {fileID: 7926667111118379272}
   m_Layer: 0
   m_Name: AbilityCannonProjectile
   m_TagString: Untagged
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7926667111118379272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3536649230406464483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643ce2729b4586d4ea8c4d27f9133abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionForce: 3000
+  _explosionRadius: 8
+  _explosionDamage: 1

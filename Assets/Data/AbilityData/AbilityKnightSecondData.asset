@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AbilityKnightSecondData
   m_EditorClassIdentifier: 
   _abilityCooldown: 10
-  _abilityIcon: {fileID: -1136815581335597354, guid: e47cf74678ce8cc4c844713439053c32, type: 3}
+  _abilityIcon: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
