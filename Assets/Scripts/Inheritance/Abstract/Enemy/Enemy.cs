@@ -1,6 +1,9 @@
 using UnityEngine;
+using System;
 public abstract class Enemy : Mob
 {
+    public static event Action<int> OnDeath;
+    
     private const float DISTANCE_THRESHOLD = 0.1f;
 
     [SerializeField] private EnemyData _enemyData;
@@ -8,7 +11,6 @@ public abstract class Enemy : Mob
     private Transform _currentPoint;
     private Path _path;
     private PlayerHealth _playerHealth;
-    private PlayerMoney _playerMoney;
     private Victory _victory;
 
     private int _currentPointIndex;
@@ -16,13 +18,12 @@ public abstract class Enemy : Mob
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
-    public void Initiate(Path path, PlayerHealth playerHealth, PlayerMoney playerMoney, Victory victory)
+    public void Initiate(Path path, PlayerHealth playerHealth, Victory victory)
     {
         SetStats(_enemyData);
 
         _path = path;
         _playerHealth = playerHealth;
-        _playerMoney = playerMoney;
         _victory = victory;
     }
 
@@ -80,7 +81,7 @@ public abstract class Enemy : Mob
     {
         base.Death();
 
-        _playerMoney.AddMoney(_moneyOnDeath);
+        OnDeath?.Invoke(_moneyOnDeath);
         DestroyEnemy();
     }
 

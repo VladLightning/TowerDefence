@@ -18,6 +18,18 @@ public class PlayerMoney : MonoBehaviour
         UpdateMoneyDisplay();
     }
 
+    private void OnEnable()
+    {
+        Enemy.OnDeath += AddMoney;
+        Spawner.OnEarlyWaveStart += AddMoney;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnDeath -= AddMoney;
+        Spawner.OnEarlyWaveStart -= AddMoney;
+    }
+
     public void CheckUpgradeIsAvailable()
     {
         if(_towerUpgradePanel.gameObject.activeSelf)
