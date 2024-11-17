@@ -3,9 +3,10 @@ using System.Collections;
 using UnityEngine;
 public class Spawner : MonoBehaviour
 {
+    public static event Action<int> OnEarlyWaveStart;
+    
     [SerializeField] private Path _movementPath;
     [SerializeField] private PlayerHealth _playerHealth;
-    [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private Victory _victory;
 
     [SerializeField] private StartWaveButtonsVisual _startWaveButtonsVisual;
@@ -63,7 +64,7 @@ public class Spawner : MonoBehaviour
             var waveInstanceData = _waveData.Waves[index].WaveInstances[i];
 
             GameObject enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _playerMoney, _victory);
+            enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _victory);
             yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
     }
@@ -99,7 +100,7 @@ public class Spawner : MonoBehaviour
     private IEnumerator ReceiveEarlyWaveStartReward(int index)
     {      
         yield return _startWaveButtonsVisual.StartCoroutine(_startWaveButtonsVisual.SpawnCoinsToAnimate(index));
-        _playerMoney.AddMoney(EarlyWaveStartReward(_delayCounter));
+        OnEarlyWaveStart?.Invoke(EarlyWaveStartReward(_delayCounter));
     }
 
     public void ActivateSpawner(int index)

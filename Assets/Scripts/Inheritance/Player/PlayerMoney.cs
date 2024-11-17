@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 public class PlayerMoney : MonoBehaviour
@@ -16,6 +17,18 @@ public class PlayerMoney : MonoBehaviour
     {
         _moneyAmount = _levelData.StartMoney;
         UpdateMoneyDisplay();
+    }
+
+    private void OnEnable()
+    {
+        Enemy.OnDeath += AddMoney;
+        Spawner.OnEarlyWaveStart += AddMoney;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnDeath -= AddMoney;
+        Spawner.OnEarlyWaveStart -= AddMoney;
     }
 
     public void CheckUpgradeIsAvailable()
