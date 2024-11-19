@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 public abstract class Enemy : Mob
 {
+    public static event Action<int> OnDealDamageToPlayer;
     public static event Action<int> OnDeath;
     
     private const float DISTANCE_THRESHOLD = 0.1f;
@@ -10,7 +11,6 @@ public abstract class Enemy : Mob
 
     private Transform _currentPoint;
     private Path _path;
-    private PlayerHealth _playerHealth;
     private Victory _victory;
 
     private int _currentPointIndex;
@@ -18,12 +18,11 @@ public abstract class Enemy : Mob
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
-    public void Initiate(Path path, PlayerHealth playerHealth, Victory victory)
+    public void Initiate(Path path, Victory victory)
     {
         SetStats(_enemyData);
 
         _path = path;
-        _playerHealth = playerHealth;
         _victory = victory;
     }
 
@@ -51,7 +50,7 @@ public abstract class Enemy : Mob
 
     private void DealDamageToPlayer()
     {
-        _playerHealth.TakeDamage(_damageToPlayer);
+        OnDealDamageToPlayer?.Invoke(_damageToPlayer);
         DestroyEnemy();
     }
 

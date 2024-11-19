@@ -6,7 +6,6 @@ public class Spawner : MonoBehaviour
     public static event Action<int> OnEarlyWaveStart;
     
     [SerializeField] private Path _movementPath;
-    [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Victory _victory;
 
     [SerializeField] private StartWaveButtonsVisual _startWaveButtonsVisual;
@@ -64,7 +63,7 @@ public class Spawner : MonoBehaviour
             var waveInstanceData = _waveData.Waves[index].WaveInstances[i];
 
             GameObject enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_movementPath, _playerHealth, _victory);
+            enemy.GetComponent<Enemy>().Initiate(_movementPath, _victory);
             yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
     }

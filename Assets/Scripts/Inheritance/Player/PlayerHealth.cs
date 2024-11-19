@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 public class PlayerHealth : MonoBehaviour
@@ -11,6 +12,16 @@ public class PlayerHealth : MonoBehaviour
     {
         _health = _maxHealth;
         UpdateHealthDisplay();
+    }
+
+    private void OnEnable()
+    {
+        Enemy.OnDealDamageToPlayer += TakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnDealDamageToPlayer -= TakeDamage;
     }
 
     private void UpdateHealthDisplay()
