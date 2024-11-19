@@ -4,9 +4,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public static event Action<int> OnEarlyWaveStart;
+    public static event Action<int> OnIncreaseEnemyAmount;
     
     [SerializeField] private Path _movementPath;
-    [SerializeField] private Victory _victory;
 
     [SerializeField] private StartWaveButtonsVisual _startWaveButtonsVisual;
 
@@ -63,7 +63,7 @@ public class Spawner : MonoBehaviour
             var waveInstanceData = _waveData.Waves[index].WaveInstances[i];
 
             GameObject enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_movementPath, _victory);
+            enemy.GetComponent<Enemy>().Initiate(_movementPath);
             yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
     }
@@ -93,7 +93,7 @@ public class Spawner : MonoBehaviour
         {
             amount += _waveData.Waves[i].WaveInstances.Length;
         }
-        _victory.IncreaseEnemiesAmount(amount);
+        OnIncreaseEnemyAmount?.Invoke(amount);
     }
 
     private IEnumerator ReceiveEarlyWaveStartReward(int index)
