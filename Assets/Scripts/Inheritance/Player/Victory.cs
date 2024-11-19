@@ -1,8 +1,21 @@
+using System;
 using UnityEngine;
 
 public class Victory : MonoBehaviour
 {
     private int _enemiesToDefeat;
+
+    private void OnEnable()
+    {
+        Spawner.OnIncreaseEnemyAmount += IncreaseEnemiesAmount;
+        Enemy.OnDecreaseEnemyAmount += DecreaseEnemyAmount;
+    }
+
+    private void OnDisable()
+    {
+        Spawner.OnIncreaseEnemyAmount -= IncreaseEnemiesAmount;
+        Enemy.OnDecreaseEnemyAmount -= DecreaseEnemyAmount;
+    }
 
     private void Win()
     {

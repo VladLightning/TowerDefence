@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 public abstract class Enemy : Mob
 {
+    public static event Action OnDecreaseEnemyAmount;
     public static event Action<int> OnDealDamageToPlayer;
     public static event Action<int> OnDeath;
     
@@ -11,19 +12,17 @@ public abstract class Enemy : Mob
 
     private Transform _currentPoint;
     private Path _path;
-    private Victory _victory;
 
     private int _currentPointIndex;
 
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
-    public void Initiate(Path path, Victory victory)
+    public void Initiate(Path path)
     {
         SetStats(_enemyData);
 
         _path = path;
-        _victory = victory;
     }
 
     private void SetStats(EnemyData enemyData)
@@ -56,7 +55,7 @@ public abstract class Enemy : Mob
 
     private void DestroyEnemy()
     {
-        _victory.DecreaseEnemyAmount();
+        OnDecreaseEnemyAmount?.Invoke();
         Destroy(gameObject);
     }
 
