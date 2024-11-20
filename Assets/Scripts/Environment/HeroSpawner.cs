@@ -17,7 +17,7 @@ public class HeroSpawner : MonoBehaviour
 
     private void SpawnHero()
     {
-        GameObject hero = Instantiate(_heroToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+        var hero = Instantiate(_heroToSpawn, _spawnPoint.position, _spawnPoint.rotation);
         hero.GetComponent<Hero>().Initiate(_heroData[0]);
         _mouseInput.Hero = hero.GetComponent<Hero>();
 
