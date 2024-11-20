@@ -18,7 +18,7 @@ public class MouseInput : MonoBehaviour
     {
         Vector2 targetPosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, _layerMask);
+        var hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, _layerMask);
 
         if (hit.collider == null)
         {

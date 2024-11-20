@@ -1,12 +1,13 @@
 using UnityEngine;
+using System;
 public class BuyTowerButton : MonoBehaviour
 {  
+    public static event Action<TowersEnum.TowerTypes> OnBuyTowerButtonClicked;
+    
     [SerializeField] private TowersEnum.TowerTypes _towerType;
-
-    [SerializeField] private TowerManager _towerManager;
 
     public void OnClick()
     {       
-        _towerManager.BuildTower(_towerType);
+        OnBuyTowerButtonClicked?.Invoke(_towerType);
     }
 }
