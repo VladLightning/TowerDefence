@@ -46,7 +46,7 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     public IEnumerator SpawnCoinsToAnimate(int index)
     {
-        GameObject coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
+        var coin = Instantiate(_coin, _startWaveButtons[index].transform.position, _startWaveButtons[index].transform.rotation);
 
         Vector3[] path = {_startWaveButtons[index].transform.position, _animationCurvePoints.GetChild(index).position, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position)};
 
@@ -76,9 +76,9 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
     private void SetActiveAllButtons(bool value)
     {
-        for (int i = 0; i < _startWaveButtons.Length; i++)
+        foreach (var button in _startWaveButtons)
         {
-            _startWaveButtons[i].transform.parent.gameObject.SetActive(value);
+            button.transform.parent.gameObject.SetActive(value);
         }
     }
 
