@@ -22,12 +22,12 @@ public class Victory : MonoBehaviour
         Debug.Log("Victory");
     }
 
-    public void IncreaseEnemiesAmount(int amount)
+    private void IncreaseEnemiesAmount(int amount)
     {
         _enemiesToDefeat += amount;
     }
 
-    public void DecreaseEnemyAmount()
+    private void DecreaseEnemyAmount()
     {
         _enemiesToDefeat--;
         if(_enemiesToDefeat <= 0)

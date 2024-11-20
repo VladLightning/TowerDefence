@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 public class Spawner : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class Spawner : MonoBehaviour
         CountEnemies();
         _startWaveButtonsVisual.SetButtonsActive(_waveData.Waves[_currentWaveIndex].WaveInstances.Length != 0, _spawnerIndex, false);
     }
-
+    
     private IEnumerator WaveCycle()
     {
         _isSpawning = true;
@@ -58,11 +59,9 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn(int index)
     {
-        for (int i = 0; i < _waveData.Waves[index].WaveInstances.Length; i++)
+        foreach (var waveInstanceData in _waveData.Waves[index].WaveInstances)
         {
-            var waveInstanceData = _waveData.Waves[index].WaveInstances[i];
-
-            GameObject enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
+            var enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
             enemy.GetComponent<Enemy>().Initiate(_movementPath);
             yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
@@ -88,11 +87,7 @@ public class Spawner : MonoBehaviour
 
     private void CountEnemies()
     {
-        int amount = 0;
-        for (int i = 0; i < _waveData.Waves.Length; i++)
-        {
-            amount += _waveData.Waves[i].WaveInstances.Length;
-        }
+        int amount = _waveData.Waves.Sum(wave => wave.WaveInstances.Length);
         OnIncreaseEnemyAmount?.Invoke(amount);
     }
 
