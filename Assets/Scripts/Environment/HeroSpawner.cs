@@ -1,14 +1,17 @@
 using UnityEngine;
+using System;
 public class HeroSpawner : MonoBehaviour
 {
+    public static event Action<Ability[]> OnAbilitiesSpawned;
+    
     [SerializeField] private GameObject _heroToSpawn;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private MouseInput _mouseInput;
 
     [SerializeField] private HeroData[] _heroData;
+    [SerializeField] private GameObject[] _heroAbilities;
 
     [SerializeField] private AbilityDisplay[] _abilityDisplays;
-    [SerializeField] private PlayerInputHandler _playerInputHandler;
 
     private void Start()
     {
@@ -20,12 +23,13 @@ public class HeroSpawner : MonoBehaviour
         var hero = Instantiate(_heroToSpawn, _spawnPoint.position, _spawnPoint.rotation);
         hero.GetComponent<Hero>().Initiate(_heroData[0]);
         _mouseInput.Hero = hero.GetComponent<Hero>();
-
-        var abilities = hero.GetComponents<Ability>();
+        
+        var abilities = new Ability[_abilityDisplays.Length];
         for (int i = 0; i < _abilityDisplays.Length; i++)
         {
+            abilities[i] = Instantiate(_heroAbilities[i], hero.transform).GetComponent<Ability>();
             abilities[i].AbilityDisplay = _abilityDisplays[i];
         }
-        _playerInputHandler.InitPlayerAbilities(abilities);
+        OnAbilitiesSpawned?.Invoke(abilities);
     }
 }

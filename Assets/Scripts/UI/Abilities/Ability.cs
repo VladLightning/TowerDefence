@@ -10,7 +10,7 @@ public abstract class Ability : MonoBehaviour
     private bool _isCooldownActive;
 
     private bool _isSelected;
-    public bool IsSelected { get { return _isSelected; } }
+    public bool IsSelected => _isSelected;
 
     private void Start()
     {
