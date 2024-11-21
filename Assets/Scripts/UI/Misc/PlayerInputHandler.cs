@@ -10,6 +10,16 @@ public class PlayerInputHandler : MonoBehaviour
 
     private int _selectedAbilityIndex;
 
+    private void OnEnable()
+    {
+        HeroSpawner.OnAbilitiesSpawned += InitPlayerAbilities;
+    }
+
+    private void OnDisable()
+    {
+        HeroSpawner.OnAbilitiesSpawned -= InitPlayerAbilities;
+    }
+
     public void InitPlayerAbilities(Ability[] abilities)
     {
         for (int i = 0; i < _heroAbilities.Length; i++)
