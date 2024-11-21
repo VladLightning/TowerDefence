@@ -20,7 +20,7 @@ public class PlayerInputHandler : MonoBehaviour
         HeroSpawner.OnAbilitiesSpawned -= InitPlayerAbilities;
     }
 
-    public void InitPlayerAbilities(Ability[] abilities)
+    private void InitPlayerAbilities(Ability[] abilities)
     {
         for (int i = 0; i < _heroAbilities.Length; i++)
         {
