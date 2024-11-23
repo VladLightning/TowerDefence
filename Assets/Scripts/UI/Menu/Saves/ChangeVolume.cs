@@ -7,7 +7,7 @@ public class ChangeVolume : MonoBehaviour
 
     private void Start()
     {
-        float volume = PlayerPrefs.GetFloat("Volume");
+        float volume = PlayerPrefs.GetFloat(Saves.VOLUME);
         volumeSlider.value = volume;
         AudioListener.volume = volume;
     }
@@ -15,6 +15,6 @@ public class ChangeVolume : MonoBehaviour
     public void ChangeGameVolume(float volume)
     {
         AudioListener.volume = volume;
-        PlayerPrefs.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat(Saves.VOLUME, volume);
     }
 }

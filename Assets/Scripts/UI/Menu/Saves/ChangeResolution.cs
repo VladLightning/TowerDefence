@@ -10,7 +10,7 @@ public class ChangeResolution : MonoBehaviour
     private void Awake()
     {
         SortMaxRefreshRate();
-        _resolutionsDropdown.value = PlayerPrefs.GetInt("Screen resolution");
+        _resolutionsDropdown.value = PlayerPrefs.GetInt(Saves.SCREEN_RESOLUTION);
     }
 
     private void SortMaxRefreshRate()
@@ -44,7 +44,7 @@ public class ChangeResolution : MonoBehaviour
 
     public void OnChangeResolution(int index)
     {
-        Screen.SetResolution(_resolutions[index].width, _resolutions[index].height, PlayerPrefs.GetInt("Is fullscreen") == 1);
-        PlayerPrefs.SetInt("Screen resolution", index);
+        Screen.SetResolution(_resolutions[index].width, _resolutions[index].height, PlayerPrefs.GetInt(Saves.IS_FULLSCREEN) == 1);
+        PlayerPrefs.SetInt(Saves.SCREEN_RESOLUTION, index);
     }
 }

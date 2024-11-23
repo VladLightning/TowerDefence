@@ -9,7 +9,7 @@ public class ChangeLanguage : MonoBehaviour
 
     private void Start()
     {
-        languageDropdown.value = PlayerPrefs.GetInt("Language");
+        languageDropdown.value = PlayerPrefs.GetInt(Saves.LANGUAGE);
     }
 
     public void ChangeGameLanguage(int locale)
@@ -22,7 +22,7 @@ public class ChangeLanguage : MonoBehaviour
         languageDropdown.interactable = false;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[locale];
-        PlayerPrefs.SetInt("Language", locale);
+        PlayerPrefs.SetInt(Saves.LANGUAGE, locale);
         languageDropdown.interactable = true;
     }
 }
