@@ -1526,10 +1526,6 @@ PrefabInstance:
       value: StartWaveButtons
       objectReference: {fileID: 0}
     - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
-      propertyPath: _coin
-      value: 
-      objectReference: {fileID: 8721227380186095716, guid: 1369b3f070eb3fe41bdce12253763d80, type: 3}
-    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: _target
       value: 
       objectReference: {fileID: 1412055798}
@@ -1538,22 +1534,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 822698381}
     - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
-      propertyPath: _easeType
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
-      propertyPath: _pathMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
-      propertyPath: _pathType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
-      propertyPath: _resolution
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: _moneyDisplay
       value: 
       objectReference: {fileID: 500345504}
@@ -1561,10 +1541,6 @@ PrefabInstance:
       propertyPath: _targetCanvas
       value: 
       objectReference: {fileID: 346472261}
-    - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
-      propertyPath: _animationType
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8338508087914265447, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: _animationCurvePoints
       value: 

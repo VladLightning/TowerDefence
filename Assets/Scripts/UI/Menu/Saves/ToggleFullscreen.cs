@@ -9,13 +9,13 @@ public class ToggleFullscreen : MonoBehaviour
 
     private void Start()
     {
-        _toggle.isOn = PlayerPrefs.GetInt("Is fullscreen") == 1;
+        _toggle.isOn = PlayerPrefs.GetInt(Saves.IS_FULLSCREEN) == 1;
         OnToggle();
     }
 
     public void OnToggle()
     {
         Screen.fullScreen = _toggle.isOn;
-        PlayerPrefs.SetInt("Is fullscreen", _toggle.isOn ? 1 : 0);
+        PlayerPrefs.SetInt(Saves.IS_FULLSCREEN, _toggle.isOn ? 1 : 0);
     }
 }

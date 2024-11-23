@@ -56,6 +56,14 @@ MonoBehaviour:
   _buttonImages:
   - {fileID: 7893732214944123367}
   - {fileID: 1045077629217293146}
+  _targetCanvas: {fileID: 0}
+  _target: {fileID: 0}
+  _coin: {fileID: 8721227380186095716, guid: 1369b3f070eb3fe41bdce12253763d80, type: 3}
+  _moneyDisplay: {fileID: 0}
+  _easeType: 7
+  _pathType: 1
+  _animationCurvePoints: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!1001 &4020727317602277359
 PrefabInstance:
   m_ObjectHideFlags: 0

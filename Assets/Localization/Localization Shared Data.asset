@@ -55,6 +55,14 @@ MonoBehaviour:
     m_Key: Game Money
     m_Metadata:
       m_Items: []
+  - m_Id: 37814688599162880
+    m_Key: Game Start Wave Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37815655650476032
+    m_Key: Tower Panel Sell
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
