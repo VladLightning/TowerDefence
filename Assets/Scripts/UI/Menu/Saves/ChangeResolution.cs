@@ -1,12 +1,17 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using Unity.VisualScripting;
 
+[SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
 public class ChangeResolution : MonoBehaviour
 {
-    [SerializeField] private Resolution[] _resolutions;
-
     [SerializeField] private TMP_Dropdown _resolutionsDropdown;
-
+    
+    private Resolution[] _resolutions;
+    private readonly List<string> _optionsList = new List<string>();
+    
     private void Awake()
     {
         SortMaxRefreshRate();
@@ -16,9 +21,9 @@ public class ChangeResolution : MonoBehaviour
     private void SortMaxRefreshRate()
     {
         int newResolutionsLength = 0;
-        for (int i = 0; i < Screen.resolutions.Length; i++)
+        foreach (var resolution in Screen.resolutions)
         {
-            if (Screen.resolutions[i].refreshRateRatio.value == Screen.currentResolution.refreshRateRatio.value)
+            if (resolution.refreshRateRatio.value == Screen.currentResolution.refreshRateRatio.value)
             {
                 newResolutionsLength++;
             }
@@ -29,17 +34,20 @@ public class ChangeResolution : MonoBehaviour
         _resolutionsDropdown.options.Clear();
         for (int i = 0; i < Screen.resolutions.Length; i++)
         {
-            if (Screen.resolutions[i].refreshRateRatio.value == Screen.currentResolution.refreshRateRatio.value)
+            if (Screen.resolutions[i].refreshRateRatio.value != Screen.currentResolution.refreshRateRatio.value)
             {
-                _resolutions[index] = Screen.resolutions[i];
-
-                string option = $"{_resolutions[i].width}x{_resolutions[i].height}";
-
-                _resolutionsDropdown.options.Add(new TMP_Dropdown.OptionData(option));
-
-                index++;
+                continue;
             }
+            
+            _resolutions[index] = Screen.resolutions[i];
+
+            string option = $"{_resolutions[i].width}x{_resolutions[i].height}";
+
+            _optionsList.Add(option);
+            
+            index++;
         }
+        _resolutionsDropdown.AddOptions(_optionsList);
     }
 
     public void OnChangeResolution(int index)
