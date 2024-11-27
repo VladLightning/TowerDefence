@@ -3,8 +3,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
-
-[SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
 public class ChangeResolution : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown _resolutionsDropdown;
