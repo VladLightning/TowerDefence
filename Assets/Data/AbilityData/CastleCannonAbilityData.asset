@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b4e24f33704ac4296ebecbd1c1eb11, type: 3}
   m_Name: CastleCannonAbilityData
   m_EditorClassIdentifier: 
-  _abilityCooldown: 0
-  _abilityIcon: {fileID: 0}
+  _abilityCooldown: 5
+  _abilityIcon: {fileID: -1136815581335597354, guid: e47cf74678ce8cc4c844713439053c32, type: 3}
   _mask:
     serializedVersion: 2
-    m_Bits: 0
-  _explosionForce: 0
-  _explosionRadius: 0
-  _explosionDamage: 0
+    m_Bits: 64
+  _explosionForce: 2500
+  _explosionRadius: 5
+  _explosionDamage: 2
