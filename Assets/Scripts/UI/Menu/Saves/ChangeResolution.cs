@@ -10,7 +10,6 @@ public class ChangeResolution : MonoBehaviour
     [SerializeField] private TMP_Dropdown _resolutionsDropdown;
     
     private readonly List<Resolution> _resolutions = new List<Resolution>();
-    private readonly List<string> _optionsList = new List<string>();
     
     private void Awake()
     {
@@ -20,6 +19,7 @@ public class ChangeResolution : MonoBehaviour
 
     private void SortMaxRefreshRate()
     {
+        var optionsList = new List<string>();
         _resolutionsDropdown.ClearOptions();
         foreach (var resolution in Screen.resolutions)
         {
@@ -28,9 +28,9 @@ public class ChangeResolution : MonoBehaviour
                 continue;
             }
             _resolutions.Add(resolution);
-            _optionsList.Add($"{resolution.width}x{resolution.height}");
+            optionsList.Add($"{resolution.width}x{resolution.height}");
         }
-        _resolutionsDropdown.AddOptions(_optionsList);
+        _resolutionsDropdown.AddOptions(optionsList);
     }
 
     public void OnChangeResolution(int index)
