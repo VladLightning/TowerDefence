@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ChangeResolution : MonoBehaviour
 {
-    [SerializeField] private Resolution[] _resolutions;
-
     [SerializeField] private TMP_Dropdown _resolutionsDropdown;
+
+    private readonly List<Resolution> _resolutions = new();
 
     private void Awake()
     {
@@ -15,36 +16,25 @@ public class ChangeResolution : MonoBehaviour
 
     private void SortMaxRefreshRate()
     {
-        int newResolutionsLength = 0;
-        for (int i = 0; i < Screen.resolutions.Length; i++)
+        var optionsList = new List<string>();
+        _resolutionsDropdown.ClearOptions();
+        foreach (var resolution in Screen.resolutions)
         {
-            if (Screen.resolutions[i].refreshRateRatio.value == Screen.currentResolution.refreshRateRatio.value)
+            if (resolution.refreshRateRatio.value != Screen.currentResolution.refreshRateRatio.value)
             {
-                newResolutionsLength++;
+                continue;
             }
+            _resolutions.Add(resolution);
+            optionsList.Add($"{resolution.width}x{resolution.height}");
         }
 
-        _resolutions = new Resolution[newResolutionsLength];
-        int index = 0;
-        _resolutionsDropdown.options.Clear();
-        for (int i = 0; i < Screen.resolutions.Length; i++)
-        {
-            if (Screen.resolutions[i].refreshRateRatio.value == Screen.currentResolution.refreshRateRatio.value)
-            {
-                _resolutions[index] = Screen.resolutions[i];
-
-                string option = $"{_resolutions[i].width}x{_resolutions[i].height}";
-
-                _resolutionsDropdown.options.Add(new TMP_Dropdown.OptionData(option));
-
-                index++;
-            }
-        }
+        _resolutionsDropdown.AddOptions(optionsList);
     }
 
     public void OnChangeResolution(int index)
     {
-        Screen.SetResolution(_resolutions[index].width, _resolutions[index].height, PlayerPrefs.GetInt(Saves.IS_FULLSCREEN) == 1);
+        Screen.SetResolution(_resolutions[index].width, _resolutions[index].height,
+            PlayerPrefs.GetInt(Saves.IS_FULLSCREEN) == 1);
         PlayerPrefs.SetInt(Saves.SCREEN_RESOLUTION, index);
     }
 }
