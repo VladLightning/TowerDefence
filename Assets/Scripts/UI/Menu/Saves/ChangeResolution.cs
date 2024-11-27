@@ -1,14 +1,13 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using Unity.VisualScripting;
+
 public class ChangeResolution : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown _resolutionsDropdown;
-    
-    private readonly List<Resolution> _resolutions = new List<Resolution>();
-    
+
+    private readonly List<Resolution> _resolutions = new();
+
     private void Awake()
     {
         SortMaxRefreshRate();
@@ -28,12 +27,14 @@ public class ChangeResolution : MonoBehaviour
             _resolutions.Add(resolution);
             optionsList.Add($"{resolution.width}x{resolution.height}");
         }
+
         _resolutionsDropdown.AddOptions(optionsList);
     }
 
     public void OnChangeResolution(int index)
     {
-        Screen.SetResolution(_resolutions[index].width, _resolutions[index].height, PlayerPrefs.GetInt(Saves.IS_FULLSCREEN) == 1);
+        Screen.SetResolution(_resolutions[index].width, _resolutions[index].height,
+            PlayerPrefs.GetInt(Saves.IS_FULLSCREEN) == 1);
         PlayerPrefs.SetInt(Saves.SCREEN_RESOLUTION, index);
     }
 }
