@@ -7,14 +7,12 @@ public class CastleCannonShotProjectile : MonoBehaviour
     private float _explosionRadius;
     private int _explosionDamage;
 
-    public void InitProjectile(AbilityData abilityData)
+    public void InitProjectile(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage)
     {
-        var data = abilityData as CastleCannonAbilityData;
-        
-        _mask = data.Mask;
-        _explosionForce = data.ExplosionForce;
-        _explosionRadius = data.ExplosionRadius;
-        _explosionDamage = data.ExplosionDamage;
+        _mask = mask;
+        _explosionForce = explosionForce;
+        _explosionRadius = explosionRadius;
+        _explosionDamage = explosionDamage;
     }
     
     public void Explode()

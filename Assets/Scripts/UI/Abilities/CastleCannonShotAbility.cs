@@ -25,8 +25,11 @@ public class CastleCannonShotAbility : Ability
     {
         base.AbilityCast();
         var projectile = Instantiate(_projectile, _projectileSpawnPoint.position, _projectile.transform.rotation);
+        
         var castleCannonShotProjectile = projectile.GetComponent<CastleCannonShotProjectile>();
-        castleCannonShotProjectile.InitProjectile(_abilityData);
+        var abilityData = _abilityData as CastleCannonAbilityData;
+        
+        castleCannonShotProjectile.InitProjectile(abilityData.Mask, abilityData.ExplosionForce, abilityData.ExplosionRadius, abilityData.ExplosionDamage);
         StartCoroutine(ProjectileShoot(projectile));
     }
 
