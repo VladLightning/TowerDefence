@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    [SerializeField] private AbilityData _abilityData;
+    [SerializeField] protected AbilityData _abilityData;
     private AbilityDisplay _abilityDisplay;
     public AbilityDisplay AbilityDisplay { set { _abilityDisplay = value; } }
 

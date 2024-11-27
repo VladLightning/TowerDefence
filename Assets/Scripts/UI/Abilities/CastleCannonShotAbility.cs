@@ -1,5 +1,7 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CastleCannonShotAbility : Ability
 {
@@ -21,12 +23,17 @@ public class CastleCannonShotAbility : Ability
     
     protected override void AbilityCast()
     {
-        Debug.Log("Cast CastleCannonShotAbility");
         base.AbilityCast();
         var projectile = Instantiate(_projectile, _projectileSpawnPoint.position, _projectile.transform.rotation);
+        var castleCannonShotProjectile = projectile.GetComponent<CastleCannonShotProjectile>();
+        castleCannonShotProjectile.InitProjectile(_abilityData);
+        StartCoroutine(ProjectileShoot(projectile));
+    }
 
-        //var position = _camera.ScreenToWorldPoint(Mouse.current.position.value);
-        
-        //_animator.StartCoroutine(_animator.PointAtoB(projectile.transform, position, _easeType, _animationDuration));
+    private IEnumerator ProjectileShoot(GameObject projectile)
+    {
+        var position = _camera.ScreenToWorldPoint(Mouse.current.position.value);
+        yield return _animator.StartCoroutine(_animator.PointAtoB(projectile.transform, position, _easeType, _animationDuration));
+        projectile.GetComponent<CastleCannonShotProjectile>().Explode();
     }
 }
