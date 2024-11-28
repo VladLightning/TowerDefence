@@ -50,9 +50,9 @@ public class StartWaveButtonsVisual : MonoBehaviour
 
         Vector3[] path = {_startWaveButtons[index].transform.position, _animationCurvePoints.GetChild(index).position, _targetCanvas.worldCamera.ScreenToWorldPoint(_target.position)};
 
-        _animator.StartCoroutine(_animator.PointAtoZCurve(coin.transform, path, _easeType, _pathType, _coinAnimationDuration));
-
-        yield return _animator.StartCoroutine(_animator.GraphicJump(_moneyDisplay.transform, _graphicAnimationDuration, _animationJumpHeight, _coinAnimationDuration));
+        yield return _animator.StartCoroutine(_animator.PointAtoZCurve(coin.transform, path, _easeType, _pathType, _coinAnimationDuration));
+        Destroy(coin);
+        yield return _animator.StartCoroutine(_animator.GraphicJump(_moneyDisplay.transform, _graphicAnimationDuration, _animationJumpHeight));
     }
 
     private IEnumerator FillButton(int index, float delay)

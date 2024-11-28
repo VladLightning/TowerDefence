@@ -44,9 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239ffd3a12e486447b0be74858a02b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityData: {fileID: 11400000, guid: eda294dd44ea28748bd4cc69bd2d5fdd, type: 2}
-  _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
+  _abilityData: {fileID: 11400000, guid: 5985106c309f34b49951b3a40e2c1ee3, type: 2}
+  _projectile: {fileID: 4795882481489485408, guid: 4a708194a8a3258448e89b181349fd71, type: 3}
   _easeType: 5
-  _animationDuration: 3
-  CastleCannonShot:
-    _serializedList: []
+  _animationDuration: 0.75
