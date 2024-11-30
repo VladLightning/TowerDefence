@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b4e24f33704ac4296ebecbd1c1eb11, type: 3}
-  m_Name: AbilityData1
+  m_Script: {fileID: 11500000, guid: 7e45aa87a06be8b49b19eeaf8f4bdee3, type: 3}
+  m_Name: FreezeAbilityData
   m_EditorClassIdentifier: 
   _abilityCooldown: 8
   _abilityIcon: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
   _mask:
     serializedVersion: 2
-    m_Bits: 0
-  _explosionForce: 0
-  _explosionRadius: 0
-  _explosionDamage: 0
+    m_Bits: 64
+  _movementSpeedReductionCoefficient: 0.1
+  _freezeRadius: 15
+  _freezeDuration: 7

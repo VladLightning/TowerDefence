@@ -21,8 +21,8 @@ public class InitializeAbilities : MonoBehaviour
                 case CastleCannonShotAbility:
                     GetComponentInChildren<CastleCannonShotInitialize>().InitAbility(ability);
                     break;
-                case AbilityKnightFirst:
-                    GetComponentInChildren<AbilityKnightFirstInitialize>().InitAbility(ability);
+                case FreezeAbility:
+                    GetComponentInChildren<AbilityFreezeInitialize>().InitAbility(ability);
                     break;
                 case AbilityKnightSecond:
                     GetComponentInChildren<AbilityKnightSecondInitialize>().InitAbility(ability);
