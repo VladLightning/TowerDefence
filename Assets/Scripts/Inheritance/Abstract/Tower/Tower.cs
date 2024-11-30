@@ -6,8 +6,8 @@ public abstract class Tower : Entity
     private const float DELAY_FOR_ROTATION = 0.2f;
     private const float SELL_PRICE_COEFFICIENT = 0.5f;
     
-    [SerializeField] private Transform _projectileLaunchPoint;
-    [SerializeField] private TowerLevelsData _towerLevelsData;
+    [SerializeField] private Transform _projectileLaunchPoint; 
+    private TowerLevelsData _towerLevelsData;
     public TowerLevelsData TowerLevelsData => _towerLevelsData;
     [SerializeField] private TowerBranchData[] _towerBranchData;
     public TowerBranchData[] TowerBranchData => _towerBranchData;
@@ -39,12 +39,16 @@ public abstract class Tower : Entity
     private IEnumerator _shoot;
     private bool _shootingIsActive;
 
-    public void Initiate(PlayerMoney playerMoney)
+    protected override void Awake()
     {
         _collider2D = GetComponent<CircleCollider2D>();
+        _towerLevelsData = _entityData as TowerLevelsData;
         _towerLevels = _towerLevelsData.TowerLevels;
-        SetStats(_towerLevelsData);
-
+        base.Awake();
+    }
+    
+    public void Initiate(PlayerMoney playerMoney)
+    {
         _playerMoney = playerMoney;      
     }
 
@@ -62,7 +66,7 @@ public abstract class Tower : Entity
         _collider2D.radius = _range;      
     }
 
-    private void SetStats()
+    protected override void SetStats()
     {
         _projectile = _towerLevels[_towerLevelIndex].Projectile;
         _damage = _towerLevels[_towerLevelIndex].Damage;

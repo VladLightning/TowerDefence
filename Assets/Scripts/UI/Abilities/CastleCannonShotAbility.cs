@@ -1,42 +1,11 @@
-using System.Collections;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
-public class CastleCannonShotAbility : Ability
+public class CastleCannonShotAbility : CastleProjectileAbility
 {
-    [SerializeField] private GameObject _projectile;
-    
-    [SerializeField] private Ease _easeType;
-    [SerializeField] private float _animationDuration;
-    
-    private Transform _projectileSpawnPoint;
-    private Camera _camera;
-    private TweenAnimation _animator;
-
-    public void InitCastleCannonShotAbility(Transform projectileSpawnPoint, Camera camera, TweenAnimation animator)
+    protected override void InitProjectile(GameObject projectile)
     {
-        _projectileSpawnPoint = projectileSpawnPoint;
-        _camera = camera;
-        _animator = animator;
-    }
-    
-    protected override void AbilityCast()
-    {
-        base.AbilityCast();
-        var projectile = Instantiate(_projectile, _projectileSpawnPoint.position, _projectile.transform.rotation);
-        
         var castleCannonShotProjectile = projectile.GetComponent<CastleCannonShotProjectile>();
         var abilityData = _abilityData as CastleCannonAbilityData;
         
         castleCannonShotProjectile.InitProjectile(abilityData.Mask, abilityData.ExplosionForce, abilityData.ExplosionRadius, abilityData.ExplosionDamage);
-        StartCoroutine(ProjectileShoot(projectile));
-    }
-
-    private IEnumerator ProjectileShoot(GameObject projectile)
-    {
-        var position = _camera.ScreenToWorldPoint(Mouse.current.position.value);
-        yield return _animator.StartCoroutine(_animator.PointAtoB(projectile.transform, position, _easeType, _animationDuration));
-        projectile.GetComponent<CastleCannonShotProjectile>().Explode();
     }
 }

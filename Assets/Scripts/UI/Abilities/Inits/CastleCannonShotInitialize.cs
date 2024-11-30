@@ -9,6 +9,6 @@ public class CastleCannonShotInitialize : MonoBehaviour
     public void InitAbility(Ability ability)
     {
         var castleCannonShotAbility = ability as CastleCannonShotAbility;
-        castleCannonShotAbility.InitCastleCannonShotAbility(_projectileSpawnPoint,_camera, _animator);
+        castleCannonShotAbility.InitCastleProjectileAbility(_projectileSpawnPoint,_camera, _animator);
     }
 }

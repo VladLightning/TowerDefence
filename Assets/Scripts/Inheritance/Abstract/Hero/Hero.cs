@@ -12,13 +12,11 @@ public abstract class Hero : Mob
     private float _regenerationInterval;
     private int _regenerationAmount;
 
-    public void Initiate(HeroData heroData)
+    protected override void SetStats()
     {
-        _damage = heroData.Damage;
-        _attackSpeed = heroData.AttackSpeed;
-        _damageType = heroData.DamageType;
-        _health = heroData.Health;
-        _movementSpeed = heroData.MovementSpeed;
+        base.SetStats();
+        var heroData = _entityData as HeroData;
+        
         _skillCooldown = heroData.SkillCooldown;
         _respawnTime = heroData.RespawnTime;
         _regenerationDelay = heroData.RegenerationDelay;
@@ -38,7 +36,7 @@ public abstract class Hero : Mob
     {
         while (Vector2.Distance(transform.position, targetPosition) > DISTANCE_THRESHOLD)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, _movementSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, _currentMovementSpeed * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
     }
