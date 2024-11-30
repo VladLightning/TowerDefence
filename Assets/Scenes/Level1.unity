@@ -2051,6 +2051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ac2bce2b4d4af418c2fe8921e18f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectileSpawnPoint: {fileID: 915257556}
+  _camera: {fileID: 519420031}
+  _animator: {fileID: 822698381}
 --- !u!1001 &1711430443
 PrefabInstance:
   m_ObjectHideFlags: 0
