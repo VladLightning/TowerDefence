@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 public class PlayerHealth : MonoBehaviour
@@ -34,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Defeat");
     }
 
-    public void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         _health -= damage;
         if (_health < 0)

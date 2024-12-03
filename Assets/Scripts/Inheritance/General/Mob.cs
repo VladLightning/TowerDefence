@@ -1,7 +1,7 @@
 ﻿public abstract class Mob : Entity
 {
-    protected int _health;
-    protected float _defaultMovementSpeed;
+    private int _health;
+    private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
 
     protected abstract void Move();
