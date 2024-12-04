@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class CastleCannonShotProjectile : MonoBehaviour
+public class CastleCannonShotProjectile : MonoBehaviour, IProjectile
 {
     private LayerMask _mask;
     private float _explosionForce;
     private float _explosionRadius;
     private int _explosionDamage;
 
-    public void InitProjectile(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage)
+    public void SetProjectileStats(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage)
     {
         _mask = mask;
         _explosionForce = explosionForce;
