@@ -9,6 +9,7 @@ public abstract class Tower : Entity
     [SerializeField] private Transform _projectileLaunchPoint; 
     private TowerLevelsData _towerLevelsData;
     public TowerLevelsData TowerLevelsData => _towerLevelsData;
+    
     [SerializeField] private TowerBranchData[] _towerBranchData;
     public TowerBranchData[] TowerBranchData => _towerBranchData;
 
@@ -214,6 +215,12 @@ public abstract class Tower : Entity
         _currentBranchUpgradeLevels = new int[_currentTowerBranchData.BranchUpgradesData.Length];
 
         SetStats(branch);
+    }
+
+    public int GetInitialPrice()
+    {
+        var towerLevelsData = _entityData as TowerLevelsData;
+        return towerLevelsData.Price;
     }
 
     public void IncreaseAbilityLevel(int index)
