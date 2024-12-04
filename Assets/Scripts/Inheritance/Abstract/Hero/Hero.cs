@@ -24,6 +24,16 @@ public abstract class Hero : Mob
         _regenerationAmount = heroData.RegenerationAmount;
     }
 
+    private void OnEnable()
+    {
+        MouseInput.OnPathSelected += Move;
+    }
+
+    private void OnDisable()
+    {
+        MouseInput.OnPathSelected -= Move;
+    }
+
     private void LookAtMouse(Vector2 targetPosition)
     {
         transform.localScale =
@@ -32,7 +42,7 @@ public abstract class Hero : Mob
          : new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
     }
 
-    private IEnumerator Move(Vector2 targetPosition)
+    private IEnumerator MoveHero(Vector2 targetPosition)
     {
         while (Vector2.Distance(transform.position, targetPosition) > DISTANCE_THRESHOLD)
         {
@@ -51,20 +61,15 @@ public abstract class Hero : Mob
         throw new System.NotImplementedException();
     }
 
-    protected override void Move()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void StartMovement(Vector2 targetPosition)
+    protected override void Move(Vector2 target)
     {
         if (_move != null)
         {
             StopCoroutine(_move);
         }
 
-        LookAtMouse(targetPosition);
-        _move = Move(targetPosition);
+        LookAtMouse(target);
+        _move = MoveHero(target);
         StartCoroutine(_move);
     }
 }

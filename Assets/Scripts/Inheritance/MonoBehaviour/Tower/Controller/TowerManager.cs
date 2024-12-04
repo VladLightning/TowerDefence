@@ -3,22 +3,26 @@ public class TowerManager : MonoBehaviour
 {
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private GameObject[] _towers;
+    
+    [SerializeField] private GameObject _panel;
 
     private Transform _buildSiteTransform;
 
-    private void OnEnable()
+    private void Awake()
     {
         BuyTowerButton.OnBuyTowerButtonClicked += BuildTower;
+        MouseInput.OnTowerSlotSelected += SetBuildPosition;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         BuyTowerButton.OnBuyTowerButtonClicked -= BuildTower;
+        MouseInput.OnTowerSlotSelected -= SetBuildPosition;
     }
 
-    public void SetBuildPosition(Transform buildPosition)
+    private void SetBuildPosition(Transform buildPosition)
     {
-        gameObject.SetActive(true);
+        _panel.SetActive(true);
         _buildSiteTransform = buildPosition;
     }
 
@@ -38,6 +42,6 @@ public class TowerManager : MonoBehaviour
 
         _playerMoney.Purchase(price);
 
-        gameObject.SetActive(false);
+        _panel.SetActive(false);
     }
 }

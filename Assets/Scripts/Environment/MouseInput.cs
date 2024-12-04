@@ -1,18 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MouseInput : MonoBehaviour
 {
     private const float DISTANCE = 10;
+
+    public static event Action<Transform> OnTowerSlotSelected;
+    public static event Action<Tower> OnTowerSelected;
+    public static event Action OnNothingSelected;
+    public static event Action<Vector2> OnPathSelected;
     
     [SerializeField] private Camera _camera;
-    [SerializeField] private TowerManager _towerManager;
-    [SerializeField] private TowerUpgradePanel _towerUpgradePanel;
 
     [SerializeField] private LayerMask _layerMask;
-
-    private Hero _hero;
-    public Hero Hero { set { _hero = value; } }
 
     public void MouseInputHandler()
     {
@@ -22,7 +23,7 @@ public class MouseInput : MonoBehaviour
 
         if (hit.collider == null)
         {
-            _towerUpgradePanel.ResetToDefaultState();
+            OnNothingSelected?.Invoke();
             return;
         }
 
@@ -30,20 +31,20 @@ public class MouseInput : MonoBehaviour
 
         if (layer != LayerMask.NameToLayer("UI"))
         {
-            _towerUpgradePanel.ResetToDefaultState();
+            OnNothingSelected?.Invoke();
         }
 
         if (layer == LayerMask.NameToLayer("Path"))
         {
-            _hero.StartMovement(targetPosition);
+            OnPathSelected?.Invoke(targetPosition);
         }
         else if (layer == LayerMask.NameToLayer("TowerSlot") && hit.transform.childCount == 0)
         {
-            _towerManager.SetBuildPosition(hit.transform);
+            OnTowerSlotSelected?.Invoke(hit.transform);
         }
         else if (layer == LayerMask.NameToLayer("Tower"))
         {
-            _towerUpgradePanel.Enable(hit.collider.GetComponentInParent<Tower>());
+            OnTowerSelected?.Invoke(hit.collider.GetComponentInParent<Tower>());
         }
     }
 }

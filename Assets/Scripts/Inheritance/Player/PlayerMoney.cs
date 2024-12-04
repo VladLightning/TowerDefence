@@ -30,9 +30,9 @@ public class PlayerMoney : MonoBehaviour
         Spawner.OnEarlyWaveStart -= AddMoney;
     }
 
-    public void CheckUpgradeIsAvailable()
+    private void CheckUpgradeIsAvailable()
     {
-        if(_towerUpgradePanel.gameObject.activeSelf)
+        if(_towerUpgradePanel.MainTowerUpgradePanel.activeSelf)
         {
             _towerUpgradePanel.UpgradeButtonIsAvailable();
         }
