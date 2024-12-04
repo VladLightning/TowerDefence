@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3913594564396603463}
   - component: {fileID: 876264063655920181}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
   _projectileLaunchPoint: {fileID: 723020354221402791}
-  _towerLevelsData: {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
   _towerBranchData:
   - {fileID: 11400000, guid: 8f89a7638f0fab44c85033f93a414d30, type: 2}
   - {fileID: 11400000, guid: 19c06ecaeee56824c8c6a005f13a80ca, type: 2}
