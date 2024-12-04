@@ -1,13 +1,25 @@
 ﻿public abstract class Mob : Entity
 {
-    protected int _health;
-    protected float _movementSpeed;
-    
-    protected abstract void Move();
+    private int _health;
+    private float _defaultMovementSpeed;
+    protected float _currentMovementSpeed;
 
+    protected abstract void Move();
+    
     protected override void Attack()
     {
         throw new System.NotImplementedException();
+    }
+    
+    protected override void SetStats()
+    {
+        base.SetStats();
+        
+        var mobData = _entityData as MobData;
+        
+        _health = mobData.Health;
+        _defaultMovementSpeed = mobData.MovementSpeed;
+        _currentMovementSpeed = _defaultMovementSpeed;
     }
 
     public void TakeDamage(int damage)
@@ -22,6 +34,16 @@
     protected virtual void Death()
     {
         //Анимации, звуки
+    }
+    
+    protected void DecreaseMovementSpeed(float coefficient)
+    {
+        _currentMovementSpeed *= coefficient;
+    }
+
+    protected void SetMovementSpeedToDefault()
+    {
+        _currentMovementSpeed = _defaultMovementSpeed;
     }
 
     //Здесь ещё будут методы DetectOpponent(), EnterCombat(), ExitCombat().

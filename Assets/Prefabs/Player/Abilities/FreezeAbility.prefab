@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8844876510463056653}
   - component: {fileID: 3132226741802211003}
   m_Layer: 0
-  m_Name: KnightAbility1
+  m_Name: FreezeAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6119702138235f3409e3e5e086cc0d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityData: {fileID: 11400000, guid: e3cc0720c09169d4bb9d0b5aba19c2a0, type: 2}
+  _abilityData: {fileID: 11400000, guid: 0e56c8979ed706b4bb1832880b71d4ca, type: 2}
+  _projectile: {fileID: 4795882481489485408, guid: dd705862a6ad7164290e91e02252cbd3, type: 3}
+  _easeType: 5
+  _animationDuration: 1

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
     [SerializeField] private PlayerMoney _playerMoney;
@@ -26,7 +25,7 @@ public class TowerManager : MonoBehaviour
     private void BuildTower(TowersEnum.TowerTypes towerType)
     {
         var selectedTower = _towers[(int)towerType];
-        int price = selectedTower.GetComponent<Tower>().TowerLevelsData.Price;
+        int price = selectedTower.GetComponent<Tower>().GetInitialPrice();
         if (price > _playerMoney.MoneyAmount)
         {
             return;

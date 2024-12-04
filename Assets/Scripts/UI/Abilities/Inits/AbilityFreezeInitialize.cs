@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CastleCannonShotInitialize : MonoBehaviour
+public class AbilityFreezeInitialize : MonoBehaviour
 {
     [SerializeField] private Transform _projectileSpawnPoint;
     [SerializeField] private Camera _camera;
@@ -8,7 +8,7 @@ public class CastleCannonShotInitialize : MonoBehaviour
     
     public void InitAbility(Ability ability)
     {
-        var castleCannonShotAbility = ability as CastleCannonShotAbility;
-        castleCannonShotAbility.InitCastleProjectileAbility(_projectileSpawnPoint,_camera, _animator);
+        var abilityFreeze = ability as FreezeAbility;
+        abilityFreeze.InitCastleProjectileAbility(_projectileSpawnPoint, _camera, _animator);
     }
 }

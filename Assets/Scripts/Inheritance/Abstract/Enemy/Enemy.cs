@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using System.Collections;
+
 public abstract class Enemy : Mob
 {
     public static event Action OnDecreaseEnemyAmount;
@@ -7,8 +9,6 @@ public abstract class Enemy : Mob
     public static event Action<int> OnDeath;
     
     private const float DISTANCE_THRESHOLD = 0.1f;
-
-    [SerializeField] private EnemyData _enemyData;
 
     private Transform _currentPoint;
     private Path _path;
@@ -20,20 +20,17 @@ public abstract class Enemy : Mob
 
     public void Initiate(Path path)
     {
-        SetStats(_enemyData);
-
         _path = path;
     }
 
-    private void SetStats(EnemyData enemyData)
+    protected override void SetStats()
     {
-        _damage = enemyData.Damage;
-        _attackSpeed = enemyData.AttackSpeed;
-        _damageType = enemyData.DamageType;
-        _health = enemyData.Health;
+        base.SetStats();
+
+        var enemyData = _entityData as EnemyData;
+        
         _damageToPlayer = enemyData.DamageToPlayer;
         _moneyOnDeath = enemyData.MoneyOnDeath;
-        _movementSpeed = enemyData.MovementSpeed;
     }
 
     private void Start()
@@ -59,9 +56,21 @@ public abstract class Enemy : Mob
         Destroy(gameObject);
     }
 
+    public void StartSlowDownMovement(float speedReductionCoefficient, float speedReductionDuration)
+    {
+        StartCoroutine(SlowDownMovement(speedReductionCoefficient, speedReductionDuration));
+    }
+
+    private IEnumerator SlowDownMovement(float speedReductionCoefficient, float speedReductionDuration)
+    {
+        DecreaseMovementSpeed(speedReductionCoefficient);
+        yield return new WaitForSeconds(speedReductionDuration);
+        SetMovementSpeedToDefault();
+    }
+
     protected override void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _movementSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _currentMovementSpeed * Time.deltaTime);
 
         if (!(Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD))
         {
@@ -83,6 +92,7 @@ public abstract class Enemy : Mob
         OnDeath?.Invoke(_moneyOnDeath);
         DestroyEnemy();
     }
+    
 
     public float GetDistanceToCastle()
     {
