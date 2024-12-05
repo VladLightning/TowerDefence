@@ -32,7 +32,7 @@ public class PlayerMoney : MonoBehaviour
 
     private void CheckUpgradeIsAvailable()
     {
-        if(_towerUpgradePanel.MainTowerUpgradePanel.activeSelf)
+        if(_towerUpgradePanel.IsTowerUpgradePanelActive())
         {
             _towerUpgradePanel.UpgradeButtonIsAvailable();
         }

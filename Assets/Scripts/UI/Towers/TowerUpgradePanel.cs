@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class TowerUpgradePanel : MonoBehaviour
 {
     [SerializeField] private GameObject _towerUpgradePanel;
-    public GameObject MainTowerUpgradePanel => _towerUpgradePanel;
     [SerializeField] private GameObject _upgradePanel;
 
     [SerializeField] private BranchUpgradesHandler _branchUpgradesHandler;
@@ -82,5 +81,10 @@ public class TowerUpgradePanel : MonoBehaviour
     public void UpgradeButtonIsAvailable()
     {
         _upgradeButton.interactable = _tower.IsUpgradeAvailable();
+    }
+
+    public bool IsTowerUpgradePanelActive()
+    {
+        return _towerUpgradePanel.activeSelf;
     }
 }
