@@ -37,6 +37,6 @@ public abstract class CastleProjectileAbility : Ability
         var position = _camera.ScreenToWorldPoint(Mouse.current.position.value);
         yield return _animator.StartCoroutine(_animator.PointAtoB(projectile.transform, position, _easeType, _animationDuration));
         
-        projectile.GetComponent<FreezeProjectile>().Freeze();
+        projectile.GetComponent<IProjectile>().Explode();
     }
 }

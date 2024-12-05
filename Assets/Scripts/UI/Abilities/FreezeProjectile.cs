@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class FreezeProjectile : MonoBehaviour
+public class FreezeProjectile : MonoBehaviour, IProjectile
 {
     private LayerMask _mask;
     private float _freezeRadius;
     private float _movementSpeedReductionCoefficient;
     private float _freezeDuration;
     
-    public void InitProjectile(LayerMask mask, float freezeRadius, float movementSpeedReductionCoefficient, float freezeDuration)
+    public void SetProjectileStats(LayerMask mask, float freezeRadius, float movementSpeedReductionCoefficient, float freezeDuration)
     {
         _mask = mask;
         _freezeRadius = freezeRadius;
@@ -15,7 +15,7 @@ public class FreezeProjectile : MonoBehaviour
         _freezeDuration = freezeDuration;
     }
 
-    public void Freeze()
+    public void Explode()
     {
         var enemyColliders = Physics2D.OverlapCircleAll(transform.position, _freezeRadius, _mask);
 

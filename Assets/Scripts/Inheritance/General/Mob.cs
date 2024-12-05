@@ -1,10 +1,12 @@
-﻿public abstract class Mob : Entity
+﻿using UnityEngine;
+
+public abstract class Mob : Entity
 {
     private int _health;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
 
-    protected abstract void Move();
+    protected abstract void Move(Vector2 target);
     
     protected override void Attack()
     {

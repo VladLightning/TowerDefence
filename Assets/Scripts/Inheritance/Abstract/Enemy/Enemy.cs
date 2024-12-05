@@ -41,7 +41,7 @@ public abstract class Enemy : Mob
 
     private void FixedUpdate()
     {
-        Move();
+        Move(_currentPoint.position);
     }
 
     private void DealDamageToPlayer()
@@ -68,17 +68,22 @@ public abstract class Enemy : Mob
         SetMovementSpeedToDefault();
     }
 
-    protected override void Move()
+    protected override void Move(Vector2 target)
     {
-        transform.position = Vector2.MoveTowards(transform.position, _currentPoint.position, _currentMovementSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target, _currentMovementSpeed * Time.deltaTime);
 
+        UpdatePath();
+    }
+
+    private void UpdatePath()
+    {
         if (!(Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD))
         {
             return;
         }
         if (_currentPointIndex == _path.PathPoints.Length - 1)
         {
-            DealDamageToPlayer();  
+            DealDamageToPlayer();
             return;
         }
         _currentPointIndex++;

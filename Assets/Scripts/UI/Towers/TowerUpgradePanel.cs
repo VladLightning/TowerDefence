@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class TowerUpgradePanel : MonoBehaviour
 {
+    [SerializeField] private GameObject _towerUpgradePanel;
+    public GameObject MainTowerUpgradePanel => _towerUpgradePanel;
     [SerializeField] private GameObject _upgradePanel;
 
     [SerializeField] private BranchUpgradesHandler _branchUpgradesHandler;
@@ -13,7 +15,19 @@ public class TowerUpgradePanel : MonoBehaviour
 
     private Tower _tower;
 
-    public void Enable(Tower tower)
+    private void Awake()
+    {
+        MouseInput.OnTowerSelected += EnableTowerUpgradePanel;
+        MouseInput.OnNothingSelected += ResetToDefaultState;
+    }
+
+    private void OnDestroy()
+    {
+        MouseInput.OnTowerSelected -= EnableTowerUpgradePanel;
+        MouseInput.OnNothingSelected -= ResetToDefaultState;
+    }
+
+    private void EnableTowerUpgradePanel(Tower tower)
     {        
         _tower = tower;
         UpgradeButtonIsAvailable();
@@ -22,7 +36,7 @@ public class TowerUpgradePanel : MonoBehaviour
         ResetToDefaultState();
 
         transform.position = _tower.transform.position;
-        gameObject.SetActive(true);
+        _towerUpgradePanel.SetActive(true);
 
         if (!_tower.IsMaxLevel())
         {
@@ -44,24 +58,25 @@ public class TowerUpgradePanel : MonoBehaviour
         _branchHandler.Disable();
         _branchUpgradesHandler.Disable();
 
-        gameObject.SetActive(false);
+        _towerUpgradePanel.SetActive(false);
         
         _upgradePanel.SetActive(true);
     }
 
     public void ExecuteTowerUpgrade()
     {
-        if(!_tower.IsMaxLevel())
+        if (_tower.IsMaxLevel())
         {
-            _tower.Upgrade();
-            gameObject.SetActive(false);
+            return;
         }
+        _tower.Upgrade();
+        _towerUpgradePanel.SetActive(false);
     }
 
     public void ExecuteTowerSell()
     {
         _tower.Sell();
-        gameObject.SetActive(false);
+        _towerUpgradePanel.SetActive(false);
     }
 
     public void UpgradeButtonIsAvailable()
