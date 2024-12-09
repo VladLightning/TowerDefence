@@ -19,16 +19,15 @@ public class InitializeAbilities : MonoBehaviour
             switch (ability)
             {
                 case CastleCannonShotAbility:
-                    GetComponentInChildren<CastleCannonShotInitialize>().InitializeAbility(ability);
+                    GetComponentInChildren<CastleCannonShotAbilityInitialize>().InitializeAbility(ability);
                     break;
                 case FreezeAbility:
                     GetComponentInChildren<FreezeAbilityInitialize>().InitializeAbility(ability);
                     break;
-                case AbilityKnightSecond:
-                    GetComponentInChildren<AbilityKnightSecondInitialize>().InitAbility(ability);
+                case TornadoAbility:
+                    //Nothing to initialize
                     break;
             }
         }
-
     }
 }

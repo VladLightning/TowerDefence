@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
+    public static event Func<Vector2> OnAbilityUse;
+    
     [SerializeField] protected AbilityData _abilityData;
     private AbilityDisplay _abilityDisplay;
     public AbilityDisplay AbilityDisplay { set { _abilityDisplay = value; } }
@@ -31,6 +34,7 @@ public abstract class Ability : MonoBehaviour
         }
         _isSelected = value;
         _abilityDisplay.ActivateSelectionOutline(_isSelected);
+        OnAbilityUse?.Invoke();
     }
 
     protected virtual void AbilityCast()
@@ -55,5 +59,10 @@ public abstract class Ability : MonoBehaviour
         _abilityDisplay.UpdateAbilityImage(false);
 
         _isCooldownActive = false;
+    }
+
+    protected Vector2 GetMousePosition()
+    {
+        return OnAbilityUse?.Invoke() ?? Vector2.zero;
     }
 }
