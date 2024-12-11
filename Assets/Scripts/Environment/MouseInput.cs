@@ -15,9 +15,19 @@ public class MouseInput : MonoBehaviour
 
     [SerializeField] private LayerMask _layerMask;
 
+    private void OnEnable()
+    {
+        Ability.OnAbilityUse += GetMousePosition;
+    }
+
+    private void OnDisable()
+    {
+        Ability.OnAbilityUse -= GetMousePosition;
+    }
+
     public void MouseInputHandler()
     {
-        Vector2 targetPosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        var targetPosition = GetMousePosition();
 
         var hit = Physics2D.Raycast(targetPosition, Vector2.zero, DISTANCE, _layerMask);
 
@@ -46,5 +56,10 @@ public class MouseInput : MonoBehaviour
         {
             OnTowerSelected?.Invoke(hit.collider.GetComponentInParent<Tower>());
         }
+    }
+
+    private Vector2 GetMousePosition()
+    {
+        return _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 }

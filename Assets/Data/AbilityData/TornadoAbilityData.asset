@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b4e24f33704ac4296ebecbd1c1eb11, type: 3}
-  m_Name: AbilityData2
+  m_Script: {fileID: 11500000, guid: 62135a4fc74f96c47a8e5cdb3defb9c0, type: 3}
+  m_Name: TornadoAbilityData
   m_EditorClassIdentifier: 
-  _abilityCooldown: 10
-  _abilityIcon: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
+  _abilityCooldown: 15
+  _abilityIcon: {fileID: -2105305842262875611, guid: c07efe86eb1d4d84eabf75583e46afca, type: 3}
   _mask:
     serializedVersion: 2
-    m_Bits: 0
-  _explosionForce: 0
-  _explosionRadius: 0
-  _explosionDamage: 0
+    m_Bits: 64
+  _tornadoForceMagnitude: -500
+  _tornadoDuration: 8

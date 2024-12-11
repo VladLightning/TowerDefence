@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1437876129986904104}
   - component: {fileID: 8320811047890682113}
   m_Layer: 0
-  m_Name: KnightAbility2
+  m_Name: TornadoAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a5b3225c08f044a896252c18372694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityData: {fileID: 11400000, guid: 1ec48f38b5d8e3344b2c4f56c6b12c27, type: 2}
+  _abilityData: {fileID: 11400000, guid: f1d95dddf39d6bd4a9c87da9376ac848, type: 2}
+  _tornadoPrefab: {fileID: 1337773511317333067, guid: 178f73035ba4d2c4cb2bf791e713c974, type: 3}
