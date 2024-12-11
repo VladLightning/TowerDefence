@@ -84,12 +84,12 @@ public class PlayerInputHandler : MonoBehaviour
     private void SelectAbility(int index)
     {
         DeselectAbility();
-        _heroAbilities[index].TryAbilitySelect(true);
+        _heroAbilities[index].SelectAbility();
         _selectedAbilityIndex = index;
     }
 
     private void DeselectAbility()
     {
-        _heroAbilities[_selectedAbilityIndex].TryAbilitySelect(false);
+        _heroAbilities[_selectedAbilityIndex].DeselectAbility();
     }
 }

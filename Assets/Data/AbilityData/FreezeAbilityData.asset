@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _abilityCooldown: 8
   _abilityIcon: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
+  _radius: 15
   _mask:
     serializedVersion: 2
     m_Bits: 64
   _movementSpeedReductionCoefficient: 0.1
-  _freezeRadius: 15
   _freezeDuration: 7
