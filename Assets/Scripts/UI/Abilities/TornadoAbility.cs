@@ -10,7 +10,6 @@ public class TornadoAbility : Ability
         var abilityData = _abilityData as TornadoAbilityData;
         
         tornado.SetTornadoStats(abilityData.Mask, abilityData.TornadoForceMagnitude, abilityData.TornadoDuration);
-        tornado.TornadoActivate();
     }
     
     protected override void AbilityCast()

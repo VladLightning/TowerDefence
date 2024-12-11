@@ -11,9 +11,11 @@ public class Tornado : MonoBehaviour
         _mask = mask;
         _tornadoForceMagnitude = tornadoForceMagnitude;
         _tornadoDuration = tornadoDuration;
+        
+        TornadoActivate();
     }
 
-    public void TornadoActivate()
+    private void TornadoActivate()
     {
         var pointEffector = GetComponent<PointEffector2D>();
         pointEffector.colliderMask = _mask;
