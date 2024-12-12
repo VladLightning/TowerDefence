@@ -10,7 +10,7 @@ public abstract class Ability : MonoBehaviour
     private AbilityDisplay _abilityDisplay;
     public AbilityDisplay AbilityDisplay { set { _abilityDisplay = value; } }
 
-    protected bool _isCooldownActive;
+    private bool _isCooldownActive;
 
     private bool _isSelected;
     public bool IsSelected => _isSelected;
@@ -26,13 +26,18 @@ public abstract class Ability : MonoBehaviour
         AbilityCast();       
     }
 
-    public virtual void SelectAbility()
+    public void TrySelectAbility()
     {
         if(_isCooldownActive)
         {
             return;
         }
 
+        SelectAbility();
+    }
+
+    protected virtual void SelectAbility()
+    {
         ActivateSelectionOutline(true);
     }
 
