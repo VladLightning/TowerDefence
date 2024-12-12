@@ -2,7 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public abstract class CastleProjectileAbility : Ability
+public abstract class CastleProjectileAbility : AoEAbility
 {
     [SerializeField] private GameObject _projectile;
     

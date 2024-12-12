@@ -7,6 +7,6 @@ public class FreezeAbility : CastleProjectileAbility
         var freezeProjectile = projectile.GetComponent<FreezeProjectile>();
         var abilityData = _abilityData as FreezeAbilityData;
         
-        freezeProjectile.SetProjectileStats(abilityData.Mask, abilityData.FreezeRadius, abilityData.MovementSpeedReductionCoefficient, abilityData.FreezeDuration);
+        freezeProjectile.SetProjectileStats(abilityData.Mask, abilityData.Radius, abilityData.MovementSpeedReductionCoefficient, abilityData.FreezeDuration);
     }
 }

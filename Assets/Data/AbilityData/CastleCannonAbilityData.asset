@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _abilityCooldown: 5
   _abilityIcon: {fileID: -1136815581335597354, guid: e47cf74678ce8cc4c844713439053c32, type: 3}
+  _radius: 10
   _mask:
     serializedVersion: 2
     m_Bits: 64
   _explosionForce: 2500
-  _explosionRadius: 5
   _explosionDamage: 2

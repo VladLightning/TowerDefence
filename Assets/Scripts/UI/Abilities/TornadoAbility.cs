@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TornadoAbility : Ability
+public class TornadoAbility : AoEAbility
 {
     [SerializeField] private GameObject _tornadoPrefab;
 
@@ -9,7 +9,7 @@ public class TornadoAbility : Ability
         var tornado = tornadoInstance.GetComponent<Tornado>();
         var abilityData = _abilityData as TornadoAbilityData;
         
-        tornado.TornadoActivate(abilityData.Mask, abilityData.TornadoForceMagnitude, abilityData.TornadoDuration);
+        tornado.TornadoActivate(abilityData.Mask, abilityData.TornadoForceMagnitude, abilityData.TornadoDuration, abilityData.Radius);
     }
     
     protected override void AbilityCast()

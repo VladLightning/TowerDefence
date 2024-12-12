@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AbilityData", menuName = "TornadoAbilityData")]
-public class TornadoAbilityData : AbilityData
+public class TornadoAbilityData : AoEAbilityData
 {
     [SerializeField] private LayerMask _mask;
     public LayerMask Mask => _mask;
