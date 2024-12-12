@@ -41,7 +41,10 @@ public class AreaOfEffectDrawer : MonoBehaviour
         {
             float x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
             float y = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
-            _lineRenderer.SetPosition(i, new Vector3(transform.position.x + x, transform.position.y + y, 0));
+
+            var position = new Vector3(x, y, 0);
+            
+            _lineRenderer.SetPosition(i, position);
             angle += 360f / _pointsAmount;
         }
         _lineRenderer.enabled = true;
