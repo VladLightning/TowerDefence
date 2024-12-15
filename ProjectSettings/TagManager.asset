@@ -10,15 +10,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Hero
   - Water
   - UI
   - Enemy
   - Path
   - Tower
   - TowerSlot
-  - 
-  - 
+  - EnemyDetectionArea
+  - HeroDetectionArea
   - 
   - 
   - 

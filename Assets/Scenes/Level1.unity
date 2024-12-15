@@ -2620,6 +2620,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1947299100}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: _heroToSpawn
+      value: 
+      objectReference: {fileID: 7691720513464727882, guid: d08a723bc985efa45b40f5afb5de3fd7, type: 3}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: _mouseHeroMovement
       value: 
       objectReference: {fileID: 1947299100}

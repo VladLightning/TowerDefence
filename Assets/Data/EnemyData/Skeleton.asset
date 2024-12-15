@@ -17,5 +17,6 @@ MonoBehaviour:
   _damageType: 0
   _health: 1
   _movementSpeed: 10
+  _confrontingOpponentsLimit: 1
   _damageToPlayer: 1
   _moneyOnDeath: 20
