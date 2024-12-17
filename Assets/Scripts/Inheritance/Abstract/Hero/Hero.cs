@@ -34,14 +34,6 @@ public abstract class Hero : Mob
         MouseInput.OnPathSelected -= Move;
     }
 
-    private void LookAtMouse(Vector2 targetPosition)
-    {
-        transform.localScale =
-         (targetPosition.x < transform.position.x)
-         ? new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y)
-         : new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-    }
-
     private IEnumerator MoveHero(Vector2 targetPosition)
     {
         while (Vector2.Distance(transform.position, targetPosition) > DISTANCE_THRESHOLD)
@@ -67,8 +59,8 @@ public abstract class Hero : Mob
         {
             StopCoroutine(_move);
         }
-
-        LookAtMouse(target);
+        
+        LookAtTarget(target);
         _move = MoveHero(target);
         StartCoroutine(_move);
     }
