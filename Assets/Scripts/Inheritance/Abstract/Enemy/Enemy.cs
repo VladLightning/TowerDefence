@@ -41,7 +41,7 @@ public abstract class Enemy : Mob
 
     private void FixedUpdate()
     {
-        if (_state == MobStatesEnum.MobStates.Moving)
+        if (_currentState == MobStatesEnum.MobStates.Moving)
         {
             Move(_currentPoint.position);
         }

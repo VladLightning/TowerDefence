@@ -4,7 +4,7 @@ public class DetectOpponent : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Mob>().State == MobStatesEnum.MobStates.Fighting)
+        if (other.GetComponent<Mob>().CurrentState == MobStatesEnum.MobStates.Fighting)
         {
             return;
         }

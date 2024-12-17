@@ -5,8 +5,8 @@ public abstract class Mob : Entity
 {
     private const float START_COMBAT_DELAY = 0.1f;
     
-    protected MobStatesEnum.MobStates _state;
-    public MobStatesEnum.MobStates State => _state;
+    protected MobStatesEnum.MobStates _currentState;
+    public MobStatesEnum.MobStates CurrentState => _currentState;
     
     private GameObject _opponent;
     
@@ -69,7 +69,7 @@ public abstract class Mob : Entity
 
     public void StartEnterCombat(GameObject target)
     {
-        if (_state == MobStatesEnum.MobStates.Fighting || _enterCombat != null || _isEnteringCombat)
+        if (_currentState == MobStatesEnum.MobStates.Fighting || _enterCombat != null || _isEnteringCombat)
         {
             return;
         }
@@ -85,7 +85,7 @@ public abstract class Mob : Entity
         yield return new WaitForSeconds(START_COMBAT_DELAY);
         
         _opponent = target;
-        _state = MobStatesEnum.MobStates.Fighting;
+        _currentState = MobStatesEnum.MobStates.Fighting;
         LookAtTarget(_opponent.transform.position);
         
         _enterCombat = null;
@@ -99,6 +99,6 @@ public abstract class Mob : Entity
             return;
         }
         
-        _state = MobStatesEnum.MobStates.Moving;
+        _currentState = MobStatesEnum.MobStates.Moving;
     }
 }
