@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Mob : Entity
@@ -82,7 +83,7 @@ public abstract class Mob : Entity
     {
         _isEnteringCombat = true;
         
-        yield return new WaitForSeconds(START_COMBAT_DELAY);
+        yield return new WaitForSeconds(START_COMBAT_DELAY); //Задержка для того, чтобы гарантировать, что оппоненты встретятся, несмотря на разницу в размерах коллайдеров моделек
         
         _opponent = target;
         _currentState = MobStatesEnum.MobStates.Fighting;
