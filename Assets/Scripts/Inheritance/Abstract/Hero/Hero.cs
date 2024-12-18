@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public abstract class Hero : Mob
@@ -11,6 +12,8 @@ public abstract class Hero : Mob
     private float _regenerationDelay;
     private float _regenerationInterval;
     private int _regenerationAmount;
+    
+    private HeroDetectOpponent _heroDetectOpponent;
 
     protected override void SetStats()
     {
@@ -34,13 +37,20 @@ public abstract class Hero : Mob
         MouseInput.OnPathSelected -= Move;
     }
 
+    private void Start()
+    {
+        _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
+    }
+
     private IEnumerator MoveHero(Vector2 targetPosition)
     {
+        ChangeState(MobStatesEnum.MobStates.Moving);
         while (Vector2.Distance(transform.position, targetPosition) > DISTANCE_THRESHOLD)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, _currentMovementSpeed * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
+        ChangeState(MobStatesEnum.MobStates.Idle);
     }
 
     private void Skill()
@@ -63,5 +73,7 @@ public abstract class Hero : Mob
         LookAtTarget(target);
         _move = MoveHero(target);
         StartCoroutine(_move);
+        
+        _heroDetectOpponent.StopFighting();
     }
 }

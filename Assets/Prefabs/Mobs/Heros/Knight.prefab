@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2613580617553839873, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6908124193252092507, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       propertyPath: m_Radius
       value: 3

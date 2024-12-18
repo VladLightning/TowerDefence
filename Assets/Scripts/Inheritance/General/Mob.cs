@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public abstract class Mob : Entity
@@ -10,9 +9,6 @@ public abstract class Mob : Entity
     public MobStatesEnum.MobStates CurrentState => _currentState;
     
     private GameObject _opponent;
-    
-    private IEnumerator _enterCombat;
-    private bool _isEnteringCombat;
     
     private int _health;
     private float _defaultMovementSpeed;
@@ -67,39 +63,16 @@ public abstract class Mob : Entity
     {
         _currentMovementSpeed = _defaultMovementSpeed;
     }
-
-    public void StartEnterCombat(GameObject target)
-    {
-        if (_currentState == MobStatesEnum.MobStates.Fighting || _enterCombat != null || _isEnteringCombat)
-        {
-            return;
-        }
-        
-        _enterCombat = EnterCombat(target);
-        StartCoroutine(_enterCombat);
-    }
     
-    private IEnumerator EnterCombat(GameObject target)
+    public void EnterCombat(GameObject target)
     {
-        _isEnteringCombat = true;
-        
-        yield return new WaitForSeconds(START_COMBAT_DELAY); //Задержка для того, чтобы гарантировать, что оппоненты встретятся, несмотря на разницу в размерах коллайдеров моделек
-        
         _opponent = target;
-        _currentState = MobStatesEnum.MobStates.Fighting;
+        ChangeState(MobStatesEnum.MobStates.Fighting);
         LookAtTarget(_opponent.transform.position);
-        
-        _enterCombat = null;
-        _isEnteringCombat = false;
     }
 
-    public void ExitCombat(GameObject target)
+    public void ChangeState(MobStatesEnum.MobStates newState)
     {
-        if (_opponent != target)
-        {
-            return;
-        }
-        
-        _currentState = MobStatesEnum.MobStates.Moving;
+        _currentState = newState;
     }
 }
