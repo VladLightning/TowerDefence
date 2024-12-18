@@ -25,6 +25,8 @@ public abstract class Hero : Mob
         _regenerationDelay = heroData.RegenerationDelay;
         _regenerationInterval = heroData.RegenerationInterval;
         _regenerationAmount = heroData.RegenerationAmount;
+        
+        _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
     }
 
     private void OnEnable()
@@ -37,11 +39,6 @@ public abstract class Hero : Mob
         MouseInput.OnPathSelected -= Move;
     }
 
-    private void Start()
-    {
-        _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
-    }
-
     private IEnumerator MoveHero(Vector2 targetPosition)
     {
         ChangeState(MobStatesEnum.MobStates.Moving);
@@ -51,6 +48,7 @@ public abstract class Hero : Mob
             yield return new WaitForFixedUpdate();
         }
         ChangeState(MobStatesEnum.MobStates.Idle);
+        _heroDetectOpponent.SearchPotentialOpponent();
     }
 
     private void Skill()
