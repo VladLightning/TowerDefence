@@ -4,6 +4,8 @@ public class HeroDetectOpponent : MonoBehaviour
 {
     private readonly float _detectionRadius = 3;
     
+    [SerializeField] private LayerMask _detectionLayerMask;
+    
     private Mob _hero;
     private Mob _opponent;
 
@@ -29,7 +31,7 @@ public class HeroDetectOpponent : MonoBehaviour
 
     public void SearchPotentialOpponent()
     {
-        var mob = Physics2D.OverlapCircle(transform.position, _detectionRadius, LayerMask.GetMask("Enemy"));
+        var mob = Physics2D.OverlapCircle(transform.position, _detectionRadius, _detectionLayerMask);
         if (mob == null)
         {
             return;
