@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Mob : Entity
 {
-    private const float START_COMBAT_DELAY = 0.1f;
     
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;

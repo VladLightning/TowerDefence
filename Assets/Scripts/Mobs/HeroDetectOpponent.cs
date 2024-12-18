@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HeroDetectOpponent : MonoBehaviour
 {
+    private readonly float _detectionRadius = 3;
+    
     private Mob _hero;
     private Mob _opponent;
 
@@ -10,17 +12,9 @@ public class HeroDetectOpponent : MonoBehaviour
         _hero = GetComponentInParent<Mob>();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        var opponent = other.GetComponent<Mob>();
-        if (opponent.CurrentState == MobStatesEnum.MobStates.Fighting || _hero.CurrentState != MobStatesEnum.MobStates.Idle)
-        {
-            return;
-        }
-        _opponent = opponent;
-  
-        _hero.EnterCombat(other.gameObject);
-        _opponent.EnterCombat(transform.parent.gameObject);
+        SearchPotentialOpponent();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -31,6 +25,25 @@ public class HeroDetectOpponent : MonoBehaviour
         }
 
         StopFighting();
+    }
+
+    public void SearchPotentialOpponent()
+    {
+        var mob = Physics2D.OverlapCircle(transform.position, _detectionRadius, LayerMask.GetMask("Enemy"));
+        if (mob == null)
+        {
+            return;
+        }
+        
+        var potentialOpponent = mob.GetComponent<Mob>();
+        if (potentialOpponent.CurrentState == MobStatesEnum.MobStates.Fighting || _hero.CurrentState != MobStatesEnum.MobStates.Idle)
+        {
+            return;
+        }
+        _opponent = potentialOpponent;
+  
+        _hero.EnterCombat(_opponent.gameObject);
+        _opponent.EnterCombat(transform.parent.gameObject);
     }
 
     public void StopFighting()
