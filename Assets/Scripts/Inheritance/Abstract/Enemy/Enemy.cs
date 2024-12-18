@@ -41,7 +41,10 @@ public abstract class Enemy : Mob
 
     private void FixedUpdate()
     {
-        Move(_currentPoint.position);
+        if (_currentState == MobStatesEnum.MobStates.Moving)
+        {
+            Move(_currentPoint.position);
+        }
     }
 
     private void DealDamageToPlayer()
@@ -76,7 +79,8 @@ public abstract class Enemy : Mob
     }
 
     private void UpdatePath()
-    {
+    { 
+        LookAtTarget(_currentPoint.position);
         if (!(Vector2.Distance(transform.position, _currentPoint.position) < DISTANCE_THRESHOLD))
         {
             return;

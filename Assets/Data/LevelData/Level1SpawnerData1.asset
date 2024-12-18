@@ -15,21 +15,15 @@ MonoBehaviour:
   _waves:
   - _earlyWaveStartReward: 0
     _waveInstances:
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
+    - _enemy: {fileID: 1113582280980130351, guid: 123f5dc76cd733847bbdef9f4fcf585a, type: 3}
+      _spawnDelay: 1
+    - _enemy: {fileID: 1113582280980130351, guid: 123f5dc76cd733847bbdef9f4fcf585a, type: 3}
+      _spawnDelay: 1
+    - _enemy: {fileID: 1113582280980130351, guid: 123f5dc76cd733847bbdef9f4fcf585a, type: 3}
+      _spawnDelay: 1
+    - _enemy: {fileID: 1113582280980130351, guid: 123f5dc76cd733847bbdef9f4fcf585a, type: 3}
+      _spawnDelay: 1
     _waveDelay: 5
   - _earlyWaveStartReward: 200
-    _waveInstances:
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
-    - _enemy: {fileID: 4098850926986651013, guid: f595e06ea3e849049b124193c2d2aee4, type: 3}
-      _spawnDelay: 2
+    _waveInstances: []
     _waveDelay: 20
