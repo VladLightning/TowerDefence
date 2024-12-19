@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public abstract class Mob : Entity
 {
@@ -7,6 +8,8 @@ public abstract class Mob : Entity
     public MobStatesEnum.MobStates CurrentState => _currentState;
     
     private GameObject _opponent;
+
+    private Coroutine _fight;
     
     private int _health;
     private float _defaultMovementSpeed;
@@ -40,6 +43,11 @@ public abstract class Mob : Entity
 
     public void TakeDamage(int damage)
     {
+        if (_health <= 0)
+        {
+            return;
+        }
+        
         _health -= damage;
         if(_health <= 0)
         {
@@ -61,12 +69,32 @@ public abstract class Mob : Entity
     {
         _currentMovementSpeed = _defaultMovementSpeed;
     }
+
+    private IEnumerator Fight(Mob opponent)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_attackSpeed);
+            opponent.TakeDamage(_damage);
+        }
+    }
     
     public void EnterCombat(GameObject target)
     {
         _opponent = target;
         ChangeState(MobStatesEnum.MobStates.Fighting);
         LookAtTarget(_opponent.transform.position);
+        
+        _fight = StartCoroutine(Fight(target.GetComponent<Mob>()));
+    }
+
+    public void ExitCombat()
+    {
+        if (_fight == null)
+        {
+            return;
+        }
+        StopCoroutine(_fight);
     }
 
     public void ChangeState(MobStatesEnum.MobStates newState)
