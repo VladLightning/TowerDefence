@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 public abstract class Hero : Mob
@@ -50,12 +49,7 @@ public abstract class Hero : Mob
         ChangeState(MobStatesEnum.MobStates.Idle);
         _heroDetectOpponent.SearchPotentialOpponent();
     }
-
-    private void Skill()
-    {
-        throw new System.NotImplementedException();
-    }
-
+    
     private void RegenerateHealth()
     {
         throw new System.NotImplementedException();
@@ -73,5 +67,10 @@ public abstract class Hero : Mob
         StartCoroutine(_move);
         
         _heroDetectOpponent.StopFighting();
+    }
+
+    protected override void Death()
+    {
+        Destroy(gameObject);
     }
 }
