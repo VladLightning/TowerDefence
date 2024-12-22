@@ -38,6 +38,7 @@ public abstract class Mob : Entity
         _currentMovementSpeed = _defaultMovementSpeed;
         
         _healthbarView = GetComponentInChildren<HealthbarView>();
+        _healthbarView.SetMaxHealth(_maxHealth);
     }
 
     protected void LookAtTarget(Vector2 target)
@@ -58,7 +59,7 @@ public abstract class Mob : Entity
         }
         
         _currentHealth -= damage;
-        _healthbarView.UpdateHealthBar(_currentHealth, _maxHealth);
+        _healthbarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
         {
