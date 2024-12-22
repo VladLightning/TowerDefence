@@ -13,8 +13,6 @@ public abstract class Hero : Mob
     private float _regenerationInterval;
     private int _regenerationAmount;
     
-    private bool _isRegenerating;
-    
     private HeroDetectOpponent _heroDetectOpponent;
 
     protected override void SetStats()
@@ -60,10 +58,9 @@ public abstract class Hero : Mob
     
     private IEnumerator RegenerateHealth()
     {
-        _isRegenerating = true;
         yield return new WaitForSeconds(_regenerationDelay);
         
-        while (_isRegenerating)
+        while (true)
         {
             yield return new WaitForSeconds(_regenerationInterval);
             _currentHealth += _regenerationAmount;
@@ -72,7 +69,7 @@ public abstract class Hero : Mob
             if (_currentHealth >= _maxHealth)
             {
                 _currentHealth = _maxHealth;
-                _isRegenerating = false;
+                yield break;
             }
         }
     }
@@ -100,15 +97,14 @@ public abstract class Hero : Mob
     {
         base.EnterCombat(target);
         StopCoroutine(_regenerate);
-        _regenerate = RegenerateHealth();
-        _isRegenerating = false;
     }
 
     public override void ExitCombat()
     {
         base.ExitCombat();
-        if (_currentHealth < _maxHealth && !_isRegenerating)
+        if (_currentHealth < _maxHealth && _regenerate == null)
         {
+            _regenerate = RegenerateHealth();
             StartCoroutine(_regenerate); 
         }
     }
