@@ -5,6 +5,7 @@ public abstract class Hero : Mob
     private const float DISTANCE_THRESHOLD = 0.1f;
 
     private IEnumerator _move;
+    private IEnumerator _regenerate;
 
     private float _skillCooldown;
     private float _respawnTime;
@@ -26,6 +27,11 @@ public abstract class Hero : Mob
         _regenerationAmount = heroData.RegenerationAmount;
         
         _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
+    }
+
+    private void Start()
+    {
+        _regenerate = RegenerateHealth();
     }
 
     private void OnEnable()
@@ -50,9 +56,22 @@ public abstract class Hero : Mob
         _heroDetectOpponent.SearchPotentialOpponent();
     }
     
-    private void RegenerateHealth()
+    private IEnumerator RegenerateHealth()
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForSeconds(_regenerationDelay);
+        
+        while (true)
+        {
+            yield return new WaitForSeconds(_regenerationInterval);
+            _currentHealth += _regenerationAmount;
+            _healthbarView.UpdateHealthBar(_currentHealth);
+            
+            if (_currentHealth >= _maxHealth)
+            {
+                _currentHealth = _maxHealth;
+                yield break;
+            }
+        }
     }
 
     protected override void Move(Vector2 target)
@@ -72,5 +91,21 @@ public abstract class Hero : Mob
     protected override void Death()
     {
         Destroy(gameObject);
+    }
+    
+    public override void EnterCombat(GameObject target)
+    {
+        base.EnterCombat(target);
+        StopCoroutine(_regenerate);
+    }
+
+    public override void ExitCombat()
+    {
+        base.ExitCombat();
+        if (_currentHealth < _maxHealth && _regenerate == null)
+        {
+            _regenerate = RegenerateHealth();
+            StartCoroutine(_regenerate); 
+        }
     }
 }
