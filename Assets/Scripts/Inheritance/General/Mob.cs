@@ -38,7 +38,6 @@ public abstract class Mob : Entity
         _currentMovementSpeed = _defaultMovementSpeed;
         
         _healthbarView = GetComponentInChildren<HealthbarView>();
-        CallUpdateHealthBar();
     }
 
     protected void LookAtTarget(Vector2 target)
@@ -48,7 +47,7 @@ public abstract class Mob : Entity
                 ? new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y)
                 : new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         
-        CallUpdateHealthBar();
+        _healthbarView.AlignHealthBar();
     }
 
     public void TakeDamage(int damage)
@@ -59,7 +58,7 @@ public abstract class Mob : Entity
         }
         
         _currentHealth -= damage;
-        CallUpdateHealthBar();
+        _healthbarView.UpdateHealthBar(_currentHealth, _maxHealth);
         
         if(_currentHealth <= 0)
         {
@@ -80,11 +79,6 @@ public abstract class Mob : Entity
     protected void SetMovementSpeedToDefault()
     {
         _currentMovementSpeed = _defaultMovementSpeed;
-    }
-
-    private void CallUpdateHealthBar()
-    {
-        _healthbarView.UpdateHealthBar(_currentHealth, _maxHealth);
     }
 
     private IEnumerator Fight(Mob opponent)

@@ -3,15 +3,18 @@ using UnityEngine.UI;
 
 public class HealthbarView : MonoBehaviour
 {
-    [SerializeField] private Image _healthBar;
+    [SerializeField] private GameObject _healthBar;
+    [SerializeField] private Image _healthBarImage;
     
     public void UpdateHealthBar(int currentHealth, int maxHealth)
     {
-        var healthBar = _healthBar.transform.parent.gameObject;
+        _healthBarImage.fillAmount = (float)currentHealth / maxHealth;
+        
+        _healthBar.SetActive(currentHealth < maxHealth);
+    }
 
-        healthBar.transform.localScale = transform.parent.localScale; //Строка для того, чтобы полоска здоровья не поворачивалась вместе с мобом
-        healthBar.SetActive(currentHealth < maxHealth);
-
-        _healthBar.fillAmount = (float)currentHealth / maxHealth;
+    public void AlignHealthBar()
+    {
+        _healthBar.transform.localScale = transform.parent.localScale;
     }
 }
