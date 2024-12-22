@@ -91,7 +91,7 @@ public abstract class Mob : Entity
         }
     }
     
-    public void EnterCombat(GameObject target)
+    public virtual void EnterCombat(GameObject target)
     {
         _opponent = target;
         ChangeState(MobStatesEnum.MobStates.Fighting);
@@ -100,7 +100,7 @@ public abstract class Mob : Entity
         _fight = StartCoroutine(Fight(target.GetComponent<Mob>()));
     }
 
-    public void ExitCombat()
+    public virtual void ExitCombat()
     {
         if (_fight == null)
         {
@@ -109,7 +109,7 @@ public abstract class Mob : Entity
         StopCoroutine(_fight);
     }
 
-    public virtual void ChangeState(MobStatesEnum.MobStates newState)
+    public void ChangeState(MobStatesEnum.MobStates newState)
     {
         _currentState = newState;
     }

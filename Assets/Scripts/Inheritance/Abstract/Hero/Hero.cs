@@ -57,20 +57,6 @@ public abstract class Hero : Mob
         ChangeState(MobStatesEnum.MobStates.Idle);
         _heroDetectOpponent.SearchPotentialOpponent();
     }
-
-    private void TryStartRegeneration(MobStatesEnum.MobStates newState)
-    {
-        if (newState == MobStatesEnum.MobStates.Idle && _currentHealth < _maxHealth && !_isRegenerating)
-        {
-            StartCoroutine(_regenerate);
-        }
-        else if(newState == MobStatesEnum.MobStates.Fighting)
-        {
-            StopCoroutine(_regenerate);
-            _regenerate = RegenerateHealth();
-            _isRegenerating = false;
-        }
-    }
     
     private IEnumerator RegenerateHealth()
     {
@@ -83,14 +69,11 @@ public abstract class Hero : Mob
             _currentHealth += _regenerationAmount;
             _healthbarView.UpdateHealthBar(_currentHealth);
             
-            if (_currentHealth < _maxHealth)
+            if (_currentHealth >= _maxHealth)
             {
-                continue;
+                _currentHealth = _maxHealth;
+                _isRegenerating = false;
             }
-            
-            _isRegenerating = false;
-            _currentHealth = _maxHealth;
-            StopCoroutine(_regenerate);
         }
     }
 
@@ -113,9 +96,20 @@ public abstract class Hero : Mob
         Destroy(gameObject);
     }
     
-    public override void ChangeState(MobStatesEnum.MobStates newState)
+    public override void EnterCombat(GameObject target)
     {
-        base.ChangeState(newState);
-        TryStartRegeneration(newState);
+        base.EnterCombat(target);
+        StopCoroutine(_regenerate);
+        _regenerate = RegenerateHealth();
+        _isRegenerating = false;
+    }
+
+    public override void ExitCombat()
+    {
+        base.ExitCombat();
+        if (_currentHealth < _maxHealth && !_isRegenerating)
+        {
+            StartCoroutine(_regenerate); 
+        }
     }
 }
