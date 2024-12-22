@@ -11,12 +11,12 @@ public abstract class Mob : Entity
 
     private Coroutine _fight;
 
-    private int _maxHealth;
-    private int _currentHealth;
+    protected int _maxHealth;
+    protected int _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
     
-    private HealthbarView _healthbarView;
+    protected HealthbarView _healthbarView;
 
     protected abstract void Move(Vector2 target);
 
@@ -109,7 +109,7 @@ public abstract class Mob : Entity
         StopCoroutine(_fight);
     }
 
-    public void ChangeState(MobStatesEnum.MobStates newState)
+    public virtual void ChangeState(MobStatesEnum.MobStates newState)
     {
         _currentState = newState;
     }

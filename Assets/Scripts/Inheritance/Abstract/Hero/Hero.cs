@@ -5,12 +5,15 @@ public abstract class Hero : Mob
     private const float DISTANCE_THRESHOLD = 0.1f;
 
     private IEnumerator _move;
+    private IEnumerator _regenerate;
 
     private float _skillCooldown;
     private float _respawnTime;
     private float _regenerationDelay;
     private float _regenerationInterval;
     private int _regenerationAmount;
+    
+    private bool _isRegenerating;
     
     private HeroDetectOpponent _heroDetectOpponent;
 
@@ -26,6 +29,11 @@ public abstract class Hero : Mob
         _regenerationAmount = heroData.RegenerationAmount;
         
         _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
+    }
+
+    private void Start()
+    {
+        _regenerate = RegenerateHealth();
     }
 
     private void OnEnable()
@@ -49,10 +57,41 @@ public abstract class Hero : Mob
         ChangeState(MobStatesEnum.MobStates.Idle);
         _heroDetectOpponent.SearchPotentialOpponent();
     }
-    
-    private void RegenerateHealth()
+
+    private void TryStartRegeneration(MobStatesEnum.MobStates newState)
     {
-        throw new System.NotImplementedException();
+        if (newState == MobStatesEnum.MobStates.Idle && _currentHealth < _maxHealth && !_isRegenerating)
+        {
+            StartCoroutine(_regenerate);
+        }
+        else if(newState == MobStatesEnum.MobStates.Fighting)
+        {
+            StopCoroutine(_regenerate);
+            _regenerate = RegenerateHealth();
+            _isRegenerating = false;
+        }
+    }
+    
+    private IEnumerator RegenerateHealth()
+    {
+        _isRegenerating = true;
+        yield return new WaitForSeconds(_regenerationDelay);
+        
+        while (_isRegenerating)
+        {
+            yield return new WaitForSeconds(_regenerationInterval);
+            _currentHealth += _regenerationAmount;
+            _healthbarView.UpdateHealthBar(_currentHealth);
+            
+            if (_currentHealth < _maxHealth)
+            {
+                continue;
+            }
+            
+            _isRegenerating = false;
+            _currentHealth = _maxHealth;
+            StopCoroutine(_regenerate);
+        }
     }
 
     protected override void Move(Vector2 target)
@@ -72,5 +111,11 @@ public abstract class Hero : Mob
     protected override void Death()
     {
         Destroy(gameObject);
+    }
+    
+    public override void ChangeState(MobStatesEnum.MobStates newState)
+    {
+        base.ChangeState(newState);
+        TryStartRegeneration(newState);
     }
 }
