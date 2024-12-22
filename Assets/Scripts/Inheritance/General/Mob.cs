@@ -10,10 +10,13 @@ public abstract class Mob : Entity
     private GameObject _opponent;
 
     private Coroutine _fight;
-    
-    private int _health;
+
+    private int _maxHealth;
+    private int _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
+    
+    private HealthbarView _healthbarView;
 
     protected abstract void Move(Vector2 target);
 
@@ -28,9 +31,14 @@ public abstract class Mob : Entity
         
         var mobData = _entityData as MobData;
         
-        _health = mobData.Health;
+        _maxHealth = mobData.Health;
+        _currentHealth = _maxHealth;
+        
         _defaultMovementSpeed = mobData.MovementSpeed;
         _currentMovementSpeed = _defaultMovementSpeed;
+        
+        _healthbarView = GetComponentInChildren<HealthbarView>();
+        CallUpdateHealthBar();
     }
 
     protected void LookAtTarget(Vector2 target)
@@ -39,17 +47,21 @@ public abstract class Mob : Entity
             (target.x < transform.position.x)
                 ? new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y)
                 : new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        
+        CallUpdateHealthBar();
     }
 
     public void TakeDamage(int damage)
     {
-        if (_health <= 0)
+        if (_currentHealth <= 0)
         {
             return;
         }
         
-        _health -= damage;
-        if(_health <= 0)
+        _currentHealth -= damage;
+        CallUpdateHealthBar();
+        
+        if(_currentHealth <= 0)
         {
             Death();
         }
@@ -68,6 +80,11 @@ public abstract class Mob : Entity
     protected void SetMovementSpeedToDefault()
     {
         _currentMovementSpeed = _defaultMovementSpeed;
+    }
+
+    private void CallUpdateHealthBar()
+    {
+        _healthbarView.UpdateHealthBar(_currentHealth, _maxHealth);
     }
 
     private IEnumerator Fight(Mob opponent)
