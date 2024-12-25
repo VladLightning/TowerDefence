@@ -19,6 +19,6 @@ MonoBehaviour:
   _movementSpeed: 12
   _skillCooldown: 5
   _respawnTime: 10
-  _regenerationDelay: 8
+  _regenerationDelay: 4
   _regenerationInterval: 2
   _regenerationAmount: 3
