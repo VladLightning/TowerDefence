@@ -17,16 +17,12 @@ public class EnemyFabric : MonoBehaviour
         Spawner.OnSpawnEnemy -= SpawnEnemy;
     }
 
-    private void SpawnEnemy(EnemiesEnum.EnemyTypes enemyType, Transform spawnPoint, Path movementPath)
+    private Enemy SpawnEnemy(EnemiesEnum.EnemyTypes enemyType, Transform spawnPoint)
     {
         if (_enemies.TryGetValue(enemyType, out var enemy))
         {
-            var enemyInstance = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-            enemyInstance.GetComponent<Enemy>().Initiate(movementPath);
+            return Instantiate(enemy, spawnPoint.position, spawnPoint.rotation).GetComponent<Enemy>();
         }
-        else
-        {
-            throw new NullReferenceException("No enemy found in dictionary");
-        }
+        throw new NullReferenceException("No enemy found in dictionary");
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6182052587743137217}
   - component: {fileID: 5316060856171040839}
-  - component: {fileID: 7543137895339557877}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -48,19 +47,3 @@ MonoBehaviour:
   _movementPath: {fileID: 0}
   _startWaveButtonsVisual: {fileID: 0}
   _spawnerIndex: 0
---- !u!114 &7543137895339557877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2832409660424214529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c832a9a5c22d64f46ad964d6b021b41e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemies:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 1113582280980130351, guid: 123f5dc76cd733847bbdef9f4fcf585a, type: 3}
