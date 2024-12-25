@@ -50,17 +50,17 @@ public class HeroDetectOpponent : MonoBehaviour
 
     public void StopFighting()
     {
+        if (_opponent == null)
+        {
+            return;
+        }
+        
         if (_hero.CurrentState == MobStatesEnum.MobStates.Fighting)
         {
             _hero.ChangeState(MobStatesEnum.MobStates.Idle);
         }
         
         _hero.ExitCombat();
-
-        if (_opponent == null)
-        {
-            return;
-        }
         
         _opponent.ChangeState(MobStatesEnum.MobStates.Moving);
         _opponent.ExitCombat();

@@ -11,12 +11,12 @@ public abstract class Mob : Entity
 
     private Coroutine _fight;
 
-    private int _maxHealth;
-    private int _currentHealth;
+    protected int _maxHealth;
+    protected int _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
     
-    private HealthbarView _healthbarView;
+    protected HealthbarView _healthbarView;
 
     protected abstract void Move(Vector2 target);
 
@@ -38,6 +38,7 @@ public abstract class Mob : Entity
         _currentMovementSpeed = _defaultMovementSpeed;
         
         _healthbarView = GetComponentInChildren<HealthbarView>();
+        _healthbarView.SetMaxHealth(_maxHealth);
     }
 
     protected void LookAtTarget(Vector2 target)
@@ -58,7 +59,7 @@ public abstract class Mob : Entity
         }
         
         _currentHealth -= damage;
-        _healthbarView.UpdateHealthBar(_currentHealth, _maxHealth);
+        _healthbarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
         {
@@ -90,7 +91,7 @@ public abstract class Mob : Entity
         }
     }
     
-    public void EnterCombat(GameObject target)
+    public virtual void EnterCombat(GameObject target)
     {
         _opponent = target;
         ChangeState(MobStatesEnum.MobStates.Fighting);
@@ -99,7 +100,7 @@ public abstract class Mob : Entity
         _fight = StartCoroutine(Fight(target.GetComponent<Mob>()));
     }
 
-    public void ExitCombat()
+    public virtual void ExitCombat()
     {
         if (_fight == null)
         {
