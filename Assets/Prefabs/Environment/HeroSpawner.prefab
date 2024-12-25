@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2978184360122368451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.37, y: -17.97, z: -1.2150366}
+  m_LocalPosition: {x: 26.37, y: -17.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47,9 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroToSpawn: {fileID: 5242421210546671716, guid: b20be3bbdb0474342b7cc8ddefa2a0b0, type: 3}
   _spawnPoint: {fileID: 2646416121842463371}
-  _mouseHeroMovement: {fileID: 0}
-  _heroData:
-  - {fileID: 11400000, guid: de33cdd45a57a8a499f083e1bf5f0b0d, type: 2}
+  _heroAbilities: []
+  _abilityDisplays: []
 --- !u!1 &6268472818771862743
 GameObject:
   m_ObjectHideFlags: 0

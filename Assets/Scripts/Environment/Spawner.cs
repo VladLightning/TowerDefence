@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public static event Action<int> OnEarlyWaveStart;
     public static event Action<int> OnIncreaseEnemyAmount;
+    public static event Func<EnemiesEnum.EnemyTypes, Transform, Enemy> OnSpawnEnemy;
     
     [SerializeField] private Path _movementPath;
 
@@ -61,8 +62,7 @@ public class Spawner : MonoBehaviour
     {
         foreach (var waveInstanceData in _waveData.Waves[index].WaveInstances)
         {
-            var enemy = Instantiate(waveInstanceData.Enemy, transform.position, transform.rotation);
-            enemy.GetComponent<Enemy>().Initiate(_movementPath);
+            OnSpawnEnemy?.Invoke(waveInstanceData.EnemyType, transform).Initiate(_movementPath);
             yield return new WaitForSeconds(waveInstanceData.SpawnDelay);
         }
     }

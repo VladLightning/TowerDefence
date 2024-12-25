@@ -1,4 +1,6 @@
+using System.Linq;
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "EnemyWaves", menuName = "WavesData")]
 public class WaveData : ScriptableObject
 {
@@ -18,20 +20,15 @@ public class Waves
 
     public int GetTotalDelay()
     {
-        int totalDelay = 0; 
-        for (int i = 0; i < _waveInstances.Length; i++)
-        {
-            totalDelay += _waveInstances[i].SpawnDelay;
-        }
-        return totalDelay;
+        return _waveInstances.Sum(t => t.SpawnDelay);
     }
 }
 
 [System.Serializable]
 public class WaveInstanceData
 {
-    [SerializeField] private GameObject _enemy;
-    public GameObject Enemy => _enemy;
+    [SerializeField] private EnemiesEnum.EnemyTypes _enemyType;
+    public EnemiesEnum.EnemyTypes EnemyType => _enemyType;
 
     [SerializeField] private int _spawnDelay;
     public int SpawnDelay => _spawnDelay;

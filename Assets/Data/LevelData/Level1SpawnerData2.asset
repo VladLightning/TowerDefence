@@ -17,5 +17,9 @@ MonoBehaviour:
     _waveInstances: []
     _waveDelay: 5
   - _earlyWaveStartReward: 200
-    _waveInstances: []
+    _waveInstances:
+    - _enemyType: 0
+      _spawnDelay: 2
+    - _enemyType: 0
+      _spawnDelay: 2
     _waveDelay: 20

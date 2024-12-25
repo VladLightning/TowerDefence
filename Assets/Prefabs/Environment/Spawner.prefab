@@ -45,8 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementPath: {fileID: 0}
-  _playerHealth: {fileID: 0}
-  _playerMoney: {fileID: 0}
-  _waveData: {fileID: 11400000, guid: e141af765c5a365428ac562a84460645, type: 2}
-  _enemiesAmount: 5
-  _spawnDelay: 2
+  _startWaveButtonsVisual: {fileID: 0}
+  _spawnerIndex: 0
