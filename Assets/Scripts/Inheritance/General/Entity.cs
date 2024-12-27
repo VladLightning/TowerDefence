@@ -7,8 +7,6 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected EntityData _entityData;
     
     protected DamageTypeEnum.DamageTypes _damageType;
-    
-    protected abstract void Attack();
 
     protected virtual void Awake()
     {

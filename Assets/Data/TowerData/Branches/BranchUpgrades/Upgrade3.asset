@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0054243263952448d8bb31025f4a30, type: 3}
   m_Name: Upgrade3
   m_EditorClassIdentifier: 
+  _upgradeClassName: FlameAbilityThree
   _sprite: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
   _upgradePrices: 20030000
