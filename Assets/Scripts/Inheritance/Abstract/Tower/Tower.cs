@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Tower : Entity
@@ -8,7 +9,6 @@ public abstract class Tower : Entity
     
     [SerializeField] private Transform _projectileLaunchPoint; 
     private TowerLevelsData _towerLevelsData;
-    public TowerLevelsData TowerLevelsData => _towerLevelsData;
     
     [SerializeField] private TowerBranchData[] _towerBranchData;
     public TowerBranchData[] TowerBranchData => _towerBranchData;
@@ -118,7 +118,7 @@ public abstract class Tower : Entity
 
     private void FindTarget()
     {
-        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(transform.position, _range, LayerMask.GetMask("Enemy"));
+        var enemyColliders = Physics2D.OverlapCircleAll(transform.position, _range, LayerMask.GetMask("Enemy"));
 
         if(enemyColliders.Length == 0)
         {
@@ -175,7 +175,7 @@ public abstract class Tower : Entity
         StopCoroutine(_shoot);
     }
 
-    protected override void Attack()
+    private void Attack()
     {
         float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
 
@@ -206,26 +206,31 @@ public abstract class Tower : Entity
         Destroy(gameObject);
     }
 
-    public void SetBranch(TowerBranchData branch)
+    public void SetBranch(int index)
     {      
-        _currentTowerBranchData = branch;
+        _currentTowerBranchData = TowerBranchData[index];
         _playerMoney.Purchase(_currentTowerBranchData.Price);
         GetComponent<SpriteRenderer>().sprite = _currentTowerBranchData.TowerSprite;
 
         _currentBranchUpgradeLevels = new int[_currentTowerBranchData.BranchUpgradesData.Length];
 
-        SetStats(branch);
+        SetStats(_currentTowerBranchData);
+    }
+
+    public void UpgradeBranchAbility(int index)
+    {
+        if (_currentBranchUpgradeLevels[index] == 0)
+        {
+            var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
+            gameObject.AddComponent(type);
+        }
+        _currentBranchUpgradeLevels[index]++;
     }
 
     public int GetInitialPrice()
     {
         var towerLevelsData = _entityData as TowerLevelsData;
         return towerLevelsData.Price;
-    }
-
-    public void IncreaseAbilityLevel(int index)
-    {
-        _currentBranchUpgradeLevels[index]++;
     }
 
     public int GetCurrentUpgradeLevel(int index)

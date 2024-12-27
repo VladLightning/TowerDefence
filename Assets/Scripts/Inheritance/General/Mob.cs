@@ -19,11 +19,6 @@ public abstract class Mob : Entity
     protected HealthbarView _healthbarView;
 
     protected abstract void Move(Vector2 target);
-
-    protected override void Attack()
-    {
-        throw new System.NotImplementedException();
-    }
     
     protected override void SetStats()
     {

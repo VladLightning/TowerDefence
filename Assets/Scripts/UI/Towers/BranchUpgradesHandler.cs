@@ -50,8 +50,8 @@ public class BranchUpgradesHandler : MonoBehaviour
         int upgradePrices = _branchUpgradesData[upgradeIndex].UpgradePrices[_tower.GetCurrentUpgradeLevel(upgradeIndex)];
 
         _playerMoney.Purchase(upgradePrices);
-
-        _tower.IncreaseAbilityLevel(upgradeIndex);
+        
+        _tower.UpgradeBranchAbility(upgradeIndex);
 
         UpdateLevelDisplay(upgradeIndex);
 
