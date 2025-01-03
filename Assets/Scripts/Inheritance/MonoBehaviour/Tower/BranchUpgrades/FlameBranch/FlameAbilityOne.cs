@@ -1,10 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameAbilityOne : MonoBehaviour
+public class FlameAbilityOne : BranchAbility
 {
- 
-    [SerializeField] private GameObject projectilePrefab;
+    public override void Initiate(BranchUpgradeData branchUpgradeData)
+    {
+        Debug.Log("Init");
+    }
+
+    public override void Upgrade()
+    {
+        Debug.Log("Upgrade");
+    }
 }
