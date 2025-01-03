@@ -1,9 +1,7 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "BranchUpgrades", menuName = "UpgradesData")]
-public class BranchUpgradeData : ScriptableObject
+public abstract class BranchUpgradeData : ScriptableObject
 {
-    [SerializeField] private string _upgradeClassName;
-    public string UpgradeClassName => _upgradeClassName;
+    public abstract string UpgradeClassName { get; }
     
     [SerializeField] private Sprite _sprite;
     public Sprite Sprite => _sprite;

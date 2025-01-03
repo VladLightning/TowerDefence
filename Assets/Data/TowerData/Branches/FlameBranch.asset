@@ -22,6 +22,6 @@ MonoBehaviour:
   _rotationSpeed: 15
   _towerSprite: {fileID: -8932092875127675973, guid: 96bd28ab240fcea41a35da50b7bf7a32, type: 3}
   _branchUpgradesData:
-  - {fileID: 11400000, guid: bbe127ba2a79ff244b085a56029dff80, type: 2}
-  - {fileID: 11400000, guid: fe4a42a70f01c5840b1b25d6f462d7a2, type: 2}
-  - {fileID: 11400000, guid: aa59d8f2fc9ac0049aa3bd4285b5ea08, type: 2}
+  - {fileID: 11400000, guid: adc0feb51a710344aabba02e91d2cdba, type: 2}
+  - {fileID: 11400000, guid: 04eb03ec41d6b2244b9ccf490af90fc4, type: 2}
+  - {fileID: 11400000, guid: f0b63f44797ef4246a9aa12f1b7a8bd1, type: 2}

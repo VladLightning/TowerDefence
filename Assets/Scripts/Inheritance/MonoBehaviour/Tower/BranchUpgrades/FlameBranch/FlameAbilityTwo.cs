@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameAbilityTwo : MonoBehaviour
+public class FlameAbilityTwo : BranchAbility
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
-        
+        Debug.Log("init 2");
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Upgrade()
     {
-        
+        Debug.Log("upgrade 2");
     }
 }

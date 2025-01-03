@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0054243263952448d8bb31025f4a30, type: 3}
-  m_Name: Upgrade3
+  m_Script: {fileID: 11500000, guid: d133336534f2e6d48b4625272e9ea49d, type: 3}
+  m_Name: FlameAbilityThreeData
   m_EditorClassIdentifier: 
-  _upgradeClassName: FlameAbilityThree
-  _sprite: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
-  _upgradePrices: 20030000
+  _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
+  _upgradePrices: 64000000fa0000002c01000090010000

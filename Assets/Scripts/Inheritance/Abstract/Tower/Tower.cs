@@ -219,11 +219,19 @@ public abstract class Tower : Entity
 
     public void UpgradeBranchAbility(int index)
     {
+        var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
+        
         if (_currentBranchUpgradeLevels[index] == 0)
         {
-            var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
-            gameObject.AddComponent(type);
+            var ability = gameObject.AddComponent(type) as BranchAbility;
+            ability.Initiate(_currentTowerBranchData.BranchUpgradesData[index]);
         }
+        else
+        {
+            var ability = GetComponent(type) as BranchAbility;
+            ability.Upgrade();
+        }
+        
         _currentBranchUpgradeLevels[index]++;
     }
 
