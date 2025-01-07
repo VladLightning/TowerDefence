@@ -1,19 +1,27 @@
 using UnityEngine;
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
 
     private int _damage;
 
+    protected abstract void TriggerEffect(Collider2D collision);
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(_damage);
-            Destroy(gameObject);
+            HitTarget(collision);
         }
     }
 
+    private void HitTarget(Collider2D collision)
+    {
+        collision.GetComponent<Enemy>().TakeDamage(_damage);
+        TriggerEffect(collision);
+        Destroy(gameObject);
+    }
+    
     private void Start()
     {
         Destroy(gameObject, _lifeTime);
