@@ -12,36 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bee5ca31dd5ccb4495575c33433e436, type: 3}
   m_Name: Cannon
   m_EditorClassIdentifier: 
-  _damage: 1
   _attackSpeed: 2
-  _damageType: 0
-  _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
-  _force: 2500
-  _range: 10
-  _price: 100
-  _rotationSpeed: 15
+  _projectileData: {fileID: 11400000, guid: fa23577ba0ca0a348bcaf7f802c81c11, type: 2}
   towerLevels:
-  - _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
-    _damage: 2
-    _attackSpeed: 1.5
-    _damageType: 0
-    _force: 3000
+  - _attackSpeed: 1.5
     _range: 10
     _price: 200
     _rotationSpeed: 15
-  - _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
-    _damage: 3
-    _attackSpeed: 1.25
-    _damageType: 0
-    _force: 3500
+  - _attackSpeed: 1.25
     _range: 10
     _price: 400
     _rotationSpeed: 15
-  - _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
-    _damage: 5
-    _attackSpeed: 1
-    _damageType: 0
-    _force: 4000
+  - _attackSpeed: 1
+    _range: 15
+    _price: 800
+    _rotationSpeed: 15
+  - _attackSpeed: 1
     _range: 15
     _price: 800
     _rotationSpeed: 15

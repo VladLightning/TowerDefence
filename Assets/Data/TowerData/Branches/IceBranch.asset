@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e23557b102e194d8484071b8bdc802, type: 3}
   m_Name: IceBranch
   m_EditorClassIdentifier: 
-  _damage: 5
   _attackSpeed: 1
-  _damageType: 2
-  _projectile: {fileID: 6459274223014868735, guid: 3d4f0395b067a3a48a5d832fbb5001b9, type: 3}
-  _force: 4000
-  _range: 15
-  _price: 1000
-  _rotationSpeed: 15
+  _projectileData: {fileID: 0}
+  towerLevels:
+  - _attackSpeed: 1.5
+    _range: 10
+    _price: 200
+    _rotationSpeed: 15
   _towerSprite: {fileID: -1997973558389039879, guid: 36b6c9e633009e44bb258fa4ec9d8b92, type: 3}
   _branchUpgradesData:
   - {fileID: 11400000, guid: aa59d8f2fc9ac0049aa3bd4285b5ea08, type: 2}

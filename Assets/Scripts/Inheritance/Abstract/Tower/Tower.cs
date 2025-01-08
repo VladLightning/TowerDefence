@@ -17,8 +17,7 @@ public abstract class Tower : Entity
     public TowerBranchData CurrentTowerBranchData => _currentTowerBranchData;
 
     private GameObject _projectile;
-
-    private float _force;
+    
     private float _range;
     private int _price;
     private int _rotationSpeed;
@@ -45,6 +44,7 @@ public abstract class Tower : Entity
         _collider2D = GetComponent<CircleCollider2D>();
         _towerLevelsData = _entityData as TowerLevelsData;
         _towerLevels = _towerLevelsData.TowerLevels;
+        _projectile = _towerLevelsData.ProjectileData.ProjectilePrefab;
         base.Awake();
     }
     
@@ -53,13 +53,11 @@ public abstract class Tower : Entity
         _playerMoney = playerMoney;      
     }
 
-    private void SetStats(TowerData towerLevelsData)
+    private void SetStats(TowerLevels towerLevelsData)
     {
-        _projectile = towerLevelsData.Projectile;
-        _damage = towerLevelsData.Damage;
+        _projectile = _currentTowerBranchData.ProjectileData.ProjectilePrefab;
+        
         _attackSpeed = towerLevelsData.AttackSpeed;
-        _damageType = towerLevelsData.DamageType;
-        _force = towerLevelsData.Force;
         _range = towerLevelsData.Range;
         _price = towerLevelsData.Price;
         _rotationSpeed = towerLevelsData.RotationSpeed;
@@ -69,11 +67,7 @@ public abstract class Tower : Entity
 
     protected override void SetStats()
     {
-        _projectile = _towerLevels[_towerLevelIndex].Projectile;
-        _damage = _towerLevels[_towerLevelIndex].Damage;
         _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
-        _damageType = _towerLevels[_towerLevelIndex].DamageType;
-        _force = _towerLevels[_towerLevelIndex].Force;
         _range = _towerLevels[_towerLevelIndex].Range;
         _price += _towerLevels[_towerLevelIndex].Price;
         _rotationSpeed = _towerLevels[_towerLevelIndex].RotationSpeed;
@@ -162,7 +156,7 @@ public abstract class Tower : Entity
             yield return new WaitForSeconds(DELAY_FOR_ROTATION);
 
             var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
-            projectile.Initialize(_force, _damage);
+            projectile.Initialize(2000, 5);
 
             _lastShotTime = Time.time;          
             delay = _attackSpeed;
@@ -209,12 +203,12 @@ public abstract class Tower : Entity
     public void SetBranch(int index)
     {      
         _currentTowerBranchData = TowerBranchData[index];
-        _playerMoney.Purchase(_currentTowerBranchData.Price);
+        _playerMoney.Purchase(_currentTowerBranchData.TowerLevels[0].Price);
         GetComponent<SpriteRenderer>().sprite = _currentTowerBranchData.TowerSprite;
 
         _currentBranchUpgradeLevels = new int[_currentTowerBranchData.BranchUpgradesData.Length];
 
-        SetStats(_currentTowerBranchData);
+        SetStats(_currentTowerBranchData.TowerLevels[0]);
     }
 
     public void UpgradeBranchAbility(int index)
@@ -238,7 +232,7 @@ public abstract class Tower : Entity
     public int GetInitialPrice()
     {
         var towerLevelsData = _entityData as TowerLevelsData;
-        return towerLevelsData.Price;
+        return towerLevelsData.TowerLevels[0].Price;
     }
 
     public int GetCurrentUpgradeLevel(int index)

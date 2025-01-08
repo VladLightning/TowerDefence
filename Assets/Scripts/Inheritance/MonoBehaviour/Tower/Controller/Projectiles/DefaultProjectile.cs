@@ -1,7 +1,6 @@
-
 using UnityEngine;
 
-public class CannonProjectile : Projectile
+public class DefaultProjectile : Projectile
 {
     protected override void TriggerEffect(Collider2D collision)
     {

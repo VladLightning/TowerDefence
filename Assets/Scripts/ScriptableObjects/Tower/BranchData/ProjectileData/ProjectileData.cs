@@ -1,0 +1,23 @@
+using UnityEngine;
+
+public abstract class ProjectileData : ScriptableObject
+{
+    [SerializeField] private GameObject _projectilePrefab;
+    public GameObject ProjectilePrefab => _projectilePrefab;
+    
+    [SerializeField] private DamageTypeEnum.DamageTypes _damageType;
+    public DamageTypeEnum.DamageTypes DamageType => _damageType;
+    
+    [SerializeField] private ProjectileLevels[] _projectileLevels;
+    public ProjectileLevels[] ProjectileLevels => _projectileLevels;
+}
+
+[System.Serializable]
+public class ProjectileLevels
+{
+    [SerializeField] private int _damage;
+    public int Damage => _damage;
+    
+    [SerializeField] private float _force;
+    public float Force => _force;
+}
