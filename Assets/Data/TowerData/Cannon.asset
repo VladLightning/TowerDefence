@@ -15,13 +15,13 @@ MonoBehaviour:
   _damage: 1
   _attackSpeed: 2
   _damageType: 0
-  _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
+  _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
   _force: 2500
   _range: 10
   _price: 100
   _rotationSpeed: 15
   towerLevels:
-  - _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
+  - _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
     _damage: 2
     _attackSpeed: 1.5
     _damageType: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     _range: 10
     _price: 200
     _rotationSpeed: 15
-  - _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
+  - _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
     _damage: 3
     _attackSpeed: 1.25
     _damageType: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     _range: 10
     _price: 400
     _rotationSpeed: 15
-  - _projectile: {fileID: 2282968080099405838, guid: 57358476db16f194c9a12ab8cfd3169c, type: 3}
+  - _projectile: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
     _damage: 5
     _attackSpeed: 1
     _damageType: 0

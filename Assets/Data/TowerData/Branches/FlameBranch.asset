@@ -15,7 +15,7 @@ MonoBehaviour:
   _damage: 5
   _attackSpeed: 1
   _damageType: 1
-  _projectile: {fileID: 29207817187422115, guid: c8f985b21dd988348b3f65d4e0a43765, type: 3}
+  _projectile: {fileID: 1991686150869806126, guid: 1820011084a03d749b550c0af6f69a40, type: 3}
   _force: 4000
   _range: 15
   _price: 1000
