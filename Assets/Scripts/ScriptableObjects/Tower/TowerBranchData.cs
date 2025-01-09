@@ -1,6 +1,6 @@
 using UnityEngine;
 [CreateAssetMenu(fileName = "BranchData", menuName = "TowerBranch")]
-public class TowerBranchData : TowerData
+public class TowerBranchData : TowerLevelsData
 {
     [SerializeField] private Sprite _towerSprite;
     public Sprite TowerSprite => _towerSprite;

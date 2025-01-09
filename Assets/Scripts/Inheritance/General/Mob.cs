@@ -3,14 +3,16 @@ using UnityEngine;
 
 public abstract class Mob : Entity
 {
-    
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
+    
+    protected DamageTypeEnum.DamageTypes _damageType;
     
     private GameObject _opponent;
 
     private Coroutine _fight;
 
+    private int _damage;
     protected int _maxHealth;
     protected int _currentHealth;
     private float _defaultMovementSpeed;
@@ -28,6 +30,9 @@ public abstract class Mob : Entity
         
         _maxHealth = mobData.Health;
         _currentHealth = _maxHealth;
+        
+        _damageType = mobData.DamageType;
+        _damage = mobData.Damage;
         
         _defaultMovementSpeed = mobData.MovementSpeed;
         _currentMovementSpeed = _defaultMovementSpeed;
