@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f48b4ea892ac574e89a9a3045bcd740, type: 3}
   m_Name: FlameProjectileData
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 4316556818937858231, guid: a0a959e12838ff747a0e3a36f52413ce, type: 3}
+  _projectilePrefab: {fileID: 1991686150869806126, guid: 1820011084a03d749b550c0af6f69a40, type: 3}
   _projectileLevels:
   - _damage: 4
     _force: 2000

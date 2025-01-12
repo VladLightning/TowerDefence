@@ -3,9 +3,9 @@ public abstract class Projectile : MonoBehaviour
 {
     private readonly float _lifeTime = 5;
 
-    private DamageTypeEnum.DamageTypes _damageType;
+    protected DamageTypeEnum.DamageTypes _damageType;
     
-    private int _damage;
+    protected int _damage;
 
     protected abstract void TriggerEffect(Collider2D collision);
     
@@ -36,7 +36,7 @@ public abstract class Projectile : MonoBehaviour
         ProjectileFly(projectileLevel.Force);
     }
 
-    private void ProjectileFly(float force)
+    protected void ProjectileFly(float force)
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * force);
     }
