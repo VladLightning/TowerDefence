@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public abstract class ProjectileData : ScriptableObject
+[CreateAssetMenu(fileName = "ProjectileData", menuName = "Projectile", order = 1)]
+public class ProjectileData : ScriptableObject
 {
     [SerializeField] private GameObject _projectilePrefab;
     public GameObject ProjectilePrefab => _projectilePrefab;
-    
-    [SerializeField] private DamageTypeEnum.DamageTypes _damageType;
-    public DamageTypeEnum.DamageTypes DamageType => _damageType;
     
     [SerializeField] private ProjectileLevels[] _projectileLevels;
     public ProjectileLevels[] ProjectileLevels => _projectileLevels;

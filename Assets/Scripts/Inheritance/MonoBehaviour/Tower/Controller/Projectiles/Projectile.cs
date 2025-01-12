@@ -1,8 +1,10 @@
 using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] private float _lifeTime;
+    private readonly float _lifeTime = 5;
 
+    private DamageTypeEnum.DamageTypes _damageType;
+    
     private int _damage;
 
     protected abstract void TriggerEffect(Collider2D collision);
@@ -27,10 +29,11 @@ public abstract class Projectile : MonoBehaviour
         Destroy(gameObject, _lifeTime);
     }
 
-    public void Initialize(float force, int damage)
+    public void Initialize(ProjectileLevels projectileLevel)
     {
-        _damage = damage;
-        ProjectileFly(force);
+        _damageType = DamageTypeEnum.DamageTypes.Physical;
+        _damage = projectileLevel.Damage;
+        ProjectileFly(projectileLevel.Force);
     }
 
     private void ProjectileFly(float force)
