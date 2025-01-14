@@ -20,5 +20,5 @@ MonoBehaviour:
     _force: 2000
   - _damage: 3
     _force: 2000
-  - _damage: 4
-    _force: 2000
+  - _damage: 3
+    _force: 2500

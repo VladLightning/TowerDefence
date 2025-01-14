@@ -29,11 +29,11 @@ public abstract class Projectile : MonoBehaviour
         Destroy(gameObject, _lifeTime);
     }
 
-    public void Initialize(ProjectileLevels projectileLevel)
+    public void Initialize(ProjectileStats projectileStats)
     {
         _damageType = DamageTypeEnum.DamageTypes.Physical;
-        _damage = projectileLevel.Damage;
-        ProjectileFly(projectileLevel.Force);
+        _damage = projectileStats.Damage;
+        ProjectileFly(projectileStats.Force);
     }
 
     protected void ProjectileFly(float force)

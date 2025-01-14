@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FlameAbilityOne : BranchAbility
 {
-    [SerializeField] private StatusProjectileData _statusProjectileData;
+    private StatusProjectileData _statusProjectileData;
     
     public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
