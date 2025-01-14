@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class FlameAbilityOne : BranchAbility
 {
+    private StatusProjectileData _statusProjectileData;
+    
     public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
-        Debug.Log("Init");
+        _statusProjectileData = branchUpgradeData as FlameAbilityOneData;
+        GetComponent<Tower>().SetStatusProjectile(_statusProjectileData);
     }
 
     public override void Upgrade()

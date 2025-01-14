@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class FlameProjectile : Projectile
+public class FlameProjectile : StatusProjectile
 {
     protected override void TriggerEffect(Collider2D collision)
     {

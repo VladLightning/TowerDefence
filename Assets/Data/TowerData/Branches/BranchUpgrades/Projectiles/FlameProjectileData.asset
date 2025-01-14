@@ -9,19 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00e44ecce866e4c49a07c851d7276459, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f48b4ea892ac574e89a9a3045bcd740, type: 3}
   m_Name: FlameProjectileData
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 1991686150869806126, guid: 1820011084a03d749b550c0af6f69a40, type: 3}
-  _damageType: 1
   _projectileLevels:
-  - _damage: 2
-    _force: 2000
-  - _damage: 2
-    _force: 2000
-  - _damage: 2
-    _force: 2000
-  - _damage: 2
-    _force: 2000
-  _burningDamage: 0
-  _burningInterval: 0
+  - _damage: 4
+    _force: 2500
