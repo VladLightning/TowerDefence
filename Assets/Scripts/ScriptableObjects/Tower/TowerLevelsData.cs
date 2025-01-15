@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-
 public abstract class TowerLevelsData : EntityData
 {
     public const int MAX_TOWER_LEVEL = 3;
