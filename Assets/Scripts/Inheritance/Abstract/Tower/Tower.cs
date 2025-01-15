@@ -18,7 +18,6 @@ public abstract class Tower : Entity
     private CircleCollider2D _collider2D;
     
     
-    
     private PlayerMoney _playerMoney;
     private TowerLevels[] _towerLevels;
     public TowerLevels[] TowerLevels => _towerLevels;
@@ -38,6 +37,9 @@ public abstract class Tower : Entity
     
     private int[] _currentBranchUpgradeLevels;
     
+    
+    private DefaultProjectileData _defaultProjectileData;
+    
     private StatusProjectileData _statusProjectileData;
     
     private IEnumerator _shoot;
@@ -48,7 +50,10 @@ public abstract class Tower : Entity
         _collider2D = GetComponent<CircleCollider2D>();
         _towerLevelsData = _entityData as TowerLevelsData;
         _towerLevels = _towerLevelsData.TowerLevels;
+        
         _projectile = _towerLevelsData.ProjectileData.ProjectilePrefab;
+        _defaultProjectileData = _towerLevelsData.ProjectileData as DefaultProjectileData;
+        
         base.Awake();
     }
     
@@ -161,11 +166,12 @@ public abstract class Tower : Entity
             if (_statusProjectileData != null)
             {
                 var statusProjectile = projectile as StatusProjectile;
-                statusProjectile.Initialize(_statusProjectileData);
+                statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
+                // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
             }
             else
             {
-                projectile.Initialize(_towerLevelsData.ProjectileData.ProjectileLevels[_towerLevelIndex]);
+                projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
             }
 
             _lastShotTime = Time.time;          
@@ -190,7 +196,7 @@ public abstract class Tower : Entity
     public void SetStatusProjectile(StatusProjectileData statusProjectileData)
     {
         _statusProjectileData = statusProjectileData;
-        _projectile = _statusProjectileData.ProjectileData.ProjectilePrefab;
+        _projectile = _statusProjectileData.ProjectilePrefab;
     }
 
     public bool IsMaxLevel()
@@ -235,11 +241,6 @@ public abstract class Tower : Entity
         {
             var ability = gameObject.AddComponent(type) as BranchAbility;
             ability.Initiate(_currentTowerBranchData.BranchUpgradesData[index]);
-        }
-        else
-        {
-            var ability = GetComponent(type) as BranchAbility;
-            ability.Upgrade();
         }
         
         _currentBranchUpgradeLevels[index]++;

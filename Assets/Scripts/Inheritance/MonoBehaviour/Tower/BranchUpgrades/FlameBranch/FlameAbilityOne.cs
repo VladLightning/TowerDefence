@@ -6,12 +6,7 @@ public class FlameAbilityOne : BranchAbility
     
     public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
-        _statusProjectileData = branchUpgradeData as FlameAbilityOneData;
+        _statusProjectileData = branchUpgradeData.BranchLevelsUpgradeData as StatusProjectileData;
         GetComponent<Tower>().SetStatusProjectile(_statusProjectileData);
-    }
-
-    public override void Upgrade()
-    {
-        Debug.Log("Upgrade");
     }
 }
