@@ -11,13 +11,13 @@ public class StatusProjectile : Projectile
         //Базовый статусный проджектайл
     }
     
-    public void Initialize(StatusProjectileData statusProjectileData)
+    public void Initialize(StatusProjectileStats statusProjectileStats, DamageTypeEnum.DamageTypes damageType)
     {
-        _damageType = statusProjectileData.DamageType;
-        _statusEffectDamage = statusProjectileData.StatusEffectDamage;
-        _statusEffectDuration = statusProjectileData.StatusEffectDuration;
+        _damageType = damageType;
+        _statusEffectDamage = statusProjectileStats.StatusDamage;
+        _statusEffectDuration = statusProjectileStats.StatusTick;
         
-        _damage = statusProjectileData.ProjectileData.ProjectileLevels[0].Damage;
-        ProjectileFly(statusProjectileData.ProjectileData.ProjectileLevels[0].Force);
+        _damage = statusProjectileStats.Damage;
+        ProjectileFly(statusProjectileStats.Force);
     }
 }

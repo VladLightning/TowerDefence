@@ -6,9 +6,4 @@ public class FlameAbilityTwo : BranchAbility
     {
         Debug.Log("init 2");
     }
-
-    public override void Upgrade()
-    {
-        Debug.Log("upgrade 2");
-    }
 }

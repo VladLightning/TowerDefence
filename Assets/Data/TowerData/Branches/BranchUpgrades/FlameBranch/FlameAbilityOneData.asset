@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: FlameAbilityOneData
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
+  _branchLevelsUpgradeData: {fileID: 11400000, guid: 888e85a9c351b87479d35675f1b34d3e, type: 2}
   _upgradePrices: c800000090010000
-  _projectileData: {fileID: 11400000, guid: 888e85a9c351b87479d35675f1b34d3e, type: 2}
-  _damageType: 1
-  _statusEffectDamage: 1
-  _statusEffectDuration: 5

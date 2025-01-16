@@ -7,8 +7,8 @@ public abstract class TowerLevelsData : EntityData
     [SerializeField] private ProjectileData _projectileData;
     public ProjectileData ProjectileData => _projectileData;
 
-    [SerializeField] protected TowerLevels[] towerLevels;
-    public TowerLevels[] TowerLevels => towerLevels;
+    [SerializeField] protected TowerLevels[] _towerLevels;
+    public TowerLevels[] TowerLevels => _towerLevels;
 }
 
 [System.Serializable]

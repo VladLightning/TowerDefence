@@ -6,9 +6,4 @@ public class FlameAbilityThree : BranchAbility
     {
         Debug.Log("init 3");
     }
-
-    public override void Upgrade()
-    {
-        Debug.Log("upgrade 3");
-    }
 }

@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackSpeed: 2
   _projectileData: {fileID: 11400000, guid: fa23577ba0ca0a348bcaf7f802c81c11, type: 2}
-  towerLevels:
-  - _attackSpeed: 1.5
-    _range: 10
+  _towerLevels:
+  - _attackSpeed: 2
+    _range: 15
     _price: 200
-    _rotationSpeed: 15
-  - _attackSpeed: 1.25
-    _range: 10
+    _rotationSpeed: 10
+  - _attackSpeed: 2
+    _range: 15
     _price: 400
-    _rotationSpeed: 15
-  - _attackSpeed: 1
+    _rotationSpeed: 10
+  - _attackSpeed: 2
+    _range: 15
+    _price: 600
+    _rotationSpeed: 10
+  - _attackSpeed: 2
     _range: 15
     _price: 800
-    _rotationSpeed: 15
-  - _attackSpeed: 1
-    _range: 15
-    _price: 800
-    _rotationSpeed: 15
+    _rotationSpeed: 10
