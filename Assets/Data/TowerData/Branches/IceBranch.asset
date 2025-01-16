@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackSpeed: 1
   _projectileData: {fileID: 0}
-  towerLevels:
-  - _attackSpeed: 1.5
-    _range: 10
-    _price: 200
+  _towerLevels:
+  - _attackSpeed: 2
+    _range: 15
+    _price: 800
     _rotationSpeed: 15
   _towerSprite: {fileID: -1997973558389039879, guid: 36b6c9e633009e44bb258fa4ec9d8b92, type: 3}
   _branchUpgradesData:

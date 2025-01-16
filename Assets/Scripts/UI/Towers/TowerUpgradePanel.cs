@@ -30,7 +30,7 @@ public class TowerUpgradePanel : MonoBehaviour
     {        
         _tower = tower;
         UpgradeButtonIsAvailable();
-        _priceDisplay.text = _tower.IsMaxLevel() ? "Max level" : _tower.TowerLevels[_tower.TowerLevelIndex].Price.ToString();
+        _priceDisplay.text = _tower.IsMaxLevel() ? "Max level" : _tower.TowerLevels[_tower.TowerLevelIndex + 1].Price.ToString();
 
         ResetToDefaultState();
 

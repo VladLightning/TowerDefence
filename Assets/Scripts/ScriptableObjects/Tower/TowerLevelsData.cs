@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public abstract class TowerLevelsData : EntityData
 {
     public const int MAX_TOWER_LEVEL = 3;
@@ -6,8 +7,8 @@ public abstract class TowerLevelsData : EntityData
     [SerializeField] private ProjectileData _projectileData;
     public ProjectileData ProjectileData => _projectileData;
 
-    [SerializeField] protected TowerLevels[] towerLevels;
-    public TowerLevels[] TowerLevels => towerLevels;
+    [SerializeField] protected TowerLevels[] _towerLevels;
+    public TowerLevels[] TowerLevels => _towerLevels;
 }
 
 [System.Serializable]
