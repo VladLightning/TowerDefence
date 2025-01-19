@@ -3,11 +3,9 @@ public abstract class Projectile : MonoBehaviour
 {
     private readonly float _lifeTime = 5;
 
-    protected DamageTypeEnum.DamageTypes _damageType;
+    protected DamageTypesEnum.DamageTypes _damageType;
     
     protected int _damage;
-
-    protected abstract void TriggerEffect(Collider2D collision);
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,10 +15,9 @@ public abstract class Projectile : MonoBehaviour
         }
     }
 
-    private void HitTarget(Collider2D collision)
+    protected virtual void HitTarget(Collider2D collision)
     {
         collision.GetComponent<Enemy>().TakeDamage(_damage);
-        TriggerEffect(collision);
         Destroy(gameObject);
     }
     
@@ -31,7 +28,7 @@ public abstract class Projectile : MonoBehaviour
 
     public void Initialize(ProjectileStats projectileStats)
     {
-        _damageType = DamageTypeEnum.DamageTypes.Physical;
+        _damageType = DamageTypesEnum.DamageTypes.Physical;
         _damage = projectileStats.Damage;
         ProjectileFly(projectileStats.Force);
     }

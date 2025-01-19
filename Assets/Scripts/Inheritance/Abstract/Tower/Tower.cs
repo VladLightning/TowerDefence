@@ -74,7 +74,6 @@ public abstract class Tower : Entity
 
     protected override void SetStats()
     {
-        Debug.Log(_towerLevelIndex);
         _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
         _range = _towerLevels[_towerLevelIndex].Range;
         _price += _towerLevels[_towerLevelIndex].Price;

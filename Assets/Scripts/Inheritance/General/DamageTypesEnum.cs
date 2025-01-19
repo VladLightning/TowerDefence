@@ -1,4 +1,4 @@
-public class DamageTypeEnum 
+public class DamageTypesEnum 
 {
     public enum DamageTypes
     {

@@ -6,7 +6,7 @@ public abstract class Mob : Entity
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
     
-    protected DamageTypeEnum.DamageTypes _damageType;
+    protected DamageTypesEnum.DamageTypes _damageType;
     
     private GameObject _opponent;
 
