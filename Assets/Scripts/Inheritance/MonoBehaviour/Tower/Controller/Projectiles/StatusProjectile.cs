@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class StatusProjectile : Projectile
 {
-    protected int _statusEffectDamage;
-    protected float _statusEffectDuration;
+    private StatusProjectileStats _statusProjectileStats;
     
-    protected override void TriggerEffect(Collider2D collision)
+    protected override void HitTarget(Collider2D collision)
     {
-        //Базовый статусный проджектайл
+        collision.GetComponent<StatusEffects>().TriggerEffect(_statusProjectileStats, _damageType);
+        base.HitTarget(collision);
     }
     
-    public void Initialize(StatusProjectileStats statusProjectileStats, DamageTypeEnum.DamageTypes damageType)
+    public void Initialize(StatusProjectileStats statusProjectileStats, DamageTypesEnum.DamageTypes damageType)
     {
         _damageType = damageType;
-        _statusEffectDamage = statusProjectileStats.StatusDamage;
-        _statusEffectDuration = statusProjectileStats.StatusTick;
+        
+        _statusProjectileStats = statusProjectileStats;
         
         _damage = statusProjectileStats.Damage;
         ProjectileFly(statusProjectileStats.Force);
