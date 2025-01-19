@@ -1,6 +1,5 @@
 
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "ProjectileData", menuName = "Projectile/Status", order = 2)]
 public class StatusProjectileData : ProjectileData

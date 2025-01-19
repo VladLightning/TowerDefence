@@ -20,9 +20,6 @@ public class StatusEffects : MonoBehaviour
 
         switch (damageType)
         {
-            case DamageTypesEnum.DamageTypes.Physical:
-                _currentStatus = MobStatusesEnum.MobStatuses.None;
-                break;
             case DamageTypesEnum.DamageTypes.Flame:
                 _currentStatus = MobStatusesEnum.MobStatuses.Aflame;
                 StartCoroutine(BurningEffect());
