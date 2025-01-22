@@ -1,5 +1,5 @@
 
-public class FlameAbilityOne : BranchAbility
+public class StatusProjectileAbility : BranchAbility
 {
     private StatusProjectileData _statusProjectileData;
     

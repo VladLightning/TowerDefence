@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1341f0a7b2f3e64bb3b49294559dc1e, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  _damage: 4
   _attackSpeed: 1
-  _damageType: 0
-  _health: 4
+  _health: 20
   _movementSpeed: 6
+  _damage: 4
+  _damageType: 0
   _damageToPlayer: 1
   _moneyOnDeath: 20

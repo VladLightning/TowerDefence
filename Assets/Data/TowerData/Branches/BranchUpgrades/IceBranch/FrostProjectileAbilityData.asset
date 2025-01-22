@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e8b4ab4ce0b0e4d8f2fbc9bb9e3b93, type: 3}
-  m_Name: FlameAbilityOneData
+  m_Name: FrostProjectileAbilityData
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
-  _branchLevelsUpgradeData: {fileID: 11400000, guid: 888e85a9c351b87479d35675f1b34d3e, type: 2}
-  _upgradePrices: c800000090010000
+  _sprite: {fileID: 8995431870292338044, guid: 83ab2f30356a6df41af851b1d2e2b11d, type: 3}
+  _branchLevelsUpgradeData: {fileID: 11400000, guid: 6f382355bfee78a448fda805b5a99b8e, type: 2}
+  _upgradePrices: c800000058020000
