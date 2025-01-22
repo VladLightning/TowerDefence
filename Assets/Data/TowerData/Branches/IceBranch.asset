@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceBranch
   m_EditorClassIdentifier: 
   _attackSpeed: 1
-  _projectileData: {fileID: 0}
+  _projectileData: {fileID: 11400000, guid: 6f382355bfee78a448fda805b5a99b8e, type: 2}
   _towerLevels:
   - _attackSpeed: 2
     _range: 15
@@ -21,6 +21,6 @@ MonoBehaviour:
     _rotationSpeed: 15
   _towerSprite: {fileID: -1997973558389039879, guid: 36b6c9e633009e44bb258fa4ec9d8b92, type: 3}
   _branchUpgradesData:
-  - {fileID: 11400000, guid: aa59d8f2fc9ac0049aa3bd4285b5ea08, type: 2}
-  - {fileID: 11400000, guid: fe4a42a70f01c5840b1b25d6f462d7a2, type: 2}
-  - {fileID: 11400000, guid: bbe127ba2a79ff244b085a56029dff80, type: 2}
+  - {fileID: 11400000, guid: 2a5b040db64c1bc489782a8af756a96b, type: 2}
+  - {fileID: 11400000, guid: 2a5b040db64c1bc489782a8af756a96b, type: 2}
+  - {fileID: 11400000, guid: 2a5b040db64c1bc489782a8af756a96b, type: 2}

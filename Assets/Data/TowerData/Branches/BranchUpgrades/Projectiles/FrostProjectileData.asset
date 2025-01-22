@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4edbf6afcbfec7e4496e4f29f786e272, type: 3}
-  m_Name: FlameProjectileData
+  m_Name: FrostProjectileData
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 1991686150869806126, guid: 1820011084a03d749b550c0af6f69a40, type: 3}
-  _damageType: 1
+  _projectilePrefab: {fileID: 6459274223014868735, guid: 3d4f0395b067a3a48a5d832fbb5001b9, type: 3}
+  _damageType: 2
   _statusProjectileStats:
   - _damage: 2
     _force: 2500
-    _statusDamage: 1
-    _statusTicksAmount: 5
-    _statusTickInterval: 1
+    _statusDamage: 2
+    _statusTicksAmount: 2
+    _statusTickInterval: 4
   - _damage: 2
     _force: 2500
-    _statusDamage: 1
-    _statusTicksAmount: 5
-    _statusTickInterval: 1
+    _statusDamage: 3
+    _statusTicksAmount: 4
+    _statusTickInterval: 2
