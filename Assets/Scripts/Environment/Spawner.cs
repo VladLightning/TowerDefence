@@ -99,14 +99,18 @@ public class Spawner : MonoBehaviour
 
     public void ActivateSpawner(int index)
     {
-        if(_isSpawning && _waveData.Waves[_currentWaveIndex + 1].WaveInstances.Length != 0)
+        if(_isSpawning)
         {
             DisableWaveDelay();
             
-            StartCoroutine(ReceiveEarlyWaveStartReward(index));
-            
+            if (_waveData.Waves[_currentWaveIndex + 1].WaveInstances.Length != 0)
+            {
+                StartCoroutine(ReceiveEarlyWaveStartReward(index));
+            }
+            Debug.Log("Skip");
             return;
         }
+        Debug.Log("Start");
         StartWaveCycle();
     }
 
