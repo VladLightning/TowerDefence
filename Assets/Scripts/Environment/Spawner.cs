@@ -107,10 +107,10 @@ public class Spawner : MonoBehaviour
             {
                 StartCoroutine(ReceiveEarlyWaveStartReward(index));
             }
-            Debug.Log("Skip");
+            
             return;
         }
-        Debug.Log("Start");
+        
         StartWaveCycle();
     }
 
