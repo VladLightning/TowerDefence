@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b711e1eda1186419eb9e1df23ac368, type: 3}
-  m_Name: Knight
+  m_Script: {fileID: 11500000, guid: 95a2a99a6f611854d81a551103b01199, type: 3}
+  m_Name: RapidFireData
   m_EditorClassIdentifier: 
-  _attackSpeed: 1
-  _health: 50
-  _movementSpeed: 12
-  _damage: 8
-  _damageType: 0
-  _skillCooldown: 5
-  _respawnTime: 10
-  _regenerationDelay: 4
-  _regenerationInterval: 2
-  _regenerationAmount: 3
+  _rapidFireStats:
+  - _capacity: 3
+    _rapidShotInterval: 0.5
+    _rapidShotLoadTime: 3
+  - _capacity: 5
+    _rapidShotInterval: 0.35
+    _rapidShotLoadTime: 2
