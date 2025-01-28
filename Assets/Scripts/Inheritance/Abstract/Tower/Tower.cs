@@ -44,6 +44,7 @@ public abstract class Tower : Entity
     
     private IEnumerator _shoot;
     private bool _shootingIsActive;
+    public bool ShootingIsActive => _shootingIsActive;
 
     protected override void Awake()
     {
@@ -156,33 +157,52 @@ public abstract class Tower : Entity
     private IEnumerator Shoot(float delay)
     {
         _shootingIsActive = true;
+
+        //Эту проверку можно сделать через SpecialShootingAbility и подключить к каждой такой абилке интерфейс чтобы "отнаследовать" корутины
+        if (TryGetComponent(out RapidFireAbility rapidFireAbility))
+        {
+            FindTarget();
+            yield return new WaitForSeconds(DELAY_FOR_ROTATION);
+            yield return rapidFireAbility.StartCoroutine(rapidFireAbility.RapidFire());
+        }
+        
         while (true)
         {
             yield return new WaitForSeconds(delay);
             FindTarget();
             yield return new WaitForSeconds(DELAY_FOR_ROTATION);
-
-            var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
-            if (_statusProjectileData != null)
-            {
-                var statusProjectile = projectile as StatusProjectile;
-                statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
-                // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
-            }
-            else
-            {
-                projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
-            }
+            
+            SpawnProjectile();
 
             _lastShotTime = Time.time;          
             delay = _attackSpeed;
         }
     }
-    
+
+    public void SpawnProjectile()
+    {
+        var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
+        if (_statusProjectileData != null)
+        {
+            var statusProjectile = projectile as StatusProjectile;
+            statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
+            // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
+        }
+        else
+        {
+            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
+        }
+    }
+
     private void DeactivateShoot()
     {
         _shootingIsActive = false;
         StopCoroutine(_shoot);
+        //То же самое что и на строке 161
+        if (TryGetComponent(out RapidFireAbility rapidFireAbility))
+        {
+            rapidFireAbility.StartCoroutine(rapidFireAbility.LoadRapidFireShots());
+        }
     }
 
     private void Attack()
