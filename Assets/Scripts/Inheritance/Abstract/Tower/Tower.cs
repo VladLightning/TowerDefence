@@ -41,6 +41,8 @@ public abstract class Tower : Entity
     private DefaultProjectileData _defaultProjectileData;
     
     private StatusProjectileData _statusProjectileData;
+
+    private SpecialShootingAbility _specialShootingAbility;
     
     private IEnumerator _shoot;
     private bool _shootingIsActive;
@@ -157,13 +159,12 @@ public abstract class Tower : Entity
     private IEnumerator Shoot(float delay)
     {
         _shootingIsActive = true;
-
-        //Эту проверку можно сделать через SpecialShootingAbility и подключить к каждой такой абилке интерфейс чтобы "отнаследовать" корутины
-        if (TryGetComponent(out RapidFireAbility rapidFireAbility))
+        
+        if (_specialShootingAbility != null)
         {
             FindTarget();
             yield return new WaitForSeconds(DELAY_FOR_ROTATION);
-            yield return rapidFireAbility.StartCoroutine(rapidFireAbility.RapidFire());
+            yield return _specialShootingAbility.GetComponent<ISpecialShooting>().SpecialShooting();
         }
         
         while (true)
@@ -198,10 +199,10 @@ public abstract class Tower : Entity
     {
         _shootingIsActive = false;
         StopCoroutine(_shoot);
-        //То же самое что и на строке 161
-        if (TryGetComponent(out RapidFireAbility rapidFireAbility))
+        
+        if (_specialShootingAbility != null)
         {
-            rapidFireAbility.StartCoroutine(rapidFireAbility.LoadRapidFireShots());
+            _specialShootingAbility.StartCoroutine(_specialShootingAbility.GetComponent<ISpecialShooting>().SpecialReload());
         }
     }
 
@@ -217,6 +218,11 @@ public abstract class Tower : Entity
     {
         _statusProjectileData = statusProjectileData;
         _projectile = _statusProjectileData.ProjectilePrefab;
+    }
+
+    public void SetSpecialShootingAbility()
+    {
+        _specialShootingAbility = GetComponent<SpecialShootingAbility>();
     }
 
     public bool IsMaxLevel()

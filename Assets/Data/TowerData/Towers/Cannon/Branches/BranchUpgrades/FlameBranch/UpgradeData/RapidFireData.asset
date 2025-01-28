@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a2a99a6f611854d81a551103b01199, type: 3}
   m_Name: RapidFireData
   m_EditorClassIdentifier: 
-  _rapidFireStats:
-  - _capacity: 3
-    _rapidShotInterval: 0.5
-    _rapidShotLoadTime: 3
-  - _capacity: 5
-    _rapidShotInterval: 0.35
-    _rapidShotLoadTime: 2
+  _specialShootingStats:
+  - _specialShotsCapacity: 3
+    _specialShotInterval: 0.5
+    _specialShotLoadTime: 2
+  - _specialShotsCapacity: 5
+    _specialShotInterval: 0.35
+    _specialShotLoadTime: 1.5

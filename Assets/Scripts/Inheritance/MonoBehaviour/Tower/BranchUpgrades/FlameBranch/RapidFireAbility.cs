@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RapidFireAbility : BranchAbility
+public class RapidFireAbility : SpecialShootingAbility, ISpecialShooting
 {
     private RapidFireAbilityLevelData _rapidFireAbilityLevelData;
     private Tower _tower;
@@ -16,21 +16,23 @@ public class RapidFireAbility : BranchAbility
 
     private void Start()
     {
-        StartCoroutine(LoadRapidFireShots());
+        StartCoroutine(SpecialReload());
     }
 
     public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
+        base.Initiate(branchUpgradeData);
+        
         _rapidFireAbilityLevelData = branchUpgradeData.BranchLevelsUpgradeData as RapidFireAbilityLevelData;
         
-        _currentCapacity = _rapidFireAbilityLevelData.RapidFireStats[0].Capacity;
-        _currentRapidShotInterval = _rapidFireAbilityLevelData.RapidFireStats[0].RapidShotInterval;
-        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.RapidFireStats[0].RapidShotLoadTime;
+        _currentCapacity = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotsCapacity;
+        _currentRapidShotInterval = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotInterval;
+        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotLoadTime;
         
         _tower = GetComponent<Tower>();
     }
     
-    public IEnumerator LoadRapidFireShots()
+    public IEnumerator SpecialReload()
     {
         while (_currentAvailableShots < _currentCapacity && !_tower.ShootingIsActive)
         {
@@ -39,7 +41,7 @@ public class RapidFireAbility : BranchAbility
         }
     }
     
-    public IEnumerator RapidFire()
+    public IEnumerator SpecialShooting()
     {
         while(_currentAvailableShots > 0)
         {
