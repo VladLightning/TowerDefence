@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 
@@ -14,40 +13,36 @@ public class RapidFireAbility : UpgradeableBranchAbility
 
     private float _currentRapidShotLoadTime;
 
-    private IEnumerator _specialReload;
-    private IEnumerator _specialShooting;
+    private IEnumerator _rapidShotsReload;
+    private IEnumerator _rapidFire;
 
     private bool _isReloading;
 
     private void Start()
     {
-        _specialReload = SpecialReload();
-        _specialShooting = SpecialShooting();
+        _rapidShotsReload = RapidShotsReload();
+        _rapidFire = RapidFire();
     }
 
     private void Update()
     {
         if (_tower.Target is not null)
         {
-            Debug.Log(1);
             if (_isReloading)
             {
-                _specialShooting = SpecialShooting();
-                Debug.Log(2);
-                StopCoroutine(_specialReload);
-                StartCoroutine(_specialShooting);
+                _rapidFire = RapidFire();
+                StopCoroutine(_rapidShotsReload);
+                StartCoroutine(_rapidFire);
                 _isReloading = false;
             }
         }
         else
         {
-            Debug.Log(3);
             if (!_isReloading)
             {
-                _specialReload = SpecialReload();
-                Debug.Log(4);
-                StopCoroutine(_specialShooting);
-                StartCoroutine(_specialReload);
+                _rapidShotsReload = RapidShotsReload();
+                StopCoroutine(_rapidFire);
+                StartCoroutine(_rapidShotsReload);
                 _isReloading = true;
             }
         }
@@ -71,7 +66,7 @@ public class RapidFireAbility : UpgradeableBranchAbility
         _currentRapidShotLoadTime = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotLoadTime;
     }
 
-    public IEnumerator SpecialReload()
+    private IEnumerator RapidShotsReload()
     {
         while (_currentAvailableShots < _currentCapacity)
         {
@@ -80,7 +75,7 @@ public class RapidFireAbility : UpgradeableBranchAbility
         }
     }
     
-    public IEnumerator SpecialShooting()
+    private IEnumerator RapidFire()
     {
         while(_currentAvailableShots > 0)
         {
