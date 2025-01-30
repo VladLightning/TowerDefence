@@ -15,6 +15,7 @@ public abstract class Tower : Entity
     private float _lastShotTime;
     
     private Transform _target;
+    public Transform Target => _target;
     private CircleCollider2D _collider2D;
     
     
@@ -41,8 +42,6 @@ public abstract class Tower : Entity
     private DefaultProjectileData _defaultProjectileData;
     
     private StatusProjectileData _statusProjectileData;
-
-    private SpecialShootingAbility _specialShootingAbility;
     
     private IEnumerator _shoot;
     private bool _shootingIsActive;
@@ -160,13 +159,6 @@ public abstract class Tower : Entity
     {
         _shootingIsActive = true;
         
-        if (_specialShootingAbility != null)
-        {
-            FindTarget();
-            yield return new WaitForSeconds(DELAY_FOR_ROTATION);
-            yield return _specialShootingAbility.GetComponent<ISpecialShooting>().SpecialShooting();
-        }
-        
         while (true)
         {
             yield return new WaitForSeconds(delay);
@@ -199,11 +191,6 @@ public abstract class Tower : Entity
     {
         _shootingIsActive = false;
         StopCoroutine(_shoot);
-        
-        if (_specialShootingAbility != null)
-        {
-            _specialShootingAbility.StartCoroutine(_specialShootingAbility.GetComponent<ISpecialShooting>().SpecialReload());
-        }
     }
 
     private void Attack()
@@ -218,11 +205,6 @@ public abstract class Tower : Entity
     {
         _statusProjectileData = statusProjectileData;
         _projectile = _statusProjectileData.ProjectilePrefab;
-    }
-
-    public void SetSpecialShootingAbility()
-    {
-        _specialShootingAbility = GetComponent<SpecialShootingAbility>();
     }
 
     public bool IsMaxLevel()

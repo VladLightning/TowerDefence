@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RapidFireAbility : SpecialShootingAbility, ISpecialShooting
+public class RapidFireAbility : BranchAbility
 {
     private RapidFireAbilityLevelData _rapidFireAbilityLevelData;
     private Tower _tower;
@@ -14,15 +14,36 @@ public class RapidFireAbility : SpecialShootingAbility, ISpecialShooting
 
     private float _currentRapidShotLoadTime;
 
+    private IEnumerator _specialReload;
+    private IEnumerator _specialShooting;
+
     private void Start()
     {
-        StartCoroutine(SpecialReload());
+        _specialReload = SpecialReload();
+        _specialShooting = SpecialShooting();
+        StartCoroutine(_specialReload);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && !_tower.ShootingIsActive)
+        {
+            StopCoroutine(_specialReload);
+            StartCoroutine(_specialShooting);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.transform == _tower.Target)
+        {
+            StopCoroutine(_specialShooting);
+            StartCoroutine(_specialReload);
+        }
     }
 
     public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
-        base.Initiate(branchUpgradeData);
-        
         _rapidFireAbilityLevelData = branchUpgradeData.BranchLevelsUpgradeData as RapidFireAbilityLevelData;
         
         _currentCapacity = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotsCapacity;

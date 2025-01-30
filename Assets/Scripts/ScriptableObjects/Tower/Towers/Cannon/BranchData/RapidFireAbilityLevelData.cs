@@ -1,14 +1,14 @@
 
 using UnityEngine;
-
-public abstract class SpecialShootingAbilityData : BranchLevelsUpgradeData
+[CreateAssetMenu(fileName = "RapidFireData", menuName = "SpecialShootingLevelsData/RapidFire", order = 2)]
+public class RapidFireAbilityLevelData : BranchLevelsUpgradeData
 {
-    [SerializeField] private SpecialShootingStats[] _specialShootingStats;
-    public SpecialShootingStats[] SpecialShootingStats => _specialShootingStats;
+    [SerializeField] private RapidFireStats[] _specialShootingStats;
+    public RapidFireStats[] SpecialShootingStats => _specialShootingStats;
 }
 
 [System.Serializable]
-public class SpecialShootingStats
+public class RapidFireStats
 {
     [SerializeField] private int _specialShotsCapacity;
     public int SpecialShotsCapacity => _specialShotsCapacity;
