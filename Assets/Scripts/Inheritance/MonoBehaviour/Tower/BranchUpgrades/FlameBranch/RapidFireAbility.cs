@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RapidFireAbility : BranchAbility
+public class RapidFireAbility : UpgradeableBranchAbility
 {
     private RapidFireAbilityLevelData _rapidFireAbilityLevelData;
     private Tower _tower;
@@ -17,28 +17,39 @@ public class RapidFireAbility : BranchAbility
     private IEnumerator _specialReload;
     private IEnumerator _specialShooting;
 
+    private bool _isReloading;
+
     private void Start()
     {
         _specialReload = SpecialReload();
         _specialShooting = SpecialShooting();
-        StartCoroutine(_specialReload);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        if (other.CompareTag("Enemy") && !_tower.ShootingIsActive)
+        if (_tower.Target is not null)
         {
-            StopCoroutine(_specialReload);
-            StartCoroutine(_specialShooting);
+            Debug.Log(1);
+            if (_isReloading)
+            {
+                _specialShooting = SpecialShooting();
+                Debug.Log(2);
+                StopCoroutine(_specialReload);
+                StartCoroutine(_specialShooting);
+                _isReloading = false;
+            }
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.transform == _tower.Target)
+        else
         {
-            StopCoroutine(_specialShooting);
-            StartCoroutine(_specialReload);
+            Debug.Log(3);
+            if (!_isReloading)
+            {
+                _specialReload = SpecialReload();
+                Debug.Log(4);
+                StopCoroutine(_specialShooting);
+                StartCoroutine(_specialReload);
+                _isReloading = true;
+            }
         }
     }
 
@@ -52,10 +63,17 @@ public class RapidFireAbility : BranchAbility
         
         _tower = GetComponent<Tower>();
     }
-    
+
+    public override void Upgrade(int levelIndex)
+    {
+        _currentCapacity = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotsCapacity;
+        _currentRapidShotInterval = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotInterval;
+        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotLoadTime;
+    }
+
     public IEnumerator SpecialReload()
     {
-        while (_currentAvailableShots < _currentCapacity && !_tower.ShootingIsActive)
+        while (_currentAvailableShots < _currentCapacity)
         {
             yield return new WaitForSeconds(_currentRapidShotLoadTime);
             _currentAvailableShots++;

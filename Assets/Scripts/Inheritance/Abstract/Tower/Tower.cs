@@ -45,7 +45,6 @@ public abstract class Tower : Entity
     
     private IEnumerator _shoot;
     private bool _shootingIsActive;
-    public bool ShootingIsActive => _shootingIsActive;
 
     protected override void Awake()
     {
@@ -243,12 +242,17 @@ public abstract class Tower : Entity
 
     public void UpgradeBranchAbility(int index)
     {
+        var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
+        
         if (_currentBranchUpgradeLevels[index] == 0)
         {
-            var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
-            
             var ability = gameObject.AddComponent(type) as BranchAbility;
             ability.Initiate(_currentTowerBranchData.BranchUpgradesData[index]);
+        }
+        else if (GetComponent(type) is not StatusProjectileAbility)
+        {
+            var ability = GetComponent(type) as UpgradeableBranchAbility;
+            ability.Upgrade(_currentBranchUpgradeLevels[index]);
         }
         
         _currentBranchUpgradeLevels[index]++;
