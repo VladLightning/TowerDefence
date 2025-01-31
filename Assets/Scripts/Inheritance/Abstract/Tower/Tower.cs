@@ -248,11 +248,15 @@ public abstract class Tower : Entity
         {
             var ability = gameObject.AddComponent(type) as BranchAbility;
             ability.Initiate(_currentTowerBranchData.BranchUpgradesData[index]);
+            _currentBranchUpgradeLevels[index]++;
+            return;
         }
-        else if (GetComponent(type) is not StatusProjectileAbility)
+
+        var abilityType = GetComponent(type);
+        
+        if (abilityType is UpgradeableBranchAbility upgradeableBranchAbility)
         {
-            var ability = GetComponent(type) as UpgradeableBranchAbility;
-            ability.Upgrade(_currentBranchUpgradeLevels[index]);
+            upgradeableBranchAbility.Upgrade(_currentBranchUpgradeLevels[index]);
         }
         
         _currentBranchUpgradeLevels[index]++;
