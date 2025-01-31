@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 019966f386401ec48ad0e7c357f632f7, type: 3}
-  m_Name: FlameAbilityTwoData
+  m_Name: RapidFireAbilityData
   m_EditorClassIdentifier: 
-  _upgradeClassName: 
   _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
+  _branchLevelsUpgradeData: {fileID: 11400000, guid: 2698b9a48239c7a449b8f8fcfd2e687e, type: 2}
   _upgradePrices: 9001000058020000

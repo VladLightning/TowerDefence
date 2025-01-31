@@ -15,6 +15,7 @@ public abstract class Tower : Entity
     private float _lastShotTime;
     
     private Transform _target;
+    public Transform Target => _target;
     private CircleCollider2D _collider2D;
     
     
@@ -156,29 +157,35 @@ public abstract class Tower : Entity
     private IEnumerator Shoot(float delay)
     {
         _shootingIsActive = true;
+        
         while (true)
         {
             yield return new WaitForSeconds(delay);
             FindTarget();
             yield return new WaitForSeconds(DELAY_FOR_ROTATION);
-
-            var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
-            if (_statusProjectileData != null)
-            {
-                var statusProjectile = projectile as StatusProjectile;
-                statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
-                // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
-            }
-            else
-            {
-                projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
-            }
+            
+            SpawnProjectile();
 
             _lastShotTime = Time.time;          
             delay = _attackSpeed;
         }
     }
-    
+
+    public void SpawnProjectile()
+    {
+        var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
+        if (_statusProjectileData != null)
+        {
+            var statusProjectile = projectile as StatusProjectile;
+            statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
+            // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
+        }
+        else
+        {
+            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
+        }
+    }
+
     private void DeactivateShoot()
     {
         _shootingIsActive = false;
@@ -235,12 +242,21 @@ public abstract class Tower : Entity
 
     public void UpgradeBranchAbility(int index)
     {
+        var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
+        
         if (_currentBranchUpgradeLevels[index] == 0)
         {
-            var type = Type.GetType(_currentTowerBranchData.BranchUpgradesData[index].UpgradeClassName);
-            
             var ability = gameObject.AddComponent(type) as BranchAbility;
             ability.Initiate(_currentTowerBranchData.BranchUpgradesData[index]);
+            _currentBranchUpgradeLevels[index]++;
+            return;
+        }
+
+        var abilityType = GetComponent(type);
+        
+        if (abilityType is UpgradeableBranchAbility upgradeableBranchAbility)
+        {
+            upgradeableBranchAbility.Upgrade(_currentBranchUpgradeLevels[index]);
         }
         
         _currentBranchUpgradeLevels[index]++;

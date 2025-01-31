@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b711e1eda1186419eb9e1df23ac368, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  _damage: 2
   _attackSpeed: 1
-  _damageType: 0
-  _health: 15
+  _health: 50
   _movementSpeed: 12
+  _damage: 8
+  _damageType: 0
   _skillCooldown: 5
   _respawnTime: 10
   _regenerationDelay: 4
