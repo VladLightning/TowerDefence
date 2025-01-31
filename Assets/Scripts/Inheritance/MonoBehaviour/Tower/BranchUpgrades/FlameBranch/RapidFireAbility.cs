@@ -26,25 +26,24 @@ public class RapidFireAbility : UpgradeableBranchAbility
 
     private void Update()
     {
-        if (_tower.Target is not null)
+        CheckState();
+    }
+
+    private void CheckState()
+    {
+        if (_tower.Target is not null && _isReloading)
         {
-            if (_isReloading)
-            {
-                _rapidFire = RapidFire();
-                StopCoroutine(_rapidShotsReload);
-                StartCoroutine(_rapidFire);
-                _isReloading = false;
-            }
+            _rapidFire = RapidFire();
+            StopCoroutine(_rapidShotsReload);
+            StartCoroutine(_rapidFire);
+            _isReloading = false;     
         }
-        else
+        else if (_tower.Target is null && !_isReloading)
         {
-            if (!_isReloading)
-            {
-                _rapidShotsReload = RapidShotsReload();
-                StopCoroutine(_rapidFire);
-                StartCoroutine(_rapidShotsReload);
-                _isReloading = true;
-            }
+            _rapidShotsReload = RapidShotsReload();
+            StopCoroutine(_rapidFire);
+            StartCoroutine(_rapidShotsReload);
+            _isReloading = true;
         }
     }
 

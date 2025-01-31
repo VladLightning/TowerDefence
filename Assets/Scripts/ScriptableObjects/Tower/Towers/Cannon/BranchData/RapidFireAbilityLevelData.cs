@@ -5,17 +5,17 @@ public class RapidFireAbilityLevelData : BranchLevelsUpgradeData
 {
     [SerializeField] private RapidFireStats[] _specialShootingStats;
     public RapidFireStats[] SpecialShootingStats => _specialShootingStats;
-}
-
-[System.Serializable]
-public class RapidFireStats
-{
-    [SerializeField] private int _specialShotsCapacity;
-    public int SpecialShotsCapacity => _specialShotsCapacity;
     
-    [SerializeField] private float _specialShotInterval;
-    public float SpecialShotInterval => _specialShotInterval;
+    [System.Serializable]
+    public struct RapidFireStats
+    {
+        [SerializeField] private int _specialShotsCapacity;
+        public int SpecialShotsCapacity => _specialShotsCapacity;
+    
+        [SerializeField] private float _specialShotInterval;
+        public float SpecialShotInterval => _specialShotInterval;
 
-    [SerializeField] private float _specialShotLoadTime;
-    public float SpecialShotLoadTime => _specialShotLoadTime;
+        [SerializeField] private float _specialShotLoadTime;
+        public float SpecialShotLoadTime => _specialShotLoadTime;
+    }
 }
