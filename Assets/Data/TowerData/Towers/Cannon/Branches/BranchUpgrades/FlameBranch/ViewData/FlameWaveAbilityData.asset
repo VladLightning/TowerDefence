@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d133336534f2e6d48b4625272e9ea49d, type: 3}
+  m_Name: FlameWaveAbilityData
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
+  _branchLevelsUpgradeData: {fileID: 11400000, guid: 0248cbf7ca81a6547a4c8b615e1bfe8a, type: 2}
+  _upgradePrices: c8000000900100005802000020030000
