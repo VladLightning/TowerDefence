@@ -12,3 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1774b88dd85fc4ab7f181edbdf22d6, type: 3}
   m_Name: FlameWaveData
   m_EditorClassIdentifier: 
+  _flameWavePrefab: {fileID: 8680380279994922478, guid: 51a67d7343da80e4abdd44949b9cdd81, type: 3}
+  _flameWaveLevels:
+  - _flameWaveReloadTime: 15
+    _flameWaveDuration: 3
+    _flameWaveSpeed: 3
+    _flameWaveDamage: 4
+  - _flameWaveReloadTime: 12
+    _flameWaveDuration: 4
+    _flameWaveSpeed: 3.5
+    _flameWaveDamage: 8
+  - _flameWaveReloadTime: 10
+    _flameWaveDuration: 5
+    _flameWaveSpeed: 4
+    _flameWaveDamage: 12

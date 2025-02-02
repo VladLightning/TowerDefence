@@ -4,10 +4,11 @@ using UnityEngine;
 
 public abstract class Tower : Entity
 {
-    private const float DELAY_FOR_ROTATION = 0.2f;
+    public const float DELAY_FOR_ROTATION = 0.2f;
     private const float SELL_PRICE_COEFFICIENT = 0.5f;
     
-    [SerializeField] private Transform _projectileLaunchPoint; 
+    [SerializeField] private Transform _projectileLaunchPoint;
+    public Transform ProjectileLaunchPoint => _projectileLaunchPoint;
     private TowerLevelsData _towerLevelsData;
     
     private GameObject _projectile;
@@ -130,12 +131,11 @@ public abstract class Tower : Entity
         }
 
         float shortestDistance = enemyColliders[0].GetComponent<Enemy>().GetDistanceToCastle();
-        float newDistance;
         int shortestDistanceIndex = 0;
 
         for (int i = 1; i < enemyColliders.Length; i++)
         {          
-            newDistance = enemyColliders[i].GetComponent<Enemy>().GetDistanceToCastle();
+            float newDistance = enemyColliders[i].GetComponent<Enemy>().GetDistanceToCastle();
             if (shortestDistance > newDistance)
             {
                 shortestDistance = newDistance;

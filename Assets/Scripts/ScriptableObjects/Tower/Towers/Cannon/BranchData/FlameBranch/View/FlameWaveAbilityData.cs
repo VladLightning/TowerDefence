@@ -1,6 +1,6 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "FlameAbilityThreeData", menuName = "UpgradesData/FlameAbilityThree", order = 3)]
-public class FlameAbilityThreeData : BranchUpgradeData
+[CreateAssetMenu(fileName = "FlameWaveAbilityData", menuName = "UpgradesData/FlameWaveAbility", order = 3)]
+public class FlameWaveAbilityData : BranchUpgradeData
 {
-    public override string UpgradeClassName => "FlameAbilityThree";
+    public override string UpgradeClassName => "FlameWaveAbility";
 }
