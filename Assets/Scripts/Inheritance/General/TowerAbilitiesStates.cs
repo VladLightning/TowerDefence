@@ -5,6 +5,5 @@ public class TowerAbilitiesStates
     {
         Inactive = 0,
         Active = 1,
-        OnCooldown = 2,
     }
 }

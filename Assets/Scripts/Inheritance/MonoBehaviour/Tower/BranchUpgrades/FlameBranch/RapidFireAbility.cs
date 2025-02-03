@@ -31,19 +31,19 @@ public class RapidFireAbility : UpgradeableBranchAbility
 
     private void CheckState()
     {
-        if (_tower.Target is not null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.OnCooldown)
+        if (_tower.Target is not null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.Active)
         {
             _rapidFire = RapidFire();
             StopCoroutine(_rapidShotsReload);
             StartCoroutine(_rapidFire);
-            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Active;     
+            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Inactive;     
         }
-        else if (_tower.Target is null && _abilityState != TowerAbilitiesStates.TowerAbilityStates.OnCooldown)
+        else if (_tower.Target is null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.Inactive)
         {
             _rapidShotsReload = RapidShotsReload();
             StopCoroutine(_rapidFire);
             StartCoroutine(_rapidShotsReload);
-            _abilityState = TowerAbilitiesStates.TowerAbilityStates.OnCooldown;
+            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Active;
         }
     }
 
