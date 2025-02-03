@@ -14,15 +14,10 @@ public class FlameWaveAbility : UpgradeableBranchAbility
     private int _flameWaveDamage;
 
     private IEnumerator _flameWave;
-    private bool _isActive;
+    private bool _abilityIsActive;
     
     private float _lastShotTime;
-
-    private void Start()
-    {
-        _lastShotTime = -_flameWaveReloadTime;
-    }
-
+    
     private void Update()
     {
         TargetCheck();
@@ -30,18 +25,18 @@ public class FlameWaveAbility : UpgradeableBranchAbility
 
     private void TargetCheck()
     {
-        if (_tower.Target is not null && !_isActive)
+        if (_tower.Target is not null && !_abilityIsActive)
         {
-            _isActive = true;
+            _abilityIsActive = true;
             
             float delay = (Time.time - _lastShotTime > _flameWaveReloadTime) ? Tower.DELAY_FOR_ROTATION : _flameWaveReloadTime - (Time.time - _lastShotTime);
             _flameWave = FlameWave(delay);
             
             StartCoroutine(_flameWave);
         }
-        else if (_tower.Target is null && _isActive)
+        else if (_tower.Target is null && _abilityIsActive)
         {
-            _isActive = false;
+            _abilityIsActive = false;
             StopCoroutine(_flameWave);
         }
     }
@@ -75,7 +70,7 @@ public class FlameWaveAbility : UpgradeableBranchAbility
             yield return new WaitForSeconds(delay);
             
             var flameWave = Instantiate(_flameWavePrefab, _tower.ProjectileLaunchPoint.position, _tower.ProjectileLaunchPoint.rotation).GetComponent<FlameWave>();
-            flameWave.Initialize(_flameWaveDuration, _flameWaveSpeed, _flameWaveDamage, _tower.Target);
+            flameWave.Initialize(_flameWaveDuration, _flameWaveSpeed, _flameWaveDamage);
 
             _lastShotTime = Time.time;
             delay = _flameWaveReloadTime;

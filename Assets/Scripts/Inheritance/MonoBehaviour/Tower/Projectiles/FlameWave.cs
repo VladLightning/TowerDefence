@@ -12,13 +12,11 @@ public class FlameWave : MonoBehaviour
         }
     }
 
-    public void Initialize(float duration, float speed, int damage, Transform target)
+    public void Initialize(float duration, float speed, int damage)
     {
         _damage = damage;
         
-        var direction = target.position - transform.position;
-        
-        GetComponent<Rigidbody2D>().velocity = direction * speed;
+        GetComponent<Rigidbody2D>().velocity = transform.right * speed;
         Destroy(gameObject, duration);
     }
 }
