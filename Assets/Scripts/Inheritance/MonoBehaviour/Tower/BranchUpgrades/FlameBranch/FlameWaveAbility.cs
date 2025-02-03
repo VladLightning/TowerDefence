@@ -14,7 +14,7 @@ public class FlameWaveAbility : UpgradeableBranchAbility
     private int _flameWaveDamage;
 
     private IEnumerator _flameWave;
-    private bool _abilityIsActive;
+    private TowerAbilitiesStates.TowerAbilityStates _abilityState;
     
     private float _lastShotTime;
     
@@ -25,18 +25,18 @@ public class FlameWaveAbility : UpgradeableBranchAbility
 
     private void TargetCheck()
     {
-        if (_tower.Target is not null && !_abilityIsActive)
+        if (_tower.Target is not null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.Inactive)
         {
-            _abilityIsActive = true;
+            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Active;
             
             float delay = (Time.time - _lastShotTime > _flameWaveReloadTime) ? Tower.DELAY_FOR_ROTATION : _flameWaveReloadTime - (Time.time - _lastShotTime);
             _flameWave = FlameWave(delay);
             
             StartCoroutine(_flameWave);
         }
-        else if (_tower.Target is null && _abilityIsActive)
+        else if (_tower.Target is null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.Active)
         {
-            _abilityIsActive = false;
+            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Inactive;
             StopCoroutine(_flameWave);
         }
     }
