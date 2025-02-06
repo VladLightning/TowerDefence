@@ -16,7 +16,7 @@ public class RapidFireAbility : UpgradeableBranchAbility
     private IEnumerator _rapidShotsReload;
     private IEnumerator _rapidFire;
 
-    private bool _isReloading;
+    private TowerAbilitiesStates.TowerAbilityStates _abilityState;
 
     private void Start()
     {
@@ -31,19 +31,19 @@ public class RapidFireAbility : UpgradeableBranchAbility
 
     private void CheckState()
     {
-        if (_tower.Target is not null && _isReloading)
+        if (_tower.Target is not null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.Active)
         {
             _rapidFire = RapidFire();
             StopCoroutine(_rapidShotsReload);
             StartCoroutine(_rapidFire);
-            _isReloading = false;     
+            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Inactive;     
         }
-        else if (_tower.Target is null && !_isReloading)
+        else if (_tower.Target is null && _abilityState == TowerAbilitiesStates.TowerAbilityStates.Inactive)
         {
             _rapidShotsReload = RapidShotsReload();
             StopCoroutine(_rapidFire);
             StartCoroutine(_rapidShotsReload);
-            _isReloading = true;
+            _abilityState = TowerAbilitiesStates.TowerAbilityStates.Active;
         }
     }
 
@@ -51,18 +51,18 @@ public class RapidFireAbility : UpgradeableBranchAbility
     {
         _rapidFireAbilityLevelData = branchUpgradeData.BranchLevelsUpgradeData as RapidFireAbilityLevelData;
         
-        _currentCapacity = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotsCapacity;
-        _currentRapidShotInterval = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotInterval;
-        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.SpecialShootingStats[0].SpecialShotLoadTime;
+        _currentCapacity = _rapidFireAbilityLevelData.RapidFireLevels[0].RapidShotsCapacity;
+        _currentRapidShotInterval = _rapidFireAbilityLevelData.RapidFireLevels[0].RapidShotInterval;
+        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.RapidFireLevels[0].RapidShotLoadTime;
         
         _tower = GetComponent<Tower>();
     }
 
     public override void Upgrade(int levelIndex)
     {
-        _currentCapacity = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotsCapacity;
-        _currentRapidShotInterval = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotInterval;
-        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.SpecialShootingStats[levelIndex].SpecialShotLoadTime;
+        _currentCapacity = _rapidFireAbilityLevelData.RapidFireLevels[levelIndex].RapidShotsCapacity;
+        _currentRapidShotInterval = _rapidFireAbilityLevelData.RapidFireLevels[levelIndex].RapidShotInterval;
+        _currentRapidShotLoadTime = _rapidFireAbilityLevelData.RapidFireLevels[levelIndex].RapidShotLoadTime;
     }
 
     private IEnumerator RapidShotsReload()

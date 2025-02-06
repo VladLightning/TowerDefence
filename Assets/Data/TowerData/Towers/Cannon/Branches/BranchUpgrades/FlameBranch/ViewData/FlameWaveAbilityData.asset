@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d133336534f2e6d48b4625272e9ea49d, type: 3}
-  m_Name: FlameAbilityThreeData
+  m_Name: FlameWaveAbilityData
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
-  _upgradePrices: 64000000fa0000002c01000090010000
+  _branchLevelsUpgradeData: {fileID: 11400000, guid: 0248cbf7ca81a6547a4c8b615e1bfe8a, type: 2}
+  _upgradePrices: c80000009001000058020000
