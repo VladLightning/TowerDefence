@@ -61,6 +61,11 @@ public class BranchUpgradesHandler : MonoBehaviour
         }
     }
 
+    public string GetUpgradeDescription(int upgradeIndex)
+    {
+        return _branchUpgradesData[upgradeIndex].UpgradeDescription;
+    }
+
     public void Disable()
     {
         gameObject.SetActive(false);

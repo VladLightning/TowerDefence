@@ -12,4 +12,7 @@ public abstract class BranchUpgradeData : ScriptableObject
 
     [SerializeField] private int[] _upgradePrices;
     public int[] UpgradePrices => _upgradePrices;
+    
+    [SerializeField] private string _upgradeDescription;
+    public string UpgradeDescription => _upgradeDescription;
 }
