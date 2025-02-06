@@ -16,7 +16,7 @@ MonoBehaviour:
   _projectileData: {fileID: 11400000, guid: 888e85a9c351b87479d35675f1b34d3e, type: 2}
   _towerLevels:
   - _attackSpeed: 2
-    _range: 10
+    _range: 15
     _price: 800
     _rotationSpeed: 15
   _towerSprite: {fileID: -8932092875127675973, guid: 96bd28ab240fcea41a35da50b7bf7a32, type: 3}

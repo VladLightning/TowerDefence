@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5265697165557267329, guid: 2d9a9b47915862d4ab149f3a0d8ee630, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.391521
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265697165557267329, guid: 2d9a9b47915862d4ab149f3a0d8ee630, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.94811
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265697165557267329, guid: 2d9a9b47915862d4ab149f3a0d8ee630, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7425305378259238745, guid: 2d9a9b47915862d4ab149f3a0d8ee630, type: 3}
       propertyPath: m_Name
-      value: FlameProjectile Variant
+      value: FlameProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 8015965704144346719, guid: 2d9a9b47915862d4ab149f3a0d8ee630, type: 3}
       propertyPath: m_Sprite
@@ -81,4 +81,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107774be8483c4a4da1e5c426705c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 2
