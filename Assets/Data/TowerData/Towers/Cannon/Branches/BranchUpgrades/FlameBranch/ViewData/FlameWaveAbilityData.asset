@@ -15,3 +15,4 @@ MonoBehaviour:
   _sprite: {fileID: 1841244716999134741, guid: 9aa7064911f7c654bac50f08f56b2a99, type: 3}
   _branchLevelsUpgradeData: {fileID: 11400000, guid: 0248cbf7ca81a6547a4c8b615e1bfe8a, type: 2}
   _upgradePrices: c80000009001000058020000
+  _upgradeDescription: Flame Wave
