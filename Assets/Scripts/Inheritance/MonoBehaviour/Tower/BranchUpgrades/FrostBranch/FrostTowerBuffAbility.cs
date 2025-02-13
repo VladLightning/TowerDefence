@@ -38,7 +38,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
     {
         if (other.gameObject.CompareTag("TowerBody"))
         {
-            RemoveTower(other);
+            AddTower(other);
         }
     }
     
