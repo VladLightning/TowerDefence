@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
 {
     private FrostTowerBuffAbilityLevelData _frostTowerBuffAbilityLevelData;
 
-    private readonly List<Tower> _towers = new List<Tower>();
+    [SerializeField]private List<Tower> _towers = new List<Tower>();
     
     private float _totalDamageCoefficientBuff;
     private float _totalAttackSpeedCoefficientBuff;
@@ -27,11 +28,13 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
         }
     }
 
-    private void OnDisable()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        foreach (var tower in _towers)
+        if (other.gameObject.CompareTag("Tower"))
         {
+            var tower = other.GetComponent<Tower>();
             ChangeTowerCoefficients(tower, 1/_totalDamageCoefficientBuff, 1/_totalAttackSpeedCoefficientBuff);
+            _towers.Remove(tower);
         }
     }
 
