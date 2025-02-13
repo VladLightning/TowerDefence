@@ -32,6 +32,7 @@ public abstract class Tower : Entity
     public int TowerLevelIndex => _towerLevelIndex;
     
     private float _range;
+    public float Range => _range;
     private int _price;
     private int _rotationSpeed;
     
