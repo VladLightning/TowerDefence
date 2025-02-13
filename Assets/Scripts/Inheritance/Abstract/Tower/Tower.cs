@@ -265,18 +265,6 @@ public abstract class Tower : Entity
         
         _currentBranchUpgradeLevels[index]++;
     }
-
-    public void ChangeCoefficients(float damageCoefficient, float attackSpeedCoefficient)
-    {
-        ChangeDamageCoefficient(damageCoefficient);
-        ChangeAttackSpeedCoefficient(attackSpeedCoefficient);
-    }
-
-    public void RollbackCoefficients(float damageRollbackFactor, float attackSpeedRollbackFactor)
-    {
-        RollbackDamageCoefficient(damageRollbackFactor);
-        RollbackAttackSpeedCoefficient(attackSpeedRollbackFactor);
-    }
     
     public void ChangeDamageCoefficient(float coefficient)
     {
@@ -286,16 +274,6 @@ public abstract class Tower : Entity
     public void ChangeAttackSpeedCoefficient(float coefficient)
     {
         _attackSpeedCoefficient *= coefficient;
-    }
-   
-    public void RollbackDamageCoefficient(float rollbackFactor)
-    {
-        _damageCoefficient /= rollbackFactor;
-    }
-    
-    public void RollbackAttackSpeedCoefficient(float rollbackFactor)
-    {
-        _attackSpeedCoefficient /= rollbackFactor;
     }
 
     public int GetInitialPrice()

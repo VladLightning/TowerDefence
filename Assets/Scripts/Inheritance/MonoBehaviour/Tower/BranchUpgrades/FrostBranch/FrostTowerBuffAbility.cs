@@ -5,7 +5,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
 {
     private FrostTowerBuffAbilityLevelData _frostTowerBuffAbilityLevelData;
 
-    private List<Tower> _towers = new List<Tower>();
+    private readonly List<Tower> _towers = new List<Tower>();
     
     private float _totalDamageCoefficientBuff;
     private float _totalAttackSpeedCoefficientBuff;
@@ -22,7 +22,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
         if (other.gameObject.CompareTag("Tower"))
         {
             var tower = other.GetComponent<Tower>();
-            tower.ChangeCoefficients(_totalDamageCoefficientBuff, _totalAttackSpeedCoefficientBuff);
+            ChangeTowerCoefficients(tower, _totalDamageCoefficientBuff, _totalAttackSpeedCoefficientBuff);
             _towers.Add(tower);
         }
     }
@@ -31,7 +31,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
     {
         foreach (var tower in _towers)
         {
-            tower.RollbackCoefficients(_totalDamageCoefficientBuff, _totalAttackSpeedCoefficientBuff);
+            ChangeTowerCoefficients(tower, 1/_totalDamageCoefficientBuff, 1/_totalAttackSpeedCoefficientBuff);
         }
     }
 
@@ -55,8 +55,14 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
         
         foreach (var tower in _towers)
         {
-            tower.ChangeCoefficients(_frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].DamageCoefficientBuff, 
+            ChangeTowerCoefficients(tower, _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].DamageCoefficientBuff, 
                                      _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackSpeedCoefficientBuff);
         }
+    }
+    
+    private void ChangeTowerCoefficients(Tower tower, float damageCoefficient, float attackSpeedCoefficient)
+    {
+        tower.ChangeDamageCoefficient(damageCoefficient);
+        tower.ChangeAttackSpeedCoefficient(attackSpeedCoefficient);
     }
 }
