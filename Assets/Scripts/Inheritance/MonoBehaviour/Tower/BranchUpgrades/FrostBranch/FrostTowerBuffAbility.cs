@@ -50,17 +50,13 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
 
     private void CalculateTotalCoefficients(int currentUpgradeLevel)
     {
-        foreach (var tower in _towers)
-        {
-            tower.RollbackCoefficients(_totalDamageCoefficientBuff, _totalAttackSpeedCoefficientBuff);
-        }
-        
         _totalDamageCoefficientBuff *= _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].DamageCoefficientBuff;
         _totalAttackSpeedCoefficientBuff *= _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackSpeedCoefficientBuff;
         
         foreach (var tower in _towers)
         {
-            tower.ChangeCoefficients(_totalDamageCoefficientBuff, _totalAttackSpeedCoefficientBuff);
+            tower.ChangeCoefficients(_frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].DamageCoefficientBuff, 
+                                     _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackSpeedCoefficientBuff);
         }
     }
 }
