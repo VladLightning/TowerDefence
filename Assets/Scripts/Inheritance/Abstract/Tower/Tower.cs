@@ -14,6 +14,10 @@ public abstract class Tower : Entity
     private GameObject _projectile;
     
     private float _lastShotTime;
+
+    private float _damageCoefficient = 1;
+    private float _attackSpeedCoefficient = 1;
+    private float CurrentAttackSpeed => _attackSpeed / _attackSpeedCoefficient;
     
     private Transform _target;
     public Transform Target => _target;
@@ -28,6 +32,7 @@ public abstract class Tower : Entity
     public int TowerLevelIndex => _towerLevelIndex;
     
     private float _range;
+    public float Range => _range;
     private int _price;
     private int _rotationSpeed;
     
@@ -108,7 +113,7 @@ public abstract class Tower : Entity
     private void Start()
     {
         //Сделано для того, чтобы башне не пришлось ждать задержку выстрела, если враг попадает зону стрельбы в начале жизненного цикла
-        _lastShotTime = -_attackSpeed;
+        _lastShotTime = -CurrentAttackSpeed;
     }
 
     private void Update()
@@ -167,7 +172,7 @@ public abstract class Tower : Entity
             SpawnProjectile();
 
             _lastShotTime = Time.time;          
-            delay = _attackSpeed;
+            delay = CurrentAttackSpeed;
         }
     }
 
@@ -194,7 +199,7 @@ public abstract class Tower : Entity
 
     private void Attack()
     {
-        float delay = (Time.time - _lastShotTime > _attackSpeed) ? 0 : _attackSpeed - (Time.time - _lastShotTime);
+        float delay = (Time.time - _lastShotTime > CurrentAttackSpeed) ? 0 : CurrentAttackSpeed - (Time.time - _lastShotTime);
 
         _shoot = Shoot(delay);
         StartCoroutine(_shoot);
@@ -260,6 +265,16 @@ public abstract class Tower : Entity
         }
         
         _currentBranchUpgradeLevels[index]++;
+    }
+    
+    public void ChangeDamageCoefficient(float coefficient)
+    {
+        _damageCoefficient *= coefficient;
+    }
+
+    public void ChangeAttackSpeedCoefficient(float coefficient)
+    {
+        _attackSpeedCoefficient *= coefficient;
     }
 
     public int GetInitialPrice()
