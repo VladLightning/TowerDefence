@@ -26,6 +26,11 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
     
     private void Start()
     {
+        InitialBuffCast();
+    }
+
+    private void InitialBuffCast()
+    {
         _towerSelf = GetComponent<Tower>();
         var colliders = Physics2D.OverlapCircleAll(transform.position, _towerSelf.Range, LayerMask.GetMask("Tower"));
         foreach (var collider in colliders)
@@ -33,7 +38,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
             AddTower(collider);
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("TowerBody"))
