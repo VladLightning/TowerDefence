@@ -5,7 +5,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
 {
     private FrostTowerBuffAbilityLevelData _frostTowerBuffAbilityLevelData;
 
-    [SerializeField]private List<Tower> _towers = new List<Tower>();
+    private List<Tower> _towers = new List<Tower>();
     private Tower _towerSelf;
     
     private float _totalDamageCoefficientBuff;

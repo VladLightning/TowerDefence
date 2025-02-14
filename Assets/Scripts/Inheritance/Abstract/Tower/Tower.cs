@@ -15,8 +15,8 @@ public abstract class Tower : Entity
     
     private float _lastShotTime;
 
-    [SerializeField]private float _damageCoefficient = 1;
-    [SerializeField]private float _attackSpeedCoefficient = 1;
+    private float _damageCoefficient = 1;
+    private float _attackSpeedCoefficient = 1;
     private float CurrentAttackSpeed => _attackSpeed / _attackSpeedCoefficient;
     
     private Transform _target;
