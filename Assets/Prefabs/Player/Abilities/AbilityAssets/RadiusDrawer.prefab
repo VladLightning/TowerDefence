@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3184631801111617525}
   - component: {fileID: 6387984265309151102}
   m_Layer: 0
-  m_Name: AbilityAreaOfEffectOutline
+  m_Name: RadiusDrawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
