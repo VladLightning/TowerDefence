@@ -1,9 +1,13 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerUpgradePanel : MonoBehaviour
 {
+    public static event Action<float, Transform> OnTowerSelected;
+    public static event Action OnTowerDeselected;
+    
     [SerializeField] private GameObject _towerUpgradePanel;
     [SerializeField] private GameObject _upgradePanel;
 
@@ -18,12 +22,16 @@ public class TowerUpgradePanel : MonoBehaviour
     {
         MouseInput.OnTowerSelected += EnableTowerUpgradePanel;
         MouseInput.OnNothingSelected += ResetToDefaultState;
+        
+        AoEAbility.OnDisableRangedRadius += DisableTowerUpgradePanel;
     }
 
     private void OnDestroy()
     {
         MouseInput.OnTowerSelected -= EnableTowerUpgradePanel;
         MouseInput.OnNothingSelected -= ResetToDefaultState;
+        
+        AoEAbility.OnDisableRangedRadius -= DisableTowerUpgradePanel;
     }
 
     private void EnableTowerUpgradePanel(Tower tower)
@@ -35,7 +43,9 @@ public class TowerUpgradePanel : MonoBehaviour
         ResetToDefaultState();
 
         transform.position = _tower.transform.position;
+        
         _towerUpgradePanel.SetActive(true);
+        OnTowerSelected?.Invoke(_tower.Range, _tower.transform);
 
         if (!_tower.IsMaxLevel())
         {
@@ -52,12 +62,18 @@ public class TowerUpgradePanel : MonoBehaviour
         _upgradePanel.SetActive(false);
     }
 
+    private void DisableTowerUpgradePanel()
+    {
+        _towerUpgradePanel.SetActive(false);
+        OnTowerDeselected?.Invoke();
+    }
+
     public void ResetToDefaultState()
     {
         _branchHandler.Disable();
         _branchUpgradesHandler.Disable();
 
-        _towerUpgradePanel.SetActive(false);
+        DisableTowerUpgradePanel();
         
         _upgradePanel.SetActive(true);
     }
@@ -69,13 +85,13 @@ public class TowerUpgradePanel : MonoBehaviour
             return;
         }
         _tower.Upgrade();
-        _towerUpgradePanel.SetActive(false);
+        DisableTowerUpgradePanel();
     }
 
     public void ExecuteTowerSell()
     {
         _tower.Sell();
-        _towerUpgradePanel.SetActive(false);
+        DisableTowerUpgradePanel();
     }
 
     public void UpgradeButtonIsAvailable()
