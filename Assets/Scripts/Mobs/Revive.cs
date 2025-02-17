@@ -24,11 +24,11 @@ public class Revive : MonoBehaviour
     private IEnumerator ReviveMob(float respawnTime, GameObject mob)
     {
         var grave = Instantiate(_gravePrefab, mob.transform.position, mob.transform.rotation);
-        Destroy(grave, respawnTime);
         
         yield return new WaitForSeconds(respawnTime);
         
+        Destroy(grave);
+        
         mob.GetComponent<Mob>().Revive();
-        mob.SetActive(true);
     }
 }

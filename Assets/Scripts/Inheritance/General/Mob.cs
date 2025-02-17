@@ -97,6 +97,7 @@ public abstract class Mob : Entity
     {
         _currentHealth = _maxHealth;
         _healthbarView.UpdateHealthBar(_currentHealth);
+        gameObject.SetActive(true);
     }
     
     public virtual void EnterCombat(GameObject target)
