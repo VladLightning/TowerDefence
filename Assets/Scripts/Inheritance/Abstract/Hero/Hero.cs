@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public abstract class Hero : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;
+    
+    public static event Action<float, GameObject> OnDeath;
 
     private IEnumerator _move;
     private Coroutine _regenerate;
@@ -80,7 +83,8 @@ public abstract class Hero : Mob
 
     protected override void Death()
     {
-        Destroy(gameObject);
+        OnDeath?.Invoke(_respawnTime, gameObject);
+        gameObject.SetActive(false);
     }
     
     public override void EnterCombat(GameObject target)
@@ -96,7 +100,10 @@ public abstract class Hero : Mob
     public override void ExitCombat()
     {
         base.ExitCombat();
-        
-        _regenerate = StartCoroutine(RegenerateHealth());
+
+        if (gameObject.activeSelf)
+        {
+            _regenerate = StartCoroutine(RegenerateHealth());
+        }
     }
 }

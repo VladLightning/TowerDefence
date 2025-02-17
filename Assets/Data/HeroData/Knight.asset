@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   _attackSpeed: 1
-  _health: 50
+  _health: 5
   _movementSpeed: 12
   _damage: 8
   _damageType: 0
   _skillCooldown: 5
-  _respawnTime: 10
+  _respawnTime: 2
   _regenerationDelay: 4
   _regenerationInterval: 2
   _regenerationAmount: 3
