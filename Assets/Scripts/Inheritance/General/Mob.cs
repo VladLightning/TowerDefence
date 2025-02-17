@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using UnityEngine;
 
 public abstract class Mob : Entity
 {
+    
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
     
@@ -89,6 +91,13 @@ public abstract class Mob : Entity
             yield return new WaitForSeconds(_attackSpeed);
             opponent.TakeDamage(_damage);
         }
+    }
+    
+    public void Revive()
+    {
+        _currentHealth = _maxHealth;
+        _healthbarView.UpdateHealthBar(_currentHealth);
+        gameObject.SetActive(true);
     }
     
     public virtual void EnterCombat(GameObject target)
