@@ -19,6 +19,8 @@ public abstract class Mob : Entity
     protected int _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
+
+    private float _damageResistance;
     
     protected HealthbarView _healthbarView;
 
@@ -60,7 +62,7 @@ public abstract class Mob : Entity
             return;
         }
         
-        _currentHealth -= damage;
+        _currentHealth -= (int)(damage * (1 - _damageResistance));
         _healthbarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
@@ -91,6 +93,16 @@ public abstract class Mob : Entity
             yield return new WaitForSeconds(_attackSpeed);
             opponent.TakeDamage(_damage);
         }
+    }
+
+    public void IncreaseDamageResistance(float coefficient)
+    {
+        _damageResistance += coefficient;
+    }
+
+    public void DecreaseDamageResistance(float coefficient)
+    {
+        _damageResistance -= coefficient;
     }
     
     public void Revive()
