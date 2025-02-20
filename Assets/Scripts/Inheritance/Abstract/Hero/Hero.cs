@@ -9,27 +9,27 @@ public abstract class Hero : Mob
 
     private IEnumerator _move;
     private Coroutine _regenerate;
-
-    private float _skillCooldown;
+    
     private float _respawnTime;
     private float _regenerationDelay;
     private float _regenerationInterval;
     private int _regenerationAmount;
     
     private HeroDetectOpponent _heroDetectOpponent;
+    protected IActiveHeroSkill _activeSkill;
 
     protected override void SetStats()
     {
         base.SetStats();
         var heroData = _entityData as HeroData;
         
-        _skillCooldown = heroData.SkillCooldown;
         _respawnTime = heroData.RespawnTime;
         _regenerationDelay = heroData.RegenerationDelay;
         _regenerationInterval = heroData.RegenerationInterval;
         _regenerationAmount = heroData.RegenerationAmount;
         
         _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
+        _activeSkill = GetComponent<IActiveHeroSkill>();
     }
 
     private void OnEnable()

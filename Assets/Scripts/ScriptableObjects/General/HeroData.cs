@@ -1,8 +1,6 @@
 using UnityEngine;
 public abstract class HeroData : MobData
 {
-    [SerializeField] private float _skillCooldown;
-    public float SkillCooldown => _skillCooldown;
     [SerializeField] private float _respawnTime;
     public float RespawnTime => _respawnTime;
     [SerializeField] private float _regenerationDelay;

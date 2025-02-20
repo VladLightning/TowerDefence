@@ -53,7 +53,7 @@ public abstract class Mob : Entity
         _healthbarView.AlignHealthBar();
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (_currentHealth <= 0)
         {
