@@ -11,7 +11,7 @@ public class Resistance : MonoBehaviour, IActiveHeroSkill
     
     private float _resistanceCoefficient;
     
-    private bool _isInvincible;
+    private bool _isResistant;
     
     private Hero _hero;
 
@@ -27,7 +27,7 @@ public class Resistance : MonoBehaviour, IActiveHeroSkill
 
     public void ActiveSkillTrigger()
     {
-        if (!_isInvincible)
+        if (!_isResistant)
         {
             StartCoroutine(IncreaseResistance());
         }
@@ -35,13 +35,13 @@ public class Resistance : MonoBehaviour, IActiveHeroSkill
 
     private IEnumerator IncreaseResistance()
     {
-        _isInvincible = true;
+        _isResistant = true;
         
         _hero.IncreaseDamageResistance(_resistanceCoefficient);
         yield return new WaitForSeconds(_skillDuration);
         _hero.DecreaseDamageResistance(_resistanceCoefficient);
         yield return new WaitForSeconds(_skillCooldown);
         
-        _isInvincible = false;
+        _isResistant = false;
     }
 }
