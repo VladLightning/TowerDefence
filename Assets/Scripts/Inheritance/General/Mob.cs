@@ -62,7 +62,8 @@ public abstract class Mob : Entity
             return;
         }
         
-        _currentHealth -= (int)(damage * (1 - _damageResistance));
+        //Todo resist > 1, all resist types 
+        _currentHealth -= (int)(damage * (1 - _damageResistance)); 
         _healthbarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
