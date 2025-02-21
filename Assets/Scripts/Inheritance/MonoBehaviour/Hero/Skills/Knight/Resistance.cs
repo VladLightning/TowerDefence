@@ -29,11 +29,11 @@ public class Resistance : MonoBehaviour, IActiveHeroSkill
     {
         if (!_isInvincible)
         {
-            StartCoroutine(ActivateInvincibility());
+            StartCoroutine(IncreaseResistance());
         }
     }
 
-    private IEnumerator ActivateInvincibility()
+    private IEnumerator IncreaseResistance()
     {
         _isInvincible = true;
         
