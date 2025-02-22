@@ -10,7 +10,8 @@ public abstract class Mob : Entity
     
     protected DamageTypesEnum.DamageTypes _damageType;
     
-    private GameObject _opponent;
+    private Mob _opponent;
+    public Mob Opponent => _opponent;
 
     private Coroutine _fight;
 
@@ -22,13 +23,13 @@ public abstract class Mob : Entity
 
     private float _damageResistance;
     
-    protected HealthbarView _healthbarView;
+    protected HealthbarView _healthBarView;
 
     protected abstract void Move(Vector2 target);
     
-    protected override void SetStats()
+    protected override void Initiate()
     {
-        base.SetStats();
+        base.Initiate();
         
         var mobData = _entityData as MobData;
         
@@ -41,8 +42,8 @@ public abstract class Mob : Entity
         _defaultMovementSpeed = mobData.MovementSpeed;
         _currentMovementSpeed = _defaultMovementSpeed;
         
-        _healthbarView = GetComponentInChildren<HealthbarView>();
-        _healthbarView.SetMaxHealth(_maxHealth);
+        _healthBarView = GetComponentInChildren<HealthbarView>();
+        _healthBarView.SetMaxHealth(_maxHealth);
     }
 
     protected void LookAtTarget(Vector2 target)
@@ -52,7 +53,7 @@ public abstract class Mob : Entity
                 ? new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y)
                 : new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         
-        _healthbarView.AlignHealthBar();
+        _healthBarView.AlignHealthBar();
     }
 
     public virtual void TakeDamage(int damage)
@@ -64,7 +65,7 @@ public abstract class Mob : Entity
         
         //Todo resist > 1, all resist types 
         _currentHealth -= (int)(damage * (1 - _damageResistance)); 
-        _healthbarView.UpdateHealthBar(_currentHealth);
+        _healthBarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
         {
@@ -109,26 +110,25 @@ public abstract class Mob : Entity
     public void Revive()
     {
         _currentHealth = _maxHealth;
-        _healthbarView.UpdateHealthBar(_currentHealth);
+        _healthBarView.UpdateHealthBar(_currentHealth);
         gameObject.SetActive(true);
     }
     
-    public virtual void EnterCombat(GameObject target)
+    public virtual void EnterCombat(Mob target)
     {
         _opponent = target;
         ChangeState(MobStatesEnum.MobStates.Fighting);
         LookAtTarget(_opponent.transform.position);
         
-        _fight = StartCoroutine(Fight(target.GetComponent<Mob>()));
+        _fight = StartCoroutine(Fight(target));
     }
 
     public virtual void ExitCombat()
     {
-        if (_fight == null)
+        if (_fight != null)
         {
-            return;
+            StopCoroutine(_fight);
         }
-        StopCoroutine(_fight);
     }
 
     public void ChangeState(MobStatesEnum.MobStates newState)

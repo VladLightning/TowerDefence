@@ -79,7 +79,7 @@ public abstract class Tower : Entity
         _collider2D.radius = _range;      
     }
 
-    protected override void SetStats()
+    protected override void Initiate()
     {
         _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
         _range = _towerLevels[_towerLevelIndex].Range;
@@ -225,7 +225,7 @@ public abstract class Tower : Entity
     {
         _towerLevelIndex++;
         _playerMoney.Purchase(_towerLevels[_towerLevelIndex].Price);
-        SetStats();
+        Initiate();
     }
 
     public void Sell()

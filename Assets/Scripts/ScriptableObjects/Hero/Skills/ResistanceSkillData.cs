@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SkillData", menuName = "Hero/Skills/ResistanceSkill", order = 1)]
+[CreateAssetMenu(fileName = "SkillData", menuName = "Hero/Skills/Active/ResistanceSkill", order = 1)]
 public class ResistanceSkillData : CooldownSkillData
 {
 

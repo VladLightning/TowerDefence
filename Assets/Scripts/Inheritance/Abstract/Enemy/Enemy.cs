@@ -23,9 +23,9 @@ public abstract class Enemy : Mob
         _path = path;
     }
 
-    protected override void SetStats()
+    protected override void Initiate()
     {
-        base.SetStats();
+        base.Initiate();
 
         var enemyData = _entityData as EnemyData;
         

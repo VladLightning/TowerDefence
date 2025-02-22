@@ -7,10 +7,10 @@ public abstract class Entity : MonoBehaviour
     
     protected virtual void Awake()
     {
-        SetStats();
+        Initiate();
     }
 
-    protected virtual void SetStats()
+    protected virtual void Initiate()
     {
         _attackSpeed = _entityData.AttackSpeed;
     }

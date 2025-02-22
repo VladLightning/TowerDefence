@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Resistance : MonoBehaviour, IActiveHeroSkill
+public class ResistanceIncrease : MonoBehaviour, IActiveHeroSkill
 {
     [SerializeField] private ResistanceSkillData _resistanceSkillData;
     

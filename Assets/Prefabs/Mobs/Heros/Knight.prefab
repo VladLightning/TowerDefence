@@ -109,6 +109,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2402547748388400365, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 396436325983224836}
+    - targetCorrespondingSourceObject: {fileID: 2402547748388400365, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8519464187041409763}
   m_SourcePrefab: {fileID: 100100000, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
 --- !u!1 &7691720513464727882 stripped
 GameObject:
@@ -180,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: de33cdd45a57a8a499f083e1bf5f0b0d, type: 2}
+  _damageResistance: 0
 --- !u!114 &396436325983224836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,3 +197,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resistanceSkillData: {fileID: 11400000, guid: f732b412831306a4faac8242db1a2c20, type: 2}
+--- !u!114 &8519464187041409763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691720513464727882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e91c941696a584786863dd36640bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resistanceShredSkillData: {fileID: 11400000, guid: fde1ae17d5765ab4d956f134d7a9e1c8, type: 2}
