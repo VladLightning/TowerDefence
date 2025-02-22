@@ -44,8 +44,8 @@ public class HeroDetectOpponent : MonoBehaviour
         }
         _opponent = potentialOpponent;
   
-        _hero.EnterCombat(_opponent.gameObject);
-        _opponent.EnterCombat(transform.parent.gameObject);
+        _hero.EnterCombat(_opponent);
+        _opponent.EnterCombat(_hero);
     }
 
     public void StopFighting()
@@ -64,5 +64,7 @@ public class HeroDetectOpponent : MonoBehaviour
         
         _opponent.ChangeState(MobStatesEnum.MobStates.Moving);
         _opponent.ExitCombat();
+
+        _opponent = null;
     }
 }

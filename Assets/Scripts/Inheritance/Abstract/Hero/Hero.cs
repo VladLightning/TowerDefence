@@ -17,10 +17,11 @@ public abstract class Hero : Mob
     
     private HeroDetectOpponent _heroDetectOpponent;
     protected IActiveHeroSkill _activeSkill;
+    protected IPassiveHeroSkill _passiveSkill;
 
-    protected override void SetStats()
+    protected override void Initiate()
     {
-        base.SetStats();
+        base.Initiate();
         var heroData = _entityData as HeroData;
         
         _respawnTime = heroData.RespawnTime;
@@ -29,7 +30,9 @@ public abstract class Hero : Mob
         _regenerationAmount = heroData.RegenerationAmount;
         
         _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
+        
         _activeSkill = GetComponent<IActiveHeroSkill>();
+        _passiveSkill = GetComponent<IPassiveHeroSkill>();
     }
 
     private void OnEnable()
@@ -62,7 +65,7 @@ public abstract class Hero : Mob
         {
             yield return new WaitForSeconds(_regenerationInterval);
             _currentHealth += _regenerationAmount;
-            _healthbarView.UpdateHealthBar(_currentHealth);
+            _healthBarView.UpdateHealthBar(_currentHealth);
         }
         _currentHealth = _maxHealth;
     }
@@ -87,7 +90,7 @@ public abstract class Hero : Mob
         gameObject.SetActive(false);
     }
     
-    public override void EnterCombat(GameObject target)
+    public override void EnterCombat(Mob target)
     {
         base.EnterCombat(target);
         
