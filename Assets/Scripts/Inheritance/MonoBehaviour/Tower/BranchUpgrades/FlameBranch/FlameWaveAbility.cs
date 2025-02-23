@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FlameWaveAbility : UpgradeableBranchAbility
+public class FlameWaveAbility : DamageDealingBranchAbility
 {
     private GameObject _flameWavePrefab;
     
@@ -12,8 +12,7 @@ public class FlameWaveAbility : UpgradeableBranchAbility
     private float _flameWaveDuration;
     private float _flameWaveSpeed;
     private int _flameWaveDamage;
-    private DamageTypesEnum.DamageTypes _damageType;
-
+    
     private IEnumerator _flameWave;
     private TowerAbilitiesStates.TowerAbilityStates _abilityState;
     

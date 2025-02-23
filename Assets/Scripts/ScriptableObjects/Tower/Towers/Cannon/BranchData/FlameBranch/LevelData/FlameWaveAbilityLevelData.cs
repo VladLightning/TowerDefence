@@ -3,13 +3,10 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "FlameWaveData", menuName = "AbilityLevelsData/FlameWave", order = 2)]
 
-public class FlameWaveAbilityLevelData : BranchLevelsUpgradeData
+public class FlameWaveAbilityLevelData : DamageDealingLevelsUpgradeData
 {
     [SerializeField]private GameObject _flameWavePrefab;
     public GameObject FlameWavePrefab => _flameWavePrefab;
-    
-    [SerializeField]private DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
     
     [SerializeField] private FlameWaveStats[] _flameWaveLevels;
     public FlameWaveStats[] FlameWaveLevels => _flameWaveLevels;
