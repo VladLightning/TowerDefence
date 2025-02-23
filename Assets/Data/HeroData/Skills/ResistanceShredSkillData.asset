@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a9fd5961c02054298fc49781e7ce8f, type: 3}
   m_Name: ResistanceShredSkillData
   m_EditorClassIdentifier: 
-  _resistanceShredTypes:
-    _serializedList:
-    - Key: 0
-      Value: 0.25
+  _shredCoefficient: 0.25
+  _resistanceShredType: 0
