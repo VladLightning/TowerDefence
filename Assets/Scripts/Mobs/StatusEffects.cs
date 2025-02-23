@@ -38,7 +38,7 @@ public class StatusEffects : MonoBehaviour
         for (int i = 0; i < statusProjectileStats.StatusTicksAmount; i++)
         {
             yield return new WaitForSeconds(statusProjectileStats.StatusTickInterval);
-            _mob.TakeDamage(statusProjectileStats.StatusDamage);
+            _mob.TakeDamage(statusProjectileStats.StatusDamage, damageType);
         }
         _statusEffects[damageType]--;
 

@@ -17,7 +17,14 @@ MonoBehaviour:
   _movementSpeed: 12
   _damage: 8
   _damageType: 0
-  _skillCooldown: 5
+  _resistances:
+    _serializedList:
+    - Key: 0
+      Value: 0.05
+    - Key: 1
+      Value: 0.05
+    - Key: 2
+      Value: 0.05
   _respawnTime: 2
   _regenerationDelay: 4
   _regenerationInterval: 2

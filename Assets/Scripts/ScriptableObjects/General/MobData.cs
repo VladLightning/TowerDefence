@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 public abstract class MobData : EntityData
 {
@@ -11,4 +12,7 @@ public abstract class MobData : EntityData
     
     [SerializeField] protected DamageTypesEnum.DamageTypes _damageType;
     public DamageTypesEnum.DamageTypes DamageType => _damageType;
+
+    [SerializeField] protected SerializedDictionary<DamageTypesEnum.DamageTypes, float> _resistances;
+    public SerializedDictionary<DamageTypesEnum.DamageTypes, float> Resistances => _resistances;
 }

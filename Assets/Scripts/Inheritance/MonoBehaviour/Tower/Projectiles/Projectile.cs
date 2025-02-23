@@ -17,7 +17,7 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void HitTarget(Collider2D collision)
     {
-        collision.GetComponent<Enemy>().TakeDamage(_damage);
+        collision.GetComponent<Enemy>().TakeDamage(_damage, _damageType);
         Destroy(gameObject);
     }
     

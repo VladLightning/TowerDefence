@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FlameWaveAbility : UpgradeableBranchAbility
+public class FlameWaveAbility : DamageDealingBranchAbility
 {
     private GameObject _flameWavePrefab;
     
@@ -12,7 +12,7 @@ public class FlameWaveAbility : UpgradeableBranchAbility
     private float _flameWaveDuration;
     private float _flameWaveSpeed;
     private int _flameWaveDamage;
-
+    
     private IEnumerator _flameWave;
     private TowerAbilitiesStates.TowerAbilityStates _abilityState;
     
@@ -46,6 +46,7 @@ public class FlameWaveAbility : UpgradeableBranchAbility
         _flameWaveAbilityLevelData = branchUpgradeData.BranchLevelsUpgradeData as FlameWaveAbilityLevelData;
         
         _flameWavePrefab = _flameWaveAbilityLevelData.FlameWavePrefab;
+        _damageType = _flameWaveAbilityLevelData.DamageType;
 
         _flameWaveReloadTime = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveReloadTime;
         _flameWaveDuration = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveDuration;
@@ -70,7 +71,7 @@ public class FlameWaveAbility : UpgradeableBranchAbility
             yield return new WaitForSeconds(delay);
             
             var flameWave = Instantiate(_flameWavePrefab, _tower.ProjectileLaunchPoint.position, _tower.ProjectileLaunchPoint.rotation).GetComponent<FlameWave>();
-            flameWave.Initialize(_flameWaveDuration, _flameWaveSpeed, _flameWaveDamage);
+            flameWave.Initialize(_flameWaveDuration, _flameWaveSpeed, _flameWaveDamage, _damageType);
 
             _lastShotTime = Time.time;
             delay = _flameWaveReloadTime;

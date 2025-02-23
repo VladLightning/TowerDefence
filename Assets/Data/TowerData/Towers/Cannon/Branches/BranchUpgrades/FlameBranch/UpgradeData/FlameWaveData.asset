@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FlameWaveData
   m_EditorClassIdentifier: 
   _flameWavePrefab: {fileID: 8680380279994922478, guid: 51a67d7343da80e4abdd44949b9cdd81, type: 3}
+  _damageType: 1
   _flameWaveLevels:
   - _flameWaveReloadTime: 15
     _flameWaveDuration: 3

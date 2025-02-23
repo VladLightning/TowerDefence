@@ -6,6 +6,6 @@ public class CastleCannonShotAbility : CastleProjectileAbility
         var castleCannonShotProjectile = projectile.GetComponent<CastleCannonShotProjectile>();
         var abilityData = _abilityData as CastleCannonAbilityData;
         
-        castleCannonShotProjectile.SetProjectileStats(abilityData.Mask, abilityData.ExplosionForce, abilityData.Radius, abilityData.ExplosionDamage);
+        castleCannonShotProjectile.SetProjectileStats(abilityData.Mask, abilityData.ExplosionForce, abilityData.Radius, abilityData.ExplosionDamage, abilityData.DamageType);
     }
 }
