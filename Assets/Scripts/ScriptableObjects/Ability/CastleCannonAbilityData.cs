@@ -10,4 +10,7 @@ public class CastleCannonAbilityData : AoEAbilityData
     
     [SerializeField] private int _explosionDamage;
     public int ExplosionDamage => _explosionDamage;
+    
+    [SerializeField] private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
 }

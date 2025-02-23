@@ -1,14 +1,16 @@
 ﻿
 using System.Collections;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Mob : Entity
 {
     
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
-    
-    protected DamageTypesEnum.DamageTypes _damageType;
+
+    private DamageTypesEnum.DamageTypes _damageType;
     
     private Mob _opponent;
     public Mob Opponent => _opponent;
@@ -21,7 +23,9 @@ public abstract class Mob : Entity
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
 
-    private float _damageResistance;
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _defaultDamageResistances;
+
+    [SerializeField]private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances;
     
     protected HealthbarView _healthBarView;
 
@@ -41,6 +45,12 @@ public abstract class Mob : Entity
         
         _defaultMovementSpeed = mobData.MovementSpeed;
         _currentMovementSpeed = _defaultMovementSpeed;
+
+        _defaultDamageResistances = mobData.Resistances;
+        foreach (var resistanceType in _defaultDamageResistances)
+        {
+            _currentDamageResistances.Add(resistanceType.Key, resistanceType.Value);
+        }
         
         _healthBarView = GetComponentInChildren<HealthbarView>();
         _healthBarView.SetMaxHealth(_maxHealth);
@@ -56,15 +66,18 @@ public abstract class Mob : Entity
         _healthBarView.AlignHealthBar();
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, DamageTypesEnum.DamageTypes damageType)
     {
         if (_currentHealth <= 0)
         {
             return;
         }
         
-        //Todo resist > 1, all resist types 
-        _currentHealth -= (int)(damage * (1 - _damageResistance)); 
+        if (_currentDamageResistances[damageType] > 1)
+        {
+            _currentDamageResistances[damageType] = 1;
+        }
+        _currentHealth -= (int)(damage * (1 - _currentDamageResistances[damageType])); 
         _healthBarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
@@ -93,18 +106,23 @@ public abstract class Mob : Entity
         while (true)
         {
             yield return new WaitForSeconds(_attackSpeed);
-            opponent.TakeDamage(_damage);
+            opponent.TakeDamage(_damage, _damageType);
         }
     }
 
-    public void IncreaseDamageResistance(float coefficient)
+    public void IncreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
     {
-        _damageResistance += coefficient;
+        _currentDamageResistances[damageType] += coefficient;
     }
 
-    public void DecreaseDamageResistance(float coefficient)
+    public void DecreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
     {
-        _damageResistance -= coefficient;
+        _currentDamageResistances[damageType] -= coefficient;
+    }
+
+    public void ResetDamageResistance(DamageTypesEnum.DamageTypes damageType)
+    {
+        _currentDamageResistances[damageType] = _defaultDamageResistances[damageType];
     }
     
     public void Revive()

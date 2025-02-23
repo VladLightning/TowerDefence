@@ -8,6 +8,9 @@ public class FlameWaveAbilityLevelData : BranchLevelsUpgradeData
     [SerializeField]private GameObject _flameWavePrefab;
     public GameObject FlameWavePrefab => _flameWavePrefab;
     
+    [SerializeField]private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    
     [SerializeField] private FlameWaveStats[] _flameWaveLevels;
     public FlameWaveStats[] FlameWaveLevels => _flameWaveLevels;
     
