@@ -25,7 +25,7 @@ public abstract class Mob : Entity
 
     private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _defaultDamageResistances;
 
-    [SerializeField]private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances;
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances;
     
     protected HealthbarView _healthBarView;
 
