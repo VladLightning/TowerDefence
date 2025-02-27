@@ -1,6 +1,5 @@
 ﻿
 using System.Collections;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
@@ -27,7 +26,7 @@ public abstract class Mob : Entity, IDamageDealer
 
     private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _defaultDamageResistances;
 
-    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances;
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances = new();
     
     protected HealthbarView _healthBarView;
 
