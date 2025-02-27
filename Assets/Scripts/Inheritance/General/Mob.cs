@@ -3,13 +3,14 @@ using System.Collections;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-public abstract class Mob : Entity
+public abstract class Mob : Entity, IDamageDealer
 {
     
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
 
     private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
     
     private Mob _opponent;
     public Mob Opponent => _opponent;
@@ -17,6 +18,7 @@ public abstract class Mob : Entity
     private Coroutine _fight;
 
     private int _damage;
+    public int Damage => _damage;
     protected int _maxHealth;
     protected int _currentHealth;
     private float _defaultMovementSpeed;
