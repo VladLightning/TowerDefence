@@ -45,9 +45,9 @@ public class ResistanceIncrease : MonoBehaviour, IActiveHeroSkill
         
         yield return new WaitForSeconds(_skillDuration);
         
-        foreach (var damageType in _resistanceTypes.Keys)
+        foreach (var damageType in _resistanceTypes)
         {
-            _hero.ResetDamageResistance(damageType);
+            _hero.DecreaseDamageResistance(damageType.Value, damageType.Key);
         }
         
         yield return new WaitForSeconds(_skillCooldown);

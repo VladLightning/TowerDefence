@@ -24,6 +24,6 @@ public class ResistanceShred : MonoBehaviour, IPassiveHeroSkillDeactivatable
 
     public void Deactivate()
     {
-        _hero.Opponent.ResetDamageResistance(_resistanceShredType);
+        _hero.Opponent.IncreaseDamageResistance(_resistanceShredCoefficient, _resistanceShredType);
     }
 }

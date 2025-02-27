@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
@@ -73,12 +74,10 @@ public abstract class Mob : Entity, IDamageDealer
         {
             return;
         }
+
+        float currentResistance = (_currentDamageResistances[damageType] < 1) ? _currentDamageResistances[damageType] : 1;
         
-        if (_currentDamageResistances[damageType] > 1)
-        {
-            _currentDamageResistances[damageType] = 1;
-        }
-        _currentHealth -= (int)(damage * (1 - _currentDamageResistances[damageType])); 
+        _currentHealth -= (int)(damage * (1 - currentResistance)); 
         _healthBarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
@@ -119,11 +118,6 @@ public abstract class Mob : Entity, IDamageDealer
     public void DecreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
     {
         _currentDamageResistances[damageType] -= coefficient;
-    }
-
-    public void ResetDamageResistance(DamageTypesEnum.DamageTypes damageType)
-    {
-        _currentDamageResistances[damageType] = _defaultDamageResistances[damageType];
     }
     
     public void Revive()
