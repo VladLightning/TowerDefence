@@ -5,8 +5,10 @@ public class CastleCannonShotProjectile : MonoBehaviour, IProjectile, IDamageDea
     private LayerMask _mask;
     private float _explosionForce;
     private float _explosionRadius;
-    private int _explosionDamage;
+    private int _explosionExplosionDamage;
+    public int Damage => _explosionExplosionDamage;
     private DamageTypesEnum.DamageTypes _damageType;
+    
     public DamageTypesEnum.DamageTypes DamageType => _damageType;
 
     public void SetProjectileStats(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage, DamageTypesEnum.DamageTypes damageType)
@@ -14,7 +16,7 @@ public class CastleCannonShotProjectile : MonoBehaviour, IProjectile, IDamageDea
         _mask = mask;
         _explosionForce = explosionForce;
         _explosionRadius = explosionRadius;
-        _explosionDamage = explosionDamage;
+        _explosionExplosionDamage = explosionDamage;
         _damageType = damageType;
     }
     
@@ -28,7 +30,7 @@ public class CastleCannonShotProjectile : MonoBehaviour, IProjectile, IDamageDea
             direction.Normalize();
             
             enemyCollider.attachedRigidbody.AddForce(direction * _explosionForce);
-            enemyCollider.GetComponent<Enemy>().TakeDamage(_explosionDamage, _damageType);
+            enemyCollider.GetComponent<Enemy>().TakeDamage(_explosionExplosionDamage, _damageType);
         }
         
         Destroy(gameObject);
