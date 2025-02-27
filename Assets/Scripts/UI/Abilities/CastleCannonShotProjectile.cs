@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class CastleCannonShotProjectile : MonoBehaviour, IProjectile
+public class CastleCannonShotProjectile : MonoBehaviour, IProjectile, IDamageDealer
 {
     private LayerMask _mask;
     private float _explosionForce;
     private float _explosionRadius;
     private int _explosionDamage;
     private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
 
     public void SetProjectileStats(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage, DamageTypesEnum.DamageTypes damageType)
     {
@@ -32,4 +33,6 @@ public class CastleCannonShotProjectile : MonoBehaviour, IProjectile
         
         Destroy(gameObject);
     }
+
+    
 }
