@@ -1,11 +1,12 @@
 using UnityEngine;
-public abstract class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour, IDamageDealer
 {
     private readonly float _lifeTime = 5;
 
     protected DamageTypesEnum.DamageTypes _damageType;
-    
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
     protected int _damage;
+    public int Damage => _damage;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
