@@ -3,9 +3,9 @@ public class Knight : Hero
 {
     private IPassiveHeroSkillDeactivatable PassiveSkillDeactivatable => _passiveSkill as IPassiveHeroSkillDeactivatable;
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(int damage, DamageTypesEnum.DamageTypes damageType)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, damageType);
         
         if (_currentHealth <= _maxHealth/2 && _currentHealth > 0)
         {

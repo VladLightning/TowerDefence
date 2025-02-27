@@ -1,4 +1,5 @@
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "AbilityData", menuName = "CastleCannonAbilityData")]
 public class CastleCannonAbilityData : AoEAbilityData
 {
@@ -9,5 +10,8 @@ public class CastleCannonAbilityData : AoEAbilityData
     public float ExplosionForce => _explosionForce;
     
     [SerializeField] private int _explosionDamage;
-    public int ExplosionDamage => _explosionDamage;
+    public int Damage => _explosionDamage;
+    
+    [SerializeField] private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
 }

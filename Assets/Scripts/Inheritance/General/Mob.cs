@@ -1,14 +1,17 @@
 ﻿
 using System.Collections;
+using System.Linq;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-public abstract class Mob : Entity
+public abstract class Mob : Entity, IDamageDealer
 {
     
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
-    
-    protected DamageTypesEnum.DamageTypes _damageType;
+
+    private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
     
     private Mob _opponent;
     public Mob Opponent => _opponent;
@@ -16,12 +19,15 @@ public abstract class Mob : Entity
     private Coroutine _fight;
 
     private int _damage;
+    public int Damage => _damage;
     protected int _maxHealth;
     protected int _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
 
-    private float _damageResistance;
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _defaultDamageResistances;
+
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances;
     
     protected HealthbarView _healthBarView;
 
@@ -41,6 +47,12 @@ public abstract class Mob : Entity
         
         _defaultMovementSpeed = mobData.MovementSpeed;
         _currentMovementSpeed = _defaultMovementSpeed;
+
+        _defaultDamageResistances = mobData.Resistances;
+        foreach (var resistanceType in _defaultDamageResistances)
+        {
+            _currentDamageResistances.Add(resistanceType.Key, resistanceType.Value);
+        }
         
         _healthBarView = GetComponentInChildren<HealthbarView>();
         _healthBarView.SetMaxHealth(_maxHealth);
@@ -56,15 +68,16 @@ public abstract class Mob : Entity
         _healthBarView.AlignHealthBar();
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, DamageTypesEnum.DamageTypes damageType)
     {
         if (_currentHealth <= 0)
         {
             return;
         }
+
+        float currentResistance = (_currentDamageResistances[damageType] < 1) ? _currentDamageResistances[damageType] : 1;
         
-        //Todo resist > 1, all resist types 
-        _currentHealth -= (int)(damage * (1 - _damageResistance)); 
+        _currentHealth -= (int)(damage * (1 - currentResistance)); 
         _healthBarView.UpdateHealthBar(_currentHealth);
         
         if(_currentHealth <= 0)
@@ -93,18 +106,18 @@ public abstract class Mob : Entity
         while (true)
         {
             yield return new WaitForSeconds(_attackSpeed);
-            opponent.TakeDamage(_damage);
+            opponent.TakeDamage(_damage, _damageType);
         }
     }
 
-    public void IncreaseDamageResistance(float coefficient)
+    public void IncreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
     {
-        _damageResistance += coefficient;
+        _currentDamageResistances[damageType] += coefficient;
     }
 
-    public void DecreaseDamageResistance(float coefficient)
+    public void DecreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
     {
-        _damageResistance -= coefficient;
+        _currentDamageResistances[damageType] -= coefficient;
     }
     
     public void Revive()

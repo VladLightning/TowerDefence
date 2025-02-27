@@ -1,15 +1,16 @@
 
 using System.Collections;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 public class ResistanceIncrease : MonoBehaviour, IActiveHeroSkill
 {
     [SerializeField] private ResistanceSkillData _resistanceSkillData;
     
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _resistanceTypes;
+    
     private float _skillCooldown;
     private float _skillDuration;
-    
-    private float _resistanceCoefficient;
     
     private bool _isResistant;
     
@@ -20,7 +21,7 @@ public class ResistanceIncrease : MonoBehaviour, IActiveHeroSkill
         _skillCooldown = _resistanceSkillData.Cooldown;
         _skillDuration = _resistanceSkillData.Duration;
         
-        _resistanceCoefficient = _resistanceSkillData.ResistanceCoefficient;
+        _resistanceTypes = _resistanceSkillData.ResistanceTypes;
         
         _hero = GetComponent<Hero>();
     }
@@ -36,10 +37,19 @@ public class ResistanceIncrease : MonoBehaviour, IActiveHeroSkill
     private IEnumerator IncreaseResistance()
     {
         _isResistant = true;
+
+        foreach (var damageType in _resistanceTypes)
+        {
+            _hero.IncreaseDamageResistance(damageType.Value, damageType.Key);
+        }
         
-        _hero.IncreaseDamageResistance(_resistanceCoefficient);
         yield return new WaitForSeconds(_skillDuration);
-        _hero.DecreaseDamageResistance(_resistanceCoefficient);
+        
+        foreach (var damageType in _resistanceTypes)
+        {
+            _hero.DecreaseDamageResistance(damageType.Value, damageType.Key);
+        }
+        
         yield return new WaitForSeconds(_skillCooldown);
         
         _isResistant = false;
