@@ -2,7 +2,6 @@
 using System.Collections;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class Mob : Entity
 {

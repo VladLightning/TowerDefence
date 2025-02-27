@@ -1,6 +1,6 @@
 using UnityEngine;
 [CreateAssetMenu(fileName = "AbilityData", menuName = "CastleCannonAbilityData")]
-public class CastleCannonAbilityData : AoEAbilityData
+public class CastleCannonAbilityData : AoEAbilityData, IDamageDealer
 {
     [SerializeField] private LayerMask _mask;
     public LayerMask Mask => _mask;
