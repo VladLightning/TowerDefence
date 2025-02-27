@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class FlameWave : MonoBehaviour
+public class FlameWave : MonoBehaviour, IDamageDealer
 {
     private int _damage;
+    public int Damage => _damage;
     private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
