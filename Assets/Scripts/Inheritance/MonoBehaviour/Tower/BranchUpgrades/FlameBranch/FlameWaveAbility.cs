@@ -11,7 +11,6 @@ public class FlameWaveAbility : DamageDealingBranchAbility
     private float _flameWaveReloadTime;
     private float _flameWaveDuration;
     private float _flameWaveSpeed;
-    private int _flameWaveDamage;
     
     private IEnumerator _flameWave;
     private TowerAbilitiesStates.TowerAbilityStates _abilityState;
@@ -51,7 +50,7 @@ public class FlameWaveAbility : DamageDealingBranchAbility
         _flameWaveReloadTime = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveReloadTime;
         _flameWaveDuration = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveDuration;
         _flameWaveSpeed = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveSpeed;
-        _flameWaveDamage = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveDamage;
+        _damage = _flameWaveAbilityLevelData.FlameWaveLevels[0].FlameWaveDamage;
         
         _tower = GetComponent<Tower>();
     }
@@ -61,7 +60,7 @@ public class FlameWaveAbility : DamageDealingBranchAbility
         _flameWaveReloadTime = _flameWaveAbilityLevelData.FlameWaveLevels[levelIndex].FlameWaveReloadTime;
         _flameWaveDuration = _flameWaveAbilityLevelData.FlameWaveLevels[levelIndex].FlameWaveDuration;
         _flameWaveSpeed = _flameWaveAbilityLevelData.FlameWaveLevels[levelIndex].FlameWaveSpeed;
-        _flameWaveDamage = _flameWaveAbilityLevelData.FlameWaveLevels[levelIndex].FlameWaveDamage;
+        _damage = _flameWaveAbilityLevelData.FlameWaveLevels[levelIndex].FlameWaveDamage;
     }
 
     private IEnumerator FlameWave(float delay)
@@ -71,7 +70,7 @@ public class FlameWaveAbility : DamageDealingBranchAbility
             yield return new WaitForSeconds(delay);
             
             var flameWave = Instantiate(_flameWavePrefab, _tower.ProjectileLaunchPoint.position, _tower.ProjectileLaunchPoint.rotation).GetComponent<FlameWave>();
-            flameWave.Initialize(_flameWaveDuration, _flameWaveSpeed, _flameWaveDamage, _damageType);
+            flameWave.Initialize(_flameWaveDuration, _flameWaveSpeed, _damage, _damageType);
 
             _lastShotTime = Time.time;
             delay = _flameWaveReloadTime;
