@@ -300,6 +300,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &273444704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2965620555716105008, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &273444708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273444704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646006b748b860d45aa36ae9e6e8c803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &301780969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2705,6 +2722,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1947299104}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: _herosToSpawn.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: _heroAbilities.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -2712,6 +2733,18 @@ PrefabInstance:
       propertyPath: _abilityDisplays.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: '_herosToSpawn.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7691720513464727882, guid: d08a723bc985efa45b40f5afb5de3fd7, type: 3}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: '_herosToSpawn.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7691720513464727882, guid: ed7d8c7389927d348aed521b4323f945, type: 3}
+    - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
+      propertyPath: '_herosToSpawn.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7691720513464727882, guid: e3145bf6ce375bf4781f5352137b1986, type: 3}
     - target: {fileID: 4404756293686636860, guid: 33c69cbbbb109b442a29bd8e5a326ded, type: 3}
       propertyPath: '_heroAbilities.Array.data[0]'
       value: 
@@ -10544,6 +10577,14 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5867430120034577312, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867430120034577312, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Open
+      objectReference: {fileID: 0}
     - target: {fileID: 6112094959467396572, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -10666,7 +10707,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5060975268105544150, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       insertIndex: 2
       addedObject: {fileID: 256123512}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2965620555716105008, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 273444708}
   m_SourcePrefab: {fileID: 100100000, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
 --- !u!114 &5709205984401829952 stripped
 MonoBehaviour:
