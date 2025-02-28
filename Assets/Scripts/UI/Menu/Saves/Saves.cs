@@ -7,4 +7,6 @@ public static class Saves
     public const string SCREEN_RESOLUTION = "Screen resolution";
     
     public const string LANGUAGE = "Language";
+    
+    public const string HERO_SELECTED_INDEX = "Hero selected index";
 }

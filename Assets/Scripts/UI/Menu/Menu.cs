@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Menu : MonoBehaviour
@@ -6,17 +7,6 @@ public class Menu : MonoBehaviour
 
     public void Open()
     {
-        OpenMenu(!_gameMenu.activeSelf);
-    }
-
-    private void OpenMenu(bool isActive)
-    {
-        _gameMenu.SetActive(isActive);
-        PauseGame(isActive);
-    }
-
-    private void PauseGame(bool isPaused)
-    {
-        Time.timeScale = isPaused ? 0f : 1f;
+        _gameMenu.SetActive(!_gameMenu.activeSelf);
     }
 }

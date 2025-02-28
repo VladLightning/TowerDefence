@@ -4,7 +4,7 @@ public class HeroSpawner : MonoBehaviour
 {
     public static event Action<Ability[]> OnAbilitiesSpawned;
     
-    [SerializeField] private GameObject _heroToSpawn;
+    [SerializeField] private GameObject[] _herosToSpawn;
     [SerializeField] private Transform _spawnPoint;
     
     [SerializeField] private GameObject[] _heroAbilities;
@@ -18,7 +18,8 @@ public class HeroSpawner : MonoBehaviour
     
     private void SpawnHero()
     {
-        var hero = Instantiate(_heroToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+        int index = PlayerPrefs.GetInt(Saves.HERO_SELECTED_INDEX);
+        var hero = Instantiate(_herosToSpawn[index], _spawnPoint.position, _spawnPoint.rotation);
         
         var abilities = new Ability[_abilityDisplays.Length];
         for (int i = 0; i < _abilityDisplays.Length; i++)
