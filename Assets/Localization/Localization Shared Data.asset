@@ -63,6 +63,10 @@ MonoBehaviour:
     m_Key: Tower Panel Sell
     m_Metadata:
       m_Items: []
+  - m_Id: 72911922797658112
+    m_Key: Main Menu Start
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
