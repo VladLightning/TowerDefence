@@ -10557,6 +10557,10 @@ PrefabInstance:
       value: ExitToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6500760082812978225, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500760082812978225, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2095029223}
