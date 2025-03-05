@@ -1,5 +1,5 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "Hero", menuName = "Knight")]
+[CreateAssetMenu(fileName = "HeroData", menuName = "Hero/Knight")]
 public class KnightData : HeroData
 {
 
