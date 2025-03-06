@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class Archer : Hero
@@ -12,6 +13,8 @@ public class Archer : Hero
     
     private CombatStatesEnum.CombatStates _combatState;
 
+    private IEnumerator _shoot;
+
     protected override void Initiate()
     {
         base.Initiate();
@@ -23,24 +26,32 @@ public class Archer : Hero
         _projectileData = archerData.ProjectileData;
         
         _combatState = CombatStatesEnum.CombatStates.Ranged;
+
+        _shoot = Shoot();
     }
+    
 
     public override void EnterCombat(Mob target)
     {
-        _combatState = CombatStatesEnum.CombatStates.Melee;
         base.EnterCombat(target);
+        StartCoroutine(_shoot);
     }
 
     public override void ExitCombat()
     {
         _combatState = CombatStatesEnum.CombatStates.Ranged;
+        _shoot = Shoot();
         base.ExitCombat();
     }
-
-    private void Shoot()
+    
+    private IEnumerator Shoot()
     {
-        var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
-        projectile.Initialize(_projectileData.ProjectileLevels[0]);
+        while (_combatState == CombatStatesEnum.CombatStates.Ranged)
+        {
+            yield return new WaitForSeconds(_attackSpeed);
+            var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
+            projectile.Initialize(_projectileData.ProjectileLevels[0]);
+        }
     }
 
     private Quaternion CalculateProjectileDirection()
