@@ -29,6 +29,6 @@ MonoBehaviour:
   _regenerationDelay: 8
   _regenerationInterval: 2
   _regenerationAmount: 3
-  _rangedWeapon: {fileID: 8637005461720680476, guid: 20e9c68f60711b3428a79c50709b5647, type: 3}
-  _meleeWeapon: {fileID: 7417146501929564922, guid: 18b27069d66cf404596be6558cbc6bea, type: 3}
+  _rangedWeapon: {fileID: -7856493677412862020, guid: ffe515fd69253c8458e16a481f4cdd28, type: 3}
+  _meleeWeapon: {fileID: -2486521743634864436, guid: 1f4621e82fe5d29428afc1f266221176, type: 3}
   _projectileData: {fileID: 11400000, guid: 131a9df2b65fa174c9a4ba9b0d60b720, type: 2}

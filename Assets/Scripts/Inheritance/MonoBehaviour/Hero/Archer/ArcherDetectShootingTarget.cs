@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArcherDetectShootingTarget : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D _collider2D;
+    [SerializeField] private LayerMask _layerMask;
     public CircleCollider2D Collider2D => _collider2D;
     
     private Transform _targetToShoot;
@@ -40,7 +41,7 @@ public class ArcherDetectShootingTarget : MonoBehaviour
         
     public void FindTarget()
     {
-        var enemyColliders = Physics2D.OverlapCircleAll(transform.position, _collider2D.radius, LayerMask.GetMask("Enemy"));
+        var enemyColliders = Physics2D.OverlapCircleAll(transform.position, _collider2D.radius, _layerMask);
 
         if(enemyColliders.Length == 0)
         {

@@ -5,11 +5,11 @@ using UnityEngine;
 public class Archer : Hero
 {
     [SerializeField] private Transform _weaponHoldingPosition;
+    [SerializeField] private SpriteRenderer _weaponRenderer;
+    [SerializeField] private Transform _projectileLaunchPosition;
     
-    private Transform _projectileLaunchPosition;
-    
-    private GameObject _rangedWeapon;
-    private GameObject _meleeWeapon;
+    private Sprite _rangedWeapon;
+    private Sprite _meleeWeapon;
     
     private DefaultProjectileData _projectileData;
     
@@ -23,16 +23,15 @@ public class Archer : Hero
     {
         base.Initiate();
         var archerData = _entityData as ArcherData;
-
-        _rangedWeapon = Instantiate(archerData.RangedWeapon, _weaponHoldingPosition);
-        _projectileLaunchPosition = _rangedWeapon.transform.GetChild(0).transform;
-        
-        _meleeWeapon = Instantiate(archerData.MeleeWeapon, _weaponHoldingPosition);
         
         _projectileData = archerData.ProjectileData;
         
         _combatState = CombatStatesEnum.CombatStates.Ranged;
-        _meleeWeapon.SetActive(false);
+
+        _rangedWeapon = archerData.RangedWeapon;
+        _meleeWeapon = archerData.MeleeWeapon;
+
+        _weaponRenderer.sprite = _rangedWeapon;
 
         _archerDetectShootingTarget = GetComponentInChildren<ArcherDetectShootingTarget>();
     }
@@ -52,15 +51,13 @@ public class Archer : Hero
     private void SetMeleeCombatState()
     {
         _combatState = CombatStatesEnum.CombatStates.Melee;
-        _rangedWeapon.SetActive(false);
-        _meleeWeapon.SetActive(true);
+        _weaponRenderer.sprite = _meleeWeapon;
     }
 
     private void SetRangedCombatState()
     {
         _combatState = CombatStatesEnum.CombatStates.Ranged;
-        _meleeWeapon.SetActive(false);
-        _rangedWeapon.SetActive(true);
+        _weaponRenderer.sprite = _rangedWeapon;
     }
 
     protected override IEnumerator MoveHero(Vector2 targetPosition)
