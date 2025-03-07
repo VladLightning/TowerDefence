@@ -45,7 +45,7 @@ public abstract class Hero : Mob
         MouseInput.OnPathSelected -= Move;
     }
 
-    private IEnumerator MoveHero(Vector2 targetPosition)
+    protected virtual IEnumerator MoveHero(Vector2 targetPosition)
     {
         ChangeState(MobStatesEnum.MobStates.Moving);
         while (Vector2.Distance(transform.position, targetPosition) > DISTANCE_THRESHOLD)

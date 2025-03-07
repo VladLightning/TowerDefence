@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   _attackSpeed: 1
-  _health: 20
-  _movementSpeed: 6
+  _health: 1000
+  _movementSpeed: 1
   _damage: 4
   _damageType: 0
   _resistances:

@@ -84,6 +84,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: 56516670e5e9d1c42947dc54a839da00, type: 2}
   _projectileLaunchPoint: {fileID: 6599707721565275661}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   _towerBranchData:
   - {fileID: 11400000, guid: 8f89a7638f0fab44c85033f93a414d30, type: 2}
   - {fileID: 11400000, guid: 19c06ecaeee56824c8c6a005f13a80ca, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   _attackSpeed: 1
-  _health: 5
+  _health: 25
   _movementSpeed: 12
   _damage: 8
   _damageType: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
       Value: 0.05
     - Key: 2
       Value: 0.05
-  _respawnTime: 2
-  _regenerationDelay: 4
-  _regenerationInterval: 2
-  _regenerationAmount: 3
+  _respawnTime: 10
+  _regenerationDelay: 5
+  _regenerationInterval: 3
+  _regenerationAmount: 5

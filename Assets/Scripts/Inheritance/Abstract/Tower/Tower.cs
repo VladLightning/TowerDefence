@@ -8,6 +8,7 @@ public abstract class Tower : Entity
     private const float SELL_PRICE_COEFFICIENT = 0.5f;
     
     [SerializeField] private Transform _projectileLaunchPoint;
+    [SerializeField] private LayerMask _layerMask;
     public Transform ProjectileLaunchPoint => _projectileLaunchPoint;
     private TowerLevelsData _towerLevelsData;
     
@@ -126,7 +127,7 @@ public abstract class Tower : Entity
 
     private void FindTarget()
     {
-        var enemyColliders = Physics2D.OverlapCircleAll(transform.position, _range, LayerMask.GetMask("Enemy"));
+        var enemyColliders = Physics2D.OverlapCircleAll(transform.position, _range, _layerMask);
 
         if(enemyColliders.Length == 0)
         {

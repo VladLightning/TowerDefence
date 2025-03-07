@@ -1546,6 +1546,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7592399275695487833, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592399275695487833, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.43
+      objectReference: {fileID: 0}
     - target: {fileID: 8241011301487384168, guid: 9709b9e5c7c80244baa1c45582fc757c, type: 3}
       propertyPath: m_Name
       value: StartWaveButtons
