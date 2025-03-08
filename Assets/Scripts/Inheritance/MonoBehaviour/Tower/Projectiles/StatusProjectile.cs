@@ -16,7 +16,7 @@ public class StatusProjectile : Projectile
         
         _statusProjectileStats = statusProjectileStats;
         
-        _damage = statusProjectileStats.Damage;
+        _damage = (int)(statusProjectileStats.Damage * _damageCoefficient);
         ProjectileFly(statusProjectileStats.Force);
     }
 }

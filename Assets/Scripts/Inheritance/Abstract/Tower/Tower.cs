@@ -24,7 +24,6 @@ public abstract class Tower : Entity
     public Transform Target => _target;
     private CircleCollider2D _collider2D;
     
-    
     private PlayerMoney _playerMoney;
     private TowerLevels[] _towerLevels;
     public TowerLevels[] TowerLevels => _towerLevels;
@@ -44,7 +43,6 @@ public abstract class Tower : Entity
     public TowerBranchData CurrentTowerBranchData => _currentTowerBranchData;
     
     private int[] _currentBranchUpgradeLevels;
-    
     
     private DefaultProjectileData _defaultProjectileData;
     
@@ -180,6 +178,7 @@ public abstract class Tower : Entity
     public void SpawnProjectile()
     {
         var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
+        projectile.SetDamageCoefficient(_damageCoefficient);
         if (_statusProjectileData != null)
         {
             var statusProjectile = projectile as StatusProjectile;

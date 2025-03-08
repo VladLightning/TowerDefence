@@ -8,6 +8,8 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
     protected int _damage;
     public int Damage => _damage;
     
+    protected float _damageCoefficient;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -30,8 +32,13 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
     public void Initialize(ProjectileStats projectileStats)
     {
         _damageType = DamageTypesEnum.DamageTypes.Physical;
-        _damage = projectileStats.Damage;
+        _damage = (int)(projectileStats.Damage * _damageCoefficient);
         ProjectileFly(projectileStats.Force);
+    }
+
+    public void SetDamageCoefficient(float damageCoefficient)
+    {
+        _damageCoefficient = damageCoefficient;
     }
 
     protected void ProjectileFly(float force)
