@@ -16,6 +16,8 @@ public class Archer : Hero
     private ArcherDetectShootingTarget _archerDetectShootingTarget;
     
     private CombatStatesEnum.CombatStates _combatState;
+    
+    private float _damageCoefficient = 1;
 
     public bool ShootingIsActive { get; private set; }
 
@@ -90,7 +92,7 @@ public class Archer : Hero
             }
             
             var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
-            projectile.Initialize(_projectileData.ProjectileLevels[0]);
+            projectile.Initialize(_projectileData.ProjectileLevels[0], _damageCoefficient);
         }
         ShootingIsActive = false;
     }

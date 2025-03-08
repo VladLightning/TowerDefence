@@ -178,16 +178,15 @@ public abstract class Tower : Entity
     public void SpawnProjectile()
     {
         var projectile = Instantiate(_projectile, _projectileLaunchPoint.position, _projectileLaunchPoint.rotation).GetComponent<Projectile>();
-        projectile.SetDamageCoefficient(_damageCoefficient);
         if (_statusProjectileData != null)
         {
             var statusProjectile = projectile as StatusProjectile;
-            statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
+            statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _damageCoefficient, _statusProjectileData.DamageType);
             // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
         }
         else
         {
-            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
+            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex], _damageCoefficient);
         }
     }
 
