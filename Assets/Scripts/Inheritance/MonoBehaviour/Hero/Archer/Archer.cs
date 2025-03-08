@@ -36,6 +36,12 @@ public class Archer : Hero
         _archerDetectShootingTarget = GetComponentInChildren<ArcherDetectShootingTarget>();
     }
 
+    protected override void GetSkills()
+    {
+        _activeSkill = GetComponentInChildren<IActiveHeroSkill>();
+        _passiveSkill = GetComponentInChildren<IPassiveHeroSkill>();
+    }
+
     public override void EnterCombat(Mob target)
     {
         SetMeleeCombatState();
