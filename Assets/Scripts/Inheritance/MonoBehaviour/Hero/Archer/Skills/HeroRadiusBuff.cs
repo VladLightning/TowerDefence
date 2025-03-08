@@ -5,7 +5,7 @@ public class HeroRadiusBuff : MonoBehaviour, IPassiveHeroSkillDeactivatable
     [SerializeField] private HeroRadiusBuffData _heroRadiusBuffData;
 
     private float _damageBuffCoefficient;
-    private float _attackSpeedBuffCoefficient;
+    private float _attackDelayBuffCoefficient;
     private float _buffRadius;
 
     private Tower _towerToBuff;
@@ -13,7 +13,7 @@ public class HeroRadiusBuff : MonoBehaviour, IPassiveHeroSkillDeactivatable
     private void Start()
     {
         _damageBuffCoefficient = _heroRadiusBuffData.DamageBuffCoefficient;
-        _attackSpeedBuffCoefficient = _heroRadiusBuffData.AttackSpeedBuffCoefficient;
+        _attackDelayBuffCoefficient = _heroRadiusBuffData.AttackDelayBuffCoefficient;
         _buffRadius = _heroRadiusBuffData.BuffRadius;
         
         GetComponent<CircleCollider2D>().radius = _buffRadius;
@@ -40,12 +40,12 @@ public class HeroRadiusBuff : MonoBehaviour, IPassiveHeroSkillDeactivatable
     public void Activate()
     {
         _towerToBuff.ChangeDamageCoefficient(_damageBuffCoefficient);
-        _towerToBuff.ChangeAttackSpeedCoefficient(_attackSpeedBuffCoefficient);
+        _towerToBuff.ChangeAttackDelayCoefficient(_attackDelayBuffCoefficient);
     }
 
     public void Deactivate()
     {
         _towerToBuff.ChangeDamageCoefficient(1/_damageBuffCoefficient);
-        _towerToBuff.ChangeAttackSpeedCoefficient(1/_attackSpeedBuffCoefficient);
+        _towerToBuff.ChangeAttackDelayCoefficient(1/_attackDelayBuffCoefficient);
     }
 }

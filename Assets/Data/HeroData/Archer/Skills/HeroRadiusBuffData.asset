@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HeroRadiusBuffData
   m_EditorClassIdentifier: 
   _damageBuffCoefficient: 1.5
-  _attackSpeedBuffCoefficient: 1.5
+  _attackDelayBuffCoefficient: 0.65
   _buffRadius: 10

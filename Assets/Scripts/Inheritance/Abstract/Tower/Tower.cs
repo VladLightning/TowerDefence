@@ -17,8 +17,8 @@ public abstract class Tower : Entity
     private float _lastShotTime;
 
     [SerializeField]private float _damageCoefficient = 1;
-    [SerializeField]private float _attackSpeedCoefficient = 1;
-    private float CurrentAttackSpeed => _attackSpeed / _attackSpeedCoefficient;
+    [SerializeField]private float _attackDelayCoefficient = 1;
+    private float CurrentAttackDelay => _attackDelay * _attackDelayCoefficient;
     
     private Transform _target;
     public Transform Target => _target;
@@ -70,7 +70,7 @@ public abstract class Tower : Entity
 
     private void SetStats(TowerLevels towerLevelsData)
     {
-        _attackSpeed = towerLevelsData.AttackSpeed;
+        _attackDelay = towerLevelsData.AttackDelay;
         _range = towerLevelsData.Range;
         _price = towerLevelsData.Price;
         _rotationSpeed = towerLevelsData.RotationSpeed;
@@ -80,7 +80,7 @@ public abstract class Tower : Entity
 
     protected override void Initiate()
     {
-        _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
+        _attackDelay = _towerLevels[_towerLevelIndex].AttackDelay;
         _range = _towerLevels[_towerLevelIndex].Range;
         _price += _towerLevels[_towerLevelIndex].Price;
         _rotationSpeed = _towerLevels[_towerLevelIndex].RotationSpeed;
@@ -112,7 +112,7 @@ public abstract class Tower : Entity
     private void Start()
     {
         //Сделано для того, чтобы башне не пришлось ждать задержку выстрела, если враг попадает зону стрельбы в начале жизненного цикла
-        _lastShotTime = -CurrentAttackSpeed;
+        _lastShotTime = -CurrentAttackDelay;
     }
 
     private void Update()
@@ -171,7 +171,7 @@ public abstract class Tower : Entity
             SpawnProjectile();
 
             _lastShotTime = Time.time;          
-            delay = CurrentAttackSpeed;
+            delay = CurrentAttackDelay;
         }
     }
 
@@ -199,7 +199,7 @@ public abstract class Tower : Entity
 
     private void Attack()
     {
-        float delay = (Time.time - _lastShotTime > CurrentAttackSpeed) ? 0 : CurrentAttackSpeed - (Time.time - _lastShotTime);
+        float delay = (Time.time - _lastShotTime > CurrentAttackDelay) ? 0 : CurrentAttackDelay - (Time.time - _lastShotTime);
 
         _shoot = Shoot(delay);
         StartCoroutine(_shoot);
@@ -272,9 +272,9 @@ public abstract class Tower : Entity
         _damageCoefficient *= coefficient;
     }
 
-    public void ChangeAttackSpeedCoefficient(float coefficient)
+    public void ChangeAttackDelayCoefficient(float coefficient)
     {
-        _attackSpeedCoefficient *= coefficient;
+        _attackDelayCoefficient *= coefficient;
     }
 
     public int GetInitialPrice()

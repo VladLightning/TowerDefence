@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class TowerLevelsData : EntityData
 {
@@ -14,8 +15,8 @@ public abstract class TowerLevelsData : EntityData
 [System.Serializable]
 public class TowerLevels
 {
-    [SerializeField] private float _attackSpeed;
-    public float AttackSpeed => _attackSpeed;
+    [SerializeField] private float _attackDelay;
+    public float AttackDelay => _attackDelay;
 
     [SerializeField] private float _range;
     public float Range => _range;

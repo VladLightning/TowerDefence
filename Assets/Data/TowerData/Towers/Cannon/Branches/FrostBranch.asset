@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e23557b102e194d8484071b8bdc802, type: 3}
   m_Name: FrostBranch
   m_EditorClassIdentifier: 
-  _attackSpeed: 1
+  _attackDelay: 2
   _projectileData: {fileID: 11400000, guid: 6f382355bfee78a448fda805b5a99b8e, type: 2}
   _towerLevels:
-  - _attackSpeed: 2
+  - _attackDelay: 2
     _range: 10
     _price: 800
     _rotationSpeed: 15

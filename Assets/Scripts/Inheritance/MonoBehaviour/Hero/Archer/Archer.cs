@@ -81,7 +81,7 @@ public class Archer : Hero
             _archerDetectShootingTarget.FindTarget();
             LookAtTarget(_archerDetectShootingTarget.TargetToShoot.position);
             
-            yield return new WaitForSeconds(_attackSpeed);
+            yield return new WaitForSeconds(_attackDelay);
             
             if (_archerDetectShootingTarget.TargetToShoot == null || _combatState == CombatStatesEnum.CombatStates.Melee)
             {
