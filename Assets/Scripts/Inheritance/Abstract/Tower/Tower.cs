@@ -16,14 +16,13 @@ public abstract class Tower : Entity
     
     private float _lastShotTime;
 
-    private float _damageCoefficient = 1;
-    private float _attackSpeedCoefficient = 1;
-    private float CurrentAttackSpeed => _attackSpeed / _attackSpeedCoefficient;
+    [SerializeField]private float _damageCoefficient = 1;
+    [SerializeField]private float _attackDelayCoefficient = 1;
+    private float CurrentAttackDelay => _attackDelay * _attackDelayCoefficient;
     
     private Transform _target;
     public Transform Target => _target;
     private CircleCollider2D _collider2D;
-    
     
     private PlayerMoney _playerMoney;
     private TowerLevels[] _towerLevels;
@@ -44,7 +43,6 @@ public abstract class Tower : Entity
     public TowerBranchData CurrentTowerBranchData => _currentTowerBranchData;
     
     private int[] _currentBranchUpgradeLevels;
-    
     
     private DefaultProjectileData _defaultProjectileData;
     
@@ -72,7 +70,7 @@ public abstract class Tower : Entity
 
     private void SetStats(TowerLevels towerLevelsData)
     {
-        _attackSpeed = towerLevelsData.AttackSpeed;
+        _attackDelay = towerLevelsData.AttackDelay;
         _range = towerLevelsData.Range;
         _price = towerLevelsData.Price;
         _rotationSpeed = towerLevelsData.RotationSpeed;
@@ -82,7 +80,7 @@ public abstract class Tower : Entity
 
     protected override void Initiate()
     {
-        _attackSpeed = _towerLevels[_towerLevelIndex].AttackSpeed;
+        _attackDelay = _towerLevels[_towerLevelIndex].AttackDelay;
         _range = _towerLevels[_towerLevelIndex].Range;
         _price += _towerLevels[_towerLevelIndex].Price;
         _rotationSpeed = _towerLevels[_towerLevelIndex].RotationSpeed;
@@ -114,7 +112,7 @@ public abstract class Tower : Entity
     private void Start()
     {
         //Сделано для того, чтобы башне не пришлось ждать задержку выстрела, если враг попадает зону стрельбы в начале жизненного цикла
-        _lastShotTime = -CurrentAttackSpeed;
+        _lastShotTime = -CurrentAttackDelay;
     }
 
     private void Update()
@@ -173,7 +171,7 @@ public abstract class Tower : Entity
             SpawnProjectile();
 
             _lastShotTime = Time.time;          
-            delay = CurrentAttackSpeed;
+            delay = CurrentAttackDelay;
         }
     }
 
@@ -183,12 +181,12 @@ public abstract class Tower : Entity
         if (_statusProjectileData != null)
         {
             var statusProjectile = projectile as StatusProjectile;
-            statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _statusProjectileData.DamageType);
+            statusProjectile.Initialize(_statusProjectileData.StatusProjectileStats[_currentBranchUpgradeLevels[0] - 1], _damageCoefficient, _statusProjectileData.DamageType);
             // -1 из-за того, что при покупке абилки, уровень сразу становится 1, а на первый уровень нужен индекс 0
         }
         else
         {
-            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex]);
+            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex], _damageCoefficient);
         }
     }
 
@@ -200,7 +198,7 @@ public abstract class Tower : Entity
 
     private void Attack()
     {
-        float delay = (Time.time - _lastShotTime > CurrentAttackSpeed) ? 0 : CurrentAttackSpeed - (Time.time - _lastShotTime);
+        float delay = (Time.time - _lastShotTime > CurrentAttackDelay) ? 0 : CurrentAttackDelay - (Time.time - _lastShotTime);
 
         _shoot = Shoot(delay);
         StartCoroutine(_shoot);
@@ -273,9 +271,9 @@ public abstract class Tower : Entity
         _damageCoefficient *= coefficient;
     }
 
-    public void ChangeAttackSpeedCoefficient(float coefficient)
+    public void ChangeAttackDelayCoefficient(float coefficient)
     {
-        _attackSpeedCoefficient *= coefficient;
+        _attackDelayCoefficient *= coefficient;
     }
 
     public int GetInitialPrice()

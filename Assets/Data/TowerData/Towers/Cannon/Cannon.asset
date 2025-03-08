@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bee5ca31dd5ccb4495575c33433e436, type: 3}
   m_Name: Cannon
   m_EditorClassIdentifier: 
-  _attackSpeed: 2
+  _attackDelay: 2
   _projectileData: {fileID: 11400000, guid: fa23577ba0ca0a348bcaf7f802c81c11, type: 2}
   _towerLevels:
-  - _attackSpeed: 2
+  - _attackDelay: 2
     _range: 15
     _price: 200
     _rotationSpeed: 10
-  - _attackSpeed: 2
+  - _attackDelay: 2
     _range: 15
     _price: 400
     _rotationSpeed: 10
-  - _attackSpeed: 2
+  - _attackDelay: 2
     _range: 15
     _price: 600
     _rotationSpeed: 10
-  - _attackSpeed: 2
+  - _attackDelay: 2
     _range: 15
     _price: 800
     _rotationSpeed: 10

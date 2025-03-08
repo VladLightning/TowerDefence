@@ -5,8 +5,10 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
 
     protected DamageTypesEnum.DamageTypes _damageType;
     public DamageTypesEnum.DamageTypes DamageType => _damageType;
-    protected int _damage;
+    private int _damage;
     public int Damage => _damage;
+
+    private float _damageCoefficient;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,14 +29,15 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
         Destroy(gameObject, _lifeTime);
     }
 
-    public void Initialize(ProjectileStats projectileStats)
+    public virtual void Initialize(ProjectileStats projectileStats, float damageCoefficient, DamageTypesEnum.DamageTypes damageType = DamageTypesEnum.DamageTypes.Physical)
     {
-        _damageType = DamageTypesEnum.DamageTypes.Physical;
-        _damage = projectileStats.Damage;
+        _damageType = damageType;
+        _damageCoefficient = damageCoefficient;
+        _damage = (int)(projectileStats.Damage * _damageCoefficient);
         ProjectileFly(projectileStats.Force);
     }
 
-    protected void ProjectileFly(float force)
+    private void ProjectileFly(float force)
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * force);
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd897e03ef22b734c9fbb9d87828a4cc, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  _attackSpeed: 3
+  _attackDelay: 2
   _health: 15
   _movementSpeed: 15
   _damage: 4

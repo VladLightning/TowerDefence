@@ -31,6 +31,11 @@ public abstract class Hero : Mob
         
         _heroDetectOpponent = GetComponentInChildren<HeroDetectOpponent>();
         
+        GetSkills();
+    }
+
+    protected virtual void GetSkills()
+    {
         _activeSkill = GetComponent<IActiveHeroSkill>();
         _passiveSkill = GetComponent<IPassiveHeroSkill>();
     }

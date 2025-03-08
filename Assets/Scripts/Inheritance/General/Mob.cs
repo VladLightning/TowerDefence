@@ -104,7 +104,7 @@ public abstract class Mob : Entity, IDamageDealer
     {
         while (true)
         {
-            yield return new WaitForSeconds(_attackSpeed);
+            yield return new WaitForSeconds(_attackDelay);
             opponent.TakeDamage(_damage, _damageType);
         }
     }

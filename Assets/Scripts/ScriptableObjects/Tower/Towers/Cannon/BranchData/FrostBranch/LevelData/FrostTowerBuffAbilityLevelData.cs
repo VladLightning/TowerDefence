@@ -1,5 +1,6 @@
 
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "FrostTowerBuffData", menuName = "AbilityLevelsData/FrostTowerBuff", order = 4)]
 
 public class FrostTowerBuffAbilityLevelData : BranchLevelsUpgradeData
@@ -13,7 +14,7 @@ public class FrostTowerBuffAbilityLevelData : BranchLevelsUpgradeData
         [SerializeField] private float _damageCoefficientBuff;
         public float DamageCoefficientBuff => _damageCoefficientBuff;
         
-        [SerializeField] private float _attackSpeedCoefficientBuff;
-        public float AttackSpeedCoefficientBuff => _attackSpeedCoefficientBuff;
+        [SerializeField] private float _attackDelayCoefficientBuff;
+        public float AttackDelayCoefficientBuff => _attackDelayCoefficientBuff;
     }
 }

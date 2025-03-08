@@ -9,14 +9,14 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
     private Tower _towerSelf;
     
     private float _totalDamageCoefficientBuff;
-    private float _totalAttackSpeedCoefficientBuff;
+    private float _totalAttackDelayCoefficientBuff;
     
     public override void Initiate(BranchUpgradeData branchUpgradeData)
     {
         _frostTowerBuffAbilityLevelData = branchUpgradeData.BranchLevelsUpgradeData as FrostTowerBuffAbilityLevelData;
 
         _totalDamageCoefficientBuff = _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[0].DamageCoefficientBuff;
-        _totalAttackSpeedCoefficientBuff = _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[0].AttackSpeedCoefficientBuff;
+        _totalAttackDelayCoefficientBuff = _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[0].AttackDelayCoefficientBuff;
     }
     
     public override void Upgrade(int levelIndex)
@@ -58,7 +58,7 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
     private void AddTower(Collider2D collider)
     {
         var tower = collider.gameObject.GetComponentInParent<Tower>();
-        ChangeTowerCoefficients(tower, _totalDamageCoefficientBuff, _totalAttackSpeedCoefficientBuff);
+        ChangeTowerCoefficients(tower, _totalDamageCoefficientBuff, _totalAttackDelayCoefficientBuff);
         _towers.Add(tower);
     }
 
@@ -66,25 +66,25 @@ public class FrostTowerBuffAbility : UpgradeableBranchAbility
     private void RemoveTower(Collider2D other)
     {
         var tower = other.GetComponentInParent<Tower>();
-        ChangeTowerCoefficients(tower, 1/_totalDamageCoefficientBuff, 1/_totalAttackSpeedCoefficientBuff);
+        ChangeTowerCoefficients(tower, 1/_totalDamageCoefficientBuff, 1/_totalAttackDelayCoefficientBuff);
         _towers.Remove(tower);
     }
 
     private void CalculateTotalCoefficients(int currentUpgradeLevel)
     {
         _totalDamageCoefficientBuff *= _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].DamageCoefficientBuff;
-        _totalAttackSpeedCoefficientBuff *= _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackSpeedCoefficientBuff;
+        _totalAttackDelayCoefficientBuff *= _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackDelayCoefficientBuff;
         
         foreach (var tower in _towers)
         {
             ChangeTowerCoefficients(tower, _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].DamageCoefficientBuff, 
-                                     _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackSpeedCoefficientBuff);
+                                     _frostTowerBuffAbilityLevelData.FrostTowerBuffLevels[currentUpgradeLevel].AttackDelayCoefficientBuff);
         }
     }
     
-    private void ChangeTowerCoefficients(Tower tower, float damageCoefficient, float attackSpeedCoefficient)
+    private void ChangeTowerCoefficients(Tower tower, float damageCoefficient, float attackDelayCoefficient)
     {
         tower.ChangeDamageCoefficient(damageCoefficient);
-        tower.ChangeAttackSpeedCoefficient(attackSpeedCoefficient);
+        tower.ChangeAttackDelayCoefficient(attackDelayCoefficient);
     }
 }

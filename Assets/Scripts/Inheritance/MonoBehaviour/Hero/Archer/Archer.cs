@@ -16,6 +16,8 @@ public class Archer : Hero
     private ArcherDetectShootingTarget _archerDetectShootingTarget;
     
     private CombatStatesEnum.CombatStates _combatState;
+    
+    private float _damageCoefficient = 1;
 
     public bool ShootingIsActive { get; private set; }
 
@@ -34,6 +36,12 @@ public class Archer : Hero
         _weaponRenderer.sprite = _rangedWeapon;
 
         _archerDetectShootingTarget = GetComponentInChildren<ArcherDetectShootingTarget>();
+    }
+
+    protected override void GetSkills()
+    {
+        _activeSkill = GetComponentInChildren<IActiveHeroSkill>();
+        _passiveSkill = GetComponentInChildren<IPassiveHeroSkill>();
     }
 
     public override void EnterCombat(Mob target)
@@ -75,7 +83,7 @@ public class Archer : Hero
             _archerDetectShootingTarget.FindTarget();
             LookAtTarget(_archerDetectShootingTarget.TargetToShoot.position);
             
-            yield return new WaitForSeconds(_attackSpeed);
+            yield return new WaitForSeconds(_attackDelay);
             
             if (_archerDetectShootingTarget.TargetToShoot == null || _combatState == CombatStatesEnum.CombatStates.Melee)
             {
@@ -84,7 +92,7 @@ public class Archer : Hero
             }
             
             var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
-            projectile.Initialize(_projectileData.ProjectileLevels[0]);
+            projectile.Initialize(_projectileData.ProjectileLevels[0], _damageCoefficient);
         }
         ShootingIsActive = false;
     }
