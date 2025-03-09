@@ -78,6 +78,7 @@ public class Archer : Hero
     public IEnumerator Shoot()
     {
         ShootingIsActive = true;
+        _activeSkill.ActiveSkillTrigger();
         while (_combatState == CombatStatesEnum.CombatStates.Ranged && _currentState == MobStatesEnum.MobStates.Idle)
         {
             _archerDetectShootingTarget.FindTarget();

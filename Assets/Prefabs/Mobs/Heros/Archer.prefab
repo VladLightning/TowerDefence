@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4313772071426026136}
   - component: {fileID: 6778545584138880408}
   - component: {fileID: 8721366531453984996}
+  - component: {fileID: 7735811793993941657}
   m_Layer: 0
   m_Name: ShootingArea
   m_TagString: Untagged
@@ -85,6 +86,19 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &7735811793993941657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172344239551348885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e109aa6eaa9f9419de14e2bfaa0ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arrowRainData: {fileID: 11400000, guid: bf501a3d81dcc9f42bc1ecc6233d7dcb, type: 2}
 --- !u!1 &5510890124532093263
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +327,7 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 4313772071426026136}
     - targetCorrespondingSourceObject: {fileID: 701995040271619848, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 2732861399518023765}
     - targetCorrespondingSourceObject: {fileID: 7849372022090281709, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       insertIndex: -1
@@ -325,12 +339,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2402547748388400365, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7175583644255831360}
-    - targetCorrespondingSourceObject: {fileID: 2402547748388400365, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 396436325983224836}
-    - targetCorrespondingSourceObject: {fileID: 2402547748388400365, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8519464187041409763}
     - targetCorrespondingSourceObject: {fileID: 2121203475518604167, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4052779069525756999}
@@ -475,29 +483,3 @@ MonoBehaviour:
   _weaponHoldingPosition: {fileID: 2812349788516263754}
   _weaponRenderer: {fileID: 4052779069525756999}
   _projectileLaunchPosition: {fileID: 4142386720971055838}
---- !u!114 &396436325983224836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7691720513464727882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141e256578de0b74295cc32f4e796038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resistanceSkillData: {fileID: 11400000, guid: f732b412831306a4faac8242db1a2c20, type: 2}
---- !u!114 &8519464187041409763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7691720513464727882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90e91c941696a584786863dd36640bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resistanceShredSkillData: {fileID: 11400000, guid: fde1ae17d5765ab4d956f134d7a9e1c8, type: 2}
