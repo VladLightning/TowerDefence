@@ -2,54 +2,54 @@
 using System.Collections;
 using UnityEngine;
 
-public class ArrowRain : MonoBehaviour, IActiveHeroSkill
+public class ArrowRain : MonoBehaviour, IDamageDealer
 {
-    [SerializeField] private ArrowRainData _arrowRainData;
+    private int _damage;
+    public int Damage => _damage;
+    
+    private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    
+    private float _radius;
 
-    private GameObject _arrowRainPrefab;
+    private int _arrowsAmount;
+    private float _animationInterval;
     
-    private float _damage;
-    private float _cooldown;
-    private float _areaRadius;
-    
-    private Archer _archer;
-    private ArcherDetectShootingTarget _archerDetectShootingTarget;
-    
-    private bool _arrowRainIsActive;
+    private CircleCollider2D _collider;
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        _arrowRainPrefab = _arrowRainData.ArrowRainPrefab;
-        
-        _damage = _arrowRainData.Damage;
-        _cooldown = _arrowRainData.Cooldown;
-        _areaRadius = _arrowRainData.AreaRadius;
-        
-        _archer = GetComponentInParent<Archer>();
-        _archerDetectShootingTarget = GetComponent<ArcherDetectShootingTarget>();
-    }
-
-    public void ActiveSkillTrigger()
-    {
-        if (_archer.ShootingIsActive && !_arrowRainIsActive)
+        if(other.CompareTag("Enemy"))
         {
-            StartCoroutine(SpawnArrowRain());
+            other.GetComponent<Enemy>().TakeDamage(_damage, _damageType);
         }
     }
 
-    private IEnumerator SpawnArrowRain()
+    public void Initiate(ArrowRainData arrowRainData)
     {
-        _arrowRainIsActive = true;
-        while (_archerDetectShootingTarget.TargetToShoot != null)
+        _damageType = arrowRainData.DamageType;
+        _animationInterval = arrowRainData.AnimationInterval;
+        _arrowsAmount = arrowRainData.ArrowsAmount;
+        
+        _damage = arrowRainData.DamagePerArrow;
+        _radius = arrowRainData.AreaRadius;
+
+        transform.localScale *= _radius;
+        _collider = GetComponent<CircleCollider2D>();
+        
+        StartCoroutine(RainArrows());
+    }
+
+    private IEnumerator RainArrows()
+    {
+        while (_arrowsAmount > 0)
         {
-            yield return new WaitForSeconds(_cooldown);
-            if (_archerDetectShootingTarget.TargetToShoot == null)
-            {
-                _arrowRainIsActive = false;
-                yield break;
-            }
-            var arrowRain = Instantiate(_arrowRainPrefab, _archerDetectShootingTarget.TargetToShoot.transform.position, _arrowRainPrefab.transform.rotation);
+            _arrowsAmount--;
+            
+            yield return new WaitForSeconds(_animationInterval);
+            _collider.enabled = false;
+            _collider.enabled = true;
         }
-        _arrowRainIsActive = false;
+        Destroy(gameObject);
     }
 }

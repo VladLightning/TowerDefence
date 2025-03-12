@@ -1,14 +1,17 @@
 
 using UnityEngine;
-using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "SkillData", menuName = "Hero/Skills/Active/ArrowRain", order = 2)]
-public class ArrowRainData : CooldownSkillData
+[CreateAssetMenu(fileName = "ProjectileData", menuName = "Projectile/Special/ArrowRain", order = 2)]
+public class ArrowRainData : ScriptableObject
 {
-    [SerializeField] private GameObject _arrowRainPrefab;
-    public GameObject ArrowRainPrefab => _arrowRainPrefab;
-    [SerializeField] private float _damage;
-    public float Damage => _damage;
+    [SerializeField] private DamageTypesEnum.DamageTypes _damageType;
+    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    [SerializeField] private float _animationInterval;
+    public float AnimationInterval => _animationInterval;
+    [SerializeField] private int _arrowsAmount;
+    public int ArrowsAmount => _arrowsAmount;
+    [SerializeField] private int _damagePerArrow;
+    public int DamagePerArrow => _damagePerArrow;
     [SerializeField] private float _areaRadius;
     public float AreaRadius => _areaRadius;
 }

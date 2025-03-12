@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca4888c7641634f44bf8d44b67b1c585, type: 3}
+  m_Script: {fileID: 11500000, guid: 8af66f1eae33b2446b20f8c086ad36e7, type: 3}
   m_Name: ArrowRainData
   m_EditorClassIdentifier: 
-  _cooldown: 10
-  _arrowRainPrefab: {fileID: 7417146501929564922, guid: 18b27069d66cf404596be6558cbc6bea, type: 3}
-  _damage: 25
+  _damageType: 0
+  _animationInterval: 0.1
+  _arrowsAmount: 10
+  _damagePerArrow: 25
   _areaRadius: 3

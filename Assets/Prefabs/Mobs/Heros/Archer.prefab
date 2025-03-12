@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e109aa6eaa9f9419de14e2bfaa0ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowRainData: {fileID: 11400000, guid: bf501a3d81dcc9f42bc1ecc6233d7dcb, type: 2}
+  _arrowRainSkillData: {fileID: 11400000, guid: bf501a3d81dcc9f42bc1ecc6233d7dcb, type: 2}
 --- !u!1 &5510890124532093263
 GameObject:
   m_ObjectHideFlags: 0
