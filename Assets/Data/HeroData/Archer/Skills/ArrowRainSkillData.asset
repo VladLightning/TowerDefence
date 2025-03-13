@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4888c7641634f44bf8d44b67b1c585, type: 3}
+  m_Name: ArrowRainSkillData
+  m_EditorClassIdentifier: 
+  _cooldown: 10
+  _arrowRainPrefab: {fileID: 494499794085497942, guid: 52f6969ba5f55264bbed5032ed7ea566, type: 3}
+  _arrowRainData: {fileID: 11400000, guid: 778892a17bbf18f46b4f1b1340cd1c6f, type: 2}
