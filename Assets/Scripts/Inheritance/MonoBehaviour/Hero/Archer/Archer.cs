@@ -78,7 +78,7 @@ public class Archer : Hero
     public IEnumerator Shoot()
     {
         ShootingIsActive = true;
-        _activeSkill.ActiveSkillTrigger();
+        
         while (_combatState == CombatStatesEnum.CombatStates.Ranged && _currentState == MobStatesEnum.MobStates.Idle)
         {
             _archerDetectShootingTarget.FindTarget();
@@ -91,6 +91,8 @@ public class Archer : Hero
                 ShootingIsActive = false;
                 yield break;
             }
+            
+            _activeSkill.ActiveSkillTrigger();
             
             var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
             projectile.Initialize(_projectileData.ProjectileLevels[0], _damageCoefficient);
