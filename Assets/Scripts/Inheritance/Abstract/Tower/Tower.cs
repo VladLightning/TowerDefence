@@ -186,7 +186,7 @@ public abstract class Tower : Entity
         }
         else
         {
-            projectile.Initialize(_defaultProjectileData.ProjectileLevels[_towerLevelIndex], _damageCoefficient);
+            projectile.Initialize(_defaultProjectileData.ProjectileStats[_towerLevelIndex], _damageCoefficient);
         }
     }
 

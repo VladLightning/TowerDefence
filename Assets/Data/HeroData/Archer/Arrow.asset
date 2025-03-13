@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 5259715844499935980, guid: 35384b393917f5a4e90a1a7c7042b482, type: 3}
-  _projectileLevels:
+  _projectileStats:
   - _damage: 15
     _force: 1500
