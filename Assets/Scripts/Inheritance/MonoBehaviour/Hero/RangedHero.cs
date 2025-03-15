@@ -9,16 +9,14 @@ public abstract class RangedHero : Hero
     
     protected ProjectileData _projectileData;
 
-    private float _damageCoefficient = 1;
-
     private bool _shootingIsActive;
     public bool ShootingIsActive {
-        get => _shootingIsActive; 
-        protected set => _shootingIsActive = value;
+        get => _shootingIsActive;
+        private set => _shootingIsActive = value;
     }
-    
-    protected virtual bool IsHeroIdle => _currentState == MobStatesEnum.MobStates.Idle;
-    protected virtual bool IsTargetLost => _rangedHeroDetectShootingTarget.TargetToShoot == null;
+
+    protected virtual bool CanShoot => _rangedHeroDetectShootingTarget.TargetToShoot != null && 
+                                       _currentState is MobStatesEnum.MobStates.Idle or MobStatesEnum.MobStates.Fighting;
     
     protected abstract ProjectileStats GetProjectileStats { get; }
     
@@ -32,14 +30,14 @@ public abstract class RangedHero : Hero
     {
         ShootingIsActive = true;
         
-        while (IsHeroIdle)
+        while (CanShoot)
         {
             _rangedHeroDetectShootingTarget.FindTarget();
             LookAtTarget(_rangedHeroDetectShootingTarget.TargetToShoot.position);
             
             yield return new WaitForSeconds(_attackDelay);
             
-            if (IsTargetLost)
+            if (!CanShoot)
             {
                 ShootingIsActive = false;
                 yield break;
@@ -48,9 +46,16 @@ public abstract class RangedHero : Hero
             _activeSkill.ActiveSkillTrigger();
             
             var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
-            projectile.Initialize(GetProjectileStats, _damageCoefficient);
+            projectile.Initialize(GetProjectileStats, _damageCoefficient, _projectileData.DamageType);
         }
         ShootingIsActive = false;
+    }
+    
+    protected override IEnumerator MoveHero(Vector2 targetPosition)
+    {
+        yield return base.MoveHero(targetPosition);
+        _rangedHeroDetectShootingTarget.Collider2D.enabled = false;
+        _rangedHeroDetectShootingTarget.Collider2D.enabled = true;
     }
 
     private Quaternion CalculateProjectileDirection()

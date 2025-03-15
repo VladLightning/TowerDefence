@@ -1,5 +1,4 @@
 
-using System.Collections;
 using UnityEngine;
 
 public class Archer : RangedHero
@@ -11,8 +10,8 @@ public class Archer : RangedHero
     
     private CombatStatesEnum.CombatStates _combatState;
     
-    protected override bool IsHeroIdle => _combatState == CombatStatesEnum.CombatStates.Ranged && base.IsHeroIdle;
-    protected override bool IsTargetLost => base.IsTargetLost || _combatState == CombatStatesEnum.CombatStates.Melee;
+    protected override bool CanShoot => _combatState == CombatStatesEnum.CombatStates.Ranged && _currentState == MobStatesEnum.MobStates.Idle 
+        && _rangedHeroDetectShootingTarget.TargetToShoot != null;
     private DefaultProjectileData DefaultProjectileData => _projectileData as DefaultProjectileData;
 
     protected override ProjectileStats GetProjectileStats => DefaultProjectileData.ProjectileStats[0];
@@ -56,12 +55,5 @@ public class Archer : RangedHero
     {
         _combatState = CombatStatesEnum.CombatStates.Ranged;
         _weaponRenderer.sprite = _rangedWeapon;
-    }
-
-    protected override IEnumerator MoveHero(Vector2 targetPosition)
-    {
-        yield return base.MoveHero(targetPosition);
-        _rangedHeroDetectShootingTarget.Collider2D.enabled = false;
-        _rangedHeroDetectShootingTarget.Collider2D.enabled = true;
     }
 }

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd322109165de8940be18598ee90940c, type: 3}
   m_Name: MageData
   m_EditorClassIdentifier: 
-  _attackDelay: 6
+  _attackDelay: 2
   _health: 25
   _movementSpeed: 8
-  _damage: 30
-  _damageType: 0
+  _damage: 0
+  _damageType: 3
   _resistances:
     _serializedList:
     - Key: 0
@@ -25,6 +25,8 @@ MonoBehaviour:
       Value: 0.6
     - Key: 2
       Value: 0.6
+    - Key: 3
+      Value: 0.8
   _respawnTime: 20
   _regenerationDelay: 8
   _regenerationInterval: 3
