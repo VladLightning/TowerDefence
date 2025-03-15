@@ -19,6 +19,9 @@ public abstract class Mob : Entity, IDamageDealer
 
     private int _damage;
     public int Damage => _damage;
+    
+    protected float _damageCoefficient = 1;
+    
     protected int _maxHealth;
     protected int _currentHealth;
     private float _defaultMovementSpeed;

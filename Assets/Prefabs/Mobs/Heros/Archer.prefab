@@ -398,7 +398,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 6
   m_Sprite: {fileID: -7856493677412862020, guid: ffe515fd69253c8458e16a481f4cdd28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -480,6 +480,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: b4d36c48e6fb4f541b2129287285ae4e, type: 2}
-  _weaponHoldingPosition: {fileID: 2812349788516263754}
-  _weaponRenderer: {fileID: 4052779069525756999}
   _projectileLaunchPosition: {fileID: 4142386720971055838}
+  _weaponRenderer: {fileID: 4052779069525756999}

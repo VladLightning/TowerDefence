@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ArcherDetectShootingTarget : MonoBehaviour
+public class RangedHeroDetectShootingTarget : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D _collider2D;
     [SerializeField] private LayerMask _layerMask;
@@ -11,19 +11,19 @@ public class ArcherDetectShootingTarget : MonoBehaviour
     private Transform _targetToShoot;
     public Transform TargetToShoot => _targetToShoot;
     
-    private Archer _archer;
+    private RangedHero _rangedHero;
     
     private IEnumerator _shoot;
 
     private void Start()
     {
-        _archer = GetComponentInParent<Archer>();
-        _shoot = _archer.Shoot();
+        _rangedHero = GetComponentInParent<RangedHero>();
+        _shoot = _rangedHero.Shoot();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && !_archer.ShootingIsActive)
+        if (other.CompareTag("Enemy") && !_rangedHero.ShootingIsActive)
         {
             FindTarget();
             StartCoroutine(_shoot);
@@ -35,7 +35,7 @@ public class ArcherDetectShootingTarget : MonoBehaviour
         if(other.transform == _targetToShoot)
         {
             FindTarget();
-            _shoot = _archer.Shoot();
+            _shoot = _rangedHero.Shoot();
         }
     }
         
