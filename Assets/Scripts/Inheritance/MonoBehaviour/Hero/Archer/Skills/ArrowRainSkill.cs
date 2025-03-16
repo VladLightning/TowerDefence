@@ -11,7 +11,7 @@ public class ArrowRainSkill : MonoBehaviour, IActiveHeroSkill
     private float _cooldown;
     private ArrowRainData _arrowRainData;
     
-    private ArcherDetectShootingTarget _archerDetectShootingTarget;
+    private RangedHeroDetectShootingTarget _rangedHeroDetectShootingTarget;
     
     private bool _arrowRainIsActive;
 
@@ -22,7 +22,7 @@ public class ArrowRainSkill : MonoBehaviour, IActiveHeroSkill
         _cooldown = _arrowRainSkillData.Cooldown;
         _arrowRainData = _arrowRainSkillData.ArrowRainData;
         
-        _archerDetectShootingTarget = GetComponent<ArcherDetectShootingTarget>();
+        _rangedHeroDetectShootingTarget = GetComponent<RangedHeroDetectShootingTarget>();
     }
 
     public void ActiveSkillTrigger()
@@ -36,7 +36,7 @@ public class ArrowRainSkill : MonoBehaviour, IActiveHeroSkill
     private IEnumerator SpawnArrowRain()
     {
         _arrowRainIsActive = true; 
-        var arrowRain = Instantiate(_arrowRainPrefab, _archerDetectShootingTarget.TargetToShoot.transform.position, _arrowRainPrefab.transform.rotation).GetComponent<ArrowRain>();
+        var arrowRain = Instantiate(_arrowRainPrefab, _rangedHeroDetectShootingTarget.TargetToShoot.transform.position, _arrowRainPrefab.transform.rotation).GetComponent<ArrowRain>();
         arrowRain.Initiate(_arrowRainData);
         yield return new WaitForSeconds(_cooldown);
         _arrowRainIsActive = false;
