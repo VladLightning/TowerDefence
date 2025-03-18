@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class LifeTime : MonoBehaviour
+public class DestroyOverTime : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
     
