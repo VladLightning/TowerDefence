@@ -23,7 +23,9 @@ public abstract class Mob : Entity, IDamageDealer
     protected float _damageCoefficient = 1;
     
     protected int _maxHealth;
+    public int MaxHealth => _maxHealth;
     protected int _currentHealth;
+    public int CurrentHealth => _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
 
@@ -86,6 +88,18 @@ public abstract class Mob : Entity, IDamageDealer
         {
             Death();
         }
+    }
+
+    public void Heal(int healingAmount)
+    {
+        if (_currentHealth >= _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+            return;
+        }
+        
+        _currentHealth += healingAmount;
+        _healthBarView.UpdateHealthBar(_currentHealth);
     }
 
     protected virtual void Death()
