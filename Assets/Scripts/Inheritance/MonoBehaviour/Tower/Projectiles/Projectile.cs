@@ -29,7 +29,7 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
         Destroy(gameObject, _lifeTime);
     }
 
-    public virtual void Initialize(ProjectileStats projectileStats, float damageCoefficient, DamageTypesEnum.DamageTypes damageType = DamageTypesEnum.DamageTypes.Physical)
+    public virtual void Initialize(ProjectileStats projectileStats, float damageCoefficient = 1, DamageTypesEnum.DamageTypes damageType = DamageTypesEnum.DamageTypes.Physical)
     {
         _damageType = damageType;
         _damageCoefficient = damageCoefficient;
