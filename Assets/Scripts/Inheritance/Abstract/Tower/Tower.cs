@@ -47,7 +47,9 @@ public abstract class Tower : Entity
     private DefaultProjectileData _defaultProjectileData;
     
     private StatusProjectileData _statusProjectileData;
-    public StatusProjectileData StatusProjectileData => _statusProjectileData;
+    public DamageTypesEnum.DamageTypes DamageType => StatusPresent ? _statusProjectileData.DamageType : DamageTypesEnum.DamageTypes.Physical;
+    
+    private bool StatusPresent => _statusProjectileData != null;
     
     private IEnumerator _shoot;
     private bool _shootingIsActive;

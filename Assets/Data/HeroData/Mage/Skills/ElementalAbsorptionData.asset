@@ -51,4 +51,7 @@ MonoBehaviour:
       Value: 0.25
     - Key: 2
       Value: 0.25
-  _absorbedElementAttackDelay: 3
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _radius: 5

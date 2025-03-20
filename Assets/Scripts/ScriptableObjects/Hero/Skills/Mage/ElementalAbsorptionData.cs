@@ -11,6 +11,8 @@ public class ElementalAbsorptionData : ScriptableObject
     public SerializedDictionary<DamageTypesEnum.DamageTypes, StatusProjectileStats> ProjectilesStats => _projectilesStats;
     [SerializeField] private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _elementalResistancesCoefficients;
     public SerializedDictionary<DamageTypesEnum.DamageTypes, float> ElementalResistancesCoefficients => _elementalResistancesCoefficients;
-    [SerializeField] private float _absorbedElementAttackDelay;
-    public float AbsorbedElementAttackDelay => _absorbedElementAttackDelay;
+    [SerializeField] private LayerMask _layerMask;
+    public LayerMask LayerMask => _layerMask;
+    [SerializeField] private float _radius;
+    public float Radius => _radius;
 }
