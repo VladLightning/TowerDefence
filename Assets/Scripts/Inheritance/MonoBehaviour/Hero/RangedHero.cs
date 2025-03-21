@@ -45,12 +45,18 @@ public abstract class RangedHero : Hero
             
             _activeSkill.ActiveSkillTrigger();
             
-            var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
-            projectile.Initialize(GetProjectileStats, _damageCoefficient, _projectileData.DamageType);
+            StartCoroutine(SpawnProjectile());
         }
         ShootingIsActive = false;
     }
-    
+
+    protected virtual IEnumerator SpawnProjectile()
+    {
+        yield return null;
+        var projectile = Instantiate(_projectileData.ProjectilePrefab, _projectileLaunchPosition.position, CalculateProjectileDirection()).GetComponent<Projectile>();
+        projectile.Initialize(GetProjectileStats, _damageCoefficient, _projectileData.DamageType);
+    }
+
     protected override IEnumerator MoveHero(Vector2 targetPosition)
     {
         yield return base.MoveHero(targetPosition);
@@ -58,7 +64,7 @@ public abstract class RangedHero : Hero
         _rangedHeroDetectShootingTarget.Collider2D.enabled = true;
     }
 
-    private Quaternion CalculateProjectileDirection()
+    public Quaternion CalculateProjectileDirection()
     {
         float y = _rangedHeroDetectShootingTarget.TargetToShoot.transform.position.y - _projectileLaunchPosition.position.y;
         float x = _rangedHeroDetectShootingTarget.TargetToShoot.transform.position.x - _projectileLaunchPosition.position.x;

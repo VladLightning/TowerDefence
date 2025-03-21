@@ -16,8 +16,8 @@ public abstract class Tower : Entity
     
     private float _lastShotTime;
 
-    [SerializeField]private float _damageCoefficient = 1;
-    [SerializeField]private float _attackDelayCoefficient = 1;
+    private float _damageCoefficient = 1;
+    private float _attackDelayCoefficient = 1;
     private float CurrentAttackDelay => _attackDelay * _attackDelayCoefficient;
     
     private Transform _target;
@@ -47,6 +47,9 @@ public abstract class Tower : Entity
     private DefaultProjectileData _defaultProjectileData;
     
     private StatusProjectileData _statusProjectileData;
+    public DamageTypesEnum.DamageTypes DamageType => StatusPresent ? _statusProjectileData.DamageType : DamageTypesEnum.DamageTypes.Physical;
+    
+    private bool StatusPresent => _statusProjectileData != null;
     
     private IEnumerator _shoot;
     private bool _shootingIsActive;

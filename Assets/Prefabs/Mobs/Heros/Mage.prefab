@@ -31,50 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2812349788516263754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3359443545658977071
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5518486367648333504}
-  - component: {fileID: 7541910836623247376}
-  m_Layer: 3
-  m_Name: PassiveSkillArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5518486367648333504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3359443545658977071}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4779471193508233903}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7541910836623247376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3359443545658977071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c89ff7d74e02464ea31dfe27492e187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5395335867797603322
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +43,7 @@ GameObject:
   - component: {fileID: 3869556667316983978}
   - component: {fileID: 3155712247116909118}
   - component: {fileID: 4670209350430313213}
+  - component: {fileID: 5310561690887728104}
   m_Layer: 0
   m_Name: ShootingArea
   m_TagString: Untagged
@@ -174,6 +131,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthDrainSkillData: {fileID: 11400000, guid: 58a8b2c700612c44e91d6a1e4428e3a9, type: 2}
+--- !u!114 &5310561690887728104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395335867797603322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c539029ed18e6874080e9b96dbe85c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileLaunchPoint: {fileID: 5641462561614416339}
+  _elementalAbsorptionData: {fileID: 11400000, guid: 0a78586ec10ae414290280a60ad97bbe, type: 2}
+  _rangedHeroDetectShootingTarget: {fileID: 3155712247116909118}
 --- !u!1001 &5470162154692580775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -304,9 +276,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 701995040271619848, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       insertIndex: 0
       addedObject: {fileID: 6156621138472943031}
-    - targetCorrespondingSourceObject: {fileID: 701995040271619848, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 5518486367648333504}
     - targetCorrespondingSourceObject: {fileID: 7849372022090281709, guid: 37bdb8c8f992a9b4c890648338bb2b63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5641462561614416339}
@@ -398,4 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: d9159538e914e4b4ab0e19f77dd82f62, type: 2}
+  _currentDamageResistances:
+    _serializedList: []
   _projectileLaunchPosition: {fileID: 5641462561614416339}
