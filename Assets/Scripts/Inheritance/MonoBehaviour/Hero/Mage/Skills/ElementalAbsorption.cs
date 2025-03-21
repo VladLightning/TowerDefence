@@ -23,9 +23,8 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         
         _rangedHero = GetComponentInParent<RangedHero>();
         
-        IncreaseDefaultResistance();
+        IncreaseResistance(_rangedHero.DamageType);
     }
-    
     
     public void Activate()
     {
@@ -38,9 +37,9 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         {
             return;
         }
-        _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_currentAbsorbedType], _currentAbsorbedType);
+        DecreaseResistance(_currentAbsorbedType);
         
-        IncreaseDefaultResistance();
+        IncreaseResistance(_rangedHero.DamageType);
     }
 
     private void AbsorptionShooting()
@@ -100,24 +99,24 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         }
     }
     
-    private void IncreaseDefaultResistance()
-    {
-        _rangedHero.IncreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_rangedHero.DamageType], _rangedHero.DamageType);
-    }
-
-    private void DecreaseDefaultResistance()
-    {
-        _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_rangedHero.DamageType], _rangedHero.DamageType);
-    }
-    
     private void ActivateResistanceIncrease()
     {
         if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
         {
             return;
         }
-        DecreaseDefaultResistance();
+        DecreaseResistance(_rangedHero.DamageType);
 
-        _rangedHero.IncreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_currentAbsorbedType], _currentAbsorbedType);
+        IncreaseResistance(_currentAbsorbedType);
+    }
+    
+    private void IncreaseResistance(DamageTypesEnum.DamageTypes damageType)
+    {
+        _rangedHero.IncreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[damageType], damageType);
+    }
+
+    private void DecreaseResistance(DamageTypesEnum.DamageTypes damageType)
+    {
+        _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[damageType], damageType);
     }
 }
