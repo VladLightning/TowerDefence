@@ -25,6 +25,23 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         
         IncreaseDefaultResistance();
     }
+    
+    
+    public void Activate()
+    {
+        AbsorptionShooting();
+    }
+
+    public void Deactivate()
+    {
+        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
+        {
+            return;
+        }
+        _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_currentAbsorbedType], _currentAbsorbedType);
+        
+        IncreaseDefaultResistance();
+    }
 
     private void AbsorptionShooting()
     {
@@ -92,16 +109,6 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
     {
         _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_rangedHero.DamageType], _rangedHero.DamageType);
     }
-
-    public void Activate()
-    {
-        AbsorptionShooting();
-    }
-
-    public void Deactivate()
-    {
-        DeactivateResistanceIncrease();
-    }
     
     private void ActivateResistanceIncrease()
     {
@@ -112,16 +119,5 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         DecreaseDefaultResistance();
 
         _rangedHero.IncreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_currentAbsorbedType], _currentAbsorbedType);
-    }
-
-    private void DeactivateResistanceIncrease()
-    {
-        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
-        {
-            return;
-        }
-        _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[_currentAbsorbedType], _currentAbsorbedType);
-        
-        IncreaseDefaultResistance();
     }
 }
