@@ -31,7 +31,7 @@ public abstract class Mob : Entity, IDamageDealer
 
     private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _defaultDamageResistances;
 
-    [SerializeField]private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances = new();
+    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances = new();
     
     protected HealthbarView _healthBarView;
 
