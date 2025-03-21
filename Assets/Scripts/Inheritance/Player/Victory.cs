@@ -1,7 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class Victory : MonoBehaviour
 {
+    private readonly float _winPanelActivationDelay = 3;
+    
+    [SerializeField] private GameObject _winPanel;
     private int _enemiesToDefeat;
 
     private void OnEnable()
@@ -16,9 +20,10 @@ public class Victory : MonoBehaviour
         Enemy.OnDecreaseEnemyAmount -= DecreaseEnemyAmount;
     }
 
-    private void Win()
+    private IEnumerator Win()
     {
-        Debug.Log("Victory");
+        yield return new WaitForSeconds(_winPanelActivationDelay);
+        _winPanel.SetActive(true);
     }
 
     private void IncreaseEnemiesAmount(int amount)
@@ -31,7 +36,7 @@ public class Victory : MonoBehaviour
         _enemiesToDefeat--;
         if(_enemiesToDefeat <= 0)
         {
-            Win();
+            StartCoroutine(Win());
         }
     }
 }
