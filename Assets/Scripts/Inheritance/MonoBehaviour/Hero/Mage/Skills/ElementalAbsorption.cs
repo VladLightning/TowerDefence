@@ -41,6 +41,17 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         
         IncreaseResistance(_rangedHero.DamageType);
     }
+    
+    private void ActivateResistanceIncrease()
+    {
+        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
+        {
+            return;
+        }
+        DecreaseResistance(_rangedHero.DamageType);
+
+        IncreaseResistance(_currentAbsorbedType);
+    }
 
     private void AbsorptionShooting()
     {
@@ -53,7 +64,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         
         var projectile = Instantiate(_elementalAbsorptionData.ElementalProjectiles[_currentAbsorbedType], _projectileLaunchPoint.position, 
             _rangedHero.CalculateProjectileDirection()).GetComponent<StatusProjectile>();
-        projectile.Initialize(_elementalAbsorptionData.ProjectilesStats[_currentAbsorbedType],default,_currentAbsorbedType);
+        projectile.Initialize(_elementalAbsorptionData.ProjectilesStats[_currentAbsorbedType], damageType: _currentAbsorbedType);
     }
 
     private void AbsorbClosestTowerElement()
@@ -83,31 +94,22 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
 
         var closestTower = possibleClosestTower.GetComponentInParent<Tower>();
 
-        if (closestTower != _closestTower)
-        {
-            Deactivate();
-            
-            if (closestTower.DamageType == DamageTypesEnum.DamageTypes.Physical)
-            {
-                return;
-            }
-            
-            _closestTower = closestTower;
-            _currentAbsorbedType = _closestTower.DamageType;
-            
-            ActivateResistanceIncrease();
-        }
-    }
-    
-    private void ActivateResistanceIncrease()
-    {
-        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
+        if (closestTower == _closestTower)
         {
             return;
         }
-        DecreaseResistance(_rangedHero.DamageType);
-
-        IncreaseResistance(_currentAbsorbedType);
+        
+        Deactivate();
+            
+        if (closestTower.DamageType == DamageTypesEnum.DamageTypes.Physical)
+        {
+            return;
+        }
+            
+        _closestTower = closestTower;
+        _currentAbsorbedType = _closestTower.DamageType;
+            
+        ActivateResistanceIncrease();
     }
     
     private void IncreaseResistance(DamageTypesEnum.DamageTypes damageType)
