@@ -15,13 +15,13 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 6459274223014868735, guid: 3d4f0395b067a3a48a5d832fbb5001b9, type: 3}
   _damageType: 2
   _statusProjectileStats:
-  - _damage: 2
+  - _damage: 10
     _force: 2500
-    _statusDamage: 2
+    _statusDamage: 7
     _statusTicksAmount: 2
     _statusTickInterval: 4
-  - _damage: 2
+  - _damage: 10
     _force: 2500
-    _statusDamage: 3
+    _statusDamage: 9
     _statusTicksAmount: 4
     _statusTickInterval: 2

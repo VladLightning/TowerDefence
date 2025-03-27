@@ -9,23 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1341f0a7b2f3e64bb3b49294559dc1e, type: 3}
-  m_Name: Skeleton
+  m_Script: {fileID: 11500000, guid: a2995e46ac4afd2419ec3d335012ab4d, type: 3}
+  m_Name: SlimeMedium
   m_EditorClassIdentifier: 
   _attackDelay: 2
-  _health: 200
-  _movementSpeed: 1
-  _damage: 4
+  _health: 100
+  _movementSpeed: 2
+  _damage: 3
   _damageType: 0
   _resistances:
     _serializedList:
     - Key: 0
-      Value: 0
+      Value: 0.5
     - Key: 1
-      Value: 0.5
+      Value: 0.1
     - Key: 2
-      Value: 0.5
+      Value: -0.6
     - Key: 3
-      Value: 0.3
+      Value: -0.1
   _damageToPlayer: 1
-  _moneyOnDeath: 20
+  _moneyOnDeath: 50
+  _enemyType: 3
+  _clonesAmount: 2
