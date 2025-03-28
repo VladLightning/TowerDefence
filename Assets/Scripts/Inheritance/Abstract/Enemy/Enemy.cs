@@ -12,8 +12,10 @@ public abstract class Enemy : Mob
 
     private Transform _currentPoint;
     private Path _path;
+    protected Path Path => _path;
 
-    private int _currentPointIndex;
+    protected int _currentPointIndex;
+    public int CurrentPointIndex { set => _currentPointIndex = value; }
 
     private int _damageToPlayer;
     private int _moneyOnDeath;
@@ -36,7 +38,6 @@ public abstract class Enemy : Mob
     private void Start()
     {
         _currentPoint = _path.PathPoints[_currentPointIndex];
-        transform.position = _currentPoint.position;
     }
 
     private void FixedUpdate()

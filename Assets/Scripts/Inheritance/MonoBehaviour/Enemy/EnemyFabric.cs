@@ -10,18 +10,20 @@ public class EnemyFabric : MonoBehaviour
     private void OnEnable()
     {
         Spawner.OnSpawnEnemy += SpawnEnemy;
+        Slime.OnSpawnEnemy += SpawnEnemy;
     }
 
     private void OnDisable()
     {
         Spawner.OnSpawnEnemy -= SpawnEnemy;
+        Slime.OnSpawnEnemy -= SpawnEnemy;
     }
 
-    private Enemy SpawnEnemy(EnemiesEnum.EnemyTypes enemyType, Transform spawnPoint)
+    private Enemy SpawnEnemy(EnemiesEnum.EnemyTypes enemyType, Vector2 spawnPoint)
     {
         if (_enemies.TryGetValue(enemyType, out var enemy))
         {
-            return Instantiate(enemy, spawnPoint.position, spawnPoint.rotation).GetComponent<Enemy>();
+            return Instantiate(enemy, spawnPoint, Quaternion.identity).GetComponent<Enemy>();
         }
         throw new NullReferenceException("No enemy found in dictionary");
     }

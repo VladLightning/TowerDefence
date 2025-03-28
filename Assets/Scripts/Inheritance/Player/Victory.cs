@@ -12,12 +12,16 @@ public class Victory : MonoBehaviour
     {
         Spawner.OnIncreaseEnemyAmount += IncreaseEnemiesAmount;
         Enemy.OnDecreaseEnemyAmount += DecreaseEnemyAmount;
+
+        Slime.OnSplit += IncreaseEnemiesAmount;
     }
 
     private void OnDisable()
     {
         Spawner.OnIncreaseEnemyAmount -= IncreaseEnemiesAmount;
         Enemy.OnDecreaseEnemyAmount -= DecreaseEnemyAmount;
+        
+        Slime.OnSplit -= IncreaseEnemiesAmount;
     }
 
     private IEnumerator Win()
