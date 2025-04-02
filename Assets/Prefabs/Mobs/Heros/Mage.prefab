@@ -145,7 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileLaunchPoint: {fileID: 5641462561614416339}
   _elementalAbsorptionData: {fileID: 11400000, guid: 0a78586ec10ae414290280a60ad97bbe, type: 2}
-  _rangedHeroDetectShootingTarget: {fileID: 3155712247116909118}
 --- !u!1001 &5470162154692580775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: d9159538e914e4b4ab0e19f77dd82f62, type: 2}
-  _currentDamageResistances:
-    _serializedList: []
+  _takeDamageSound: 205
+  _deathSound: 206
+  _healSound: 200
   _projectileLaunchPosition: {fileID: 5641462561614416339}

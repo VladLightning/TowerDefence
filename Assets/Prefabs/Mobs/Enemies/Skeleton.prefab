@@ -165,3 +165,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: 93b6b8be9ee2dbe4b91eb4d5d5afd8ad, type: 2}
+  _takeDamageSound: 100
+  _deathSound: 101

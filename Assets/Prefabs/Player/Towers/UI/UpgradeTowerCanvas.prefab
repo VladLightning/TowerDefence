@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 703654614196224107}
   - component: {fileID: 1711054498644915329}
   - component: {fileID: 3014143474742036108}
+  - component: {fileID: 5131699429158235726}
   m_Layer: 5
   m_Name: UpgradeBranch
   m_TagString: Untagged
@@ -184,6 +185,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5131699429158235726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724058977192696158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &731647705621215123
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +776,7 @@ GameObject:
   - component: {fileID: 3846610276186590397}
   - component: {fileID: 2297876696370515413}
   - component: {fileID: 1270512000237310718}
+  - component: {fileID: 4201297543715633084}
   m_Layer: 5
   m_Name: Upgrade3
   m_TagString: Untagged
@@ -929,6 +943,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &4201297543715633084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562216715747640111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3113806830937890717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1142,7 @@ GameObject:
   - component: {fileID: 8803711145549889752}
   - component: {fileID: 4024573667243216031}
   - component: {fileID: 8239010089898976852}
+  - component: {fileID: 2397686246010796944}
   m_Layer: 5
   m_Name: SellButton
   m_TagString: Untagged
@@ -1237,6 +1264,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2397686246010796944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219501742449275336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3554674216196972601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1631,7 @@ GameObject:
   - component: {fileID: 3632822700433872273}
   - component: {fileID: 7954014613323148321}
   - component: {fileID: 7811661685600416363}
+  - component: {fileID: 3129469385803115586}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -1713,6 +1753,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3129469385803115586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605011164970609345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5679332966588294931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1874,7 @@ GameObject:
   - component: {fileID: 4586932668641437090}
   - component: {fileID: 2751918145622220023}
   - component: {fileID: 6873585657959363335}
+  - component: {fileID: 3719293188178388224}
   m_Layer: 5
   m_Name: UpgradeBranch1
   m_TagString: Untagged
@@ -1942,6 +1995,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3719293188178388224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233073413336465787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7523640918041899814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2096,7 @@ GameObject:
   - component: {fileID: 8960703612057548760}
   - component: {fileID: 2445518413101482763}
   - component: {fileID: 6798886417258603733}
+  - component: {fileID: 8070034633593484898}
   m_Layer: 5
   m_Name: Upgrade1
   m_TagString: Untagged
@@ -2197,6 +2263,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &8070034633593484898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256058560860315593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8369505679484779341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2422,7 @@ GameObject:
   - component: {fileID: 4155186600477158744}
   - component: {fileID: 3406742705011625208}
   - component: {fileID: 5274839279788050728}
+  - component: {fileID: 4281914933200043959}
   m_Layer: 5
   m_Name: Upgrade2
   m_TagString: Untagged
@@ -2510,3 +2589,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &4281914933200043959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8521661857270534527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9995f3223219cd343968d0a3bf0533fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
