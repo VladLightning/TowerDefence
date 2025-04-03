@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Defeat()
     {
-        AudioCaller.PlayAudio(AudioEnum.AudioType.Defeat);
+        AudioCaller.PlayAudio(AudioEnum.Defeat);
     }
 
     private void TakeDamage(int damage)

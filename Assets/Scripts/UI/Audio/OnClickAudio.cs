@@ -19,6 +19,6 @@ public class OnClickAudio : MonoBehaviour
 
     public void OnClick()
     {
-        AudioCaller.PlayAudio(AudioEnum.AudioType.Click);
+        AudioCaller.PlayAudio(AudioEnum.Click);
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class Mob : Entity, IDamageDealer
 {
-    [SerializeField] protected AudioEnum.AudioType _takeDamageSound;
-    [SerializeField] protected AudioEnum.AudioType _deathSound;
+    [SerializeField] protected AudioEnum _takeDamageSound;
+    [SerializeField] protected AudioEnum _deathSound;
     
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;

@@ -7,7 +7,7 @@ public class AudioPlayer : MonoBehaviour
 {
     private readonly int _audioSourcesCount = 10;
     
-    [SerializeField] private SerializedDictionary<AudioEnum.AudioType, AudioClip> _audioClips;
+    [SerializeField] private SerializedDictionary<AudioEnum, AudioClip> _audioClips;
     [SerializeField] private GameObject _audioSourcePrefab;
     
     private AudioSource[] _audioSources;
@@ -23,20 +23,21 @@ public class AudioPlayer : MonoBehaviour
     
     private void OnEnable()
     {
-        AudioCaller.OnAudioPlayed += PlayClip;
+        AudioCaller.OnAudioCall += PlayClip;
     }
 
     private void OnDisable()
     {
-        AudioCaller.OnAudioPlayed -= PlayClip;
+        AudioCaller.OnAudioCall -= PlayClip;
     }
 
-    private void PlayClip(AudioEnum.AudioType audioType)
+    private void PlayClip(AudioEnum audioType)
     {
         var audioSource = GetVacantAudioSource();
         
         if (audioSource == null)
         {
+            Debug.LogError("All audio sources are busy");
             return;
         }
 

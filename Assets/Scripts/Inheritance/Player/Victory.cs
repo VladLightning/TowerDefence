@@ -26,7 +26,7 @@ public class Victory : MonoBehaviour
 
     private IEnumerator Win()
     {
-        AudioCaller.PlayAudio(AudioEnum.AudioType.Victory);
+        AudioCaller.PlayAudio(AudioEnum.Victory);
         yield return new WaitForSeconds(_winPanelActivationDelay);
         _winPanel.SetActive(true);
     }

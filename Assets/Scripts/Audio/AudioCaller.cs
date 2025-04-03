@@ -3,10 +3,10 @@ using System;
 
 public class AudioCaller
 {
-    public static event Action<AudioEnum.AudioType> OnAudioPlayed;
+    public static event Action<AudioEnum> OnAudioCall;
     
-    public static void PlayAudio(AudioEnum.AudioType audioType)
+    public static void PlayAudio(AudioEnum audioType)
     {
-        OnAudioPlayed?.Invoke(audioType);
+        OnAudioCall?.Invoke(audioType);
     }
 }

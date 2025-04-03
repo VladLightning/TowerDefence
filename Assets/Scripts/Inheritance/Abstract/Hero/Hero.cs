@@ -5,7 +5,7 @@ public abstract class Hero : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;
 
-    [SerializeField] protected AudioEnum.AudioType _healSound;
+    [SerializeField] protected AudioEnum _healSound;
     
     public static event Action<float, GameObject> OnDeath;
 
