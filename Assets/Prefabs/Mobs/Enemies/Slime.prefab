@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7282886668606283007, guid: 1a774e98006438a4aaccf24c422e75fa, type: 3}
+    - target: {fileID: 2881550199718432689, guid: 547737acf5fa51f4f8f62d4990c8ad20, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6148935709595352696, guid: 547737acf5fa51f4f8f62d4990c8ad20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -98,3 +102,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 11400000, guid: a7c9674af31c5e042ad27e2b8f722b5b, type: 2}
+  _takeDamageSound: 102
+  _deathSound: 103

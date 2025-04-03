@@ -5,6 +5,8 @@ using UnityEngine;
 
 public abstract class Mob : Entity, IDamageDealer
 {
+    [SerializeField] protected AudioEnum _takeDamageSound;
+    [SerializeField] protected AudioEnum _deathSound;
     
     protected MobStatesEnum.MobStates _currentState;
     public MobStatesEnum.MobStates CurrentState => _currentState;
@@ -34,7 +36,7 @@ public abstract class Mob : Entity, IDamageDealer
     private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances = new();
     
     protected HealthbarView _healthBarView;
-
+    
     protected abstract void Move(Vector2 target);
     
     protected override void Initiate()
@@ -84,6 +86,8 @@ public abstract class Mob : Entity, IDamageDealer
         _currentHealth -= (int)(damage * (1 - currentResistance)); 
         _healthBarView.UpdateHealthBar(_currentHealth);
         
+        AudioCaller.PlayAudio(_takeDamageSound);
+        
         if(_currentHealth <= 0)
         {
             Death();
@@ -104,7 +108,8 @@ public abstract class Mob : Entity, IDamageDealer
 
     protected virtual void Death()
     {
-        //Анимации, звуки
+        //Анимации
+        AudioCaller.PlayAudio(_deathSound);
     }
     
     protected void DecreaseMovementSpeed(float coefficient)

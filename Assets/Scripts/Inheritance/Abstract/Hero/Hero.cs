@@ -4,6 +4,8 @@ using UnityEngine;
 public abstract class Hero : Mob
 {
     private const float DISTANCE_THRESHOLD = 0.1f;
+
+    [SerializeField] protected AudioEnum _healSound;
     
     public static event Action<float, GameObject> OnDeath;
 
@@ -69,6 +71,7 @@ public abstract class Hero : Mob
         while (_currentHealth < _maxHealth)
         {
             yield return new WaitForSeconds(_regenerationInterval);
+            AudioCaller.PlayAudio(_healSound);
             _currentHealth += _regenerationAmount;
             _healthBarView.UpdateHealthBar(_currentHealth);
         }
@@ -91,6 +94,7 @@ public abstract class Hero : Mob
 
     protected override void Death()
     {
+        base.Death();
         OnDeath?.Invoke(_respawnTime, gameObject);
         gameObject.SetActive(false);
     }

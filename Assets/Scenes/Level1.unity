@@ -1607,6 +1607,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a8c0facb3b124281ff752ce8dbf76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1356459922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356459923}
+  - component: {fileID: 1356459924}
+  m_Layer: 0
+  m_Name: AudioSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1356459923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356459922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.86483765, y: 0.3819862, z: 2.3910313}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1356459924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356459922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ece8545026344f89249b919da9764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClips:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
+    - Key: 1
+      Value: {fileID: 8300000, guid: df7b0527bedef454c888055c076048ed, type: 3}
+    - Key: 2
+      Value: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
+    - Key: 100
+      Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+    - Key: 101
+      Value: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+    - Key: 102
+      Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+    - Key: 103
+      Value: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+    - Key: 201
+      Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+    - Key: 202
+      Value: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+    - Key: 203
+      Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+    - Key: 204
+      Value: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+    - Key: 205
+      Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+    - Key: 206
+      Value: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+    - Key: 200
+      Value: {fileID: 8300000, guid: c134bf6bd85561b4b938c913b97b57c9, type: 3}
+  _audioSourcePrefab: {fileID: 4106993181873695167, guid: c59ba315dff0d264e9939069e249ec54, type: 3}
 --- !u!224 &1412055798 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 907425496386169758, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
@@ -10592,6 +10667,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5345992373933847123, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5867430120034577312, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -10623,6 +10702,10 @@ PrefabInstance:
     - target: {fileID: 6500760082812978225, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368672138904284285, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7659428039724131257, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
       propertyPath: m_Pivot.x
@@ -11033,3 +11116,4 @@ SceneRoots:
   - {fileID: 1949306185}
   - {fileID: 1120292445727632750}
   - {fileID: 1519514842}
+  - {fileID: 1356459923}
