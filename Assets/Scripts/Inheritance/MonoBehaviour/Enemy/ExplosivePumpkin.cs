@@ -51,7 +51,7 @@ public class ExplosivePumpkin : Enemy
         foreach (var enemy in enemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(_totalDamageNegated, DamageType);
-            enemy.GetComponent<Rigidbody2D>().AddForce(CalculateExplosionForceDirection(enemy.transform.position) * _explosionForce);
+            enemy.attachedRigidbody.AddForce(CalculateExplosionForceDirection(enemy.transform.position) * _explosionForce);
         }
     }
 
