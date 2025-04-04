@@ -9,23 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1341f0a7b2f3e64bb3b49294559dc1e, type: 3}
-  m_Name: Skeleton
+  m_Script: {fileID: 11500000, guid: af13ec8f82633514b8283c7c60824286, type: 3}
+  m_Name: ExplosivePumpkin
   m_EditorClassIdentifier: 
-  _attackDelay: 2
-  _health: 200
+  _attackDelay: 3
+  _health: 1
   _movementSpeed: 2
-  _damage: 4
-  _damageType: 0
+  _damage: 5
+  _damageType: 1
   _resistances:
     _serializedList:
     - Key: 0
       Value: 0
     - Key: 1
-      Value: 0.5
+      Value: 0
     - Key: 2
-      Value: 0.5
+      Value: 0
     - Key: 3
-      Value: 0.3
-  _damageToPlayer: 1
-  _moneyOnDeath: 20
+      Value: 0
+  _damageToPlayer: 2
+  _moneyOnDeath: 200
+  _takeDamageChance: 0.05
+  _explosionRadius: 5
+  _explosionForce: 1000
+  _guaranteedDamageHit: 5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
