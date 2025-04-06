@@ -1752,6 +1752,7 @@ GameObject:
   - component: {fileID: 6387994164524700377}
   - component: {fileID: 2168312365024614909}
   - component: {fileID: 8799028439545331135}
+  - component: {fileID: 5043190551435237261}
   m_Layer: 5
   m_Name: Glossary
   m_TagString: Untagged
@@ -1834,9 +1835,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce77e3ab3ad85dd40b1a41a8cc7dd4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _glossary: {fileID: 5724484384653822268}
   _gameMenu: {fileID: 2965620555716105008}
   _gameSettings: {fileID: 4894784439236184790}
+--- !u!114 &5043190551435237261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724484384653822268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea65f2d01e561f48be6f2424a63d408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _itemIcon: {fileID: 407151511522714943}
   _itemName: {fileID: 2701972689996005535}
   _itemDescription: {fileID: 813994259632807151}

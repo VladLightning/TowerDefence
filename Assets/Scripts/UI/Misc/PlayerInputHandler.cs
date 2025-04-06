@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    public static event Action OnOpenGlossary;
+    
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private Menu _menu;
     [SerializeField] private Glossary _glossary;
@@ -86,7 +89,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _glossary.OpenGlossary();
+            OnOpenGlossary?.Invoke();
         }
     }
 
