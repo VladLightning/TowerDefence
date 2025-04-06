@@ -5,6 +5,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private Menu _menu;
+    [SerializeField] private Glossary _glossary;
 
     private Ability[] _heroAbilities = new Ability[3];
 
@@ -78,6 +79,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             SelectAbility(2);
+        }
+    }
+
+    public void OnGlossary(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _glossary.OpenGlossary();
         }
     }
 
