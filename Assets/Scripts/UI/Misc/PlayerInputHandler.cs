@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    public static event Action OnOpenGlossary;
+    
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private Menu _menu;
 
@@ -78,6 +81,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             SelectAbility(2);
+        }
+    }
+
+    public void OnGlossary(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            OnOpenGlossary?.Invoke();
         }
     }
 
