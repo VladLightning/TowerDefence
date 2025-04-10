@@ -13,11 +13,21 @@ public class GlossaryDatabase : MonoBehaviour
     [SerializeField] private TMP_Text _itemStats;
     
     [SerializeField] private SerializedDictionary<GlossaryEnum, GlossaryItemData> _items;
-    [SerializeField] private GlossaryEnum _defaultItem;
+    public SerializedDictionary<GlossaryEnum, GlossaryItemData> Items => _items;
+    
+    [SerializeField] private GlossaryPage _defaultPage;
+    
+    private GlossaryPageDisplay _glossaryPageDisplay;
 
     private void Start()
     {
-        DisplayInfo(_defaultItem);
+        _glossaryPageDisplay = GetComponent<GlossaryPageDisplay>();
+    }
+
+    public void DisplayDefaultPage()
+    {
+        DisplayInfo(_defaultPage.PageItems[0]);
+        _glossaryPageDisplay.DisplayPage(_defaultPage.PageItems);
     }
 
     public void DisplayInfo(GlossaryEnum item)

@@ -6,6 +6,7 @@ public class Glossary : MonoBehaviour
     [SerializeField] private GameObject _gameSettings;
 
     private GlossaryDatabase _glossaryDatabase;
+    public GlossaryDatabase GlossaryDatabase => _glossaryDatabase;
 
     private void Start()
     {

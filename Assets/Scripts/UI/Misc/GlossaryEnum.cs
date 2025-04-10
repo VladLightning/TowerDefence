@@ -9,7 +9,9 @@ public enum GlossaryEnum
     Archer = 101,
     Mage = 102,
     
-    CastleAbility = 200,
+    AbilityCannon = 200,
+    AbilityFrost = 201,
+    AbilityTornado = 202,
     
     Skeleton = 300,
     Slime = 301,
