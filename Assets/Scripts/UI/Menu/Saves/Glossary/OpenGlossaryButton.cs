@@ -1,16 +1,12 @@
 
 using UnityEngine;
-public class Glossary : MonoBehaviour
+public class OpenGlossaryButton : MonoBehaviour
 {
     [SerializeField] private GameObject _gameMenu;
     [SerializeField] private GameObject _gameSettings;
 
-    private GlossaryDatabase _glossaryDatabase;
-    public GlossaryDatabase GlossaryDatabase => _glossaryDatabase;
-
     private void Start()
     {
-        _glossaryDatabase = GetComponent<GlossaryDatabase>();
         PlayerInputHandler.OnOpenGlossary += OpenGlossary;
     }
 
@@ -24,10 +20,5 @@ public class Glossary : MonoBehaviour
         gameObject.SetActive(!gameObject.activeSelf);
         _gameMenu.SetActive(false);
         _gameSettings.SetActive(false);
-    }
-
-    public void DisplayInfo(GlossaryEnum item)
-    {
-        _glossaryDatabase.DisplayInfo(item);
     }
 }
