@@ -10,16 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0d908e218f4c7b41a9a9cd588cfa226, type: 3}
-  m_Name: TowerCannonItem
+  m_Name: AbilityTornadoItem
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: 7096914730773421427, guid: 729725c6f6d7f7946a47ffb16f044235, type: 3}
-  _itemName: Cannon
-  _itemDescription: Made out of steel, perfect budget defensive choice for a castle.
-  _itemStats: 'Damage: Medium
-
-    Speed: Medium
-
-    Range: Medium
-
-    Element:
-    None'
+  _itemIcon: {fileID: -2105305842262875611, guid: c07efe86eb1d4d84eabf75583e46afca, type: 3}
+  _itemName: Tornado
+  _itemDescription: 
+  _itemStats: 

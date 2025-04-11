@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0d908e218f4c7b41a9a9cd588cfa226, type: 3}
-  m_Name: TowerFlameItem
+  m_Name: TowerCannonItem
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: -8932092875127675973, guid: 96bd28ab240fcea41a35da50b7bf7a32, type: 3}
-  _itemName: Flame Tower
-  _itemDescription: 'High temperature projectile accelerator, has capacity for flamethrowing.
-    Has a backup projectile magazine for rapid fire in case of trespassing. '
+  _itemIcon: {fileID: 7096914730773421427, guid: 729725c6f6d7f7946a47ffb16f044235, type: 3}
+  _itemName: Cannon
+  _itemDescription: 'Made out of steel, perfect budget defensive choice for a castle.
+
+    The
+    possible branches are Flame and Frost.'
   _itemStats: 'Damage: Medium
 
-    Speed: High
+    Speed: Medium
 
     Range: Medium
 
-    Element: Flame'
+    Element:
+    None'
