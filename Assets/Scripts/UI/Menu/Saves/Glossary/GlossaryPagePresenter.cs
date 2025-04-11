@@ -10,9 +10,13 @@ public class GlossaryPagePresenter : MonoBehaviour
     
     private GlossaryPageInfoDisplayView[] _callGlossaryInfoDisplays;
 
-    private void OnEnable()
+    private void Start()
     {
         SelectPage(GlossaryPageEnum.Towers);
+    }
+
+    private void OnEnable()
+    {
         GlossaryPageView.OnPageSelected += SelectPage;
     }
 

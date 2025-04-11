@@ -24,12 +24,10 @@ public class GlossaryPageInfoDisplayView : MonoBehaviour
             _itemSlotsIcons[i].sprite = glossaryItems[i].ItemIcon;
             _itemSlotsIcons[i].gameObject.SetActive(true);
         }
-
-        int vacantSlotsAmount = _itemSlotsIcons.Length - _currentPageData.Length;
         
-        for (int i = 1; i < vacantSlotsAmount + 1; i++)
+        for (int i = _currentPageData.Length; i < _itemSlotsIcons.Length; i++)
         {
-            _itemSlotsIcons[^i].gameObject.SetActive(false);
+            _itemSlotsIcons[i].gameObject.SetActive(false);
         }
     }
 
