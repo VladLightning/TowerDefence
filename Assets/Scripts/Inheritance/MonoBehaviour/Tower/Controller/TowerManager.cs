@@ -26,7 +26,7 @@ public class TowerManager : MonoBehaviour
         _buildSiteTransform = buildPosition;
     }
 
-    private void BuildTower(TowersEnum.TowerTypes towerType)
+    private void BuildTower(TowersEnum towerType)
     {
         var selectedTower = _towers[(int)towerType];
         int price = selectedTower.GetComponent<Tower>().GetInitialPrice();

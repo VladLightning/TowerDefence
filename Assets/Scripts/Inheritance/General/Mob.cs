@@ -8,11 +8,11 @@ public abstract class Mob : Entity, IDamageDealer
     [SerializeField] protected AudioEnum _takeDamageSound;
     [SerializeField] protected AudioEnum _deathSound;
     
-    protected MobStatesEnum.MobStates _currentState;
-    public MobStatesEnum.MobStates CurrentState => _currentState;
+    protected MobStatesEnum _currentState;
+    public MobStatesEnum CurrentState => _currentState;
 
-    private DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    private DamageTypesEnum _damageType;
+    public DamageTypesEnum DamageType => _damageType;
     
     private Mob _opponent;
     public Mob Opponent => _opponent;
@@ -31,9 +31,9 @@ public abstract class Mob : Entity, IDamageDealer
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
 
-    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _defaultDamageResistances;
+    private SerializedDictionary<DamageTypesEnum, float> _defaultDamageResistances;
 
-    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _currentDamageResistances = new();
+    private SerializedDictionary<DamageTypesEnum, float> _currentDamageResistances = new();
     
     protected HealthbarView _healthBarView;
     
@@ -74,7 +74,7 @@ public abstract class Mob : Entity, IDamageDealer
         _healthBarView.AlignHealthBar();
     }
 
-    public virtual void TakeDamage(int damage, DamageTypesEnum.DamageTypes damageType)
+    public virtual void TakeDamage(int damage, DamageTypesEnum damageType)
     {
         if (_currentHealth <= 0)
         {
@@ -131,12 +131,12 @@ public abstract class Mob : Entity, IDamageDealer
         }
     }
 
-    public void IncreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
+    public void IncreaseDamageResistance(float coefficient, DamageTypesEnum damageType)
     {
         _currentDamageResistances[damageType] += coefficient;
     }
 
-    public void DecreaseDamageResistance(float coefficient, DamageTypesEnum.DamageTypes damageType)
+    public void DecreaseDamageResistance(float coefficient, DamageTypesEnum damageType)
     {
         _currentDamageResistances[damageType] -= coefficient;
     }
@@ -151,7 +151,7 @@ public abstract class Mob : Entity, IDamageDealer
     public virtual void EnterCombat(Mob target)
     {
         _opponent = target;
-        ChangeState(MobStatesEnum.MobStates.Fighting);
+        ChangeState(MobStatesEnum.Fighting);
         LookAtTarget(_opponent.transform.position);
         
         _fight = StartCoroutine(Fight(target));
@@ -165,7 +165,7 @@ public abstract class Mob : Entity, IDamageDealer
         }
     }
 
-    public void ChangeState(MobStatesEnum.MobStates newState)
+    public void ChangeState(MobStatesEnum newState)
     {
         _currentState = newState;
     }

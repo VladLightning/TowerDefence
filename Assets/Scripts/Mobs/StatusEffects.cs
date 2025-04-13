@@ -6,14 +6,14 @@ public class StatusEffects : MonoBehaviour
 {
     private Mob _mob;
     [SerializedDictionary("Effect", "Stack")]
-    [SerializeField] private SerializedDictionary<DamageTypesEnum.DamageTypes, int> _statusEffects = new SerializedDictionary<DamageTypesEnum.DamageTypes, int>();
+    [SerializeField] private SerializedDictionary<DamageTypesEnum, int> _statusEffects = new SerializedDictionary<DamageTypesEnum, int>();
     
     private void Start()
     {
         _mob = GetComponent<Mob>();
     }
 
-    public void TriggerEffect(StatusProjectileStats statusProjectileStats, DamageTypesEnum.DamageTypes damageType)
+    public void TriggerEffect(StatusProjectileStats statusProjectileStats, DamageTypesEnum damageType)
     {
         if (!_statusEffects.TryAdd(damageType, 1))
         {
@@ -24,16 +24,16 @@ public class StatusEffects : MonoBehaviour
         
         switch (damageType)
         {
-            case DamageTypesEnum.DamageTypes.Flame:
+            case DamageTypesEnum.Flame:
                 
                 break;
-            case DamageTypesEnum.DamageTypes.Frost:
+            case DamageTypesEnum.Frost:
                 
                 break;
         }
     }
 
-    private IEnumerator DealDamagePerTick(StatusProjectileStats statusProjectileStats, DamageTypesEnum.DamageTypes damageType)
+    private IEnumerator DealDamagePerTick(StatusProjectileStats statusProjectileStats, DamageTypesEnum damageType)
     {
         for (int i = 0; i < statusProjectileStats.StatusTicksAmount; i++)
         {

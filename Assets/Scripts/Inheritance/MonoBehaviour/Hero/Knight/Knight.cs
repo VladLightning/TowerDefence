@@ -3,7 +3,7 @@ public class Knight : Hero
 {
     private IPassiveHeroSkillDeactivatable PassiveSkillDeactivatable => _passiveSkill as IPassiveHeroSkillDeactivatable;
 
-    public override void TakeDamage(int damage, DamageTypesEnum.DamageTypes damageType)
+    public override void TakeDamage(int damage, DamageTypesEnum damageType)
     {
         base.TakeDamage(damage, damageType);
         

@@ -54,13 +54,13 @@ public abstract class Hero : Mob
 
     protected virtual IEnumerator MoveHero(Vector2 targetPosition)
     {
-        ChangeState(MobStatesEnum.MobStates.Moving);
+        ChangeState(MobStatesEnum.Moving);
         while (Vector2.Distance(transform.position, targetPosition) > DISTANCE_THRESHOLD)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, _currentMovementSpeed * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
-        ChangeState(MobStatesEnum.MobStates.Idle);
+        ChangeState(MobStatesEnum.Idle);
         _heroDetectOpponent.SearchPotentialOpponent();
     }
     

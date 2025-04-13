@@ -4,8 +4,8 @@ public class FlameWave : MonoBehaviour, IDamageDealer
 {
     private int _damage;
     public int Damage => _damage;
-    private DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    private DamageTypesEnum _damageType;
+    public DamageTypesEnum DamageType => _damageType;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,7 +15,7 @@ public class FlameWave : MonoBehaviour, IDamageDealer
         }
     }
 
-    public void Initialize(float duration, float speed, int damage, DamageTypesEnum.DamageTypes damageType)
+    public void Initialize(float duration, float speed, int damage, DamageTypesEnum damageType)
     {
         _damage = damage;
         _damageType = damageType;

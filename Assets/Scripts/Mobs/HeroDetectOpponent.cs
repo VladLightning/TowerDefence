@@ -38,7 +38,7 @@ public class HeroDetectOpponent : MonoBehaviour
         }
         
         var potentialOpponent = mob.GetComponent<Mob>();
-        if (potentialOpponent.CurrentState == MobStatesEnum.MobStates.Fighting || _hero.CurrentState != MobStatesEnum.MobStates.Idle)
+        if (potentialOpponent.CurrentState == MobStatesEnum.Fighting || _hero.CurrentState != MobStatesEnum.Idle)
         {
             return;
         }
@@ -55,14 +55,14 @@ public class HeroDetectOpponent : MonoBehaviour
             return;
         }
         
-        if (_hero.CurrentState == MobStatesEnum.MobStates.Fighting)
+        if (_hero.CurrentState == MobStatesEnum.Fighting)
         {
-            _hero.ChangeState(MobStatesEnum.MobStates.Idle);
+            _hero.ChangeState(MobStatesEnum.Idle);
         }
         
         _hero.ExitCombat();
         
-        _opponent.ChangeState(MobStatesEnum.MobStates.Moving);
+        _opponent.ChangeState(MobStatesEnum.Moving);
         _opponent.ExitCombat();
 
         _opponent = null;

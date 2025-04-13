@@ -9,6 +9,6 @@ public class ResistanceSkillData : CooldownSkillData
     [SerializeField] private float _duration;
     public float Duration => _duration;
     
-    [SerializeField] private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _resistanceTypes;
-    public SerializedDictionary<DamageTypesEnum.DamageTypes, float> ResistanceTypes => _resistanceTypes;
+    [SerializeField] private SerializedDictionary<DamageTypesEnum, float> _resistanceTypes;
+    public SerializedDictionary<DamageTypesEnum, float> ResistanceTypes => _resistanceTypes;
 }

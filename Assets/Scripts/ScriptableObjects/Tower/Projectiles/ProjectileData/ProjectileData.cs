@@ -4,8 +4,8 @@ public abstract class ProjectileData : BranchLevelsUpgradeData
 {
     [SerializeField] private GameObject _projectilePrefab;
     public GameObject ProjectilePrefab => _projectilePrefab;
-    [SerializeField] private DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    [SerializeField] private DamageTypesEnum _damageType;
+    public DamageTypesEnum DamageType => _damageType;
 }
 
 [System.Serializable]

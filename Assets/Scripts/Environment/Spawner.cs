@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public static event Action<int> OnEarlyWaveStart;
     public static event Action<int> OnIncreaseEnemyAmount;
-    public static event Func<EnemiesEnum.EnemyTypes, Vector2, Enemy> OnSpawnEnemy;
+    public static event Func<EnemiesEnum, Vector2, Enemy> OnSpawnEnemy;
     
     [SerializeField] private Path _movementPath;
 

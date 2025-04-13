@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyFabric : MonoBehaviour
 {
     [SerializedDictionary("Enemies","Prefabs")]
-    [SerializeField] private SerializedDictionary<EnemiesEnum.EnemyTypes, GameObject> _enemies;
+    [SerializeField] private SerializedDictionary<EnemiesEnum, GameObject> _enemies;
 
     private void OnEnable()
     {
@@ -19,7 +19,7 @@ public class EnemyFabric : MonoBehaviour
         Slime.OnSpawnEnemy -= SpawnEnemy;
     }
 
-    private Enemy SpawnEnemy(EnemiesEnum.EnemyTypes enemyType, Vector2 spawnPoint)
+    private Enemy SpawnEnemy(EnemiesEnum enemyType, Vector2 spawnPoint)
     {
         if (_enemies.TryGetValue(enemyType, out var enemy))
         {

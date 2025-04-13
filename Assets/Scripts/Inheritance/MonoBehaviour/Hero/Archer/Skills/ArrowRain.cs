@@ -7,8 +7,8 @@ public class ArrowRain : MonoBehaviour, IDamageDealer
     private int _damage;
     public int Damage => _damage;
     
-    private DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    private DamageTypesEnum _damageType;
+    public DamageTypesEnum DamageType => _damageType;
     
     private float _radius;
 

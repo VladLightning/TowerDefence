@@ -14,7 +14,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
     
     private RangedHero _rangedHero;
     
-    private DamageTypesEnum.DamageTypes _currentAbsorbedType;
+    private DamageTypesEnum _currentAbsorbedType;
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
 
     public void Deactivate()
     {
-        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
+        if (_currentAbsorbedType == DamageTypesEnum.Physical)
         {
             return;
         }
@@ -44,7 +44,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
     
     private void ActivateResistanceIncrease()
     {
-        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
+        if (_currentAbsorbedType == DamageTypesEnum.Physical)
         {
             return;
         }
@@ -57,7 +57,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
     {
         AbsorbClosestTowerElement();
 
-        if (_currentAbsorbedType == DamageTypesEnum.DamageTypes.Physical)
+        if (_currentAbsorbedType == DamageTypesEnum.Physical)
         {
             return;
         }
@@ -75,7 +75,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         {
             _closestTower = null;
             Deactivate();
-            _currentAbsorbedType = DamageTypesEnum.DamageTypes.Physical;
+            _currentAbsorbedType = DamageTypesEnum.Physical;
             return;
         }
 
@@ -101,7 +101,7 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         
         Deactivate();
             
-        if (closestTower.DamageType == DamageTypesEnum.DamageTypes.Physical)
+        if (closestTower.DamageType == DamageTypesEnum.Physical)
         {
             return;
         }
@@ -112,12 +112,12 @@ public class ElementalAbsorption : MonoBehaviour, IPassiveHeroSkillDeactivatable
         ActivateResistanceIncrease();
     }
     
-    private void IncreaseResistance(DamageTypesEnum.DamageTypes damageType)
+    private void IncreaseResistance(DamageTypesEnum damageType)
     {
         _rangedHero.IncreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[damageType], damageType);
     }
 
-    private void DecreaseResistance(DamageTypesEnum.DamageTypes damageType)
+    private void DecreaseResistance(DamageTypesEnum damageType)
     {
         _rangedHero.DecreaseDamageResistance(_elementalAbsorptionData.ElementalResistancesCoefficients[damageType], damageType);
     }

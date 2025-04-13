@@ -1,7 +1,5 @@
 
-public class EnemiesEnum
-{
-    public enum EnemyTypes
+    public enum EnemiesEnum
     {
         Skeleton = 0,
         Slime = 1,
@@ -9,4 +7,4 @@ public class EnemiesEnum
         SlimeSmall = 3,
         ExplosivePumpkin = 4,
     }
-}
+
