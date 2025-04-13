@@ -8,9 +8,9 @@ public class Archer : RangedHero
     private Sprite _rangedWeapon;
     private Sprite _meleeWeapon;
     
-    private CombatStatesEnum.CombatStates _combatState;
+    private CombatStatesEnum _combatState;
     
-    protected override bool CanShoot => _combatState == CombatStatesEnum.CombatStates.Ranged && _currentState == MobStatesEnum.MobStates.Idle 
+    protected override bool CanShoot => _combatState == CombatStatesEnum.Ranged && _currentState == MobStatesEnum.Idle 
         && _rangedHeroDetectShootingTarget.TargetToShoot != null;
     private DefaultProjectileData DefaultProjectileData => _projectileData as DefaultProjectileData;
 
@@ -23,7 +23,7 @@ public class Archer : RangedHero
         
         _projectileData = archerData.ProjectileData;
         
-        _combatState = CombatStatesEnum.CombatStates.Ranged;
+        _combatState = CombatStatesEnum.Ranged;
 
         _rangedWeapon = archerData.RangedWeapon;
         _meleeWeapon = archerData.MeleeWeapon;
@@ -47,13 +47,13 @@ public class Archer : RangedHero
     
     private void SetMeleeCombatState()
     {
-        _combatState = CombatStatesEnum.CombatStates.Melee;
+        _combatState = CombatStatesEnum.Melee;
         _weaponRenderer.sprite = _meleeWeapon;
     }
 
     private void SetRangedCombatState()
     {
-        _combatState = CombatStatesEnum.CombatStates.Ranged;
+        _combatState = CombatStatesEnum.Ranged;
         _weaponRenderer.sprite = _rangedWeapon;
     }
 }

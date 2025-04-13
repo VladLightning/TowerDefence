@@ -27,8 +27,8 @@ public class Waves
 [System.Serializable]
 public class WaveInstanceData
 {
-    [SerializeField] private EnemiesEnum.EnemyTypes _enemyType;
-    public EnemiesEnum.EnemyTypes EnemyType => _enemyType;
+    [SerializeField] private EnemiesEnum _enemyType;
+    public EnemiesEnum EnemyType => _enemyType;
 
     [SerializeField] private int _spawnDelay;
     public int SpawnDelay => _spawnDelay;

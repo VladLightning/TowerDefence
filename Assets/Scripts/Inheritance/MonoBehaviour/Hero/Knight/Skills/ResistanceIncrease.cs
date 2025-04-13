@@ -7,7 +7,7 @@ public class ResistanceIncrease : MonoBehaviour, IActiveHeroSkill
 {
     [SerializeField] private ResistanceSkillData _resistanceSkillData;
     
-    private SerializedDictionary<DamageTypesEnum.DamageTypes, float> _resistanceTypes;
+    private SerializedDictionary<DamageTypesEnum, float> _resistanceTypes;
     
     private float _skillCooldown;
     private float _skillDuration;

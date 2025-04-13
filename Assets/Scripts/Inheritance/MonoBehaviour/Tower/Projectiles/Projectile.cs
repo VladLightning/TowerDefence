@@ -3,8 +3,8 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
 {
     private readonly float _lifeTime = 5;
 
-    protected DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    protected DamageTypesEnum _damageType;
+    public DamageTypesEnum DamageType => _damageType;
     private int _damage;
     public int Damage => _damage;
 
@@ -29,7 +29,7 @@ public abstract class Projectile : MonoBehaviour, IDamageDealer
         Destroy(gameObject, _lifeTime);
     }
 
-    public virtual void Initialize(ProjectileStats projectileStats, float damageCoefficient = 1, DamageTypesEnum.DamageTypes damageType = DamageTypesEnum.DamageTypes.Physical)
+    public virtual void Initialize(ProjectileStats projectileStats, float damageCoefficient = 1, DamageTypesEnum damageType = DamageTypesEnum.Physical)
     {
         _damageType = damageType;
         _damageCoefficient = damageCoefficient;

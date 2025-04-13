@@ -10,7 +10,7 @@ public class StatusProjectile : Projectile
         base.HitTarget(collision);
     }
     
-    public override void Initialize(ProjectileStats projectileStats, float damageCoefficient = 1, DamageTypesEnum.DamageTypes damageType = DamageTypesEnum.DamageTypes.Physical)
+    public override void Initialize(ProjectileStats projectileStats, float damageCoefficient = 1, DamageTypesEnum damageType = DamageTypesEnum.Physical)
     {
         var statusProjectileStats = projectileStats as StatusProjectileStats;
         _statusProjectileStats = statusProjectileStats;

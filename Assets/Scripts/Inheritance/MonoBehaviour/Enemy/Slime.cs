@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 public class Slime : Enemy
 {
     public static event Action<int> OnSplit;
-    public static event Func<EnemiesEnum.EnemyTypes, Vector2, Enemy> OnSpawnEnemy;
+    public static event Func<EnemiesEnum, Vector2, Enemy> OnSpawnEnemy;
 
     private readonly float _minimumSpawnOffset = -1;
     private readonly float _maximumSpawnOffset = 1;
 
-    private EnemiesEnum.EnemyTypes _enemyType;
+    private EnemiesEnum _enemyType;
     private int _clonesAmount;
 
     protected override void Initiate()

@@ -1,10 +1,7 @@
 
-public class CombatStatesEnum
-{
-
-    public enum CombatStates
+    public enum CombatStatesEnum
     {
         Melee = 0,
         Ranged = 1,
     }
-}
+

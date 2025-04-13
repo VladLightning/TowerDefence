@@ -28,7 +28,7 @@ public class ExplosivePumpkin : Enemy
         _layerMask = explosivePumpkinData.LayerMask;
     }
     
-    public override void TakeDamage(int damage, DamageTypesEnum.DamageTypes damageType)
+    public override void TakeDamage(int damage, DamageTypesEnum damageType)
     {
         _totalDamageNegated += damage;
         _currentHitsAbsorbedAmount++;

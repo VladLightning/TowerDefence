@@ -16,7 +16,7 @@ public abstract class RangedHero : Hero
     }
 
     protected virtual bool CanShoot => _rangedHeroDetectShootingTarget.TargetToShoot != null && 
-                                       _currentState is MobStatesEnum.MobStates.Idle or MobStatesEnum.MobStates.Fighting;
+                                       _currentState is MobStatesEnum.Idle or MobStatesEnum.Fighting;
     
     protected abstract ProjectileStats GetProjectileStats { get; }
     

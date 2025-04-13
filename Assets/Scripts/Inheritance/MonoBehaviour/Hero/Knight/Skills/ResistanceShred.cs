@@ -5,7 +5,7 @@ public class ResistanceShred : MonoBehaviour, IPassiveHeroSkillDeactivatable
 {
     [SerializeField] private ResistanceShredSkillData _resistanceShredSkillData;
     
-    private DamageTypesEnum.DamageTypes _resistanceShredType;
+    private DamageTypesEnum _resistanceShredType;
     private float _resistanceShredCoefficient;
     
     private Hero _hero;

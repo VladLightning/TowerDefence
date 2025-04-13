@@ -7,11 +7,11 @@ public class CastleCannonShotProjectile : MonoBehaviour, IProjectile, IDamageDea
     private float _explosionRadius;
     private int _explosionExplosionDamage;
     public int Damage => _explosionExplosionDamage;
-    private DamageTypesEnum.DamageTypes _damageType;
+    private DamageTypesEnum _damageType;
     
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    public DamageTypesEnum DamageType => _damageType;
 
-    public void SetProjectileStats(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage, DamageTypesEnum.DamageTypes damageType)
+    public void SetProjectileStats(LayerMask mask, float explosionForce, float explosionRadius, int explosionDamage, DamageTypesEnum damageType)
     {
         _mask = mask;
         _explosionForce = explosionForce;

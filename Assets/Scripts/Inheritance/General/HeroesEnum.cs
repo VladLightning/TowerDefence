@@ -1,10 +1,7 @@
 
-public class HerosEnum 
-{
-    public enum HeroTypes
+    public enum HeroesEnum
     {
         Knight = 0,
         Archer = 1,
         Mage = 2,
     }
-}

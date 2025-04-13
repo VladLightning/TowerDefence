@@ -10,9 +10,9 @@ public abstract class MobData : EntityData
     [SerializeField] protected int _damage;
     public int Damage => _damage;
     
-    [SerializeField] protected DamageTypesEnum.DamageTypes _damageType;
-    public DamageTypesEnum.DamageTypes DamageType => _damageType;
+    [SerializeField] protected DamageTypesEnum _damageType;
+    public DamageTypesEnum DamageType => _damageType;
 
-    [SerializeField] protected SerializedDictionary<DamageTypesEnum.DamageTypes, float> _resistances;
-    public SerializedDictionary<DamageTypesEnum.DamageTypes, float> Resistances => _resistances;
+    [SerializeField] protected SerializedDictionary<DamageTypesEnum, float> _resistances;
+    public SerializedDictionary<DamageTypesEnum, float> Resistances => _resistances;
 }
