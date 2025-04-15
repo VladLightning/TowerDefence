@@ -27,6 +27,7 @@ MonoBehaviour:
       Value: 0
     - Key: 3
       Value: 0
+  _selfEnemyType: 4
   _damageToPlayer: 2
   _moneyOnDeath: 200
   _takeDamageChance: 0.05

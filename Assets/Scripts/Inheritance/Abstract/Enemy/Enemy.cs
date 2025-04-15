@@ -7,9 +7,11 @@ public abstract class Enemy : Mob
     public static event Action OnDecreaseEnemyAmount;
     public static event Action<int> OnDealDamageToPlayer;
     public static event Action<int> OnDeath;
+
+    public static event Action<EnemiesEnum> OnDeathCount;
     
     private const float DISTANCE_THRESHOLD = 0.1f;
-
+    
     private Transform _currentPoint;
     private Path _path;
     protected Path Path => _path;
@@ -17,6 +19,7 @@ public abstract class Enemy : Mob
     protected int _currentPointIndex;
     public int CurrentPointIndex { set => _currentPointIndex = value; }
 
+    private EnemiesEnum _enemyType;
     private int _damageToPlayer;
     private int _moneyOnDeath;
 
@@ -30,7 +33,8 @@ public abstract class Enemy : Mob
         base.Initiate();
 
         var enemyData = _entityData as EnemyData;
-        
+
+        _enemyType = enemyData.SelfEnemyType;
         _damageToPlayer = enemyData.DamageToPlayer;
         _moneyOnDeath = enemyData.MoneyOnDeath;
     }
@@ -99,6 +103,7 @@ public abstract class Enemy : Mob
     {
         base.Death();
 
+        OnDeathCount?.Invoke(_enemyType);
         OnDeath?.Invoke(_moneyOnDeath);
         DestroyEnemy();
     }

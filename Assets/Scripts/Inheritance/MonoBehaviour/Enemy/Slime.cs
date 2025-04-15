@@ -11,7 +11,7 @@ public class Slime : Enemy
     private readonly float _minimumSpawnOffset = -1;
     private readonly float _maximumSpawnOffset = 1;
 
-    private EnemiesEnum _enemyType;
+    private EnemiesEnum _enemyTypeToSpawn;
     private int _clonesAmount;
 
     protected override void Initiate()
@@ -20,7 +20,7 @@ public class Slime : Enemy
         
         var slimeData = _entityData as SlimeData;
 
-        _enemyType = slimeData.EnemyType;
+        _enemyTypeToSpawn = slimeData.EnemyTypeToSpawn;
         _clonesAmount = slimeData.ClonesAmount;
     }
     
@@ -35,7 +35,7 @@ public class Slime : Enemy
         OnSplit?.Invoke(_clonesAmount);
         for (int i = 0; i < _clonesAmount; i++)
         {
-            var clone = OnSpawnEnemy?.Invoke(_enemyType, transform.position + 
+            var clone = OnSpawnEnemy?.Invoke(_enemyTypeToSpawn, transform.position + 
                                                          new Vector3(Random.Range(_minimumSpawnOffset, _maximumSpawnOffset), Random.Range(_minimumSpawnOffset, _maximumSpawnOffset)));
             clone.Initiate(Path);
             clone.GetComponent<Enemy>().CurrentPointIndex = _currentPointIndex;
