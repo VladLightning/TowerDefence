@@ -5,8 +5,9 @@ using UnityEngine;
 public class GlossaryPagePresenter : MonoBehaviour
 {
     public static event Func<GlossaryPageEnum, GlossaryItemData[]> OnGlossaryPageChanged;
-    
-    [SerializeField] GlossaryPageInfoDisplayView _glossaryPageInfoDisplayView;
+
+    [SerializeField] private GlossaryEnemyDeathCounterPresenter _glossaryEnemyDeathCounterPresenter;
+    [SerializeField] private GlossaryPageInfoDisplayView _glossaryPageInfoDisplayView;
     
     private GlossaryPageInfoDisplayView[] _callGlossaryInfoDisplays;
 
@@ -27,6 +28,13 @@ public class GlossaryPagePresenter : MonoBehaviour
     
     private void SelectPage(GlossaryPageEnum pageType)
     {
+        if (pageType == GlossaryPageEnum.Enemies)
+        {
+            _glossaryEnemyDeathCounterPresenter.UpdateDisplay(0);
+        }
+
+        _glossaryEnemyDeathCounterPresenter.DisplaySetActive(pageType == GlossaryPageEnum.Enemies);
+        
         var pageData = OnGlossaryPageChanged?.Invoke(pageType);
         _glossaryPageInfoDisplayView.DisplayPage(pageData);
     }
