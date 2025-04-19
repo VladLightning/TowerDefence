@@ -497,17 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &491451999 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7047148750780683294, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
-  m_PrefabInstance: {fileID: 5709205984401829944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fbdfe748df2cdb4d8dcaf5a7b9ead32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &500345504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3002392124462267697, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
@@ -776,6 +765,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &627729254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5724484384653822268, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &667244955 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5316060856171040839, guid: 823c82f47c521af4e9608f8830ea8a1a, type: 3}
@@ -1841,6 +1835,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2786945217103106922, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
   m_PrefabInstance: {fileID: 2134396582659087439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1574088454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2965620555716105008, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1628315056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2477,6 +2476,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6f4d62d9-54de-4ce0-8363-5d0324bc597d
     m_ActionName: 'Player/Glossary[/Keyboard/g]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1947299104}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnEscape
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c62675f5-a055-45f6-9896-fba0bd86eeea
+    m_ActionName: 'Player/Escape[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2494,8 +2509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f48c152762b4564abef7c5c5178127a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windowPresenter: {fileID: 5709205984401829946}
   _mouseInput: {fileID: 1947299100}
-  _menu: {fileID: 491451999}
+  _menu: {fileID: 1574088454}
+  _glossary: {fileID: 627729254}
 --- !u!1 &1949306183
 GameObject:
   m_ObjectHideFlags: 0
@@ -10705,6 +10722,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6521663963747884084, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
   m_PrefabInstance: {fileID: 5709205984401829944}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5709205984401829946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3007332590592509022, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e29b87fcaae1a4588837d615d93050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5709205984401829952 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6187353863139529067, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
