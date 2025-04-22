@@ -96,7 +96,7 @@ public class PlayerInputHandler : MonoBehaviour
             }
             else
             {
-                OnOpenWindow?.Invoke(_menu);
+                _windowPresenter.AddWindow(_menu);
             }
         }
     }
