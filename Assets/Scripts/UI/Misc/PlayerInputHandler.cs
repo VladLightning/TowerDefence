@@ -1,13 +1,13 @@
-using System;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public static event Action OnOpenGlossary;
-    
+    [SerializeField] private WindowPresenter _windowPresenter;
     [SerializeField] private MouseInput _mouseInput;
-    [SerializeField] private Menu _menu;
+    [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _glossary;
 
     private Ability[] _heroAbilities = new Ability[3];
 
@@ -41,14 +41,6 @@ public class PlayerInputHandler : MonoBehaviour
                 return;
             }
             _mouseInput.MouseInputHandler();
-        }
-    }
-
-    public void OnOpenMenu(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            _menu.Open();
         }
     }
 
@@ -88,7 +80,22 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            OnOpenGlossary?.Invoke();
+            _windowPresenter.AddWindow(_glossary);
+        }
+    }
+
+    public void OnEscape(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (_windowPresenter.IsWindowOpen)
+            {
+                _windowPresenter.RemoveWindow();
+            }
+            else
+            {
+                _windowPresenter.AddWindow(_menu);
+            }
         }
     }
 
