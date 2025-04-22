@@ -7,17 +7,7 @@ public class WindowPresenter : MonoBehaviour
     private List<GameObject> _windowList = new List<GameObject>();
     
     public bool IsWindowOpen => _windowList.Count > 0;
-
-    private void OnEnable()
-    {
-        PlayerInputHandler.OnOpenWindow += AddWindow;
-    }
-
-    private void OnDisable()
-    {
-        PlayerInputHandler.OnOpenWindow -= AddWindow;
-    }
-
+    
     public void AddWindow(GameObject window)
     {
         if (_windowList.Contains(window))

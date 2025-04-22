@@ -1,11 +1,9 @@
-using System;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public static event Action<GameObject> OnOpenWindow;
-    
     [SerializeField] private WindowPresenter _windowPresenter;
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private GameObject _menu;
@@ -82,7 +80,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            OnOpenWindow?.Invoke(_glossary);
+            _windowPresenter.AddWindow(_glossary);
         }
     }
 
