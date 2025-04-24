@@ -80,7 +80,14 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            _windowPresenter.AddWindow(_glossary);
+            if (_glossary.activeSelf)
+            {
+                _windowPresenter.RemoveWindow(_glossary);
+            }
+            else
+            {
+                _windowPresenter.AddWindow(_glossary);
+            }
         }
     }
 
