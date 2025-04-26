@@ -6,6 +6,9 @@ public class Victory : MonoBehaviour
     private readonly float _winPanelActivationDelay = 3;
     
     [SerializeField] private GameObject _winPanel;
+    
+    [SerializeField] private GlossaryEnemyDeathCounterModel _glossaryDeathCounterModel;
+    
     private int _enemiesToDefeat;
 
     private void OnEnable()
@@ -29,6 +32,7 @@ public class Victory : MonoBehaviour
         AudioCaller.PlayAudio(AudioEnum.Victory);
         yield return new WaitForSeconds(_winPanelActivationDelay);
         _winPanel.SetActive(true);
+        Save.SaveEnemiesDeathCounts(_glossaryDeathCounterModel.EnemyDeathCounter);
     }
 
     private void IncreaseEnemiesAmount(int amount)

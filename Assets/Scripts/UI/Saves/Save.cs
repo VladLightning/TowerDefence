@@ -1,16 +1,38 @@
-
 using System.IO;
+using AYellowpaper.SerializedCollections;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public static class Save
 {
     private static readonly string _savePath = Application.persistentDataPath + "/Saves.json";
     private static SavesData _savesData;
-
-    public static void SaveGame()
+    
+    public static void SaveHero(int index)
     {
-        _savesData.SavedHeroIndex = 1;
-        string json = JsonUtility.ToJson(_savesData);
+        _savesData.SavedHeroIndex = index;
+        SaveGame();
+    }
+
+    public static int GetSavedHeroIndex()
+    {
+        return _savesData.SavedHeroIndex;
+    }
+
+    public static void SaveEnemiesDeathCounts(SerializedDictionary<EnemiesEnum, int> deathCounts)
+    {
+        _savesData.SavedDeathCounts = deathCounts;
+        SaveGame();
+    }
+
+    public static SerializedDictionary<EnemiesEnum, int> GetSavedDeathCounts()
+    {
+        return _savesData.SavedDeathCounts;
+    }
+    
+    private static void SaveGame()
+    {
+        string json = JsonConvert.SerializeObject(_savesData, Formatting.Indented);
         File.WriteAllText(_savePath, json);
     }
 
@@ -19,18 +41,14 @@ public static class Save
         if (File.Exists(_savePath))
         {
             string json = File.ReadAllText(_savePath);
-            _savesData = JsonUtility.FromJson<SavesData>(json);
-            Debug.Log(_savesData.SavedHeroIndex);
+            _savesData = JsonConvert.DeserializeObject<SavesData>(json);
         }
     }
     
-    public static void SaveHero(int index)
+    private struct SavesData
     {
-        _savesData.SavedHeroIndex = index;
+        public int SavedHeroIndex;
+        
+        public SerializedDictionary<EnemiesEnum, int> SavedDeathCounts;
     }
-}
-
-public struct SavesData
-{
-    public int SavedHeroIndex;
 }

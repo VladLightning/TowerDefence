@@ -5,6 +5,12 @@ using UnityEngine;
 public class GlossaryEnemyDeathCounterModel : MonoBehaviour
 {
     [SerializeField] private SerializedDictionary<EnemiesEnum, int> _enemyDeathCounter;
+    public SerializedDictionary<EnemiesEnum, int> EnemyDeathCounter => _enemyDeathCounter;
+
+    private void Start()
+    {
+        _enemyDeathCounter = Save.GetSavedDeathCounts();
+    }
 
     private void Awake()
     {
