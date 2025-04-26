@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Victory : MonoBehaviour
 {
     private readonly float _winPanelActivationDelay = 3;
+
+    public static event Action OnVictory;
     
     [SerializeField] private GameObject _winPanel;
     
@@ -32,7 +35,7 @@ public class Victory : MonoBehaviour
         AudioCaller.PlayAudio(AudioEnum.Victory);
         yield return new WaitForSeconds(_winPanelActivationDelay);
         _winPanel.SetActive(true);
-        Save.SaveEnemiesDeathCounts(_glossaryDeathCounterModel.EnemyDeathCounter);
+        OnVictory?.Invoke();
     }
 
     private void IncreaseEnemiesAmount(int amount)
