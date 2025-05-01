@@ -10,8 +10,6 @@ public class Victory : MonoBehaviour
     
     [SerializeField] private GameObject _winPanel;
     
-    [SerializeField] private GlossaryEnemyDeathCounterModel _glossaryDeathCounterModel;
-    
     private int _enemiesToDefeat;
 
     private void OnEnable()
