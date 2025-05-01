@@ -18,7 +18,7 @@ public class HeroSpawner : MonoBehaviour
     
     private void SpawnHero()
     {
-        int index = PlayerPrefs.GetInt(Saves.HERO_SELECTED_INDEX);
+        int index = Save.GetSavedHeroIndex();
         var hero = Instantiate(_herosToSpawn[index], _spawnPoint.position, _spawnPoint.rotation);
         
         var abilities = new Ability[_abilityDisplays.Length];

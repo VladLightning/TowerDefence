@@ -284,6 +284,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4488924850132901547, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
   m_PrefabInstance: {fileID: 215578639}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &298711695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2555904848776440882, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
+  m_PrefabInstance: {fileID: 5709205984401829944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aecf8ac2e0700b42b7a6621d3942211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &301780969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2339,6 +2350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _winPanel: {fileID: 5709205984401829945}
+  _glossaryDeathCounterModel: {fileID: 298711695}
 --- !u!114 &1947299103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2380,22 +2392,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 09717465-0f90-4e1f-8541-ea29c2330232
     m_ActionName: 'Player/MouseInput[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1947299104}
-        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnOpenMenu
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: d29dcbeb-bcf9-4ff7-b3c1-75734ebe7fcc
-    m_ActionName: 'Player/OpenMenu[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1947299104}
@@ -2513,6 +2509,18 @@ MonoBehaviour:
   _mouseInput: {fileID: 1947299100}
   _menu: {fileID: 1574088454}
   _glossary: {fileID: 627729254}
+--- !u!114 &1947299105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558988512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c278c8e77dae2f6488223e001d1afff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1949306183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,6 +3084,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2786945217103106922, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1947299104}
+    - targetCorrespondingSourceObject: {fileID: 2786945217103106922, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1947299105}
   m_SourcePrefab: {fileID: 100100000, guid: 3393d4cf735c6e74eb4eac74fd43c73d, type: 3}
 --- !u!1001 &3047901630519423246
 PrefabInstance:

@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Victory : MonoBehaviour
 {
     private readonly float _winPanelActivationDelay = 3;
+
+    public static event Action OnVictory;
     
     [SerializeField] private GameObject _winPanel;
+    
     private int _enemiesToDefeat;
 
     private void OnEnable()
@@ -29,6 +33,7 @@ public class Victory : MonoBehaviour
         AudioCaller.PlayAudio(AudioEnum.Victory);
         yield return new WaitForSeconds(_winPanelActivationDelay);
         _winPanel.SetActive(true);
+        OnVictory?.Invoke();
     }
 
     private void IncreaseEnemiesAmount(int amount)

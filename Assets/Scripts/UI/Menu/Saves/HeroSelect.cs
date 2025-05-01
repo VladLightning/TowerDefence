@@ -20,6 +20,6 @@ public class HeroSelect : MonoBehaviour
 
     public void OnClick()
     {
-        PlayerPrefs.SetInt(Saves.HERO_SELECTED_INDEX, _heroIndex);
+        Save.SaveHero(_heroIndex);
     }
 }
