@@ -59,6 +59,8 @@ public class BranchUpgradesHandler : MonoBehaviour
         {
             _upgradeButtons[upgradeIndex].interactable = false;
         }
+        
+        UpgradeButtonIsAvailable();
     }
 
     public string GetUpgradeDescription(int upgradeIndex)
