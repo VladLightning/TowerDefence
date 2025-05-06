@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63a5b9e360bbae4bb5ab224a1789cd3, type: 3}
   m_Name: LevelData1
   m_EditorClassIdentifier: 
-  _startMoney: 10000
+  _startMoney: 20000

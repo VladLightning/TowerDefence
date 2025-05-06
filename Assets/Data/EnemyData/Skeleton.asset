@@ -22,10 +22,13 @@ MonoBehaviour:
     - Key: 0
       Value: 0
     - Key: 1
-      Value: 0.5
+      Value: 0
     - Key: 2
-      Value: 0.5
+      Value: 0
     - Key: 3
-      Value: 0.3
+      Value: 0
+  _selfEnemyType: 0
   _damageToPlayer: 1
   _moneyOnDeath: 20
+  _minResistanceCoefficient: -0.15
+  _resistanceCoefficientChangeFactor: 0.05
