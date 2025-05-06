@@ -7,6 +7,7 @@ public class StatusEffects : MonoBehaviour
     private Mob _mob;
     [SerializedDictionary("Effect", "Stack")]
     [SerializeField] private SerializedDictionary<DamageTypesEnum, int> _statusEffects = new SerializedDictionary<DamageTypesEnum, int>();
+    public SerializedDictionary<DamageTypesEnum, int> StatusEffectsDictionary => _statusEffects;
     
     private void Start()
     {
@@ -21,16 +22,6 @@ public class StatusEffects : MonoBehaviour
         }
         
         StartCoroutine(DealDamagePerTick(statusProjectileStats, damageType));
-        
-        switch (damageType)
-        {
-            case DamageTypesEnum.Flame:
-                
-                break;
-            case DamageTypesEnum.Frost:
-                
-                break;
-        }
     }
 
     private IEnumerator DealDamagePerTick(StatusProjectileStats statusProjectileStats, DamageTypesEnum damageType)

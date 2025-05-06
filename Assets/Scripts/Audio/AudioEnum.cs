@@ -11,6 +11,8 @@ public enum AudioEnum
     SlimeDeath = 103,
     ExplosivePumpkinTakeDamage = 104,
     ExplosivePumpkinDeath = 105,
+    ElementalSlimeTakeDamage = 106,
+    ElementalSlimeDeath = 107,
         
     HeroHeal = 200,
     KnightTakeDamage = 201,

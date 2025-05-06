@@ -284,17 +284,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4488924850132901547, guid: 2679bf1d7644b0b47997b9bf83ddfd7c, type: 3}
   m_PrefabInstance: {fileID: 215578639}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &298711695 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2555904848776440882, guid: e6ba38d35e486a04a83ee6059246491e, type: 3}
-  m_PrefabInstance: {fileID: 5709205984401829944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aecf8ac2e0700b42b7a6621d3942211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &301780969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1652,6 +1641,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
     - Key: 105
       Value: {fileID: 8300000, guid: d1698dd553af8ef4d887bc83b9687173, type: 3}
+    - Key: 106
+      Value: {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+    - Key: 107
+      Value: {fileID: 8300000, guid: d1698dd553af8ef4d887bc83b9687173, type: 3}
   _audioSourcePrefab: {fileID: 4106993181873695167, guid: c59ba315dff0d264e9939069e249ec54, type: 3}
 --- !u!224 &1412055798 stripped
 RectTransform:
@@ -2350,7 +2343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _winPanel: {fileID: 5709205984401829945}
-  _glossaryDeathCounterModel: {fileID: 298711695}
 --- !u!114 &1947299103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2746,6 +2738,12 @@ MonoBehaviour:
       Value: {fileID: 2480049985872327661, guid: 75e756c10c84d2943a2217c27a23a38e, type: 3}
     - Key: 4
       Value: {fileID: 2142956911048080823, guid: f74b13af75c04304db295dae21ad4f27, type: 3}
+    - Key: 5
+      Value: {fileID: 6634243053838629160, guid: 2ce30e3d7ca11f849932852e602e6e9a, type: 3}
+    - Key: 6
+      Value: {fileID: 6634243053838629160, guid: 6e228ca7624c949479bc6b70f0d3439c, type: 3}
+    - Key: 7
+      Value: {fileID: 6634243053838629160, guid: e2f580ab799773e42b65d54a85b7179f, type: 3}
 --- !u!4 &192062148529831533
 Transform:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public abstract class Mob : Entity, IDamageDealer
     public int CurrentHealth => _currentHealth;
     private float _defaultMovementSpeed;
     protected float _currentMovementSpeed;
+    
 
     private SerializedDictionary<DamageTypesEnum, float> _defaultDamageResistances;
 
