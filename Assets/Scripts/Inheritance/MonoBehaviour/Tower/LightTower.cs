@@ -1,4 +1,4 @@
-public class Cannon : Tower
+public class LightTower : Tower
 {
 
 }
