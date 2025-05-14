@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Tower : Entity
 {
-    public const float DELAY_FOR_ROTATION = 0.2f;
+    public const float DELAY_FOR_ROTATION = 0.3f;
     private const float SELL_PRICE_COEFFICIENT = 0.5f;
     
     [SerializeField] private Transform _projectileLaunchPoint;
