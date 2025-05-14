@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    private readonly int _audioSourcesCount = 10;
+    private readonly int _audioSourcesCount = 5;
     
     [SerializeField] private SerializedDictionary<AudioEnum, AudioClip> _audioClips;
     [SerializeField] private GameObject _audioSourcePrefab;
@@ -37,7 +37,6 @@ public class AudioPlayer : MonoBehaviour
         
         if (audioSource == null)
         {
-            Debug.LogError("All audio sources are busy");
             return;
         }
 
