@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
+    [SerializeField] private Camera _mainCamera;
     [SerializeField] private PlayerMoney _playerMoney;
     [SerializeField] private GameObject[] _towers;
     
@@ -22,6 +23,7 @@ public class TowerManager : MonoBehaviour
 
     private void SetBuildPosition(Transform buildPosition)
     {
+        transform.position = _mainCamera.WorldToScreenPoint(buildPosition.position);
         _panel.SetActive(true);
         _buildSiteTransform = buildPosition;
     }
