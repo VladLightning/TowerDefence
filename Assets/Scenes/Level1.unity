@@ -2744,6 +2744,8 @@ MonoBehaviour:
       Value: {fileID: 6634243053838629160, guid: 6e228ca7624c949479bc6b70f0d3439c, type: 3}
     - Key: 7
       Value: {fileID: 6634243053838629160, guid: e2f580ab799773e42b65d54a85b7179f, type: 3}
+    - Key: 8
+      Value: {fileID: 6634243053838629160, guid: 717e9aeb56b386a468c864a655e66c7a, type: 3}
 --- !u!4 &192062148529831533
 Transform:
   m_ObjectHideFlags: 0

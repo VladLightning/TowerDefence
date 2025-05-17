@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e23557b102e194d8484071b8bdc802, type: 3}
+  m_Name: VoidBranch
+  m_EditorClassIdentifier: 
+  _attackDelay: 7
+  _projectileData: {fileID: 11400000, guid: a85b262b304fa9442a9d1419e0b5be95, type: 2}
+  _towerLevels:
+  - _attackDelay: 7
+    _range: 20
+    _price: 2000
+    _rotationSpeed: 10
+  _towerSprite: {fileID: -1588531627675746405, guid: bc9c967b7c743be40b0dc307946d9e96, type: 3}
+  _branchUpgradesData:
+  - {fileID: 11400000, guid: 366b648bbe4499c42ab42da13e3e9c09, type: 2}
+  - {fileID: 11400000, guid: 366b648bbe4499c42ab42da13e3e9c09, type: 2}
+  - {fileID: 11400000, guid: 366b648bbe4499c42ab42da13e3e9c09, type: 2}

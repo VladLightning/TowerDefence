@@ -87,8 +87,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _towerBranchData:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 00e0151f1e43b4040a31da9e0dea0c3d, type: 2}
+  - {fileID: 11400000, guid: 0d67f3e89a207d04d9c387e5691def23, type: 2}
 --- !u!4 &3219662297441491549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6774655956891185290, guid: 0ec3d544f098ccc4d8e96b1142ad11a6, type: 3}

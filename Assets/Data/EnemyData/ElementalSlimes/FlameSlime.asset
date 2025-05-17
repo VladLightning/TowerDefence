@@ -27,7 +27,9 @@ MonoBehaviour:
       Value: -0.5
     - Key: 3
       Value: -0.1
-  _selfEnemyType: 0
+    - Key: 4
+      Value: -0.15
+  _selfEnemyType: 5
   _damageToPlayer: 2
   _moneyOnDeath: 400
   _explosionRadius: 5

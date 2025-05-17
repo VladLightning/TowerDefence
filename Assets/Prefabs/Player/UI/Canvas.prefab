@@ -1115,6 +1115,14 @@ MonoBehaviour:
       Value: 0
     - Key: 4
       Value: 0
+    - Key: 5
+      Value: 0
+    - Key: 6
+      Value: 0
+    - Key: 7
+      Value: 0
+    - Key: 8
+      Value: 0
 --- !u!1 &2785836748626464777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,6 +2213,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fdf6eedb257005b4a83cde8f0a013a9c, type: 2}
   - {fileID: 11400000, guid: 8607be3909274ed418ebdce6e05a700c, type: 2}
   - {fileID: 11400000, guid: 0c167a1d1a7710243af9e89b826d73f6, type: 2}
+  - {fileID: 11400000, guid: 06e60c648eddcf240aeac8c776e55657, type: 2}
+  - {fileID: 11400000, guid: f4e1dcecdcd22474d8a3c815f2081d27, type: 2}
+  - {fileID: 11400000, guid: bb0a41a38c7d2564eb36ababaafcd148, type: 2}
+  - {fileID: 11400000, guid: b1018081ec8961c4fa19126532a22c46, type: 2}
 --- !u!114 &1908327440760224243
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,5 +5,6 @@
         Flame = 1,
         Frost = 2,
         Void = 3,
+        Wind = 4,
     }
 
