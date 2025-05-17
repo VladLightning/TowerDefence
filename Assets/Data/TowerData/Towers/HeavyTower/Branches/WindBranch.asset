@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e23557b102e194d8484071b8bdc802, type: 3}
+  m_Name: WindBranch
+  m_EditorClassIdentifier: 
+  _attackDelay: 7
+  _projectileData: {fileID: 11400000, guid: 688dd3d79b2abc8438ad5e48e9abef02, type: 2}
+  _towerLevels:
+  - _attackDelay: 7
+    _range: 20
+    _price: 2000
+    _rotationSpeed: 10
+  _towerSprite: {fileID: 2559202649380206903, guid: 4cda481036515c345a2fc978b595ad83, type: 3}
+  _branchUpgradesData:
+  - {fileID: 11400000, guid: d59af3b7bc81f404683024db07486e1a, type: 2}
+  - {fileID: 11400000, guid: d59af3b7bc81f404683024db07486e1a, type: 2}
+  - {fileID: 11400000, guid: d59af3b7bc81f404683024db07486e1a, type: 2}

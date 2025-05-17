@@ -27,13 +27,15 @@ MonoBehaviour:
       Value: 0
     - Key: 3
       Value: 0
+    - Key: 4
+      Value: 0
   _selfEnemyType: 4
   _damageToPlayer: 2
   _moneyOnDeath: 200
-  _takeDamageChance: 0.05
   _explosionRadius: 5
   _explosionForce: 1000
-  _guaranteedDamageHit: 5
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+  _takeDamageChance: 0.05
+  _guaranteedDamageHit: 5

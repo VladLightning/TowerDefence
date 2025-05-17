@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edbf6afcbfec7e4496e4f29f786e272, type: 3}
+  m_Name: VoidProjectileData
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 9191988376229627051, guid: db9166e8b16c85c46bb3992ed4131583, type: 3}
+  _damageType: 3
+  _statusProjectileStats:
+  - _damage: 110
+    _force: 5000
+    _statusDamage: 45
+    _statusTicksAmount: 4
+    _statusTickInterval: 3.5
+  - _damage: 125
+    _force: 5000
+    _statusDamage: 48
+    _statusTicksAmount: 5
+    _statusTickInterval: 3.35
+  - _damage: 135
+    _force: 5000
+    _statusDamage: 51
+    _statusTicksAmount: 6
+    _statusTickInterval: 3.15
+  - _damage: 150
+    _force: 5000
+    _statusDamage: 55
+    _statusTicksAmount: 7
+    _statusTickInterval: 2.85

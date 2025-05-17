@@ -15,11 +15,13 @@ MonoBehaviour:
   _elementalProjectiles:
     _serializedList:
     - Key: 3
-      Value: {fileID: 9191988376229627051, guid: 41c531e44f2f9a54f983c6309c50b865, type: 3}
+      Value: {fileID: 9191988376229627051, guid: db9166e8b16c85c46bb3992ed4131583, type: 3}
     - Key: 1
       Value: {fileID: 1991686150869806126, guid: 1820011084a03d749b550c0af6f69a40, type: 3}
     - Key: 2
       Value: {fileID: 6459274223014868735, guid: 3d4f0395b067a3a48a5d832fbb5001b9, type: 3}
+    - Key: 4
+      Value: {fileID: 9191988376229627051, guid: 998b6ff7bc8999946a044c9321ad5731, type: 3}
   _projectilesStats:
     _serializedList:
     - Key: 3
@@ -43,6 +45,13 @@ MonoBehaviour:
         _statusDamage: 7
         _statusTicksAmount: 3
         _statusTickInterval: 5
+    - Key: 4
+      Value:
+        _damage: 20
+        _force: 2000
+        _statusDamage: 15
+        _statusTicksAmount: 10
+        _statusTickInterval: 0.5
   _elementalResistancesCoefficients:
     _serializedList:
     - Key: 3
@@ -50,6 +59,8 @@ MonoBehaviour:
     - Key: 1
       Value: 0.25
     - Key: 2
+      Value: 0.25
+    - Key: 4
       Value: 0.25
   _layerMask:
     serializedVersion: 2

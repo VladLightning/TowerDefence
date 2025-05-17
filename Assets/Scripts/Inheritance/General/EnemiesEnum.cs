@@ -10,5 +10,6 @@
         FlameSlime = 5,
         FrostSlime = 6,
         VoidSlime = 7,
+        WindSlime = 8,
     }
 

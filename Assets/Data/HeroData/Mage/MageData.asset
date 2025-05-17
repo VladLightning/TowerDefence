@@ -27,6 +27,8 @@ MonoBehaviour:
       Value: 0.35
     - Key: 3
       Value: 0.5
+    - Key: 4
+      Value: 0.5
   _respawnTime: 20
   _regenerationDelay: 8
   _regenerationInterval: 3

@@ -18,4 +18,8 @@ public enum GlossaryEnum
     SlimeMedium = 302,
     SlimeSmall = 303,
     ExplosivePumpkin = 304,
+    FlameSlime = 305,
+    FrostSlime = 306,
+    VoidSlime = 307,
+    WindSlime = 308,
 }
