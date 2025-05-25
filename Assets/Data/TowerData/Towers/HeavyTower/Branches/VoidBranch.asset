@@ -22,5 +22,5 @@ MonoBehaviour:
   _towerSprite: {fileID: -1588531627675746405, guid: bc9c967b7c743be40b0dc307946d9e96, type: 3}
   _branchUpgradesData:
   - {fileID: 11400000, guid: 366b648bbe4499c42ab42da13e3e9c09, type: 2}
-  - {fileID: 11400000, guid: 366b648bbe4499c42ab42da13e3e9c09, type: 2}
+  - {fileID: 11400000, guid: 0604001a6d0ea8d4a8ac54a1a4e0e66d, type: 2}
   - {fileID: 11400000, guid: 366b648bbe4499c42ab42da13e3e9c09, type: 2}

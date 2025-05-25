@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FrostTowerBuffData
   m_EditorClassIdentifier: 
   _frostTowerBuffLevels:
-  - _damageCoefficientBuff: 1.1
-    _attackDelayCoefficientBuff: 1.05
-  - _damageCoefficientBuff: 1.25
-    _attackDelayCoefficientBuff: 1.15
-  - _damageCoefficientBuff: 1.5
-    _attackDelayCoefficientBuff: 1.2
+  - _damageCoefficientBuff: 1.015
+    _attackDelayCoefficientBuff: 1.01
+  - _damageCoefficientBuff: 1.02
+    _attackDelayCoefficientBuff: 1.015
+  - _damageCoefficientBuff: 1.025
+    _attackDelayCoefficientBuff: 1.02
