@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8917419c940e14ba413ed5b52354d9, type: 3}
+  m_Name: WindTowerBuffAbilityData
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 3939128356472807663, guid: 63d2a00312c2b574c81b702b1c15d4fe, type: 3}
+  _branchLevelsUpgradeData: {fileID: 11400000, guid: 26ab20199e8b41b47bf1ee478e87b395, type: 2}
+  _upgradePrices: 840300007805000008070000
+  _upgradeDescription: Decrease attack delay of nearby towers
