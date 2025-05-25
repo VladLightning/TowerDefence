@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: VoidTowerBuffData
   m_EditorClassIdentifier: 
   _damageCoefficientBuff:
-  - 1.15
-  - 1.25
-  - 1.35
+  - 1.025
+  - 1.03
+  - 1.05

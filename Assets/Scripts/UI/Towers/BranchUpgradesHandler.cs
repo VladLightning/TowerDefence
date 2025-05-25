@@ -39,6 +39,7 @@ public class BranchUpgradesHandler : MonoBehaviour
             int[] upgradePrices = _branchUpgradesData[i].UpgradePrices;
             if (upgradePrices.Length <= _tower.GetCurrentUpgradeLevel(i)) //Проверка на максимальный уровень
             {
+                _upgradeButtons[i].interactable = false;
                 continue;
             }        
             _upgradeButtons[i].interactable = upgradePrices[_tower.GetCurrentUpgradeLevel(i)] <= _playerMoney.MoneyAmount;
