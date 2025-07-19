@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class Victory : MonoBehaviour
         AudioCaller.PlayAudio(AudioEnum.Victory);
         yield return new WaitForSeconds(_winPanelActivationDelay);
         _winPanel.SetActive(true);
+        
+        Save.SaveCompletedLevelIndex(SceneManager.GetActiveScene().buildIndex);
+        
         OnVictory?.Invoke();
     }
 
