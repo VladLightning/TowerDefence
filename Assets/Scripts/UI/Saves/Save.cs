@@ -19,6 +19,17 @@ public static class Save
         return _savesData.SavedHeroIndex;
     }
 
+    public static void SaveCompletedLevelIndex(int index)
+    {
+        _savesData.SavedLatestCompletedLevelIndex = index;
+        SaveGame();
+    }
+
+    public static int GetSavedLatestCompletedLevelIndex()
+    {
+        return _savesData.SavedLatestCompletedLevelIndex;
+    }
+
     public static void SaveEnemiesDeathCounts(SerializedDictionary<EnemiesEnum, int> deathCounts)
     {
         _savesData.SavedDeathCounts = deathCounts;
@@ -48,6 +59,8 @@ public static class Save
     private struct SavesData
     {
         public int SavedHeroIndex;
+
+        public int SavedLatestCompletedLevelIndex;
         
         public SerializedDictionary<EnemiesEnum, int> SavedDeathCounts;
     }
